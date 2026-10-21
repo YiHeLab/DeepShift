@@ -9,15 +9,15 @@ recipe for rebuilding the dataset and retraining the checkpoints.
 | Tier | Inputs | Result |
 |---|---|---|
 | A | this repository and the released checkpoints | predictions from any structure (`README.md`) |
-| A+ | tier A, about 40 GB of public coordinate files, public BMRB, UniProt and PDB snapshots, and the UCBShift-200 test targets | the dataset rebuilt and the five checkpoints retrained (`PROTOCOL.md`) |
+| A+ | tier A, the deposited build inputs (the BMRB, UniProt and PDB snapshots, the BMRB-to-PDB pairs, about 40 GB of coordinate files and the p100 fence) and UCBShift's own test targets | the dataset rebuilt and the five checkpoints retrained (`PROTOCOL.md`) |
 | B | tier A and the reproduction bundle | every figure and table except those in the last section |
-| C | tier B and a third-party file or public coordinates | the items in the last section |
+| C | tier B and a third-party file or the deposited coordinates | the items in the last section |
+| D | tier A, the third-party predictors and the case-study inputs named in `experiments/` | the competitor outputs and case-study measurements of the bundle, made again (`experiments/README.md`) |
 
 The bundle holds the finished measurements the producers read: scored cell sets, held-out
 predictions, competitor outputs and bootstrap dumps. These are outputs of runs, not
 inputs to them, and cannot be derived from the Parquet tables in `data/`. The bundle
-leaves out the coordinate files (public at the RCSB PDB and the AlphaFold database, and
-fetched by `deepshift data build`), the atom clouds of the training cache (rebuilt by the
+leaves out the coordinate files (deposited with the build inputs, see `PROTOCOL.md`), the atom clouds of the training cache (rebuilt by the
 same command) and the checkpoints (under `models/`). Third-party files are named where a
 producer needs one. Every producer runs in seconds to minutes on a laptop.
 
@@ -202,14 +202,15 @@ and a description. It reads `DEEPSHIFT_RUN`, `DEEPSHIFT_XEISD_PROTOCOL`, `SI_FIN
 the last four are third-party or are not in the bundle, and `--allow-missing` skips a group
 whose files are absent. The rereferencing numbers come from `scripts/reref_diagnostics.py`.
 
-### Measurements made outside this repository
+### The runs that made the measurements
 
-Table S27's timings come from the speed census under `SI_SPEED_CENSUS`: the scripts that
-drive the third-party predictors sit in that directory beside their outputs, in the
-bundle. Table S19's SHIFTX2 store was read from a SHIFTX2 run that excludes, per query,
-the SHIFTY+ library entries of the query's own PDB entry and UniProt accession and every
-entry `benchmarks/reference/ucb200_competitor_same_protein.json` lists for it; the driver
-needs a SHIFTX2 installation, and the store it produced is in the bundle.
+The competitor outputs, the speed census behind Table S27 and the case-study measurements
+the bundle holds were made by the programs in `experiments/`: the competitors (with the
+patches that block same-protein retrieval in UCBShift, UCBShift 2.0 and SHIFTX2), the
+UCBShift-200 stores of Tables S18 and S19 (run with the per-chain lists in
+`benchmarks/reference/ucb200_competitor_same_protein.json`), SHIFTX2 on the 61-protein set
+of Table S20, X-EISD, IDP8, tau and the 3DRobot decoys. Each needs the third-party
+software its README names.
 
 Table S7 scores residues the atom stage excludes for a nearby perturber. Its inputs come
 from a shadow evaluation: the atom stage rerun on folds 0 and 6 with
@@ -227,8 +228,7 @@ Five items, and part of a sixth, need something outside the bundle.
   (`SI_UCB_TRAINING_FASTA`). Table S16 parses each competitor's own article and stops,
   naming the file, when one is absent from `DEEPSHIFT_PAPER_PATH`; four of those articles
   are not redistributable.
-- **Public coordinates.** Figure S5 reads each AlphaFold model's pLDDT from the model file.
-  `deepshift data build` fetches the files from the AlphaFold database, and the producer
-  stops when they are missing.
+- **Coordinates.** Figure S5 reads each AlphaFold model's pLDDT from the model file, in the
+  deposited coordinate archive; the producer stops when the files are missing.
 - **Part of Table S5.** The table regenerates from the census in the bundle; rebuilding the
   census needs RefDB's correction reports (`DEEPSHIFT_REFDB_CORRECTIONS`).

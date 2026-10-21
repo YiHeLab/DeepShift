@@ -45,7 +45,7 @@ COMPOSITION = PROTOCOL / "mixed_composition.json"
 RUNS = PROTOCOL / "runs"
 MODELS = (("shiftx2", "SHIFTX2", style.VIOLET), ("deepshift", "DeepShift", style.ACCENT))
 
-# results.csv has no header; columns from analyze_independent_restarts.py:26.
+# X-EISD writes results.csv without a header; the score columns by position.
 SCORE_COLUMNS = {"saxs": 2, "cs": 3, "fret": 4, "jc": 5, "noe": 6, "pre": 7,
                  "rdc": 8, "rh": 9}
 NON_CS = ("saxs", "fret", "jc", "noe", "pre", "rdc", "rh")

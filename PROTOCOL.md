@@ -25,6 +25,21 @@ outputs after.
 
 ## Inputs
 
+The inputs of the paper's build are deposited at Zenodo
+([doi:10.5281/zenodo.23424002](https://doi.org/10.5281/zenodo.23424002)) exactly as the
+build read them: the BMRB macromolecule archive mirrored from
+`rsync://rsync.bmrb.io/macromolecules/` on 10 July 2026 (the top-level NMR-STAR file of
+17,865 entries), the BMRB-to-PDB pairs of 7 July 2026, the `pdb_seqres` BLAST database of
+8 July 2026, the PDB method and resolution table of 24 July 2026, the UniProt mapping
+captured on 14 July 2026, the coordinate files discovery may select (RCSB PDB entries and
+AlphaFold DB version 6 models, downloaded in July 2026) and the p100 fence
+(`p100_oof64_cutoffs.json` and `qc_flags_p100_structural_oof64_all7.json`). The UCBShift-200
+test targets are not redistributed (`THIRD_PARTY_NOTICES.md`); they are converted from
+UCBShift's own file, below.
+Given these files the build calls no web service; a stage whose input is not supplied
+fetches the current version from its source instead. `scripts/map_uniprot.py` is the
+procedure that made the UniProt mapping, against live services.
+
 The UCBShift-200 test targets are read from a JSON file mapping each test id to its
 one-letter sequence. Convert CSpred's `test_200.pkl` once, in your own shell:
 
@@ -55,7 +70,7 @@ pip install -e "$DEEPSHIFT_REPO"
 |---|---|
 | `SHIFT_UCB_TEST_TARGETS` | the UCBShift-200 test targets; the folds stage refuses to run without them |
 | `BMRB_SNAPSHOT` | the raw BMRB NMR-STAR files |
-| `UNIPROT_SNAPSHOT` | the BMRB-to-UniProt mapping, a static merge of two frozen JSON files |
+| `UNIPROT_SNAPSHOT` | the BMRB-to-UniProt mapping: three frozen JSON files the `uniprot_snapshot` stage merges, made by `scripts/map_uniprot.py` |
 | `PDB_SEQRES_DB` | the `pdb_seqres` BLAST database (`pdb_seqres_prot.*`) |
 | `PDB_METHODS` | `pdb_method_resolution.json`, the experimental method and resolution of each PDB entry |
 | `BMRB_PDB_PAIRS` | `pairs.csv`, the BMRB-to-PDB pairings |

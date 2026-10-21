@@ -10,6 +10,5 @@ authors:
   - family-names: He
     given-names: Yi
     affiliation: "Department of Chemistry & Chemical Biology, College of Arts and Sciences, The University of New Mexico, Albuquerque, NM, USA; Center for Computational Chemistry, College of Arts and Sciences, The University of New Mexico, Albuquerque, NM, USA; Department of Internal Medicine, University of New Mexico Comprehensive Cancer Center, University of New Mexico, Albuquerque, NM, USA"
-# PLACEHOLDER: the organisation is not yet chosen. The same address stands in
-# colab/DeepShift_predict.ipynb.
 repository-code: "https://github.com/YiHeLab/DeepShift"
+doi: "10.5281/zenodo.23424002"

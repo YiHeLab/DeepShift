@@ -9,6 +9,11 @@ The code is licensed MIT (`LICENSE`); the dataset tables under `data/` are CC-BY
 `THIRD_PARTY_NOTICES.md`. SHIFTX is not distributed here: the build downloads it from
 upstream against a pinned SHA-256.
 
+Predictions run in Google Colab with no local install:
+[DeepShift_predict.ipynb](https://colab.research.google.com/github/YiHeLab/DeepShift/blob/main/colab/DeepShift_predict.ipynb).
+The dataset, the frozen inputs of its build and the measurements behind every figure and
+table are archived at Zenodo, [doi:10.5281/zenodo.23424002](https://doi.org/10.5281/zenodo.23424002).
+
 ## Install
 
 DeepShift requires Python 3.11 or newer.
@@ -143,7 +148,9 @@ Training, rebuilding the dataset from public sources, and regenerating every fig
 table the manuscript prints are covered in **`REPRODUCTION.md`**, together with what each
 one needs and what cannot be reproduced from the release alone. The recipe for rebuilding
 the dataset and retraining the five models, with the condition each step must meet, is
-**`PROTOCOL.md`**.
+**`PROTOCOL.md`**. The programs that ran the competitors and the case studies (X-EISD,
+IDP8, tau, the 3DRobot decoys) are under `experiments/`, with the steps that install each
+third-party predictor in `experiments/competitors/README.md`.
 
 ## Repository layout
 
@@ -152,10 +159,11 @@ src/deepshift/       model, inference, evaluation, training, and data stages
 models/              the five ensemble checkpoints and their interval calibration (Git LFS)
 data/                the released Parquet export and its data dictionary (Git LFS)
 colab/               a hosted notebook that predicts from a PDB with no local install
-scripts/             dataset export, the p100 fit, and the rereferencing diagnostics
+scripts/             dataset export, the UniProt mapping, the p100 fit, the rereferencing diagnostics
 figures/             one program per manuscript figure
 si_build/            one program per supplementary table
 benchmarks/          the competitor scoring the benchmark figures and tables are built from
+experiments/         the programs that ran the competitors and the case studies
 tests/               unit and invariant checks
 REPRODUCTION.md      every deployed figure and table, its producer, and what it needs
 PROTOCOL.md          the recipe: folds, quality control, training, calibration, dataset export

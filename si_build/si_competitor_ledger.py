@@ -230,8 +230,7 @@ def cohort_note(outside, census, scores, scored, marked, sidechain) -> str:
     return (
         r"\multicolumn{6}{@{}p{0.97\linewidth}@{}}{"
         "UCBShift and UCBShift 2.0 are separate predictors that predict separate values "
-        "for backbone nuclei. CAMSHIFT is run with side chains completed by "
-        r"PDBFixer\cite{openmm7}. "
+        "for backbone nuclei. "
         f"Of the {C.thousands(realized)} fold-6 structure realizations "
         r"(Table~\ref{tab:census_folds}), "
         f"{C.thousands(realized - tasks)} keep no residue after exclusions; the master "
