@@ -24,6 +24,37 @@ producer needs one. Every producer runs in seconds to minutes on a laptop.
 The Parquet tables are an output of the build, not an input: nothing in this repository
 reads them back into a training cache.
 
+## Rebuilding the released dataset
+
+On 21 October 2026 the dataset was rebuilt with this release from the deposited build
+inputs, in a fresh directory, and `scripts/export_dataset.py` wrote the three Parquet
+tables byte-identical to those in `data/`. The fold assignment, the rereferencing offsets,
+the flag file and every array of the training cache and the atom clouds were identical to
+the original build's as well. With the deposit unpacked into `$IN` and the tools and
+`SHIFT_UCB_TEST_TARGETS` set as in `PROTOCOL.md`:
+
+```bash
+deepshift data build --root "$DEEPSHIFT_RUN" --folds 0 1 2 3 4 5 6 \
+  --snapshot "$IN/bmrb_snapshot" --uniprot-snapshot "$IN/uniprot_snapshot" \
+  --pdb-seqres-db "$IN/pdb_seqres_db" --pdb-method-cache "$IN/pdb_method_resolution.json" \
+  --pairs "$IN/pairs.csv" --data-archive "$IN/structures" \
+  --mmseqs-bin "$MMSEQS_BIN" --blastp-bin "$BLASTP_BIN" --shiftx-bin "$SHIFTX_BIN" \
+  --partner-sample-policy sample_matched \
+  --flagged "$IN/p100_fit/qc_flags_p100_structural_oof64_all7.json" \
+  --p100-cutoffs "$IN/p100_fit/p100_oof64_cutoffs.json" \
+  --split-seed 20260701 --holdout-source-tol 0.30 --allow-atom-rejections --workers 12
+python scripts/export_dataset.py --out rebuilt
+for t in shifts structures sequences; do
+  cmp rebuilt/deepshift_$t.parquet data/deepshift_$t.parquet
+done
+```
+
+The deposited p100 fence stands in for the fit of `PROTOCOL.md` section 2, which needs the
+five round-1 models. The build took five hours on a shared 20-core workstation.
+Intermediate files carry an identifier formed from the build directory's name, so they
+equal the original build's byte for byte only under the same name; the Parquet tables
+carry no such identifier.
+
 ## Pointing the scripts at the bundle
 
 ```bash
