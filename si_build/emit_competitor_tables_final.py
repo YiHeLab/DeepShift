@@ -72,7 +72,7 @@ def counts_row(label, values):
 def main() -> None:
     report = json.loads(REPORT.read_text())
     partial_seen = False
-    for metric, stem, label, word in TABLES:
+    for metric, stem, label, _word in TABLES:
         lines = [r"\begin{table}[H]\centering\small",
                  rf"\caption{{{si_common.PLACEHOLDER_CAPTION}}}", rf"\label{{{label}}}",
                  r"\resizebox{0.96\textwidth}{!}{%",

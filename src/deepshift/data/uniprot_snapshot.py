@@ -13,9 +13,9 @@ contract. The stage is strictly offline, issuing no BLAST job or download.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
-import hashlib
 import re
 
 import pandas as pd

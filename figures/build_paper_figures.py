@@ -568,7 +568,7 @@ def fig02_accuracy():
     ramp = mpl.colors.LinearSegmentedColormap.from_list(
         "accent", [INK["surface"], "#a5dbe6", ACCENT, "#062f38"])
 
-    for ax, (col, atom, label) in zip(axes.ravel(), BACKBONE):
+    for ax, (col, _atom, label) in zip(axes.ravel(), BACKBONE):
         j = cols.index(col)
         sel = mask[:, j]
         obs, prd = true[sel, j], pred[sel, j]
@@ -676,7 +676,7 @@ def fig08_ramachandran(min_cells=30, step=5):
     edges = np.arange(-180, 180 + step, step)
     fig, axes = plt.subplots(2, 3, figsize=(7.2, 4.3))
 
-    for ax, (col, atom, label) in zip(axes.ravel(), BACKBONE):
+    for ax, (col, _atom, label) in zip(axes.ravel(), BACKBONE):
         sel = cv["atom"] == names.index(col)
         phi, psi = cv["phi"][sel], cv["psi"][sel]
         err = cv["abs_err"][sel]

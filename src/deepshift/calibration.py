@@ -16,7 +16,6 @@ from typing import Any
 
 import numpy as np
 
-
 CALIBRATION_SCHEMA = "deepshift.interval-calibration.v2"
 EVALUATION_SCHEMA = "deepshift.interval-calibration-evaluation.v1"
 CALIBRATION_FOLD = 0

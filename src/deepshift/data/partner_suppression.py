@@ -9,7 +9,6 @@ from collections import defaultdict
 from pathlib import Path
 
 
-
 def suppression_key(pdb_path, chain) -> str:
     """The map key for one target chain: the build log's structure basename and the
     chain. The producer and every consumer key on the build-log path as written."""

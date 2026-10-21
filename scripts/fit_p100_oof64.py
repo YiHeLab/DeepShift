@@ -439,12 +439,11 @@ def load_fold(
         resolved_delta_max = float(
             np.max(resolved_delta[canonical_effective], initial=0.0)
         )
-        if np.any(resolved_disagreement):
-            if not allow_unsafe_prediction_pickle:
-                raise ValueError(
-                    f"fold {fold}: resolved targets disagree with canonical resolution "
-                    f"by {resolved_delta_max:.6g} ppm"
-                )
+        if np.any(resolved_disagreement) and not allow_unsafe_prediction_pickle:
+            raise ValueError(
+                f"fold {fold}: resolved targets disagree with canonical resolution "
+                f"by {resolved_delta_max:.6g} ppm"
+            )
         resolved_ppm = canonical_resolved
         deltas = np.abs(true_ppm - np.asarray(shifts[pred_rows], dtype=np.float64))
         true_delta = float(deltas[dump_mask].max(initial=0.0))
