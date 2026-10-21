@@ -39,7 +39,8 @@ def as_long_form(frame) -> pd.DataFrame:
 
 
 def environment(**named) -> dict:
-    return {**os.environ, "CUDA_VISIBLE_DEVICES": "",
+    # An empty receiver URL keeps test runs out of the public tool's usage count.
+    return {**os.environ, "CUDA_VISIBLE_DEVICES": "", "DEEPSHIFT_TELEMETRY_URL": "",
             "PYTHONPATH": str(REPO / "src"), **named}
 
 

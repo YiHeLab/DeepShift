@@ -100,7 +100,7 @@ The notebook reports one anonymous record per prediction (time, version, RCSB id
 never sends coordinates, file names, accounts or addresses unless the user sets
 `SHARE_STRUCTURE`. The record is printed before it is sent, `TELEMETRY = False` sends
 nothing, and a failed report never interrupts a prediction. The receiver is
-`telemetry/Code.gs`, a Google Apps Script web app bound to a Google Sheet; deploy it from
-the lab account (instructions at the top of the file) and put the `/exec` URL in the
-notebook's `TELEMETRY_URL` (or the `DEEPSHIFT_TELEMETRY_URL` environment variable).
-The URL is empty until the receiver is deployed, and an empty URL sends nothing.
+`telemetry/Code.gs`, a Google Apps Script web app bound to a Google Sheet in the lab
+account, and its `/exec` URL is the notebook's `TELEMETRY_URL`. Setting the
+`DEEPSHIFT_TELEMETRY_URL` environment variable replaces it; an empty value sends nothing,
+which is how the tests run the notebook.
