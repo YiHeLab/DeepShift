@@ -1,0 +1,141 @@
+diff --git a/CSpred.py b/CSpred.py
+index 4aad577..d056aea 100755
+--- a/CSpred.py
++++ b/CSpred.py
+@@ -15,6 +15,21 @@ import argparse
+ import multiprocessing
+ # import warnings
+ import sys
++
++# ---- speed-benchmark timing (env-gated) ----
++import time as _time, atexit as _atexit
++_UCB_TIMING = os.environ.get('UCB_TIMING')
++_FEAT_T = [0.0]; _PRED_T = [0.0]
++def _dump_timing():
++    if _UCB_TIMING:
++        try:
++            with open(_UCB_TIMING + '.' + str(os.getpid()), 'w') as _fh:
++                _fh.write('%f %f\n' % (_FEAT_T[0], _PRED_T[0]))
++        except Exception:
++            pass
++if _UCB_TIMING:
++    _atexit.register(_dump_timing)
++# ---- end timing ----
+ if sys.version_info.major < 3 or sys.version_info.major == 3 and sys.version_info.minor < 5:
+     raise ValueError("Python >= 3.5 required")
+ 
+@@ -39,7 +54,7 @@ def build_input(pdb_file_name, pH=5, rcfeats=True, hse=True, hbrad=[5.0] * 3):
+     '''
+     # Build feature reader and read all features
+     feature_reader = PDB_SPARTAp_DataReader()
+-    pdb_data = feature_reader.df_from_file_3res(pdb_file_name,rcshifts=rcfeats, hse=hse, first_chain_only=False, sequence_columns=0,hbrad=hbrad)
++    pdb_data = feature_reader.df_from_file_3res(pdb_file_name,rcshifts=rcfeats, hse=hse, first_chain_only=True, sequence_columns=0,hbrad=hbrad)
+     pdb_data["pH"]=pH
+     return pdb_data
+ 
+@@ -110,7 +125,9 @@ def calc_sing_pdb(pdb_file_name,pH=5,TP=True,TP_pred=None,ML=True,test=False):
+                 preds[atom+"_Y"] = TP_pred[atom] + rc
+     if ML:
+         print("Generating features ...")
++        _t_f0 = _time.perf_counter()
+         feats = build_input(pdb_file_name, pH)
++        _FEAT_T[0] += _time.perf_counter() - _t_f0
+         feats.rename(index=str, columns=sparta_rename_map, inplace=True) # Rename columns so that random coil columns can be correctly recognized
+         resnames = feats["RESNAME"]
+         resnums = feats["RES_NUM"]
+@@ -123,12 +140,16 @@ def calc_sing_pdb(pdb_file_name,pH=5,TP=True,TP_pred=None,ML=True,test=False):
+             # Predictions for each atom
+             atom_feats = prepare_data_for_atom(feats, atom)
+             r0 = joblib.load(ML_MODEL_PATH + "%s_R0.sav" % atom)
++            _t_p0 = _time.perf_counter()
+             r0_pred = r0.predict(atom_feats.values)
++            _PRED_T[0] += _time.perf_counter() - _t_p0
+ 
+             feats_r1 = atom_feats.copy()
+             feats_r1["R0_PRED"] = r0_pred
+             r1 = joblib.load(ML_MODEL_PATH + "%s_R1.sav" % atom)
++            _t_p1 = _time.perf_counter()
+             r1_pred = r1.predict(feats_r1.values)
++            _PRED_T[0] += _time.perf_counter() - _t_p1
+             # Write ML predictions
+             result[atom+"_X"] = r1_pred + rcoils["RCOIL_"+atom]
+ 
+diff --git a/ucbshifty.py b/ucbshifty.py
+index 7e81c8a..d593443 100755
+--- a/ucbshifty.py
++++ b/ucbshifty.py
+@@ -11,6 +11,11 @@ from Bio.SeqRecord import SeqRecord
+ from Bio import SeqIO
+ from Bio import Align
+ from Bio.SubsMat.MatrixInfo import blosum62
++try:
++    from Bio.Align import substitution_matrices as _submats
++    _blosum62_array = _submats.load('BLOSUM62')
++except ImportError:  # Biopython < 1.75 (this env: 1.74) lacks Bio.Align.substitution_matrices
++    _blosum62_array = blosum62  # MatrixInfo dict; PairwiseAligner accepts it on 1.74
+ from save_pdb import PDBSaver
+ import subprocess
+ import os
+@@ -106,7 +111,8 @@ def read_sing_chain_PDB(path,fix_unknown_res=True,remove_alternate_res=True):
+     if len(struc)>1:
+         print("Multiple models exist in this pdb file! Only the first model is taken.")
+     struc=struc[0]
+-    assert len(struc)==1,"Multiple chains exist in this pdb file!"
++    if len(struc)>1:
++        print("Multiple chains exist in this pdb file! Only the first chain is taken.")
+     chain=struc.child_list[0]
+     if fix_unknown_res:
+         deletion=[]
+@@ -362,10 +368,13 @@ def Needleman_Wunsch_alignment(seq1,seq2):
+         # Need to handle "-" beforehand, otherwise the alignment may fail
+         missing=[s=="-" for s in seq1]
+         seq1=seq1.replace("-","")
++    _VALID='ARNDCQEGHILKMFPSTWYVBZX*'
++    seq1=''.join(c if c in _VALID else 'X' for c in str(seq1))
++    seq2=''.join(c if c in _VALID else 'X' for c in str(seq2))
+     aligner=Align.PairwiseAligner()
+     aligner.open_gap_score=-10
+     aligner.extend_gap_score=-0.5
+-    aligner.substitution_matrix=blosum62
++    aligner.substitution_matrix=_blosum62_array
+     alignment=aligner.align(seq1,seq2)[0]
+     alignment_info=alignment.__str__().split("\n")
+     aligned1,aligned2=alignment_info[0],alignment_info[2]
+@@ -512,7 +521,37 @@ def main(path,strict,secondary=False,test=False,exclude=False,shifty=False,blast
+     seq,resnum=chain_to_seq(read_sing_chain_PDB(path))
+     blast_result=blast(seq,db_name="train.blastdb" if test else "refDB.blastdb",return_aligned_seq=True,cleaning=not DEBUG,working_dir=custom_working_dir) # Only the SHIFTY mode needs the aligned sequence
+     candidates=[]
++    # --- same-protein self-exclusion (Wynn): drop refDB entries that ARE the query protein
++    #     (own-BMRB deposition at any identity, or >=99% sibling deposition) while KEEPING all
++    #     genuine homologs. Set per query via env UCBY_EXCLUDE_BMRBS=comma,sep,bmrbs. Homology
++    #     module stays fully active; this only removes the leak, never disables retrieval. ---
++    _ucby_excl_bmrbs=set(x for x in os.environ.get('UCBY_EXCLUDE_BMRBS','').replace(' ','').split(',') if x)
++    # --- identity-based self/homolog exclusion (Wynn): drop any candidate whose true
++    #     sequence identity (Lmatch/Tmatch) >= UCBY_SELF_IDENT_CUTOFF. Catches the ~1/3 of
++    #     same-protein redeposits that carry a DIFFERENT BMRB id (BMRB-list exclusion misses
++    #     them) AND any >=cutoff close homolog. Unset -> no identity filter (byte-identical). ---
++    _ucby_ident_cut=os.environ.get('UCBY_SELF_IDENT_CUTOFF')
++    _ucby_ident_cut=float(_ucby_ident_cut) if _ucby_ident_cut not in (None,'') else None
++    _ucby_hitlog=os.environ.get('UCBY_HITLOG')
++    def _ucby_log(res,decision):
++        if not _ucby_hitlog:
++            return
++        try:
++            ident=res.Lmatch/res.Tmatch if res.Tmatch else 0.0
++            with open(_ucby_hitlog,'a') as _fh:
++                _fh.write('%s\t%s\t%.4f\t%d\t%d\t%.4f\t%s\n'%(
++                    res.target_name,str(res.target_name).split('.')[0],
++                    res.score,res.Lmatch,res.Tmatch,ident,decision))
++        except Exception:
++            pass
+     for result in blast_result.values():
++        if _ucby_excl_bmrbs and str(result.target_name).split('.')[0] in _ucby_excl_bmrbs:
++            _ucby_log(result,'drop_bmrb')
++            continue
++        if _ucby_ident_cut is not None and result.Tmatch and result.Lmatch/result.Tmatch >= _ucby_ident_cut:
++            _ucby_log(result,'drop_identity')
++            continue
++        _ucby_log(result,'keep_eligible')
+         if result.score>=blast_score_threshold and result.Evalue<=e_value_threshold:
+             # Those pass the selection criterion
+             if result.Tmatch>=long_Tmatch_threshold and result.Lmatch/result.Tmatch>=long_match_percent_threshold:

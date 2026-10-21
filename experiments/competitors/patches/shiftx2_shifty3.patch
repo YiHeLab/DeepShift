@@ -1,0 +1,54 @@
+--- a/shiftx2-linux/shifty3/shifty3.py
++++ b/shiftx2-linux/shifty3/shifty3.py
+@@ -882,16 +882,38 @@
+         if DEBUG:
+             print tmp_iden
+ 
++        # self-exclusion knobs (added for the self-retrieval experiment; both
++        # default to OFF so production behavior is byte-identical when unset):
++        #   SHIFTY_EXCLUDE_BMRB=<id>  skip the query's own refdb entry bmr<id>.cs
++        #                             (true leave-one-out, regardless of identity)
++        #   SHIFTY_SELF_IDEN=<pct>    additionally skip any hit with iden >= pct
++        #                             (catches the same protein deposited under a
++        #                              different BMRB id, at near-100% identity)
++        excl_bmrb = os.environ.get('SHIFTY_EXCLUDE_BMRB')
++        excl_set = set(x for x in os.environ.get('SHIFTY_EXCLUDE_BMRBS', '').replace(' ', '').split(',') if x)
++        try:
++            self_iden = float(os.environ.get('SHIFTY_SELF_IDEN', '101'))
++        except ValueError:
++            self_iden = 101.0
+         HAS_PREDICTION = False
+         for j in range(0, len(tmp_iden)):
+             iden = tmp_iden[j]
+-            if ((iden > IDENTITY_CUTOFF) and (HAS_PREDICTION == False)):
++            is_self = False
++            if excl_bmrb or excl_set:
++                m = re.match(r'bmr(\d+)\.', tmp_hit[j])
++                if m and (m.group(1) == str(excl_bmrb) or m.group(1) in excl_set):
++                    is_self = True
++            if iden >= self_iden:
++                is_self = True
++            if ((iden > IDENTITY_CUTOFF) and (not is_self) and (HAS_PREDICTION == False)):
+                 hit = tmp_hit[j]
+                 eval = tmp_eval[j]
+                 iden = tmp_iden[j]
+                 if DEBUG:
+                     print iden
+-                
++                if os.environ.get('SHIFTY_LOG_HIT'):
++                    sys.stderr.write("HITLOG\t%s\t%s\t%s\n" % (shift_type, hit, iden))
++
+                 #print "USING HOMOLOG", hit
+                 pred_dict = shifty_one_hit(shift_type, query_file, hit)
+                 # cshifts = merge_dicts(cshifts, pred_dict)
+@@ -1016,8 +1038,8 @@
+     query_file = fasta_file 
+     # set identity cutoff to the customized identity
+     IDENTITY_CUTOFF = IDENTITY_CUTOFF_H = IDENTITY_CUTOFF_C = IDENTITY_CUTOFF_N = cutoff
+-    output = open(output_file, 'w') 
+-    shifty_top_hit(query_file, output)       # rewrite this function. 
++    output = open(output_file, 'w')
++    shifty_top_hit(query_file, output)       # rewrite this function.
+     ## shifty_top_noiden_hit(query_file, output)
+     output.close()
+ 

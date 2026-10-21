@@ -1,0 +1,79 @@
+--- a/spartap_features.py
++++ b/spartap_features.py
+@@ -1316,7 +1316,7 @@
+                                     Hsidechain_Params=[0]*5
+                                     break
+                                 else:                   
+-                                    if HDatom:
++                                    if HDatom is not None:
+                                         excl_at_Ha += [HAatom] 
+                                         HAangle2 = PDB.calc_angle(HDatom.get_vector(), Hatom.get_vector(), HAatom.get_vector())
+                                         HAbond_dist = Hatom - HAatom
+--- a/ucbshifty.py
++++ b/ucbshifty.py
+@@ -23,6 +23,7 @@
+ 
+ DEBUG=False
+ GLOBAL_TEST_CUTOFF=0.99
++SELF_IDENT_CUTOFF=float(os.environ.get('UCB_SELF_IDENT_CUTOFF','0.90'))  # exclude same-protein refs by SEQUENCE IDENTITY (fixes coverage-only self-exclusion leak)
+ SCRIPT_PATH=os.path.dirname(os.path.realpath(__file__))
+ BLAST_DEFAULT_EXE=SCRIPT_PATH+"/bins/ncbi-blast-2.9.0+/bin/blastp"
+ MTM_DEFAULT_EXE=SCRIPT_PATH+"/bins/mTM-align/mTM-align"
+@@ -612,7 +613,38 @@
+     seq,resnum=chain_to_seq(read_sing_chain_PDB(path))
+     blast_result=blast(seq,db_name="train.blastdb" if test else "refDB.blastdb",return_aligned_seq=True,cleaning=not DEBUG,working_dir=custom_working_dir) # Only the SHIFTY mode needs the aligned sequence
+     candidates=[]
++    # --- same-protein self-exclusion (Wynn): drop refDB entries that ARE the query protein
++    #     (own-BMRB deposition at any identity, or >=99% sibling deposition) while KEEPING all
++    #     genuine homologs. Set per query via env UCBY_EXCLUDE_BMRBS=comma,sep,bmrbs. Homology
++    #     module stays fully active; this only removes the leak, never disables retrieval.
++    #     COPIED VERBATIM from the UCBShift-1.0 tree so the 2.0 side-chain arm and the 1.0
++    #     backbone arm apply the SAME rule. ---
++    _ucby_excl_bmrbs=set(x for x in os.environ.get('UCBY_EXCLUDE_BMRBS','').replace(' ','').split(',') if x)
++    # --- identity-based self/homolog exclusion (Wynn): drop any candidate whose true
++    #     sequence identity (Lmatch/Tmatch) >= UCBY_SELF_IDENT_CUTOFF. Unset -> no identity
++    #     filter (byte-identical to stock). Tier 1 leaves this unset. ---
++    _ucby_ident_cut=os.environ.get('UCBY_SELF_IDENT_CUTOFF')
++    _ucby_ident_cut=float(_ucby_ident_cut) if _ucby_ident_cut not in (None,'') else None
++    _ucby_hitlog=os.environ.get('UCBY_HITLOG')
++    def _ucby_log(res,decision):
++        if not _ucby_hitlog:
++            return
++        try:
++            ident=res.Lmatch/res.Tmatch if res.Tmatch else 0.0
++            with open(_ucby_hitlog,'a') as _fh:
++                _fh.write('%s\t%s\t%.4f\t%d\t%d\t%.4f\t%s\n'%(
++                    res.target_name,str(res.target_name).split('.')[0],
++                    res.score,res.Lmatch,res.Tmatch,ident,decision))
++        except Exception:
++            pass
+     for result in blast_result.values():
++        if _ucby_excl_bmrbs and str(result.target_name).split('.')[0] in _ucby_excl_bmrbs:
++            _ucby_log(result,'drop_bmrb')
++            continue
++        if _ucby_ident_cut is not None and result.Tmatch and result.Lmatch/result.Tmatch >= _ucby_ident_cut:
++            _ucby_log(result,'drop_identity')
++            continue
++        _ucby_log(result,'keep_eligible')
+         if result.score>=blast_score_threshold and result.Evalue<=e_value_threshold:
+             # Those pass the selection criterion
+             if result.Tmatch>=long_Tmatch_threshold and result.Lmatch/result.Tmatch>=long_match_percent_threshold:
+@@ -620,14 +652,16 @@
+                 if not exclude:
+                     candidates.append(result)
+                 else:
+-                    if not result.coverage > GLOBAL_TEST_CUTOFF:
++                    _ident = result.Lmatch/result.Tmatch if result.Tmatch else 0.0
++                    if (not result.coverage > GLOBAL_TEST_CUTOFF) and (_ident < SELF_IDENT_CUTOFF):
+                         candidates.append(result)
+             elif result.Tmatch>=short_Tmatch_threshold and result.Lmatch/result.Tmatch>=short_match_percent_threshold:
+                 # Short matches
+                 if not exclude:
+                     candidates.append(result)
+                 else:
+-                    if not result.coverage > GLOBAL_TEST_CUTOFF:
++                    _ident = result.Lmatch/result.Tmatch if result.Tmatch else 0.0
++                    if (not result.coverage > GLOBAL_TEST_CUTOFF) and (_ident < SELF_IDENT_CUTOFF):
+                         candidates.append(result)
+                 
+     if len(candidates)==0:
