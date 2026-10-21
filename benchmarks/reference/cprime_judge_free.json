@@ -1,0 +1,132 @@
+{
+ "what": "judge-free checks of the twelve excluded C-prime channels: each uses only the deposition's own shifts and its sequence, no predictor",
+ "tests": {
+  "rc_k0": "Pearson r of the deposited C-prime with the random-coil C-prime of the residue type at the same residue (Wishart 1995); positive in a correct deposition",
+  "rc_k-1": "the same against the residue type one residue earlier; high when each C-prime is filed one residue late",
+  "dC_dCA": "Pearson r of the deposited C-prime secondary shift with the same residues' deposited C-alpha secondary shift; positive in a correct deposition (both rise in helix and fall in strand)",
+  "rc_k0_n_lower": "how many channels of the population have a lower rc_k0",
+  "dC_dCA_percentile": "percentile of dC_dCA within the population"
+ },
+ "population": {
+  "what": "every unflagged fold-6 C-prime channel with at least 20 cells, with no judge-based filter",
+  "rc_k0": {
+   "n": 579,
+   "p1": 0.054,
+   "p5": 0.3295,
+   "median": 0.5208,
+   "p95": 0.7796
+  },
+  "rc_k-1": {
+   "n": 578,
+   "p1": -0.2287,
+   "p5": -0.1294,
+   "median": 0.0533,
+   "p95": 0.266
+  },
+  "dC_dCA": {
+   "n": 579,
+   "p1": 0.0019,
+   "p5": 0.2471,
+   "median": 0.5836,
+   "p95": 0.7677
+  }
+ },
+ "channels": {
+  "4775": {
+   "rc_k0": -0.4378,
+   "rc_k-1": -0.1356,
+   "dC_dCA": -0.5212,
+   "judge_r": -0.8454,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "5683": {
+   "rc_k0": -0.0831,
+   "rc_k-1": -0.0858,
+   "dC_dCA": 0.0703,
+   "judge_r": -0.0191,
+   "dC_dCA_percentile": 1.3817,
+   "rc_k0_n_lower": 1
+  },
+  "5752": {
+   "rc_k0": 0.0919,
+   "rc_k-1": -0.4443,
+   "dC_dCA": -0.5384,
+   "judge_r": -0.2887,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 8
+  },
+  "6342": {
+   "rc_k0": -0.1608,
+   "rc_k-1": 0.1952,
+   "dC_dCA": -0.3656,
+   "judge_r": -0.6037,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "6945": {
+   "rc_k0": -0.5499,
+   "rc_k-1": -0.0012,
+   "dC_dCA": -0.392,
+   "judge_r": -0.7485,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "7300": {
+   "rc_k0": -0.3893,
+   "rc_k-1": -0.1588,
+   "dC_dCA": -0.2951,
+   "judge_r": -0.5867,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "15996": {
+   "rc_k0": -0.34,
+   "rc_k-1": 0.0583,
+   "dC_dCA": -0.328,
+   "judge_r": -0.7344,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "16777": {
+   "rc_k0": -0.7983,
+   "rc_k-1": 0.0462,
+   "dC_dCA": -0.0862,
+   "judge_r": -0.6554,
+   "dC_dCA_percentile": 0.6908,
+   "rc_k0_n_lower": 0
+  },
+  "19459": {
+   "rc_k0": -0.5711,
+   "rc_k-1": -0.0629,
+   "dC_dCA": -0.0858,
+   "judge_r": -0.6998,
+   "dC_dCA_percentile": 0.6908,
+   "rc_k0_n_lower": 1
+  },
+  "26844": {
+   "rc_k0": -0.54,
+   "rc_k-1": 0.0228,
+   "dC_dCA": -0.2042,
+   "judge_r": -0.683,
+   "dC_dCA_percentile": 0.1727,
+   "rc_k0_n_lower": 1
+  },
+  "27191": {
+   "rc_k0": -0.0186,
+   "rc_k-1": -0.508,
+   "dC_dCA": -0.3519,
+   "judge_r": -0.4268,
+   "dC_dCA_percentile": 0.0,
+   "rc_k0_n_lower": 1
+  },
+  "52587": {
+   "rc_k0": -0.2085,
+   "rc_k-1": -0.0508,
+   "dC_dCA": -0.1184,
+   "judge_r": -0.4847,
+   "dC_dCA_percentile": 0.5181,
+   "rc_k0_n_lower": 1
+  }
+ }
+}

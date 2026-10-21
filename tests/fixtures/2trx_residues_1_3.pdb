@@ -1,0 +1,25 @@
+REMARK   Derived verbatim from PDB 2TRX chain A, residues 1-3, for CPU parity.
+ATOM      1  N   SER A   1      21.389  25.406  -4.628  1.00 23.22      2TRX 152
+ATOM      2  CA  SER A   1      21.628  26.691  -3.983  1.00 24.42      2TRX 153
+ATOM      3  C   SER A   1      20.937  26.944  -2.679  1.00 24.21      2TRX 154
+ATOM      4  O   SER A   1      21.072  28.079  -2.093  1.00 24.97      2TRX 155
+ATOM      5  CB  SER A   1      21.117  27.770  -5.002  1.00 28.27      2TRX 156
+ATOM      6  OG  SER A   1      22.276  27.925  -5.861  1.00 32.61      2TRX 157
+ATOM      7  N   ASP A   2      20.173  26.028  -2.163  1.00 21.39      2TRX 158
+ATOM      8  CA  ASP A   2      19.395  26.125  -0.949  1.00 21.57      2TRX 159
+ATOM      9  C   ASP A   2      20.264  26.214   0.297  1.00 20.89      2TRX 160
+ATOM     10  O   ASP A   2      19.760  26.575   1.371  1.00 21.49      2TRX 161
+ATOM     11  CB  ASP A   2      18.439  24.914  -0.856  1.00 22.14      2TRX 162
+ATOM     12  CG  ASP A   2      19.199  23.629  -0.576  1.00 23.23      2TRX 163
+ATOM     13  OD1 ASP A   2      20.107  23.371  -1.387  1.00 22.71      2TRX 164
+ATOM     14  OD2 ASP A   2      18.905  22.959   0.420  1.00 23.61      2TRX 165
+ATOM     15  N   LYS A   3      21.530  25.857   0.207  1.00 19.20      2TRX 166
+ATOM     16  CA  LYS A   3      22.310  25.875   1.488  1.00 18.91      2TRX 167
+ATOM     17  C   LYS A   3      23.353  26.982   1.459  1.00 18.43      2TRX 168
+ATOM     18  O   LYS A   3      24.203  26.950   2.370  1.00 20.34      2TRX 169
+ATOM     19  CB  LYS A   3      23.006  24.540   1.741  1.00 20.31      2TRX 170
+ATOM     20  CG  LYS A   3      21.971  23.407   1.921  1.00 22.14      2TRX 171
+ATOM     21  CD  LYS A   3      22.677  22.143   2.401  1.00 24.45      2TRX 172
+ATOM     22  CE  LYS A   3      21.620  21.104   2.844  1.00 25.84      2TRX 173
+ATOM     23  NZ  LYS A   3      20.830  20.757   1.615  1.00 25.55      2TRX 174
+END

@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.log
+build/
+dist/
+*.egg-info/
+*.o
+src/deepshift/data/vendor/shiftx/shiftx
+
+# Third-party tools the build downloads or compiles for itself (external.py pins
+# their SHA-256s, so they are reproducible and need no tracking).
+.deepshift-tools/
+figures/out/view/
+
+# Editable-install metadata.
+*.egg-info/
+scripts/zenodo/
+
+# Claude Code per-machine settings.
+.claude/settings.local.json

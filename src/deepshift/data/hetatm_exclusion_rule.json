@@ -1,0 +1,63 @@
+{
+  "map_to_standard": {
+    "MSE": "MET"
+  },
+  "benign_keep": [
+    "water",
+    "organic_solvent_buffer_detergent",
+    "sugar",
+    "mse"
+  ],
+  "exclude": {
+    "heme_porphyrin": {
+      "cutoff_A": 12.0,
+      "nuclei": "all",
+      "basis": "data",
+      "n": 3980,
+      "effect": "Large, distance-decaying ring-current effect: HN mean-error ratios are 3.79, 2.10, 1.75, and 1.24 from 0-3 through 8-12 A; HA and carbon effects also remain elevated at 8-12 A."
+    },
+    "phosphate_nucleotide": {
+      "cutoff_A": 5.0,
+      "nuclei": "all",
+      "basis": "data",
+      "n": 2995,
+      "effect": "Localized effect: at 0-3 A HN is 1.77x baseline (delta 0.224 ppm), with HA, N, and CA also significant; most backbone nuclei return to baseline beyond 5 A."
+    },
+    "large_aromatic_ligand": {
+      "cutoff_A": 8.0,
+      "nuclei": "all",
+      "basis": "data",
+      "n": 2420,
+      "effect": "Ring-current pattern: at 0-3 A carbonyl C is 1.50x and CB 1.76x baseline, with significant proton effects through 5-8 A; the 8-12 A residual is modest and lacks a clean distance contrast."
+    },
+    "paramagnetic_transition_metal": {
+      "cutoff_A": 12.0,
+      "nuclei": "all",
+      "basis": "data+prior",
+      "n": 2103,
+      "effect": "The 0-3 A bin is underpowered, but 3-8 A HN/HA errors are about 1.39-2.42x baseline and several proton effects persist at 8-12 A; the long cutoff is also supported by paramagnetic physics."
+    },
+    "zinc": {
+      "cutoff_A": 8.0,
+      "nuclei": "all",
+      "basis": "data+prior",
+      "n": 3796,
+      "effect": "The direct 0-3 A bin is sparse, but 3-5 A CA/CB/HN/HA/N are 1.23-1.33x baseline with FDR-significant positive clustered effects, weakening materially by 8-12 A; coordination chemistry supports exclusion."
+    },
+    "other_metal": {
+      "cutoff_A": 5.0,
+      "nuclei": "all",
+      "basis": "data",
+      "n": 1287,
+      "effect": "Mild localized effect: 0-3 A CB/HN/N and 3-5 A HN are elevated with positive clustered effects; backbone measures fade by 5-8 A."
+    },
+    "other": {
+      "cutoff_A": 5.0,
+      "nuclei": "all",
+      "basis": "data",
+      "n": 1925,
+      "effect": "Broad close-range effect: at 0-3 A CA/CB/HN/HA/N are 1.20-1.32x baseline and most remain elevated at 3-5 A; backbone effects largely disappear at 5-8 A."
+    }
+  },
+  "notes": "A sample is excluded if any entity of a category in exclude has a heavy atom closer than that category's cutoff_A to a backbone heavy atom of the residue. MSE is mapped to MET before categorization and gathered into the standard-residue cloud. n is the sum of category/bin sample-row incidences inside the cutoff. One shell flag per sample covers every nucleus. Water, the listed solvents, buffers and detergents, and sugars remain usable at any distance. Category assignment is deepshift.data.exclusion.categorize_entity."
+}

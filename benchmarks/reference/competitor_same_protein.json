@@ -1,0 +1,13450 @@
+{
+ "what": "per fold-6 structure, the references of each competitor transfer library that are the structure's own protein, and the exclusion list that blocks them",
+ "rule": "a library reference is the same protein as a fold-6 structure if it is the structure's BMRB entry, shares a UniProt accession or UniRef100 cluster with it, or aligns to its entity or chain sequence at >=95% identity over >=90% of the shorter sequence",
+ "thresholds": {
+  "identity": 0.95,
+  "coverage_of_shorter": 0.9
+ },
+ "libraries": {
+  "ucbshift": {
+   "entries": 2386
+  },
+  "shifty": {
+   "entries": 2425
+  }
+ },
+ "arms": {
+  "ucbshift": [
+   "ucbshift_full_sameprot",
+   "ucbshift_full_selfexcl",
+   "ucbshift2_sameprot",
+   "ucbshift2_selfexcl",
+   "ucbshift_full_leaky"
+  ],
+  "shifty": [
+   "shiftx2_sameprot",
+   "shiftx2_selfexcl",
+   "shiftx2_leaky"
+  ]
+ },
+ "n_structures": 1693,
+ "n_structures_with_same_protein_reference": {
+  "ucbshift": 593,
+  "shifty": 601
+ },
+ "evidence": {
+  "ucbshift": {
+   "b10002_nmr_l1_a1_e1": {
+    "6175": [
+     "uniprot"
+    ],
+    "10002": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10004_af_l1_a1_e1": {
+    "10004": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10004_nmr_l1_a1_e1": {
+    "10004": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10024_nmr_l1_a1_e1": {
+    "7320": [
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10036_nmr_l1_a1_e1": {
+    "10036": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15329": [
+     "sequence"
+    ]
+   },
+   "b10067_nmr_l1_a1_e1": {
+    "10067": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10070_nmr_l1_a1_e1": {
+    "10070": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10085": [
+     "uniprot"
+    ]
+   },
+   "b10074_nmr_l1_a1_e1": {
+    "10074": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10083_nmr_l1_a1_e1": {
+    "10083": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10085_nmr_l1_a1_e1": {
+    "10070": [
+     "uniprot"
+    ],
+    "10085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10088_nmr_l1_a1_e1": {
+    "10088": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b10103_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10125_nmr_l1_a1_e1": {
+    "10125": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10212_nmr_l1_a1_e1": {
+    "10212": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10242_nmr_l1_a1_e1": {
+    "10242": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10244_nmr_l1_a1_e1": {
+    "10244": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10245_nmr_l1_a1_e1": {
+    "10245": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10254_nmr_l1_a1_e1": {
+    "10254": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10288_nmr_l1_a1_e1": {
+    "10288": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10314_nmr_l1_a1_e1": {
+    "10314": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10319_nmr_l1_a1_e1": {
+    "10319": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11007_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11008_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11011_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11031_nmr_l1_a1_e1": {
+    "16678": [
+     "uniprot"
+    ]
+   },
+   "b11086_nmr_l1_a1_e1": {
+    "11086": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11207_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b11267_af_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11267_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11357_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b1377_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1377_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15045_nmr_l1_a1_e1": {
+    "15045": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15079_xtal_l1_a1_e1": {
+    "15079": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15085_af_l1_a1_e1": {
+    "15085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15085_nmr_l1_a1_e1": {
+    "15085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15087_nmr_l1_a1_e1": {
+    "15087": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15109_af_l1_a1_e1": {
+    "15109": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15117_nmr_l1_a1_e1": {
+    "4317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15117_xtal_l1_a1_e1": {
+    "4317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b1517_af_l1_a1_e1": {
+    "1517": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15217_af_l1_a1_e1": {
+    "15217": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15217_nmr_l1_a1_e1": {
+    "15217": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15231_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15231_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15322_af_l1_a1_e1": {
+    "15322": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15322_nmr_l1_a1_e1": {
+    "15322": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15329_af_l1_a1_e1": {
+    "10036": [
+     "sequence"
+    ],
+    "15329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15329_nmr_l1_a1_e1": {
+    "10036": [
+     "sequence"
+    ],
+    "15329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15336_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15340_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15341_nmr_l1_a1_e1": {
+    "15341": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15406_nmr_l1_a1_e1": {
+    "15406": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15447_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b15453_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_af_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_nmr_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_xtal_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_af_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_nmr_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_nmr_l1_a2_e2": {
+    "15503": [
+     "uniprot"
+    ]
+   },
+   "b15504_xtal_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15554_af_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15554_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15579_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b15599_af_l1_a1_e1": {
+    "6625": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15599_nmr_l1_a1_e1": {
+    "6625": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15784_af_l1_a1_e1": {
+    "15784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15784_nmr_l1_a1_e1": {
+    "15784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15971_nmr_l1_a1_e1": {
+    "7084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15971": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15986_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15986_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b16063_af_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_af_l1_a2_e2": {
+    "4884": [
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16063_nmr_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_nmr_l1_a2_e2": {
+    "4884": [
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_xtal_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b1620_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_af_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_nmr_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_xtal_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16284_af_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16284_nmr_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16293_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b16295_af_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16295_nmr_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b162_af_l1_a1_e1": {
+    "162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b162_nmr_l1_a1_e1": {
+    "162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16309_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16309_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16309_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16376_nmr_l1_a1_e1": {
+    "4317": [
+     "uniprot"
+    ]
+   },
+   "b1638_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b1649_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16632_nmr_l1_a1_e1": {
+    "6300": [
+     "uniprot"
+    ]
+   },
+   "b16658_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16658_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16658_nmr_l1_a2_e2": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16678_af_l1_a1_e1": {
+    "16678": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16768_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16768_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16768_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16841_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16841_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b16886_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b16892_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b17128_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_af_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_nmr_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_xtal_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17599_nmr_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_af_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_nmr_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_xtal_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_af_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_nmr_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_xtal_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17955_nmr_l1_a1_e1": {
+    "4507": [
+     "uniprot"
+    ]
+   },
+   "b17958_nmr_l1_a1_e1": {
+    "4507": [
+     "uniprot"
+    ]
+   },
+   "b18022_af_l1_a1_e1": {
+    "5313": [
+     "sequence"
+    ]
+   },
+   "b183_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ]
+   },
+   "b18419_nmr_l1_a1_e1": {
+    "7209": [
+     "uniprot"
+    ]
+   },
+   "b18728_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b18804_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b18804_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b18822_nmr_l1_a1_e1": {
+    "5973": [
+     "uniprot"
+    ]
+   },
+   "b18888_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b19059_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b19117_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19117_xtal_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19153_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19153_xtal_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19339_xtal_l1_a1_e1": {
+    "6285": [
+     "uniprot"
+    ]
+   },
+   "b19410_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b19826_af_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19826_nmr_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19906_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b19906_nmr_l1_a2_e2": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b19940_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b19961_af_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_af_l1_a2_e2": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_nmr_l1_a2_e2": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_xtal_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19988_af_l1_a1_e1": {
+    "6216": [
+     "uniprot"
+    ]
+   },
+   "b19988_nmr_l1_a1_e1": {
+    "6216": [
+     "uniprot"
+    ]
+   },
+   "b2051_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2052_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2053_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2075_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2075_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2075_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2151_af_l1_a1_e1": {
+    "491": [
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2151_nmr_l1_a1_e1": {
+    "491": [
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2281_af_l1_a1_e1": {
+    "2281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b2281_nmr_l1_a1_e1": {
+    "2281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b246_af_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b246_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b25030_af_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b25030_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b25158_af_l1_a1_e1": {
+    "4524": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25158_nmr_l1_a1_e1": {
+    "4524": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25309_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25310_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25311_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25313_af_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25313_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25314_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b25315_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25564_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b25634_nmr_l1_a1_e1": {
+    "6945": [
+     "uniprot"
+    ]
+   },
+   "b25652_af_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25652_nmr_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25678_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25679_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25680_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25681_af_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25681_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25682_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25683_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25696_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25696_xtal_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25697_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25697_xtal_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25698_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25729_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b25901_af_l1_a2_e2": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25901_nmr_l1_a2_e2": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26340_af_l1_a1_e1": {
+    "10288": [
+     "sequence"
+    ]
+   },
+   "b26340_nmr_l1_a1_e1": {
+    "10288": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26612_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b26863_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26863_xtal_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26864_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26864_xtal_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27610_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b27945_af_l1_a1_e1": {
+    "4186": [
+     "sequence"
+    ]
+   },
+   "b27945_nmr_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27945_xtal_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27946_af_l1_a1_e1": {
+    "4186": [
+     "sequence"
+    ]
+   },
+   "b27946_nmr_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27946_xtal_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2852_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2853_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b30061_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b30061_nmr_l1_a2_e2": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b30469_af_l1_a1_e1": {
+    "10070": [
+     "uniprot",
+     "sequence"
+    ],
+    "10085": [
+     "uniprot"
+    ]
+   },
+   "b30469_nmr_l1_a1_e1": {
+    "10070": [
+     "uniprot"
+    ],
+    "10085": [
+     "uniprot"
+    ]
+   },
+   "b30518_nmr_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b34040_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34040_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b34048_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34048_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b34079_af_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34079_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34080_af_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34080_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot"
+    ]
+   },
+   "b34190_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b34225_nmr_l1_a1_e1": {
+    "4617": [
+     "sequence"
+    ]
+   },
+   "b34225_xtal_l1_a1_e1": {
+    "4617": [
+     "sequence"
+    ]
+   },
+   "b34261_nmr_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34261_xtal_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34379_af_l1_a1_e1": {
+    "4879": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b34379_nmr_l1_a1_e1": {
+    "4879": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b34766_af_l1_a1_e1": {
+    "4343": [
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34766_nmr_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b35025_nmr_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b35025_xtal_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_af_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_nmr_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_xtal_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36205_af_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36205_nmr_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36259_af_l1_a1_e1": {
+    "6801": [
+     "sequence"
+    ]
+   },
+   "b36259_nmr_l1_a1_e1": {
+    "6801": [
+     "sequence"
+    ]
+   },
+   "b36259_xtal_l1_a1_e1": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4084_nmr_l1_a1_e1": {
+    "4084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4140_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4168_af_l1_a1_e1": {
+    "4168": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4168_nmr_l1_a1_e1": {
+    "4168": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4184_af_l1_a1_e1": {
+    "4184": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4184_nmr_l1_a1_e1": {
+    "4184": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_af_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_nmr_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_xtal_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4206_af_l1_a1_e1": {
+    "4206": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "sequence"
+    ],
+    "4830": [
+     "sequence"
+    ],
+    "5027": [
+     "sequence"
+    ],
+    "7127": [
+     "sequence"
+    ],
+    "15756": [
+     "sequence"
+    ],
+    "15758": [
+     "sequence"
+    ]
+   },
+   "b4206_nmr_l1_a1_e1": {
+    "4206": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4211_af_l1_a1_e1": {
+    "4211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4211_nmr_l1_a1_e1": {
+    "4211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b421_af_l1_a1_e1": {
+    "421": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b421_nmr_l1_a1_e1": {
+    "421": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4283_af_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4283_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4288_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4288_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4290_af_l1_a1_e1": {
+    "4290": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4290_nmr_l1_a1_e1": {
+    "4290": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4303_af_l1_a1_e1": {
+    "4303": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4303_nmr_l1_a1_e1": {
+    "4303": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4313_af_l1_a1_e1": {
+    "7103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4313_nmr_l1_a1_e1": {
+    "7103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4317_nmr_l1_a1_e1": {
+    "4317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4317_xtal_l1_a1_e1": {
+    "4317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4329_af_l1_a1_e1": {
+    "4329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4343_af_l1_a1_e1": {
+    "4343": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4343_nmr_l1_a1_e1": {
+    "4343": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b4351_nmr_l1_a1_e1": {
+    "4351": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4971": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4380_af_l1_a1_e1": {
+    "4380": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4381_af_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4381_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot"
+    ]
+   },
+   "b4387_af_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4387_nmr_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4387_xtal_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4393_af_l1_a1_e1": {
+    "4393": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4393_nmr_l1_a1_e1": {
+    "4393": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4422_af_l1_a1_e1": {
+    "4422": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4422_nmr_l1_a1_e1": {
+    "4422": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_af_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_nmr_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_xtal_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_af_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_nmr_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_xtal_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4457_af_l1_a1_e1": {
+    "4380": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4458_nmr_l1_a1_e1": {
+    "4458": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4458_xtal_l1_a1_e1": {
+    "4458": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4459_nmr_l1_a1_e1": {
+    "4458": [
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4459_xtal_l1_a1_e1": {
+    "4458": [
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4476_af_l1_a1_e1": {
+    "4477": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4491_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4507_af_l1_a1_e1": {
+    "4507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4507_nmr_l1_a1_e1": {
+    "4507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4524_nmr_l1_a1_e1": {
+    "4524": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4573_af_l1_a1_e1": {
+    "4573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4573_xtal_l1_a1_e1": {
+    "4573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4589_nmr_l1_a1_e1": {
+    "4589": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4590_af_l1_a1_e1": {
+    "4590": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4590_nmr_l1_a1_e1": {
+    "4590": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4595_nmr_l1_a1_e1": {
+    "4595": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4595_xtal_l1_a1_e1": {
+    "4595": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4596_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4596_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4597_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4597_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4616_af_l1_a1_e1": {
+    "4303": [
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4616_nmr_l1_a1_e1": {
+    "4303": [
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4617_xtal_l1_a1_e1": {
+    "4617": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_af_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_nmr_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_xtal_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4637_af_l1_a1_e1": {
+    "4637": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4637_nmr_l1_a1_e1": {
+    "4637": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4685_af_l1_a1_e1": {
+    "4685": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4685_nmr_l1_a1_e1": {
+    "4685": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4713_nmr_l1_a1_e1": {
+    "4713": [
+     "bmrb",
+     "sequence"
+    ]
+   },
+   "b4714_af_l1_a1_e1": {
+    "4714": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4714_nmr_l1_a1_e1": {
+    "4714": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4721_af_l1_a1_e1": {
+    "4721": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4721_nmr_l1_a1_e1": {
+    "4721": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4752_nmr_l1_a1_e1": {
+    "4752": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4752_xtal_l1_a1_e1": {
+    "4752": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4757_af_l1_a1_e1": {
+    "4757": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4757_nmr_l1_a1_e1": {
+    "4757": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4775_nmr_l1_a1_e1": {
+    "4775": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4798_af_l1_a1_e1": {
+    "4798": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4798_nmr_l1_a1_e1": {
+    "4798": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4830_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4830_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4866_af_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4866_nmr_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4866_xtal_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_af_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_nmr_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_xtal_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_af_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_nmr_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_xtal_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_af_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_nmr_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_xtal_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4884_nmr_l1_a1_e1": {
+    "4884": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b4887_af_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4887_nmr_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4887_xtal_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b491_af_l1_a1_e1": {
+    "491": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b491_nmr_l1_a1_e1": {
+    "491": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4937_nmr_l1_a1_e1": {
+    "4233": [
+     "uniprot"
+    ],
+    "4937": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5702": [
+     "uniprot"
+    ],
+    "6192": [
+     "uniprot"
+    ],
+    "6194": [
+     "uniprot"
+    ]
+   },
+   "b4946_af_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4946_nmr_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4946_xtal_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_af_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_nmr_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_xtal_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4967_nmr_l1_a1_e1": {
+    "4967": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4971_nmr_l1_a1_e1": {
+    "4351": [
+     "uniprot",
+     "sequence"
+    ],
+    "4971": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4976_af_l1_a1_e1": {
+    "4976": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4976_nmr_l1_a1_e1": {
+    "4976": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b50241_xtal_l1_a1_e1": {
+    "6160": [
+     "uniprot"
+    ]
+   },
+   "b50261_xtal_l1_a1_e1": {
+    "6160": [
+     "uniprot"
+    ]
+   },
+   "b5027_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5027_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b5027_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b5030_af_l1_a1_e1": {
+    "5030": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5030_nmr_l1_a1_e1": {
+    "5030": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5033_af_l1_a1_e1": {
+    "4976": [
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5033_nmr_l1_a1_e1": {
+    "4976": [
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_af_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_nmr_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_xtal_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5053_nmr_l1_a1_e1": {
+    "5053": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5077_nmr_l1_a1_e1": {
+    "5077": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b50917_af_l1_a1_e1": {
+    "6620": [
+     "uniprot"
+    ],
+    "7231": [
+     "uniprot"
+    ]
+   },
+   "b5104_af_l1_a1_e1": {
+    "5104": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5104_nmr_l1_a1_e1": {
+    "5104": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b51073_nmr_l1_a1_e1": {
+    "5973": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b51257_xtal_l1_a1_e1": {
+    "4757": [
+     "uniprot"
+    ]
+   },
+   "b5147_af_l1_a1_e1": {
+    "5147": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5159_nmr_l1_a1_e1": {
+    "5159": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5180_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5180_nmr_l1_a1_e1": {
+    "1517": [
+     "uniprot"
+    ]
+   },
+   "b5181_nmr_l1_a1_e1": {
+    "5181": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52059_af_l1_a1_e1": {
+    "4757": [
+     "sequence"
+    ]
+   },
+   "b52059_nmr_l1_a1_e1": {
+    "4757": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52275_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52275_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52275_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52276_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52276_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52276_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52277_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52277_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52277_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_af_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_nmr_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_xtal_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_af_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_nmr_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_xtal_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5255_af_l1_a1_e1": {
+    "5255": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5255_nmr_l1_a1_e1": {
+    "5255": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5299_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b53005_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53006_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53007_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53008_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b5310_nmr_l1_a1_e1": {
+    "5318": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5310_nmr_l2_a2_e2": {
+    "5318": [
+     "uniprot"
+    ]
+   },
+   "b5312_af_l1_a1_e1": {
+    "5312": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5312_nmr_l1_a1_e1": {
+    "5312": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5318_nmr_l1_a1_e1": {
+    "5318": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5409_af_l1_a1_e1": {
+    "4343": [
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5462_af_l1_a1_e1": {
+    "5462": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_af_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_nmr_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_xtal_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5534_af_l1_a1_e1": {
+    "6143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5534_nmr_l1_a1_e1": {
+    "6143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5545_nmr_l1_a1_e1": {
+    "7262": [
+     "uniprot"
+    ]
+   },
+   "b5604_af_l1_a1_e1": {
+    "5604": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5604_nmr_l1_a1_e1": {
+    "5604": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5704_af_l1_a1_e1": {
+    "5704": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5704_nmr_l1_a1_e1": {
+    "5704": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b573_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5768_nmr_l1_a1_e1": {
+    "5768": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5769_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5771_af_l1_a1_e1": {
+    "5771": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5771_nmr_l1_a1_e1": {
+    "5771": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5801_nmr_l1_a1_e1": {
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5801": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5813_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5847_nmr_l1_a1_e1": {
+    "5847": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5850_af_l1_a1_e1": {
+    "5850": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5850_nmr_l1_a1_e1": {
+    "5850": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5873_af_l1_a1_e1": {
+    "5873": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5873_nmr_l1_a1_e1": {
+    "5873": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_af_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_nmr_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_xtal_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6034_af_l1_a1_e1": {
+    "6034": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6034_xtal_l1_a1_e1": {
+    "6034": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6059_af_l1_a1_e1": {
+    "6059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6059_nmr_l1_a1_e1": {
+    "6059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6126_nmr_l1_a1_e1": {
+    "6126": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6136_af_l1_a1_e1": {
+    "6136": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6143_af_l1_a1_e1": {
+    "6143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6143_nmr_l1_a1_e1": {
+    "6143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6165_nmr_l1_a1_e1": {
+    "6165": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6175_nmr_l1_a1_e1": {
+    "6175": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10002": [
+     "uniprot"
+    ]
+   },
+   "b6216_nmr_l1_a1_e1": {
+    "6216": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6228_af_l1_a1_e1": {
+    "6228": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6228_nmr_l1_a1_e1": {
+    "6228": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_af_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_nmr_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_xtal_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6252_af_l1_a1_e1": {
+    "6252": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_af_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_nmr_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_xtal_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6305_xtal_l1_a1_e1": {
+    "6305": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6306_af_l1_a1_e1": {
+    "6305": [
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6306_xtal_l1_a1_e1": {
+    "6305": [
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6317_af_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6317_nmr_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6317_xtal_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6342_af_l1_a1_e1": {
+    "6342": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6342_nmr_l1_a1_e1": {
+    "6342": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_af_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_nmr_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_xtal_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6410_nmr_l1_a1_e1": {
+    "6410": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6410_xtal_l1_a1_e1": {
+    "6410": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6447_nmr_l1_a1_e1": {
+    "6447": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6448_af_l1_a1_e1": {
+    "6448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6448_nmr_l1_a1_e1": {
+    "6448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6452_af_l1_a1_e1": {
+    "6452": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6452_xtal_l1_a1_e1": {
+    "6452": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6479_af_l1_a1_e1": {
+    "6479": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6505_af_l1_a1_e1": {
+    "6505": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6505_nmr_l1_a1_e1": {
+    "6505": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6519_af_l1_a1_e1": {
+    "6519": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6519_nmr_l1_a1_e1": {
+    "6519": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6579_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6579_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6585_af_l1_a1_e1": {
+    "6585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6585_xtal_l1_a1_e1": {
+    "6585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6599_af_l1_a1_e1": {
+    "6600": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6599_nmr_l1_a1_e1": {
+    "6600": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6600_af_l1_a1_e1": {
+    "6600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6600_nmr_l1_a1_e1": {
+    "6600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_af_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_nmr_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_xtal_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6624_af_l1_a1_e1": {
+    "6624": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6635": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6624_nmr_l1_a1_e1": {
+    "6624": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6635": [
+     "uniprot"
+    ]
+   },
+   "b6625_af_l1_a1_e1": {
+    "6625": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6625_nmr_l1_a1_e1": {
+    "6625": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6746_af_l1_a1_e1": {
+    "6746": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6746_nmr_l1_a1_e1": {
+    "6746": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6747_af_l1_a1_e1": {
+    "6747": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6801_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6849_af_l1_a1_e1": {
+    "6849": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6849_nmr_l1_a1_e1": {
+    "6849": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6866_nmr_l1_a1_e1": {
+    "6866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6883_af_l1_a1_e1": {
+    "6883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6883_nmr_l1_a1_e1": {
+    "6883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_af_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_nmr_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_xtal_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6910_af_l1_a1_e1": {
+    "6910": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6910_nmr_l1_a1_e1": {
+    "6910": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6945_nmr_l1_a1_e1": {
+    "6945": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6954_nmr_l1_a1_e1": {
+    "15390": [
+     "uniprot"
+    ]
+   },
+   "b6954_xtal_l1_a1_e1": {
+    "15390": [
+     "uniprot"
+    ]
+   },
+   "b6980_nmr_l1_a1_e1": {
+    "6980": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6986_nmr_l1_a1_e1": {
+    "6986": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6986_xtal_l1_a1_e1": {
+    "6986": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7000_af_l1_a1_e1": {
+    "7000": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7000_nmr_l1_a1_e1": {
+    "7000": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7084_nmr_l1_a1_e1": {
+    "7084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15971": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7103_af_l1_a1_e1": {
+    "7103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7103_nmr_l1_a1_e1": {
+    "7103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7127_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b7128_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7128_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b7131_nmr_l1_a1_e1": {
+    "7131": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7174_af_l1_a1_e1": {
+    "7174": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7174_xtal_l1_a1_e1": {
+    "2410": [
+     "uniprot"
+    ],
+    "6612": [
+     "uniprot"
+    ],
+    "7174": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15945": [
+     "uniprot"
+    ]
+   },
+   "b7180_af_l1_a1_e1": {
+    "7180": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7180_nmr_l1_a1_e1": {
+    "7180": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7209_af_l1_a1_e1": {
+    "7209": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7209_nmr_l1_a1_e1": {
+    "7209": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_af_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_nmr_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_xtal_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7262_af_l1_a1_e1": {
+    "7262": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7262_nmr_l1_a1_e1": {
+    "7262": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7281_af_l1_a1_e1": {
+    "7281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7281_nmr_l1_a1_e1": {
+    "7281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7297_af_l1_a1_e1": {
+    "7297": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7297_nmr_l1_a1_e1": {
+    "7297": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7320_af_l1_a1_e1": {
+    "7320": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7320_nmr_l1_a1_e1": {
+    "7320": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7407_af_l1_a1_e1": {
+    "15503": [
+     "uniprot"
+    ]
+   }
+  },
+  "shifty": {
+   "b10002_nmr_l1_a1_e1": {
+    "6175": [
+     "uniprot"
+    ],
+    "10002": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10004_af_l1_a1_e1": {
+    "10004": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10004_nmr_l1_a1_e1": {
+    "10004": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10024_nmr_l1_a1_e1": {
+    "7320": [
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10036_nmr_l1_a1_e1": {
+    "10036": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15329": [
+     "sequence"
+    ]
+   },
+   "b10067_nmr_l1_a1_e1": {
+    "10067": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10070_nmr_l1_a1_e1": {
+    "10070": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10085": [
+     "uniprot"
+    ]
+   },
+   "b10074_nmr_l1_a1_e1": {
+    "10074": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10083_nmr_l1_a1_e1": {
+    "10083": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10085_nmr_l1_a1_e1": {
+    "10070": [
+     "uniprot"
+    ],
+    "10085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10088_nmr_l1_a1_e1": {
+    "10088": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b10103_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10125_nmr_l1_a1_e1": {
+    "10125": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10212_nmr_l1_a1_e1": {
+    "10212": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10242_nmr_l1_a1_e1": {
+    "10242": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10244_nmr_l1_a1_e1": {
+    "10244": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10245_nmr_l1_a1_e1": {
+    "10245": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10254_nmr_l1_a1_e1": {
+    "10254": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10288_nmr_l1_a1_e1": {
+    "10288": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10314_nmr_l1_a1_e1": {
+    "10314": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b10319_nmr_l1_a1_e1": {
+    "10319": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11007_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11008_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11011_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11031_nmr_l1_a1_e1": {
+    "16678": [
+     "uniprot"
+    ]
+   },
+   "b11086_nmr_l1_a1_e1": {
+    "11086": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11207_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b11267_af_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11267_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b11357_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b1377_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1377_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b1378_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15045_nmr_l1_a1_e1": {
+    "15045": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15079_xtal_l1_a1_e1": {
+    "15079": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15084_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15085_af_l1_a1_e1": {
+    "15085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15085_nmr_l1_a1_e1": {
+    "15085": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15087_nmr_l1_a1_e1": {
+    "15087": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15109_af_l1_a1_e1": {
+    "15109": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15117_nmr_l1_a1_e1": {
+    "4317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15117_xtal_l1_a1_e1": {
+    "4317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b1517_af_l1_a1_e1": {
+    "1517": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15217_af_l1_a1_e1": {
+    "15217": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15217_nmr_l1_a1_e1": {
+    "15217": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15231_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15231_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b15322_af_l1_a1_e1": {
+    "15322": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15322_nmr_l1_a1_e1": {
+    "15322": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15329_af_l1_a1_e1": {
+    "10036": [
+     "sequence"
+    ],
+    "15329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15329_nmr_l1_a1_e1": {
+    "10036": [
+     "sequence"
+    ],
+    "15329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15336_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15340_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15341_nmr_l1_a1_e1": {
+    "15341": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15406_nmr_l1_a1_e1": {
+    "15406": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15447_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b15453_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_af_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_nmr_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15503_xtal_l1_a1_e1": {
+    "15503": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_af_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_nmr_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15504_nmr_l1_a2_e2": {
+    "15503": [
+     "uniprot"
+    ]
+   },
+   "b15504_xtal_l1_a1_e1": {
+    "15503": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15554_af_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15554_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15579_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b15599_af_l1_a1_e1": {
+    "6625": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15599_nmr_l1_a1_e1": {
+    "6625": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15758_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15784_af_l1_a1_e1": {
+    "15784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15784_nmr_l1_a1_e1": {
+    "15784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15854_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15969_xtal_l1_a1_e1": {
+    "15969": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15971_nmr_l1_a1_e1": {
+    "7084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15971": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15986_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b15986_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b16063_af_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_af_l1_a2_e2": {
+    "4884": [
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16063_nmr_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_nmr_l1_a2_e2": {
+    "4884": [
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b16063_xtal_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b1620_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_af_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_nmr_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16270_xtal_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16284_af_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16284_nmr_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16293_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b16295_af_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16295_nmr_l1_a1_e1": {
+    "6228": [
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b162_af_l1_a1_e1": {
+    "162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b162_nmr_l1_a1_e1": {
+    "162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16309_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16309_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16309_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16310_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16367_af_l1_a1_e1": {
+    "16367": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16393": [
+     "sequence"
+    ]
+   },
+   "b16376_nmr_l1_a1_e1": {
+    "4317": [
+     "uniprot"
+    ]
+   },
+   "b1638_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16393_af_l1_a1_e1": {
+    "16367": [
+     "uniprot",
+     "sequence"
+    ],
+    "16393": [
+     "bmrb",
+     "sequence"
+    ]
+   },
+   "b16394_af_l1_a1_e1": {
+    "16367": [
+     "uniprot",
+     "sequence"
+    ],
+    "16393": [
+     "sequence"
+    ]
+   },
+   "b1649_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16632_nmr_l1_a1_e1": {
+    "6300": [
+     "uniprot"
+    ]
+   },
+   "b16658_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16658_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16658_nmr_l1_a2_e2": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16678_af_l1_a1_e1": {
+    "16678": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16768_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16768_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16768_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b16841_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b16841_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b16886_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b16892_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b17128_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_af_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_nmr_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17443_xtal_l1_a1_e1": {
+    "5038": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17599_nmr_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_af_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_nmr_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17600_xtal_l1_a1_e1": {
+    "6126": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17767_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17892_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17893_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17894_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17895_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17896_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17897_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_af_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_nmr_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17898_xtal_l1_a1_e1": {
+    "6317": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_af_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_nmr_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17953_xtal_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b17955_nmr_l1_a1_e1": {
+    "4507": [
+     "uniprot"
+    ]
+   },
+   "b17958_nmr_l1_a1_e1": {
+    "4507": [
+     "uniprot"
+    ]
+   },
+   "b18022_af_l1_a1_e1": {
+    "5313": [
+     "sequence"
+    ]
+   },
+   "b183_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ]
+   },
+   "b18419_nmr_l1_a1_e1": {
+    "7209": [
+     "uniprot"
+    ]
+   },
+   "b18728_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b18804_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b18804_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b18822_nmr_l1_a1_e1": {
+    "5973": [
+     "uniprot"
+    ]
+   },
+   "b18888_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b19059_nmr_l1_a1_e1": {
+    "4617": [
+     "uniprot"
+    ]
+   },
+   "b19117_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19117_xtal_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19153_nmr_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19153_xtal_l1_a1_e1": {
+    "7131": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19339_xtal_l1_a1_e1": {
+    "6285": [
+     "uniprot"
+    ],
+    "15792": [
+     "uniprot"
+    ]
+   },
+   "b19410_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b19826_af_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19826_nmr_l1_a1_e1": {
+    "4879": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19906_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b19906_nmr_l1_a2_e2": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b19940_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b19961_af_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_af_l1_a2_e2": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_nmr_l1_a2_e2": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19961_xtal_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b19988_af_l1_a1_e1": {
+    "6216": [
+     "uniprot"
+    ]
+   },
+   "b19988_nmr_l1_a1_e1": {
+    "6216": [
+     "uniprot"
+    ]
+   },
+   "b2051_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2052_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2053_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2075_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2075_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2075_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2077_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2078_xtal_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot",
+     "sequence"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b2151_af_l1_a1_e1": {
+    "491": [
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2151_nmr_l1_a1_e1": {
+    "491": [
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2281_af_l1_a1_e1": {
+    "2281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b2281_nmr_l1_a1_e1": {
+    "2281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b246_af_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b246_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot",
+     "sequence"
+    ],
+    "246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b25030_af_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b25030_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b25158_af_l1_a1_e1": {
+    "4524": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25158_nmr_l1_a1_e1": {
+    "4524": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25309_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25310_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25311_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25313_af_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25313_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25314_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot"
+    ]
+   },
+   "b25315_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25564_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b25634_nmr_l1_a1_e1": {
+    "6945": [
+     "uniprot"
+    ]
+   },
+   "b25652_af_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25652_nmr_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25678_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25679_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25680_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25681_af_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25681_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25682_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25683_nmr_l1_a1_e1": {
+    "4714": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25696_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25696_xtal_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25697_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25697_xtal_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25698_af_l1_a1_e1": {
+    "4595": [
+     "sequence"
+    ],
+    "4596": [
+     "sequence"
+    ],
+    "4597": [
+     "sequence"
+    ],
+    "4598": [
+     "sequence"
+    ]
+   },
+   "b25729_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b25901_af_l1_a2_e2": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b25901_nmr_l1_a2_e2": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26340_af_l1_a1_e1": {
+    "10288": [
+     "sequence"
+    ]
+   },
+   "b26340_nmr_l1_a1_e1": {
+    "10288": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26612_nmr_l1_a1_e1": {
+    "15045": [
+     "uniprot"
+    ]
+   },
+   "b26863_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26863_xtal_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26864_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b26864_xtal_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27317_xtal_l1_a1_e1": {
+    "15969": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27610_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b27845_xtal_l1_a1_e1": {
+    "15969": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27945_af_l1_a1_e1": {
+    "4186": [
+     "sequence"
+    ]
+   },
+   "b27945_nmr_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27945_xtal_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27946_af_l1_a1_e1": {
+    "4186": [
+     "sequence"
+    ]
+   },
+   "b27946_nmr_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b27946_xtal_l1_a1_e1": {
+    "4186": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2852_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b2853_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b30061_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b30061_nmr_l1_a2_e2": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b30469_af_l1_a1_e1": {
+    "10070": [
+     "uniprot",
+     "sequence"
+    ],
+    "10085": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b30469_nmr_l1_a1_e1": {
+    "10070": [
+     "uniprot"
+    ],
+    "10085": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b30518_nmr_l1_a1_e1": {
+    "4884": [
+     "uniprot"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b34040_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34040_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "uniprot"
+    ]
+   },
+   "b34048_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34048_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b34079_af_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34079_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34080_af_l1_a1_e1": {
+    "4084": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34080_nmr_l1_a1_e1": {
+    "4084": [
+     "uniprot"
+    ]
+   },
+   "b34190_nmr_l1_a1_e1": {
+    "10088": [
+     "uniprot"
+    ],
+    "10103": [
+     "uniprot"
+    ]
+   },
+   "b34225_nmr_l1_a1_e1": {
+    "4617": [
+     "sequence"
+    ]
+   },
+   "b34225_xtal_l1_a1_e1": {
+    "4617": [
+     "sequence"
+    ]
+   },
+   "b34261_nmr_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34261_xtal_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34379_af_l1_a1_e1": {
+    "4879": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b34379_nmr_l1_a1_e1": {
+    "4879": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b34766_af_l1_a1_e1": {
+    "4343": [
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b34766_nmr_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b35025_nmr_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b35025_xtal_l1_a2_e2": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_af_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_nmr_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36201_xtal_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36205_af_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36205_nmr_l1_a1_e1": {
+    "4387": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b36259_af_l1_a1_e1": {
+    "6801": [
+     "sequence"
+    ]
+   },
+   "b36259_nmr_l1_a1_e1": {
+    "6801": [
+     "sequence"
+    ]
+   },
+   "b36259_xtal_l1_a1_e1": {
+    "6801": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4084_nmr_l1_a1_e1": {
+    "4084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4140_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4168_af_l1_a1_e1": {
+    "4168": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4168_nmr_l1_a1_e1": {
+    "4168": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4184_af_l1_a1_e1": {
+    "4184": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4184_nmr_l1_a1_e1": {
+    "4184": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_af_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_nmr_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4186_xtal_l1_a1_e1": {
+    "4186": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4206_af_l1_a1_e1": {
+    "4206": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "sequence"
+    ],
+    "4830": [
+     "sequence"
+    ],
+    "5027": [
+     "sequence"
+    ],
+    "7127": [
+     "sequence"
+    ],
+    "15756": [
+     "sequence"
+    ],
+    "15758": [
+     "sequence"
+    ]
+   },
+   "b4206_nmr_l1_a1_e1": {
+    "4206": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4211_af_l1_a1_e1": {
+    "4211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4211_nmr_l1_a1_e1": {
+    "4211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b421_af_l1_a1_e1": {
+    "421": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b421_nmr_l1_a1_e1": {
+    "421": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4283_af_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4283_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4288_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4288_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4290_af_l1_a1_e1": {
+    "4290": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4290_nmr_l1_a1_e1": {
+    "4290": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4303_af_l1_a1_e1": {
+    "4303": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4303_nmr_l1_a1_e1": {
+    "4303": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4313_af_l1_a1_e1": {
+    "7103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4313_nmr_l1_a1_e1": {
+    "7103": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4317_nmr_l1_a1_e1": {
+    "4317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4317_xtal_l1_a1_e1": {
+    "4317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4329_af_l1_a1_e1": {
+    "4329": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4343_af_l1_a1_e1": {
+    "4343": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4343_nmr_l1_a1_e1": {
+    "4343": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b4351_nmr_l1_a1_e1": {
+    "4351": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4971": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4380_af_l1_a1_e1": {
+    "4380": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4381_af_l1_a1_e1": {
+    "4184": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4381_nmr_l1_a1_e1": {
+    "4184": [
+     "uniprot"
+    ]
+   },
+   "b4387_af_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4387_nmr_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4387_xtal_l1_a1_e1": {
+    "4387": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4393_af_l1_a1_e1": {
+    "4393": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4393_nmr_l1_a1_e1": {
+    "4393": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4422_af_l1_a1_e1": {
+    "4422": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4422_nmr_l1_a1_e1": {
+    "4422": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_af_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_nmr_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4431_xtal_l1_a1_e1": {
+    "4431": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_af_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_nmr_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4446_xtal_l1_a1_e1": {
+    "4446": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4457_af_l1_a1_e1": {
+    "4380": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4458_nmr_l1_a1_e1": {
+    "4458": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4458_xtal_l1_a1_e1": {
+    "4458": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4459_nmr_l1_a1_e1": {
+    "4458": [
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4459_xtal_l1_a1_e1": {
+    "4458": [
+     "uniprot",
+     "sequence"
+    ],
+    "4459": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4476_af_l1_a1_e1": {
+    "4477": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4491_af_l1_a1_e1": {
+    "4184": [
+     "sequence"
+    ]
+   },
+   "b4507_af_l1_a1_e1": {
+    "4507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4507_nmr_l1_a1_e1": {
+    "4507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4524_nmr_l1_a1_e1": {
+    "4524": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4573_af_l1_a1_e1": {
+    "4573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4573_xtal_l1_a1_e1": {
+    "4573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4589_nmr_l1_a1_e1": {
+    "4589": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4590_af_l1_a1_e1": {
+    "4590": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4590_nmr_l1_a1_e1": {
+    "4590": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4595_nmr_l1_a1_e1": {
+    "4595": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4595_xtal_l1_a1_e1": {
+    "4595": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4596_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4596_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4597_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4597_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_af_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_nmr_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4598_xtal_l1_a1_e1": {
+    "4595": [
+     "uniprot",
+     "sequence"
+    ],
+    "4596": [
+     "uniprot",
+     "sequence"
+    ],
+    "4597": [
+     "uniprot",
+     "sequence"
+    ],
+    "4598": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4616_af_l1_a1_e1": {
+    "4303": [
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4616_nmr_l1_a1_e1": {
+    "4303": [
+     "uniprot",
+     "sequence"
+    ],
+    "4616": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4617_xtal_l1_a1_e1": {
+    "4617": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_af_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_nmr_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4628_xtal_l1_a1_e1": {
+    "4628": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4637_af_l1_a1_e1": {
+    "4637": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4637_nmr_l1_a1_e1": {
+    "4637": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4685_af_l1_a1_e1": {
+    "4685": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4685_nmr_l1_a1_e1": {
+    "4685": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4713_nmr_l1_a1_e1": {
+    "4713": [
+     "bmrb",
+     "sequence"
+    ]
+   },
+   "b4714_af_l1_a1_e1": {
+    "4714": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4714_nmr_l1_a1_e1": {
+    "4714": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4721_af_l1_a1_e1": {
+    "4721": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4721_nmr_l1_a1_e1": {
+    "4721": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4752_nmr_l1_a1_e1": {
+    "4752": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4752_xtal_l1_a1_e1": {
+    "4752": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4757_af_l1_a1_e1": {
+    "4757": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4757_nmr_l1_a1_e1": {
+    "4757": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4775_nmr_l1_a1_e1": {
+    "4775": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4798_af_l1_a1_e1": {
+    "4798": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4798_nmr_l1_a1_e1": {
+    "4798": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4830_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4830_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b4866_af_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4866_nmr_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4866_xtal_l1_a1_e1": {
+    "4866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_af_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_nmr_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4876_xtal_l1_a1_e1": {
+    "4876": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_af_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_nmr_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4879_xtal_l1_a1_e1": {
+    "4879": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_af_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_nmr_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4883_xtal_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4884_nmr_l1_a1_e1": {
+    "4884": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5692": [
+     "uniprot"
+    ]
+   },
+   "b4887_af_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4887_nmr_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4887_xtal_l1_a1_e1": {
+    "4876": [
+     "uniprot",
+     "sequence"
+    ],
+    "4883": [
+     "uniprot",
+     "sequence"
+    ],
+    "4887": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b491_af_l1_a1_e1": {
+    "491": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b491_nmr_l1_a1_e1": {
+    "491": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2151": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4937_nmr_l1_a1_e1": {
+    "4233": [
+     "uniprot"
+    ],
+    "4937": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5702": [
+     "uniprot"
+    ],
+    "6192": [
+     "uniprot"
+    ],
+    "6194": [
+     "uniprot"
+    ]
+   },
+   "b4946_af_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4946_nmr_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4946_xtal_l1_a1_e1": {
+    "4946": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_af_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_nmr_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4947_xtal_l1_a1_e1": {
+    "4946": [
+     "uniprot",
+     "sequence"
+    ],
+    "4947": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4967_nmr_l1_a1_e1": {
+    "4967": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4971_nmr_l1_a1_e1": {
+    "4351": [
+     "uniprot",
+     "sequence"
+    ],
+    "4971": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4976_af_l1_a1_e1": {
+    "4976": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b4976_nmr_l1_a1_e1": {
+    "4976": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b50241_xtal_l1_a1_e1": {
+    "6160": [
+     "uniprot"
+    ]
+   },
+   "b50261_xtal_l1_a1_e1": {
+    "6160": [
+     "uniprot"
+    ]
+   },
+   "b5027_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5027_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b5027_xtal_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b5030_af_l1_a1_e1": {
+    "5030": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5030_nmr_l1_a1_e1": {
+    "5030": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5033_af_l1_a1_e1": {
+    "4976": [
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5033_nmr_l1_a1_e1": {
+    "4976": [
+     "uniprot",
+     "sequence"
+    ],
+    "5033": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_af_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_nmr_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5038_xtal_l1_a1_e1": {
+    "5038": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5053_nmr_l1_a1_e1": {
+    "5053": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5077_nmr_l1_a1_e1": {
+    "5077": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b50917_af_l1_a1_e1": {
+    "6620": [
+     "uniprot"
+    ],
+    "7231": [
+     "uniprot"
+    ]
+   },
+   "b5104_af_l1_a1_e1": {
+    "5104": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5104_nmr_l1_a1_e1": {
+    "5104": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b51073_nmr_l1_a1_e1": {
+    "5973": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b51257_xtal_l1_a1_e1": {
+    "4757": [
+     "uniprot"
+    ]
+   },
+   "b51294_xtal_l1_a1_e1": {
+    "15969": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5147_af_l1_a1_e1": {
+    "5147": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5159_nmr_l1_a1_e1": {
+    "5159": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5180_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5180_nmr_l1_a1_e1": {
+    "1517": [
+     "uniprot"
+    ]
+   },
+   "b5181_nmr_l1_a1_e1": {
+    "5181": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52014_xtal_l1_a1_e1": {
+    "15969": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52059_af_l1_a1_e1": {
+    "4757": [
+     "sequence"
+    ]
+   },
+   "b52059_nmr_l1_a1_e1": {
+    "4757": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52275_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52275_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52275_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52276_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52276_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52276_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52277_af_l1_a1_e1": {
+    "4775": [
+     "uniref100",
+     "sequence"
+    ]
+   },
+   "b52277_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b52277_xtal_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_af_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_nmr_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5240_xtal_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_af_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_nmr_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5241_xtal_l1_a1_e1": {
+    "4446": [
+     "uniprot",
+     "sequence"
+    ],
+    "5240": [
+     "uniprot",
+     "sequence"
+    ],
+    "5241": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5255_af_l1_a1_e1": {
+    "5255": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5255_nmr_l1_a1_e1": {
+    "5255": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5299_nmr_l1_a1_e1": {
+    "4775": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b53005_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53006_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53007_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b53008_xtal_l1_a1_e1": {
+    "4343": [
+     "uniprot"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot"
+    ]
+   },
+   "b5310_nmr_l1_a1_e1": {
+    "5318": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5310_nmr_l2_a2_e2": {
+    "5318": [
+     "uniprot"
+    ]
+   },
+   "b5312_af_l1_a1_e1": {
+    "5312": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5312_nmr_l1_a1_e1": {
+    "5312": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5318_nmr_l1_a1_e1": {
+    "5318": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5409_af_l1_a1_e1": {
+    "4343": [
+     "uniprot",
+     "sequence"
+    ],
+    "6177": [
+     "uniprot",
+     "sequence"
+    ],
+    "6178": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5462_af_l1_a1_e1": {
+    "5462": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_af_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_nmr_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5512_xtal_l1_a1_e1": {
+    "5512": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5534_af_l1_a1_e1": {
+    "6143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5534_nmr_l1_a1_e1": {
+    "6143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5545_nmr_l1_a1_e1": {
+    "7262": [
+     "uniprot"
+    ]
+   },
+   "b5604_af_l1_a1_e1": {
+    "5604": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5604_nmr_l1_a1_e1": {
+    "5604": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5704_af_l1_a1_e1": {
+    "5704": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5704_nmr_l1_a1_e1": {
+    "5704": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b573_af_l1_a1_e1": {
+    "1517": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5768_nmr_l1_a1_e1": {
+    "5768": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5769_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5771_af_l1_a1_e1": {
+    "5771": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5771_nmr_l1_a1_e1": {
+    "5771": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5801_nmr_l1_a1_e1": {
+    "1377": [
+     "uniprot",
+     "sequence"
+    ],
+    "1378": [
+     "uniprot",
+     "sequence"
+    ],
+    "5801": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5813_nmr_l1_a1_e1": {
+    "5768": [
+     "uniprot",
+     "sequence"
+    ],
+    "5769": [
+     "uniprot",
+     "sequence"
+    ],
+    "5813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "11011": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5847_nmr_l1_a1_e1": {
+    "5847": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5850_af_l1_a1_e1": {
+    "5850": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5850_nmr_l1_a1_e1": {
+    "5850": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5873_af_l1_a1_e1": {
+    "5873": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5873_nmr_l1_a1_e1": {
+    "5873": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_af_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_nmr_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b5921_xtal_l1_a1_e1": {
+    "5921": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6034_af_l1_a1_e1": {
+    "6034": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6034_xtal_l1_a1_e1": {
+    "6034": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6059_af_l1_a1_e1": {
+    "6059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6059_nmr_l1_a1_e1": {
+    "6059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6126_nmr_l1_a1_e1": {
+    "6126": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6136_af_l1_a1_e1": {
+    "6136": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6143_af_l1_a1_e1": {
+    "6143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6143_nmr_l1_a1_e1": {
+    "6143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6165_nmr_l1_a1_e1": {
+    "6165": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6175_nmr_l1_a1_e1": {
+    "6175": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10002": [
+     "uniprot"
+    ]
+   },
+   "b6216_nmr_l1_a1_e1": {
+    "6216": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6228_af_l1_a1_e1": {
+    "6228": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6228_nmr_l1_a1_e1": {
+    "6228": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_af_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_nmr_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6232_xtal_l1_a1_e1": {
+    "5921": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6252_af_l1_a1_e1": {
+    "6252": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_af_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_nmr_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6277_xtal_l1_a1_e1": {
+    "4866": [
+     "uniprot",
+     "sequence"
+    ],
+    "6277": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6305_xtal_l1_a1_e1": {
+    "6305": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6306_af_l1_a1_e1": {
+    "6305": [
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6306_xtal_l1_a1_e1": {
+    "6305": [
+     "uniprot",
+     "sequence"
+    ],
+    "6306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6801": [
+     "uniprot"
+    ]
+   },
+   "b6317_af_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6317_nmr_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6317_xtal_l1_a1_e1": {
+    "6317": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6342_af_l1_a1_e1": {
+    "6342": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6342_nmr_l1_a1_e1": {
+    "6342": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_af_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_nmr_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6362_xtal_l1_a1_e1": {
+    "6362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6410_nmr_l1_a1_e1": {
+    "6410": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6410_xtal_l1_a1_e1": {
+    "6410": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6447_nmr_l1_a1_e1": {
+    "6447": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6448_af_l1_a1_e1": {
+    "6448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6448_nmr_l1_a1_e1": {
+    "6448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6452_af_l1_a1_e1": {
+    "6452": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6452_xtal_l1_a1_e1": {
+    "6452": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6479_af_l1_a1_e1": {
+    "6479": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6505_af_l1_a1_e1": {
+    "6505": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6505_nmr_l1_a1_e1": {
+    "6505": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6519_af_l1_a1_e1": {
+    "6519": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6519_nmr_l1_a1_e1": {
+    "6519": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6579_af_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6579_nmr_l1_a1_e1": {
+    "162": [
+     "uniprot"
+    ],
+    "246": [
+     "uniprot"
+    ],
+    "1377": [
+     "uniprot"
+    ],
+    "1378": [
+     "uniprot"
+    ],
+    "5120": [
+     "uniprot"
+    ],
+    "5801": [
+     "uniprot"
+    ],
+    "6579": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6585_af_l1_a1_e1": {
+    "6585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6585_xtal_l1_a1_e1": {
+    "6585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6599_af_l1_a1_e1": {
+    "6600": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6599_nmr_l1_a1_e1": {
+    "6600": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6600_af_l1_a1_e1": {
+    "6600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6600_nmr_l1_a1_e1": {
+    "6600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_af_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_nmr_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6620_xtal_l1_a1_e1": {
+    "6620": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6624_af_l1_a1_e1": {
+    "6624": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6635": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6624_nmr_l1_a1_e1": {
+    "6624": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6635": [
+     "uniprot"
+    ]
+   },
+   "b6625_af_l1_a1_e1": {
+    "6625": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6625_nmr_l1_a1_e1": {
+    "6625": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_af_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_nmr_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6642_xtal_l1_a1_e1": {
+    "5512": [
+     "uniprot",
+     "sequence"
+    ],
+    "6642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15084": [
+     "uniprot",
+     "sequence"
+    ],
+    "15854": [
+     "uniprot",
+     "sequence"
+    ],
+    "16309": [
+     "uniprot",
+     "sequence"
+    ],
+    "16310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6746_af_l1_a1_e1": {
+    "6746": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6746_nmr_l1_a1_e1": {
+    "6746": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6747_af_l1_a1_e1": {
+    "6747": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6801_nmr_l1_a1_e1": {
+    "6305": [
+     "uniprot"
+    ],
+    "6306": [
+     "uniprot"
+    ],
+    "6801": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6849_af_l1_a1_e1": {
+    "6849": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6849_nmr_l1_a1_e1": {
+    "6849": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6866_nmr_l1_a1_e1": {
+    "6866": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6883_af_l1_a1_e1": {
+    "6883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6883_nmr_l1_a1_e1": {
+    "6883": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_af_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_nmr_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6894_xtal_l1_a1_e1": {
+    "6894": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6910_af_l1_a1_e1": {
+    "6910": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6910_nmr_l1_a1_e1": {
+    "6910": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6945_nmr_l1_a1_e1": {
+    "6945": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6954_nmr_l1_a1_e1": {
+    "15390": [
+     "uniprot"
+    ]
+   },
+   "b6954_xtal_l1_a1_e1": {
+    "15390": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6980_nmr_l1_a1_e1": {
+    "6980": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6986_nmr_l1_a1_e1": {
+    "6986": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b6986_xtal_l1_a1_e1": {
+    "6986": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7000_af_l1_a1_e1": {
+    "7000": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7000_nmr_l1_a1_e1": {
+    "7000": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7084_nmr_l1_a1_e1": {
+    "7084": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15971": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7103_af_l1_a1_e1": {
+    "7103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7103_nmr_l1_a1_e1": {
+    "7103": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7127_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b7128_af_l1_a1_e1": {
+    "2281": [
+     "uniprot",
+     "sequence"
+    ],
+    "4283": [
+     "uniprot",
+     "sequence"
+    ],
+    "4830": [
+     "uniprot",
+     "sequence"
+    ],
+    "5027": [
+     "uniprot",
+     "sequence"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7128_nmr_l1_a1_e1": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot",
+     "sequence"
+    ],
+    "7128": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15756": [
+     "uniprot"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "b7131_nmr_l1_a1_e1": {
+    "7131": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7174_af_l1_a1_e1": {
+    "7174": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7174_xtal_l1_a1_e1": {
+    "2410": [
+     "uniprot"
+    ],
+    "6612": [
+     "uniprot"
+    ],
+    "7174": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15945": [
+     "uniprot"
+    ]
+   },
+   "b7180_af_l1_a1_e1": {
+    "7180": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7180_nmr_l1_a1_e1": {
+    "7180": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7209_af_l1_a1_e1": {
+    "7209": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7209_nmr_l1_a1_e1": {
+    "7209": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_af_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_nmr_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7231_xtal_l1_a1_e1": {
+    "6620": [
+     "uniprot",
+     "sequence"
+    ],
+    "7231": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7262_af_l1_a1_e1": {
+    "7262": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7262_nmr_l1_a1_e1": {
+    "7262": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7281_af_l1_a1_e1": {
+    "7281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7281_nmr_l1_a1_e1": {
+    "7281": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7297_af_l1_a1_e1": {
+    "7297": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7297_nmr_l1_a1_e1": {
+    "7297": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7320_af_l1_a1_e1": {
+    "7320": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7320_nmr_l1_a1_e1": {
+    "7320": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10024": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "b7407_af_l1_a1_e1": {
+    "15503": [
+     "uniprot"
+    ]
+   }
+  }
+ },
+ "exclude_bmrbs": {
+  "ucbshift": {
+   "b10036_nmr_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15329_af_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15329_nmr_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15447_xtal_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15447",
+    "15756",
+    "15758",
+    "15986"
+   ],
+   "b18022_af_l1_a1_e1": [
+    "5313",
+    "18022"
+   ],
+   "b18728_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b18822_nmr_l1_a1_e1": [
+    "5973",
+    "18822",
+    "51073"
+   ],
+   "b25696_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25696_xtal_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25697_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25697_xtal_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25698_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b26340_af_l1_a1_e1": [
+    "10288",
+    "26340"
+   ],
+   "b27945_af_l1_a1_e1": [
+    "4186",
+    "27945",
+    "27946"
+   ],
+   "b27946_af_l1_a1_e1": [
+    "4186",
+    "27945",
+    "27946"
+   ],
+   "b34079_af_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34079_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34080_af_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34080_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34225_nmr_l1_a1_e1": [
+    "4617",
+    "34225"
+   ],
+   "b34225_xtal_l1_a1_e1": [
+    "4617",
+    "34225"
+   ],
+   "b34379_af_l1_a1_e1": [
+    "4879",
+    "34379"
+   ],
+   "b34379_nmr_l1_a1_e1": [
+    "4879",
+    "34379"
+   ],
+   "b36259_af_l1_a1_e1": [
+    "6801",
+    "36259"
+   ],
+   "b36259_nmr_l1_a1_e1": [
+    "6801",
+    "36259"
+   ],
+   "b4140_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4206_af_l1_a1_e1": [
+    "4206",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "15756",
+    "15758"
+   ],
+   "b4288_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4491_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4830_nmr_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15756",
+    "15758"
+   ],
+   "b4830_xtal_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15756",
+    "15758"
+   ],
+   "b4937_nmr_l1_a1_e1": [
+    "4233",
+    "4937",
+    "5702",
+    "6192",
+    "6194"
+   ],
+   "b51073_nmr_l1_a1_e1": [
+    "5973",
+    "18822",
+    "51073"
+   ],
+   "b52059_af_l1_a1_e1": [
+    "4757",
+    "52059"
+   ],
+   "b52275_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ],
+   "b52276_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ],
+   "b52277_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ]
+  },
+  "shifty": {
+   "b10036_nmr_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15329_af_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15329_nmr_l1_a1_e1": [
+    "10036",
+    "15329"
+   ],
+   "b15447_xtal_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15447",
+    "15756",
+    "15758",
+    "15986"
+   ],
+   "b18022_af_l1_a1_e1": [
+    "5313",
+    "18022"
+   ],
+   "b18728_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b18822_nmr_l1_a1_e1": [
+    "5973",
+    "18822",
+    "51073"
+   ],
+   "b19339_xtal_l1_a1_e1": [
+    "6285",
+    "15792",
+    "19339"
+   ],
+   "b25696_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25696_xtal_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25697_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25697_xtal_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b25698_af_l1_a1_e1": [
+    "4595",
+    "4596",
+    "4597",
+    "4598",
+    "25696",
+    "25697",
+    "25698"
+   ],
+   "b26340_af_l1_a1_e1": [
+    "10288",
+    "26340"
+   ],
+   "b27317_xtal_l1_a1_e1": [
+    "15969",
+    "27317",
+    "27845",
+    "51294"
+   ],
+   "b27845_xtal_l1_a1_e1": [
+    "15969",
+    "27317",
+    "27845",
+    "51294"
+   ],
+   "b27945_af_l1_a1_e1": [
+    "4186",
+    "27945",
+    "27946"
+   ],
+   "b27946_af_l1_a1_e1": [
+    "4186",
+    "27945",
+    "27946"
+   ],
+   "b34079_af_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34079_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34080_af_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34080_nmr_l1_a1_e1": [
+    "4084",
+    "18728",
+    "34079",
+    "34080"
+   ],
+   "b34225_nmr_l1_a1_e1": [
+    "4617",
+    "34225"
+   ],
+   "b34225_xtal_l1_a1_e1": [
+    "4617",
+    "34225"
+   ],
+   "b34379_af_l1_a1_e1": [
+    "4879",
+    "34379"
+   ],
+   "b34379_nmr_l1_a1_e1": [
+    "4879",
+    "34379"
+   ],
+   "b36259_af_l1_a1_e1": [
+    "6801",
+    "36259"
+   ],
+   "b36259_nmr_l1_a1_e1": [
+    "6801",
+    "36259"
+   ],
+   "b4140_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4206_af_l1_a1_e1": [
+    "4206",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "15756",
+    "15758"
+   ],
+   "b4288_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4491_af_l1_a1_e1": [
+    "4140",
+    "4184",
+    "4288",
+    "4491"
+   ],
+   "b4830_nmr_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15756",
+    "15758"
+   ],
+   "b4830_xtal_l1_a1_e1": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15756",
+    "15758"
+   ],
+   "b4937_nmr_l1_a1_e1": [
+    "4233",
+    "4937",
+    "5702",
+    "6192",
+    "6194"
+   ],
+   "b51073_nmr_l1_a1_e1": [
+    "5973",
+    "18822",
+    "51073"
+   ],
+   "b51294_xtal_l1_a1_e1": [
+    "15969",
+    "27317",
+    "27845",
+    "51294"
+   ],
+   "b52014_xtal_l1_a1_e1": [
+    "15969",
+    "52014"
+   ],
+   "b52059_af_l1_a1_e1": [
+    "4757",
+    "52059"
+   ],
+   "b52275_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ],
+   "b52276_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ],
+   "b52277_af_l1_a1_e1": [
+    "4775",
+    "52275",
+    "52276",
+    "52277"
+   ]
+  }
+ }
+}

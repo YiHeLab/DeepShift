@@ -1,0 +1,6 @@
+# Generated tables.
+out/
+
+# Intermediates the scripts rebuild for themselves.
+paired_cells.npz
+arm_scan_cache.json

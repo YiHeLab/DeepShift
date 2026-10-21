@@ -1,0 +1,317 @@
+{
+ "what": "Deposited chemical shift channels excluded from the fold-6 benchmark because every independent predictor disagrees with them in sign. A channel is one deposition's values for one nucleus. A range fence cannot catch these: the values sit inside the nucleus's physical range and only their ORDER is wrong.",
+ "rule": {
+  "statement": "Exclude a channel when ALL FOUR independent predictors correlate negatively with the deposited series over at least 20 observations.",
+  "judges": [
+   "procs15",
+   "sparta",
+   "ucbshift_x",
+   "shiftx2_sameprot"
+  ],
+  "deepshift_is_not_a_judge": true,
+  "why": "the exclusion must not be tunable to our own errors",
+  "free_parameters": "none. There is no correlation cutoff and no restriction to a nucleus. 'Anti-correlated' is taken at its literal meaning, a negative correlation, and unanimity across four independent predictors replaces a threshold.",
+  "minimum_cells_per_channel": 20,
+  "applied_to": "every nucleus, not C-prime alone",
+  "outcome": "14 channels. 12 are C-prime, 1 amide H, 1 HA. The concentration in C-prime is a result of applying the rule, not an input to it: 12 of 588 C-prime channels are flagged against 2 of 4,164 channels of every other backbone nucleus.",
+  "supersedes_earlier_statements": "Earlier versions of this record stated a correlation cutoff of -0.25, later restated as 15 median absolute deviations. Both selected a subset of this set and both required choosing a number. This rule requires none."
+ },
+ "precedent": "UCBShift removed \"all C' chemical shifts from 3 proteins that are anti-correlated with predictions from SPARTA+, SHIFTX2 and UCBShift\" (Li, Bennett, Liu, Martin and Head-Gordon, Chem. Sci. 2020, 11, 3180, Methods and ESI Fig. S1).",
+ "verification": "Each channel is read back from the BMRB archive (api.bmrb.io) and aligned to our stored values by residue offset. Thirteen of the fourteen reproduce the deposited record at r = 1.000, which establishes that this package ingests the deposition faithfully up to the constant per-deposition rereferencing offset. It does NOT by itself establish that the deposited values are experimentally wrong. One channel, BMRB 50590 amide H, could not be reconciled with the archive at all; its archive_status says why.",
+ "corroboration": "For the twelve C-prime channels the same protein's other carbons behave normally: mean-judge correlation runs 0.899 to 0.978 for Calpha and 0.983 to 0.996 for Cbeta while C-prime is negative. Those nuclei share the residue mapping, so a register error would break them too and does not. Reversing a flagged series in residue order does not restore it, so the defect is not a sequence reversal; reflecting it about its mean (a mirror in value) is what restores eleven of the twelve, see limits. Against the population these twelve are the twelve lowest of 588 C-prime channels carrying at least 20 cells, whose median mean-judge correlation is +0.741. The rule is applied to every nucleus, so that concentration is an outcome and not an input: 12 of 588 C-prime channels are flagged against 2 of 4,164 channels of the other backbone nuclei. THE TWO NON-C-PRIME CHANNELS DO NOT HAVE THIS CORROBORATION. For BMRB 19458 (HA) the same protein's Calpha is 0.348 and Cbeta 0.500, so that protein is predicted poorly throughout and nothing here points to a defect specific to the HA channel. BMRB 50590 has no Calpha or Cbeta channel meeting the 20-cell minimum, so the comparison cannot be made at all.",
+ "limits": "Reflecting a channel about its own mean restores six of the twelve C-prime channels (4775, 6945, 15996, 16777, 19459, 26844) to near the 0.92 ppm floor. The other six were examined one by one (experiments/cprime_nonmirror_20261002/RESULTS.md, using the four judges and judge-free tests on the deposition's own Calpha shifts and residue types). Five are mirrored as well, each with one further defect: 6342 one aliased value, 27191 and 5752 every C-prime filed one residue off, 7300 a 2 to 4 ppm referencing offset, 52587 six values displaced by one spectral width; corrected for that defect each reaches its protein's expected C-prime error (6342 somewhat above). The sixth, 5683, carries no information about its protein (see known_limits). The two non-C-prime channels (50590 H, 19458 HA) were not put through these diagnostics.",
+ "what_the_evidence_supports": "For all twelve C-prime channels, that the deposited values are wrong: independent of any predictor, each is inconsistent with the same deposition's Calpha shifts and residue types, and eleven are mirror images of a physical C-prime series with the specific defect identified. For the two non-C-prime channels, only that every independent predictor disagrees with them in sign; no defect is identified. Four independent predictors, none of them DeepShift, disagree in sign with each of the fourteen, and the same proteins' Calpha and Cbeta predict normally.",
+ "known_limits": [
+  "BMRB 5683 C-prime is the weakest member by the rule's own measure: all four judges are negative but the mean is only -0.0180. Judge-free tests show the channel is nevertheless invalid: its correlation with the residue-type random-coil C-prime is -0.08, lower than 578 of 579 unflagged fold-6 C-prime channels, and its secondary C-prime does not follow the same residues' secondary Calpha (+0.07, 1.4th percentile). It is not a mirror, a register shift or aliasing; the cause is unidentified (experiments/cprime_nonmirror_20261002/RESULTS.md). It is 91 cells, all AlphaFold, and excluding it changes AlphaFold C-prime RMSE from 0.9124 to 0.9055 and nothing else.",
+  "BMRB 50590 amide H could not be reconciled with the archive: the deposition carries 47 rows for that nucleus against 58 stored here, and the 32 overlapping residues agree at r = 0.929. It is excluded because a channel that cannot be matched to its deposition should not be scored against, which is a different and stronger reason than the one the rule gives.",
+  "The two non-C-prime channels the rule adds are its weakest selections and are excluded because the rule is parameter-free, not because the evidence for them is strong. BMRB 19458 (HA, 55 cells) sits in a protein whose Calpha and Cbeta are themselves only 0.348 and 0.500, so it may simply be a hard protein. BMRB 50590 (H, 58 cells) cannot be reconciled with its deposition. Together they are 113 cells, 0.017 % of the benchmark. Retaining both instead changes no reported significance.",
+  "The discovery path was seeded on DeepShift's own errors. The first pass (experiments/anticorrelated_depositions_20260927/fold6_anticorr.py:21) filtered candidates on r_deepshift < 0. The shipped rule carries no DeepShift term and applying it cold to all 4,752 channels reproduces this list exactly, so the rule is separable from the path that found it, but the rule was still written after the errors had been inspected.",
+  "Excluding these channels changes exactly one significance cell of eighteen (three sources by six backbone nuclei): crystal C-prime, where the paired interval against the runner-up moves from [-0.072, +0.030] to [-0.086, -0.026]. 16 of 18 cells are significant without any exclusion. No other claim in the paper depends on this filter.",
+  "79 cells of a second realization of BMRB 16777 need a different numbering alignment than the offset recorded here and were not matched."
+ ],
+ "n_channels": 14,
+ "n_cells": 2003,
+ "channels": [
+  {
+   "bmrb": "5683",
+   "nucleus": "C",
+   "label_set": "ls_503d53ba14ab94227d7cc37f72e7982a3b1f25803050e8e459ba9503daa347e7",
+   "n_cells": 91,
+   "r_independent_judges": {
+    "procs15": -0.0344,
+    "sparta": -0.0258,
+    "ucbshift_x": -0.0046,
+    "shiftx2_sameprot": -0.0075
+   },
+   "mean_judge_r": -0.018,
+   "r_deepshift_not_used_in_rule": 0.0162,
+   "archive_residue_offset": 0,
+   "archive_cells_compared": 91,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": 0.0162,
+   "archive_checked": true,
+   "archive_verified": true
+  },
+  {
+   "bmrb": "6342",
+   "nucleus": "C",
+   "label_set": "ls_adaecb4877718cc9457ec1d0f50f1d2d0ca77387cb120c4c5a3ab5774f4b7424",
+   "n_cells": 104,
+   "r_independent_judges": {
+    "procs15": -0.259,
+    "sparta": -0.5844,
+    "ucbshift_x": -0.601,
+    "shiftx2_sameprot": -0.5987
+   },
+   "mean_judge_r": -0.5108,
+   "r_deepshift_not_used_in_rule": -0.5911,
+   "archive_residue_offset": 0,
+   "archive_cells_compared": 52,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.6025,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "7300",
+   "nucleus": "C",
+   "label_set": "ls_fad5427e7f9951aca97868970a3d713c0d67803377665989aba859f7b15bcc49",
+   "n_cells": 186,
+   "r_independent_judges": {
+    "procs15": -0.4447,
+    "sparta": -0.5255,
+    "ucbshift_x": -0.5334,
+    "shiftx2_sameprot": -0.4882
+   },
+   "mean_judge_r": -0.498,
+   "r_deepshift_not_used_in_rule": -0.599,
+   "archive_residue_offset": 0,
+   "archive_cells_compared": 93,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.56,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "16777",
+   "nucleus": "C",
+   "label_set": "ls_007305f8abc36f45fae3a2329afa089d77b09da4232a7e5c64dfea5d6b3a6549",
+   "n_cells": 159,
+   "r_independent_judges": {
+    "procs15": -0.3499,
+    "sparta": -0.6568,
+    "ucbshift_x": -0.655,
+    "shiftx2_sameprot": -0.6851
+   },
+   "mean_judge_r": -0.5867,
+   "r_deepshift_not_used_in_rule": -0.5772,
+   "archive_residue_offset": -160,
+   "archive_cells_compared": 80,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.5389,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "27191",
+   "nucleus": "C",
+   "label_set": "ls_e041ad2c536e63299e8e307b2e46292f5ff25b1697689d286070b5c446e2a828",
+   "n_cells": 318,
+   "r_independent_judges": {
+    "procs15": -0.2123,
+    "sparta": -0.4463,
+    "ucbshift_x": -0.4324,
+    "shiftx2_sameprot": -0.429
+   },
+   "mean_judge_r": -0.38,
+   "r_deepshift_not_used_in_rule": -0.4327,
+   "archive_residue_offset": 3,
+   "archive_cells_compared": 144,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.4099,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "50590",
+   "nucleus": "H",
+   "label_set": "ls_6ba9495517ff92d76b2b1648411303d77ec960a44082509b37c99e6adf3644bb",
+   "n_cells": 58,
+   "r_independent_judges": {
+    "procs15": -0.197,
+    "sparta": -0.2236,
+    "ucbshift_x": -0.2194,
+    "shiftx2_sameprot": -0.1942
+   },
+   "mean_judge_r": -0.2086,
+   "r_deepshift_not_used_in_rule": -0.2698,
+   "archive_residue_offset": -295,
+   "archive_cells_compared": 32,
+   "r_archive_vs_our_stored": 0.929385,
+   "r_archive_vs_deepshift": -0.3682,
+   "archive_checked": true,
+   "archive_verified": false,
+   "archive_status": "UNRECONCILED: the deposition carries 47 rows for this nucleus while this package stores 58, and the 32 residues that do overlap agree at r = 0.929 rather than 1.000. The stored channel cannot be matched to the deposited record. It is excluded because that is itself a defect, not because the archive confirms an inverted series."
+  },
+  {
+   "bmrb": "52587",
+   "nucleus": "C",
+   "label_set": "ls_fd1b84a8ed3d6b34df17d7596edb5eee847fe1b0fc51a2ded315fab087a19a96",
+   "n_cells": 302,
+   "r_independent_judges": {
+    "procs15": -0.4024,
+    "sparta": -0.4113,
+    "ucbshift_x": -0.4144,
+    "shiftx2_sameprot": -0.4016
+   },
+   "mean_judge_r": -0.4074,
+   "r_deepshift_not_used_in_rule": -0.3886,
+   "archive_residue_offset": 3,
+   "archive_cells_compared": 136,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.445,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "4775",
+   "nucleus": "C",
+   "label_set": "ls_2aa88fe781e78e65b0714dbcad0902240b57e7574381436caab3344b483f38b1",
+   "n_cells": 164,
+   "r_independent_judges": {
+    "procs15": -0.3851,
+    "sparta": -0.8353,
+    "ucbshift_x": -0.8682,
+    "shiftx2_sameprot": -0.8269
+   },
+   "mean_judge_r": -0.7289,
+   "r_deepshift_not_used_in_rule": -0.9059,
+   "archive_residue_offset": -10,
+   "archive_cells_compared": 164,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.9059,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "6945",
+   "nucleus": "C",
+   "label_set": "ls_c5376be81ced724edd204ec11a036ab15b271636340ad63b121272f4c78ae168",
+   "n_cells": 52,
+   "r_independent_judges": {
+    "procs15": -0.2318,
+    "sparta": -0.7945,
+    "ucbshift_x": -0.7882,
+    "shiftx2_sameprot": -0.7882
+   },
+   "mean_judge_r": -0.6507,
+   "r_deepshift_not_used_in_rule": -0.8584,
+   "archive_residue_offset": 0,
+   "archive_cells_compared": 52,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.8584,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "15996",
+   "nucleus": "C",
+   "label_set": "ls_5fece48a4084b67c232d56881be3e2b7ed4b9a8c6ab12ee3a78c68705c66f5fe",
+   "n_cells": 115,
+   "r_independent_judges": {
+    "procs15": -0.3365,
+    "sparta": -0.7218,
+    "ucbshift_x": -0.7827,
+    "shiftx2_sameprot": -0.7161
+   },
+   "mean_judge_r": -0.6393,
+   "r_deepshift_not_used_in_rule": -0.7739,
+   "archive_residue_offset": -688,
+   "archive_cells_compared": 115,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.7739,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "19458",
+   "nucleus": "HA",
+   "label_set": "ls_11c5ab7f9c235d84796a0d6c6b07e72b2b8a20fb8d6f58112ce34c2641383105",
+   "n_cells": 55,
+   "r_independent_judges": {
+    "procs15": -0.0175,
+    "sparta": -0.2061,
+    "ucbshift_x": -0.1582,
+    "shiftx2_sameprot": -0.0596
+   },
+   "mean_judge_r": -0.1103,
+   "r_deepshift_not_used_in_rule": -0.1359,
+   "archive_residue_offset": -56,
+   "archive_cells_compared": 55,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.1359,
+   "archive_checked": true,
+   "archive_verified": true
+  },
+  {
+   "bmrb": "19459",
+   "nucleus": "C",
+   "label_set": "ls_10762466f470e89f5a5686f992c67f2de9fc6192607d8e377761839990e482d3",
+   "n_cells": 106,
+   "r_independent_judges": {
+    "procs15": -0.2768,
+    "sparta": -0.6546,
+    "ucbshift_x": -0.6906,
+    "shiftx2_sameprot": -0.7213
+   },
+   "mean_judge_r": -0.5858,
+   "r_deepshift_not_used_in_rule": -0.7666,
+   "archive_residue_offset": 6,
+   "archive_cells_compared": 106,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.7666,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "26844",
+   "nucleus": "C",
+   "label_set": "ls_3ee80630f02f1d65efa3c8c25e8a2af60d1df867e1f9a4eea4d8cb9e2b0f72a0",
+   "n_cells": 118,
+   "r_independent_judges": {
+    "procs15": -0.1986,
+    "sparta": -0.6937,
+    "ucbshift_x": -0.7122,
+    "shiftx2_sameprot": -0.6648
+   },
+   "mean_judge_r": -0.5673,
+   "r_deepshift_not_used_in_rule": -0.7798,
+   "archive_residue_offset": -221,
+   "archive_cells_compared": 118,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.7798,
+   "archive_verified": true,
+   "archive_checked": true
+  },
+  {
+   "bmrb": "5752",
+   "nucleus": "C",
+   "label_set": "ls_2548d1dc4ca6b7d52d3eabb267d8e5195b97cfc733c03326bafff1687fd51b58",
+   "n_cells": 175,
+   "r_independent_judges": {
+    "procs15": -0.1672,
+    "sparta": -0.3181,
+    "ucbshift_x": -0.1984,
+    "shiftx2_sameprot": -0.3345
+   },
+   "mean_judge_r": -0.2546,
+   "r_deepshift_not_used_in_rule": -0.2984,
+   "archive_residue_offset": -137,
+   "archive_cells_compared": 175,
+   "r_archive_vs_our_stored": 1.0,
+   "r_archive_vs_deepshift": -0.2984,
+   "archive_verified": true,
+   "archive_checked": true
+  }
+ ]
+}

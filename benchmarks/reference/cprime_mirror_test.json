@@ -1,0 +1,129 @@
+{
+ "what": "each excluded C-prime channel against the mean of the four judges, as deposited and reflected about its own mean",
+ "judges": [
+  "procs15",
+  "sparta",
+  "ucbshift_x",
+  "shiftx2_sameprot"
+ ],
+ "deepshift_used": false,
+ "cells": "the channel's fold-6 cells on every structure instance of its label set that at least one judge predicted",
+ "unflagged_reference": {
+  "what": "the same RMSE on every other fold-6 C-prime channel (label set) with at least 20 aligned cells",
+  "n_channels": 587,
+  "median_rmse_ppm": 1.0727,
+  "p10_rmse_ppm": 0.9018,
+  "p90_rmse_ppm": 1.3327
+ },
+ "n_channels": 12,
+ "channels": [
+  {
+   "bmrb": "16777",
+   "label_set": "ls_007305f8abc36f45fae3a2329afa089d77b09da4232a7e5c64dfea5d6b3a6549",
+   "n_cells": 162,
+   "r": -0.6677,
+   "r_reflected": 0.6677,
+   "rmse_ppm": 2.2032,
+   "rmse_reflected_ppm": 1.0019
+  },
+  {
+   "bmrb": "4775",
+   "label_set": "ls_2aa88fe781e78e65b0714dbcad0902240b57e7574381436caab3344b483f38b1",
+   "n_cells": 169,
+   "r": -0.8454,
+   "r_reflected": 0.8454,
+   "rmse_ppm": 3.2839,
+   "rmse_reflected_ppm": 1.1515
+  },
+  {
+   "bmrb": "26844",
+   "label_set": "ls_3ee80630f02f1d65efa3c8c25e8a2af60d1df867e1f9a4eea4d8cb9e2b0f72a0",
+   "n_cells": 119,
+   "r": -0.683,
+   "r_reflected": 0.683,
+   "rmse_ppm": 2.5083,
+   "rmse_reflected_ppm": 1.152
+  },
+  {
+   "bmrb": "15996",
+   "label_set": "ls_5fece48a4084b67c232d56881be3e2b7ed4b9a8c6ab12ee3a78c68705c66f5fe",
+   "n_cells": 133,
+   "r": -0.7344,
+   "r_reflected": 0.7344,
+   "rmse_ppm": 2.7978,
+   "rmse_reflected_ppm": 1.22
+  },
+  {
+   "bmrb": "6945",
+   "label_set": "ls_c5376be81ced724edd204ec11a036ab15b271636340ad63b121272f4c78ae168",
+   "n_cells": 53,
+   "r": -0.7485,
+   "r_reflected": 0.7485,
+   "rmse_ppm": 2.767,
+   "rmse_reflected_ppm": 1.2372
+  },
+  {
+   "bmrb": "19459",
+   "label_set": "ls_10762466f470e89f5a5686f992c67f2de9fc6192607d8e377761839990e482d3",
+   "n_cells": 116,
+   "r": -0.6998,
+   "r_reflected": 0.6998,
+   "rmse_ppm": 2.5134,
+   "rmse_reflected_ppm": 1.2809
+  },
+  {
+   "bmrb": "6342",
+   "label_set": "ls_adaecb4877718cc9457ec1d0f50f1d2d0ca77387cb120c4c5a3ab5774f4b7424",
+   "n_cells": 110,
+   "r": -0.6015,
+   "r_reflected": 0.6015,
+   "rmse_ppm": 3.0919,
+   "rmse_reflected_ppm": 1.7561
+  },
+  {
+   "bmrb": "27191",
+   "label_set": "ls_e041ad2c536e63299e8e307b2e46292f5ff25b1697689d286070b5c446e2a828",
+   "n_cells": 449,
+   "r": -0.4187,
+   "r_reflected": 0.4187,
+   "rmse_ppm": 3.2295,
+   "rmse_reflected_ppm": 2.1094
+  },
+  {
+   "bmrb": "5683",
+   "label_set": "ls_503d53ba14ab94227d7cc37f72e7982a3b1f25803050e8e459ba9503daa347e7",
+   "n_cells": 97,
+   "r": -0.0191,
+   "r_reflected": 0.0191,
+   "rmse_ppm": 2.3057,
+   "rmse_reflected_ppm": 2.2661
+  },
+  {
+   "bmrb": "7300",
+   "label_set": "ls_fad5427e7f9951aca97868970a3d713c0d67803377665989aba859f7b15bcc49",
+   "n_cells": 192,
+   "r": -0.5532,
+   "r_reflected": 0.5532,
+   "rmse_ppm": 3.1525,
+   "rmse_reflected_ppm": 2.3086
+  },
+  {
+   "bmrb": "52587",
+   "label_set": "ls_fd1b84a8ed3d6b34df17d7596edb5eee847fe1b0fc51a2ded315fab087a19a96",
+   "n_cells": 427,
+   "r": -0.4473,
+   "r_reflected": 0.4473,
+   "rmse_ppm": 3.5158,
+   "rmse_reflected_ppm": 2.3305
+  },
+  {
+   "bmrb": "5752",
+   "label_set": "ls_2548d1dc4ca6b7d52d3eabb267d8e5195b97cfc733c03326bafff1687fd51b58",
+   "n_cells": 181,
+   "r": -0.2887,
+   "r_reflected": 0.2887,
+   "rmse_ppm": 3.1801,
+   "rmse_reflected_ppm": 2.48
+  }
+ ]
+}

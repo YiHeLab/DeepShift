@@ -1,0 +1,63 @@
+{
+ "what": "the cells UCBShift's paper removes from its own 200-protein test set, applied wherever this release scores that test set (Tables S18, S19 and S20, Figure S4 panel a, and the UCBShift-Y self-retrieval rate)",
+ "source": "Li, Bennett, Liu, Martin and Head-Gordon, Chem. Sci. 2020, 11, 3180, Electronic Supplementary Information: Fig. S1 (C-prime anticorrelated with prediction), Table S1 (outlier labels) and Table S2 (cysteine C-beta)",
+ "funnel": "every scorer first applies UCBShift's released evaluate.py: join on residue number, drop residues whose names disagree, blank targets with H < 2, CB > 80 or N < 60 ppm; the ESI Table S1 outliers that rule already removes are not repeated here",
+ "cprime_chains": {
+  "rule": "every C-prime of these chains (ESI Fig. S1)",
+  "chains": [
+   "1BGF_",
+   "1RPJA",
+   "2IDUA"
+  ]
+ },
+ "cells": {
+  "rule": "these (chain, residue number, atom) cells: the one ESI Table S1 row the funnel keeps (1DSBA Pro 51 N, 152.99 ppm), and the eight cysteine C-beta of ESI Table S2, each checked against the released target value. The other nine Table S1 rows are below H 2, above CB 80 or below N 60 ppm and the funnel removes them; the ESI's 1GOA_ Trp 119 N (26.57 ppm) is residue 118 in the released file, removed the same way",
+  "cells": [
+   [
+    "1DSBA",
+    51,
+    "N"
+   ],
+   [
+    "1DSBA",
+    33,
+    "CB"
+   ],
+   [
+    "1LJUA",
+    82,
+    "CB"
+   ],
+   [
+    "1LJUA",
+    89,
+    "CB"
+   ],
+   [
+    "1VKBA",
+    35,
+    "CB"
+   ],
+   [
+    "1VKBA",
+    62,
+    "CB"
+   ],
+   [
+    "2AFGB",
+    117,
+    "CB"
+   ],
+   [
+    "2GOOB",
+    40,
+    "CB"
+   ],
+   [
+    "2PF5A",
+    47,
+    "CB"
+   ]
+  ]
+ }
+}

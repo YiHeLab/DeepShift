@@ -1,0 +1,24 @@
+{
+  "curated_blanked_cells": 100,
+  "curated_flag_column": "curated_excluded_nuclei",
+  "curated_notes": "deposition_notes.tsv",
+  "excluded_cells": 39327,
+  "excluded_cells_nonnull": 39327,
+  "exclusions_applied_ok": true,
+  "fold_coverage": 0.783951267502062,
+  "outputs": {
+    "deepshift_sequences.parquet": "2a3ca57f2a0a0a976fa61c00cda6514a0f9a836892b62520b4c34fa60b16357e",
+    "deepshift_shifts.parquet": "e3afcdacd85b95421adbe08fb7025ae052cbb0810e547b1dc214219f3eb08627",
+    "deepshift_structures.parquet": "31e5d7f4ef22ff3fc12e467276491502a5b09c5afdd5cc96916d49b88778355f"
+  },
+  "proline_amide_blanked_cells": 20,
+  "qc_flag_column": "qc_excluded_nuclei",
+  "qc_flags": "qc_flags_p100_structural.json",
+  "qc_policy": "p100_structural",
+  "reref_applied_ok": true,
+  "reref_val_label_set_id": "ls_00035d4baa0b1b709369bd97fc0c7ef51996a926d299d6228c53fd61df620edb",
+  "reref_val_offset_N": -1.55,
+  "sequences_rows": 17118,
+  "shifts_rows": 1509465,
+  "structures_rows": 21346
+}

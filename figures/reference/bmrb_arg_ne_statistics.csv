@@ -1,0 +1,8 @@
+# Provenance: the ARG,NE row of the BMRB filtered chemical-shift statistics snapshot of 2026-08-05
+# (bmrb_stats_filt.csv, sha256 a43dd561955ad6d19d99a991b05b896f7c3c412e2476fde1e3b4d041137c28c8,
+# a 12,213-byte file of 20 residue types x atoms; only this row is shipped). The columns are those of the
+# BMRB statistics table: observation count, min, max, mean, standard deviation, outlier count.
+# A cross-check on the fence band, not its source: the band is mean +- 3.5 sd of the earlier snapshot
+# of these statistics the code carries (mean 84.594, sd 1.605; see ne_alias_fence.json rule.basis). This row gives the same band to 0.005 ppm.
+comp_id,atom_id,count,min,max,avg,std,num_outliers
+ARG,NE,4947,67.00,99.808,84.593,1.604,1505

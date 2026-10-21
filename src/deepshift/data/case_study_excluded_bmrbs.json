@@ -1,0 +1,25 @@
+{
+  "note": "External case-study proteins held out of every training fold: all eight proteins of the Nagy IDP8 study (Table S26, Figure S11a), tau (Figure S11b) and drkN SH3 (X-EISD, Figure 7 / S12). Held out by the same direct rule as the UCBShift-200 boundary (same deposition, same UniProt, homolog at identity >= 0.65 over coverage >= 0.60, closed over same-deposition), plus any record sharing a long near-identical segment, then pinned to fold 0 AFTER the seeded draw so the draw itself is unchanged.",
+  "source": "BMRB ids from the IDP8 manifest (Nagy et al., Appl Spectrosc 78:897-911, 2024), the Stockelmaier tau study and Lincoff et al. 2020 (drkN SH3, BMRB 25500). Sequences are the corpus entity sequences of those depositions, the PED00001 Sic1 model and the tau peptide of the sensitivity test. MEVN and RSP8 have no BMRB entry -- Nagy reports their shifts from private communication -- so they are held out by sequence alone: MEVN is residues 400-525 of the measles virus nucleoprotein (UniProt P35972, the construct Nagy Table II names) and RSP8 is the RS-repeat peptide whose sequence the paper prints in its Materials and Methods.",
+  "bmrbs": [
+    "15397",
+    "16363",
+    "16657",
+    "17760",
+    "19253",
+    "19257",
+    "25500"
+  ],
+  "sequences": {
+    "actr_ncoa3_ad1": "GTQNRPLLRNSLDDLVGPPSNLEGQSDERALLDQLHTLLSNTDATGLEEIDRALGIPELVNQGQALEPKQD",
+    "alpha_synuclein": "MDVFMKGLSKAKEGVVAAAEKTKQGVAEAAGKTKEGVLYVGSKTKEGVVHGVATVAEKTKEQVTNVGGAVVTGVTAVAQKTVEGAGSIAAATGFVKKDQLGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEA",
+    "cbp_ncbd": "PNRSISPSALQDLLRTLKSPSSPQQQQQVLNILKSNPQLMAAFIKQRTAKYVANQPGMQ",
+    "drkn_sh3": "MEAIAKHDFSATADDELSFRKTQILKILNMEDDSNWYRAELDGKEGLIPSNYIEMKNHD",
+    "measles_nucleoprotein_ntail": "HTTEDKISRAVGPRQAQVSFLHGDQSENELPRLGGKEDRRVKQSRGEARESYRETGPSRASDARAAHLPTGTPLDIDTASESSQDPQDSRRSADALLRLQAMAGISEEQGSDTDTPIVYNDRNLLD",
+    "p53_tad": "MEEPQSDPSVEPPLSQETFSDLWKLLPENNVLSPLPSQAMDDLMLSPDDIEQWFTEDPGPDEAPRMPEAAPPVAPAPAAPTPAAPAPAPSWPL",
+    "rs_repeat_peptide": "GAMGPSYGRSRSRSRSRSRSRSRS",
+    "sic1": "GSMTPSTPPRSRGTRYLAQPSGNTSSSALMQGQKTPQKPSQNLVPVTPSTTKSFKNAPLLAPPNSNMGMTSPFNGLTSPQRSPFPKSSVKRT",
+    "tau_k18": "QTAPVPMPDLKNVKSKIGSTENLKHQPGGGKVQIINKKLDLSNVQSKCGSKDNIKHVPGGGSVQIVYKPVDLSKVTSKAGSLGNIHHKPGGGQVEVKSEKLDFKDRVQSKIGSLDNITHVPGGGNKKIE",
+    "tau_peptide_r2": "SRTPSLPTPPTREPKKVAVVRTPPKSPSSAK"
+  }
+}

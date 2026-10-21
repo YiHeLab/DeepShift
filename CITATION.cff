@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use DeepShift, please cite it as below."
+title: "DeepShift: Structure-Only Accurate Prediction of Protein NMR Chemical Shifts at Scale"
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: Diaz
+    given-names: Wynn
+    affiliation: "Department of Chemistry & Chemical Biology, College of Arts and Sciences, The University of New Mexico, Albuquerque, NM, USA"
+  - family-names: He
+    given-names: Yi
+    affiliation: "Department of Chemistry & Chemical Biology, College of Arts and Sciences, The University of New Mexico, Albuquerque, NM, USA; Center for Computational Chemistry, College of Arts and Sciences, The University of New Mexico, Albuquerque, NM, USA; Department of Internal Medicine, University of New Mexico Comprehensive Cancer Center, University of New Mexico, Albuquerque, NM, USA"
+# PLACEHOLDER: the organisation is not yet chosen. The same address stands in
+# colab/DeepShift_predict.ipynb.
+repository-code: "https://github.com/YiHeLab/DeepShift"

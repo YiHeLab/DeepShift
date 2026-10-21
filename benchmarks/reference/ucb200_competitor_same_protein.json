@@ -1,0 +1,6361 @@
+{
+ "what": "per UCBShift-200 test chain, the references of each competitor transfer library that are the chain's own protein, and the exclusion list that blocks them (chains whose deployed list already did are not listed under exclude_bmrbs)",
+ "rule": "same BMRB, a shared UniProt accession or UniRef100 cluster, or >=95% identity over >=90% of the shorter sequence (MMseqs2, exhaustive)",
+ "arms": {
+  "ucbshift": "UCBShift (ucbshift_full_sameprot lane)",
+  "shifty": "SHIFTX2 (shiftx2_ucb200/sameprot)"
+ },
+ "evidence": {
+  "ucbshift": {
+   "109M_": {
+    "4568": [
+     "uniprot",
+     "sequence"
+    ],
+    "4695": [
+     "uniprot",
+     "sequence"
+    ],
+    "5158": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7076": [
+     "uniprot",
+     "sequence"
+    ],
+    "7077": [
+     "uniprot",
+     "sequence"
+    ],
+    "16499": [
+     "uniprot",
+     "sequence"
+    ],
+    "16500": [
+     "uniprot",
+     "sequence"
+    ],
+    "16501": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AE3_": {
+    "2039": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AG6_": {
+    "79": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AJ6_": {
+    "5218": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1AM7A": {
+    "16664": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AR0A": {
+    "5888": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ASS_": {
+    "5930": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1B68A": {
+    "6524": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BAZC": {
+    "394": [
+     "uniprot",
+     "sequence"
+    ],
+    "395": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4540": [
+     "uniprot"
+    ]
+   },
+   "1BD9B": {
+    "17382": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BGF_": {
+    "5997": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BNEA": {
+    "975": [
+     "uniprot",
+     "sequence"
+    ],
+    "4964": [
+     "uniprot",
+     "sequence"
+    ],
+    "7126": [
+     "uniprot",
+     "sequence"
+    ],
+    "16169": [
+     "uniprot",
+     "sequence"
+    ],
+    "16170": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16171": [
+     "uniprot",
+     "sequence"
+    ],
+    "16172": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BNZA": {
+    "4570": [
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot",
+     "sequence"
+    ],
+    "5910": [
+     "uniref100",
+     "sequence"
+    ],
+    "6050": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BRJA": {
+    "975": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4964": [
+     "uniprot",
+     "sequence"
+    ],
+    "7126": [
+     "uniprot",
+     "sequence"
+    ],
+    "16169": [
+     "uniprot",
+     "sequence"
+    ],
+    "16170": [
+     "uniprot",
+     "sequence"
+    ],
+    "16171": [
+     "uniprot",
+     "sequence"
+    ],
+    "16172": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BWOB": {
+    "2065": [
+     "uniprot",
+     "sequence"
+    ],
+    "4383": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4932": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1C8CA": {
+    "4570": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot",
+     "sequence"
+    ],
+    "5910": [
+     "uniprot",
+     "sequence"
+    ],
+    "6050": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CKUB": {
+    "2999": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CLVI": {
+    "4404": [
+     "uniprot",
+     "sequence"
+    ],
+    "4490": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CM9B": {
+    "4852": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4914": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CQMB": {
+    "16344": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CY5A": {
+    "4661": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1D03A": {
+    "1673": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DCDB": {
+    "5249": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DFNA": {
+    "16254": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DS3I": {
+    "42": [
+     "uniprot",
+     "sequence"
+    ],
+    "507": [
+     "uniprot",
+     "sequence"
+    ],
+    "1374": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1375": [
+     "uniprot",
+     "sequence"
+    ],
+    "4068": [
+     "uniprot",
+     "sequence"
+    ],
+    "4864": [
+     "uniprot",
+     "sequence"
+    ],
+    "4865": [
+     "uniprot",
+     "sequence"
+    ],
+    "5469": [
+     "uniprot",
+     "sequence"
+    ],
+    "5472": [
+     "uniprot"
+    ],
+    "5473": [
+     "uniprot"
+    ],
+    "5518": [
+     "uniprot",
+     "sequence"
+    ],
+    "5519": [
+     "uniprot"
+    ]
+   },
+   "1DSBA": {
+    "16327": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EK8A": {
+    "5190": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ENFA": {
+    "16146": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EQTB": {
+    "16803": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EZGB": {
+    "5323": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1F2MA": {
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FD3D": {
+    "4642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FDQA": {
+    "5320": [
+     "uniprot",
+     "sequence"
+    ],
+    "16042": [
+     "uniprot",
+     "sequence"
+    ],
+    "16046": [
+     "uniprot",
+     "sequence"
+    ],
+    "16047": [
+     "uniprot",
+     "sequence"
+    ],
+    "16048": [
+     "uniprot",
+     "sequence"
+    ],
+    "16049": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FU0A": {
+    "4774": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GN0A": {
+    "17136": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GOA_": {
+    "1657": [
+     "uniprot",
+     "sequence"
+    ],
+    "4012": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GPR_": {
+    "1663": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GWYA": {
+    "16362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16630": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GZZB": {
+    "2498": [
+     "uniprot"
+    ],
+    "4069": [
+     "uniprot"
+    ],
+    "4204": [
+     "bmrb",
+     "uniprot"
+    ],
+    "4278": [
+     "uniprot"
+    ],
+    "4494": [
+     "uniprot"
+    ],
+    "15654": [
+     "uniprot"
+    ]
+   },
+   "1H0JB": {
+    "4966": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HB8B": {
+    "2049": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HC9A": {
+    "8": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4195": [
+     "uniprot",
+     "sequence"
+    ],
+    "5006": [
+     "uniprot",
+     "sequence"
+    ],
+    "5024": [
+     "uniprot",
+     "sequence"
+    ],
+    "15130": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HC9B": {
+    "8": [
+     "uniprot",
+     "sequence"
+    ],
+    "4195": [
+     "uniprot",
+     "sequence"
+    ],
+    "5006": [
+     "uniprot",
+     "sequence"
+    ],
+    "5024": [
+     "uniprot",
+     "sequence"
+    ],
+    "15130": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HFZC": {
+    "4332": [
+     "uniprot",
+     "sequence"
+    ],
+    "4811": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HSLB": {
+    "16204": [
+     "uniprot",
+     "sequence"
+    ],
+    "16205": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ICFJ": {
+    "5583": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IKOP": {
+    "7220": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IOZA": {
+    "10051": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IP2A": {
+    "2542": [
+     "uniprot",
+     "sequence"
+    ],
+    "5123": [
+     "uniprot",
+     "sequence"
+    ],
+    "5124": [
+     "uniprot",
+     "sequence"
+    ],
+    "5125": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5130": [
+     "uniprot",
+     "sequence"
+    ],
+    "5142": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IV9A": {
+    "4222": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4633": [
+     "uniprot"
+    ],
+    "4638": [
+     "uniprot",
+     "sequence"
+    ],
+    "5529": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1J1VA": {
+    "5200": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10027": [
+     "uniprot"
+    ]
+   },
+   "1J3FA": {
+    "4568": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4695": [
+     "uniprot",
+     "sequence"
+    ],
+    "5158": [
+     "uniprot",
+     "sequence"
+    ],
+    "7076": [
+     "uniprot",
+     "sequence"
+    ],
+    "7077": [
+     "uniprot",
+     "sequence"
+    ],
+    "16499": [
+     "uniprot",
+     "sequence"
+    ],
+    "16500": [
+     "uniprot",
+     "sequence"
+    ],
+    "16501": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1JHFB": {
+    "6373": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1JPST": {
+    "16838": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1K82A": {
+    "5219": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KBAB": {
+    "1675": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KDJ_": {
+    "7370": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KTZA": {
+    "4411": [
+     "bmrb",
+     "uniprot"
+    ],
+    "5953": [
+     "uniprot"
+    ]
+   },
+   "1KTZB": {
+    "4779": [
+     "uniprot",
+     "sequence"
+    ],
+    "5953": [
+     "uniprot",
+     "sequence"
+    ],
+    "5954": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KX9B": {
+    "5094": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1L0SB": {
+    "5572": [
+     "uniprot",
+     "sequence"
+    ],
+    "5573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1L1DB": {
+    "6051": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6709": [
+     "uniprot"
+    ],
+    "15280": [
+     "uniprot"
+    ]
+   },
+   "1LJUA": {
+    "4944": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1LP1B": {
+    "1120": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4324": [
+     "uniprot",
+     "sequence"
+    ],
+    "6804": [
+     "uniprot"
+    ],
+    "6805": [
+     "uniprot"
+    ]
+   },
+   "1LU0B": {
+    "199": [
+     "uniprot"
+    ],
+    "314": [
+     "uniprot"
+    ],
+    "2227": [
+     "uniprot"
+    ],
+    "2527": [
+     "uniprot"
+    ],
+    "4246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1LW6I": {
+    "1869": [
+     "uniprot",
+     "sequence"
+    ],
+    "1870": [
+     "uniprot",
+     "sequence"
+    ],
+    "4974": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1M8AB": {
+    "15596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MI4A": {
+    "4848": [
+     "uniprot",
+     "sequence"
+    ],
+    "4854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MIDA": {
+    "15143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MOLB": {
+    "4222": [
+     "uniprot",
+     "sequence"
+    ],
+    "4633": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4638": [
+     "uniprot",
+     "sequence"
+    ],
+    "5529": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MR3F": {
+    "15626": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MYWA": {
+    "5514": [
+     "uniprot"
+    ],
+    "5666": [
+     "uniprot",
+     "sequence"
+    ],
+    "15826": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1N3ZA": {
+    "4980": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1NAQF": {
+    "15094": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1NBPA": {
+    "6621": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1O5UA": {
+    "16006": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1O82D": {
+    "4112": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OBOA": {
+    "5011": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16593": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OFFA": {
+    "16024": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OKHB": {
+    "4587": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OKSA": {
+    "6568": [
+     "uniprot",
+     "sequence"
+    ],
+    "6569": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OMSC": {
+    "5298": [
+     "uniprot"
+    ],
+    "15813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OMYA": {
+    "7330": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OS3D": {
+    "554": [
+     "uniprot"
+    ],
+    "555": [
+     "uniprot",
+     "sequence"
+    ],
+    "936": [
+     "uniprot"
+    ],
+    "937": [
+     "uniprot",
+     "sequence"
+    ],
+    "1344": [
+     "uniprot"
+    ],
+    "1444": [
+     "uniprot",
+     "sequence"
+    ],
+    "1585": [
+     "uniprot"
+    ],
+    "1586": [
+     "uniprot",
+     "sequence"
+    ],
+    "1632": [
+     "uniprot"
+    ],
+    "1633": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OVHA": {
+    "915": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1P2OD": {
+    "45": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "46": [
+     "uniprot",
+     "sequence"
+    ],
+    "48": [
+     "uniprot",
+     "sequence"
+    ],
+    "49": [
+     "uniprot",
+     "sequence"
+    ],
+    "262": [
+     "uniprot",
+     "sequence"
+    ],
+    "263": [
+     "uniprot",
+     "sequence"
+    ],
+    "264": [
+     "uniprot",
+     "sequence"
+    ],
+    "338": [
+     "uniprot",
+     "sequence"
+    ],
+    "485": [
+     "uniprot",
+     "sequence"
+    ],
+    "4868": [
+     "uniprot",
+     "sequence"
+    ],
+    "4875": [
+     "uniprot"
+    ],
+    "4877": [
+     "uniprot"
+    ],
+    "4968": [
+     "uniprot",
+     "sequence"
+    ],
+    "5171": [
+     "uniprot"
+    ],
+    "5358": [
+     "uniprot",
+     "sequence"
+    ],
+    "5359": [
+     "uniprot",
+     "sequence"
+    ],
+    "5375": [
+     "uniprot"
+    ],
+    "5381": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1P7JA": {
+    "7386": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1PCS_": {
+    "5475": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PGX_": {
+    "2575": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5654": [
+     "uniprot"
+    ],
+    "5875": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ],
+    "15283": [
+     "uniprot",
+     "sequence"
+    ],
+    "16670": [
+     "uniprot"
+    ]
+   },
+   "1PHP_": {
+    "16447": [
+     "uniprot",
+     "sequence"
+    ],
+    "16451": [
+     "uniprot",
+     "sequence"
+    ],
+    "16464": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PHT_": {
+    "16448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1POH_": {
+    "29": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2060": [
+     "uniprot",
+     "sequence"
+    ],
+    "2371": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PPEI": {
+    "199": [
+     "uniprot",
+     "sequence"
+    ],
+    "314": [
+     "uniprot",
+     "sequence"
+    ],
+    "2227": [
+     "uniprot",
+     "sequence"
+    ],
+    "2527": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4246": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PZ4A": {
+    "16662": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1Q2UA": {
+    "17507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QE6C": {
+    "280": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QG7A": {
+    "16142": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QKRA": {
+    "15653": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QOGA": {
+    "447": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QVEA": {
+    "4918": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1R1TA": {
+    "4128": [
+     "uniprot",
+     "sequence"
+    ],
+    "4306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1R69_": {
+    "2539": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6084": [
+     "uniprot"
+    ]
+   },
+   "1RB4B": {
+    "371": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1396": [
+     "uniprot",
+     "sequence"
+    ],
+    "1397": [
+     "uniprot",
+     "sequence"
+    ],
+    "1398": [
+     "uniprot",
+     "sequence"
+    ],
+    "1399": [
+     "uniprot",
+     "sequence"
+    ],
+    "1451": [
+     "uniprot",
+     "sequence"
+    ],
+    "1452": [
+     "uniprot",
+     "sequence"
+    ],
+    "1453": [
+     "uniprot",
+     "sequence"
+    ],
+    "1454": [
+     "uniprot",
+     "sequence"
+    ],
+    "4133": [
+     "uniprot"
+    ],
+    "4995": [
+     "uniprot"
+    ],
+    "15965": [
+     "uniprot"
+    ]
+   },
+   "1RCF_": {
+    "5011": [
+     "uniprot",
+     "sequence"
+    ],
+    "16593": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1RDG_": {
+    "5163": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6263": [
+     "uniprot"
+    ]
+   },
+   "1RN1B": {
+    "1658": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1RPJA": {
+    "16982": [
+     "uniprot",
+     "sequence"
+    ],
+    "16984": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SKOB": {
+    "6181": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SNO_": {
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot",
+     "sequence"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SPQB": {
+    "15064": [
+     "uniprot",
+     "sequence"
+    ],
+    "15065": [
+     "uniprot",
+     "sequence"
+    ],
+    "15066": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1T85A": {
+    "17415": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TCF_": {
+    "1553": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4401": [
+     "sequence"
+    ]
+   },
+   "1THQA": {
+    "6234": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1TPH2": {
+    "15064": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15065": [
+     "uniprot",
+     "sequence"
+    ],
+    "15066": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TUKA": {
+    "4977": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TXXA": {
+    "62": [
+     "uniprot",
+     "sequence"
+    ],
+    "1812": [
+     "uniprot",
+     "sequence"
+    ],
+    "1813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5308": [
+     "uniprot"
+    ]
+   },
+   "1U06A": {
+    "7305": [
+     "uniprot",
+     "sequence"
+    ],
+    "7306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15013": [
+     "uniprot"
+    ]
+   },
+   "1UWXA": {
+    "1639": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5151": [
+     "uniprot"
+    ],
+    "5152": [
+     "uniprot"
+    ],
+    "6679": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ]
+   },
+   "1V6PB": {
+    "1381": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VB0A": {
+    "5052": [
+     "uniprot",
+     "sequence"
+    ],
+    "5690": [
+     "uniprot",
+     "sequence"
+    ],
+    "16060": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VKBA": {
+    "16380": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VYKA": {
+    "17357": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1W7ZC": {
+    "397": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WKXA": {
+    "6123": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WTQA": {
+    "5905": [
+     "uniprot",
+     "sequence"
+    ],
+    "5908": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot"
+    ],
+    "5910": [
+     "uniprot"
+    ]
+   },
+   "1WYWB": {
+    "6304": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WZVA": {
+    "16321": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1XIOA": {
+    "17064": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1XRKB": {
+    "4785": [
+     "uniprot",
+     "sequence"
+    ],
+    "4786": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YCQA": {
+    "6248": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YJFA": {
+    "5514": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5666": [
+     "uniprot",
+     "sequence"
+    ],
+    "15826": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YNRB": {
+    "10135": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YU7X": {
+    "4428": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15245": [
+     "uniprot"
+    ]
+   },
+   "1YU8X": {
+    "4428": [
+     "uniprot",
+     "sequence"
+    ],
+    "15245": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YW5A": {
+    "16690": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1Z7XX": {
+    "4370": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ZDNA": {
+    "17437": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ZNIC": {
+    "554": [
+     "uniprot",
+     "sequence"
+    ],
+    "555": [
+     "uniprot"
+    ],
+    "936": [
+     "uniprot",
+     "sequence"
+    ],
+    "937": [
+     "uniprot"
+    ],
+    "1344": [
+     "uniprot",
+     "sequence"
+    ],
+    "1444": [
+     "uniprot"
+    ],
+    "1585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1586": [
+     "uniprot"
+    ],
+    "1632": [
+     "uniprot",
+     "sequence"
+    ],
+    "1633": [
+     "uniprot"
+    ]
+   },
+   "2A3GA": {
+    "1442": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2AAOB": {
+    "5324": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2AFGB": {
+    "6875": [
+     "uniprot",
+     "sequence"
+    ],
+    "15783": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16493": [
+     "uniprot",
+     "sequence"
+    ],
+    "16494": [
+     "uniprot",
+     "sequence"
+    ],
+    "16502": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2ALGA": {
+    "16294": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2ASDA": {
+    "16869": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2B59A": {
+    "5267": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BC5C": {
+    "1672": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6552": [
+     "uniref100"
+    ],
+    "6553": [
+     "uniref100"
+    ],
+    "6560": [
+     "uniprot"
+    ]
+   },
+   "2BDYA": {
+    "16940": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BEMC": {
+    "17160": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BIUX": {
+    "6141": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BJDA": {
+    "6398": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2CA5B": {
+    "15214": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2CG7A": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "2DGCA": {
+    "371": [
+     "uniprot"
+    ],
+    "1396": [
+     "uniprot",
+     "sequence"
+    ],
+    "1397": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1398": [
+     "uniprot",
+     "sequence"
+    ],
+    "1399": [
+     "uniprot",
+     "sequence"
+    ],
+    "1451": [
+     "uniprot",
+     "sequence"
+    ],
+    "1452": [
+     "uniprot",
+     "sequence"
+    ],
+    "1453": [
+     "uniprot",
+     "sequence"
+    ],
+    "1454": [
+     "uniprot",
+     "sequence"
+    ],
+    "4133": [
+     "uniprot"
+    ],
+    "4995": [
+     "uniprot"
+    ],
+    "15965": [
+     "uniprot"
+    ]
+   },
+   "2EYOA": {
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2F91B": {
+    "5273": [
+     "uniprot"
+    ],
+    "5274": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2FFGA": {
+    "15529": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2FI4I": {
+    "45": [
+     "uniprot",
+     "sequence"
+    ],
+    "46": [
+     "uniprot",
+     "sequence"
+    ],
+    "48": [
+     "uniprot",
+     "sequence"
+    ],
+    "49": [
+     "uniprot",
+     "sequence"
+    ],
+    "262": [
+     "uniprot",
+     "sequence"
+    ],
+    "263": [
+     "uniprot",
+     "sequence"
+    ],
+    "264": [
+     "uniprot",
+     "sequence"
+    ],
+    "338": [
+     "uniprot",
+     "sequence"
+    ],
+    "485": [
+     "uniprot",
+     "sequence"
+    ],
+    "4868": [
+     "uniprot",
+     "sequence"
+    ],
+    "4875": [
+     "uniprot"
+    ],
+    "4877": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4968": [
+     "uniprot",
+     "sequence"
+    ],
+    "5171": [
+     "uniprot",
+     "sequence"
+    ],
+    "5358": [
+     "uniprot",
+     "sequence"
+    ],
+    "5359": [
+     "uniprot",
+     "sequence"
+    ],
+    "5375": [
+     "uniprot"
+    ],
+    "5381": [
+     "uniprot"
+    ]
+   },
+   "2GCNA": {
+    "16668": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GGMB": {
+    "5503": [
+     "uniprot",
+     "sequence"
+    ],
+    "6687": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2GITE": {
+    "3078": [
+     "uniprot",
+     "sequence"
+    ],
+    "5169": [
+     "uniprot",
+     "sequence"
+    ],
+    "5783": [
+     "uniprot",
+     "sequence"
+    ],
+    "5784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15480": [
+     "uniprot",
+     "sequence"
+    ],
+    "16587": [
+     "uniprot",
+     "sequence"
+    ],
+    "17165": [
+     "uniprot",
+     "sequence"
+    ],
+    "17166": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GJ2A": {
+    "7099": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GM5D": {
+    "4269": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2GOOB": {
+    "15956": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GP0A": {
+    "15680": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GSVB": {
+    "15350": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GT8A": {
+    "6501": [
+     "uniprot"
+    ],
+    "6513": [
+     "uniprot"
+    ],
+    "7014": [
+     "uniprot"
+    ],
+    "7019": [
+     "uniprot"
+    ],
+    "16981": [
+     "uniprot"
+    ],
+    "17251": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GYKE": {
+    "4115": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4116": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2H61H": {
+    "4105": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5206": [
+     "uniprot",
+     "sequence"
+    ],
+    "5895": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2H76A": {
+    "62": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1812": [
+     "uniprot",
+     "sequence"
+    ],
+    "1813": [
+     "uniprot",
+     "sequence"
+    ],
+    "5308": [
+     "uniprot"
+    ]
+   },
+   "2H9EC": {
+    "4396": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2H9HA": {
+    "4836": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HPR_": {
+    "932": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HPWA": {
+    "16600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HSHA": {
+    "256": [
+     "uniprot",
+     "sequence"
+    ],
+    "257": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "283": [
+     "uniprot",
+     "sequence"
+    ],
+    "284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HWNB": {
+    "4473": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HZIB": {
+    "6570": [
+     "uniprot"
+    ],
+    "15488": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IDSA": {
+    "16740": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16741": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IDUA": {
+    "16740": [
+     "uniprot",
+     "sequence"
+    ],
+    "16741": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IE2C": {
+    "17162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "17163": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IGD_": {
+    "2575": [
+     "uniprot",
+     "sequence"
+    ],
+    "5654": [
+     "uniprot"
+    ],
+    "5875": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ],
+    "15283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16670": [
+     "uniprot"
+    ]
+   },
+   "2ILNI": {
+    "5617": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IM8A": {
+    "7227": [
+     "uniprot",
+     "sequence"
+    ],
+    "16113": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IN8A": {
+    "15560": [
+     "uniprot",
+     "sequence"
+    ],
+    "16634": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2NWGB": {
+    "16142": [
+     "uniprot",
+     "sequence"
+    ],
+    "16143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2OCTA": {
+    "15548": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2OW9B": {
+    "4679": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6617": [
+     "uniprot"
+    ]
+   },
+   "2PF5A": {
+    "6392": [
+     "bmrb",
+     "uniprot"
+    ],
+    "6393": [
+     "uniprot"
+    ]
+   },
+   "2PSPB": {
+    "2384": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2Q2TA": {
+    "16059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2SEMA": {
+    "5729": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2SGDI": {
+    "42": [
+     "uniprot",
+     "sequence"
+    ],
+    "507": [
+     "uniprot",
+     "sequence"
+    ],
+    "1374": [
+     "uniprot",
+     "sequence"
+    ],
+    "1375": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4068": [
+     "uniprot",
+     "sequence"
+    ],
+    "4864": [
+     "uniprot",
+     "sequence"
+    ],
+    "4865": [
+     "uniprot",
+     "sequence"
+    ],
+    "5469": [
+     "uniprot",
+     "sequence"
+    ],
+    "5472": [
+     "uniprot",
+     "sequence"
+    ],
+    "5473": [
+     "uniprot",
+     "sequence"
+    ],
+    "5518": [
+     "uniprot",
+     "sequence"
+    ],
+    "5519": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2UV0H": {
+    "6271": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2UYZA": {
+    "4132": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3DFR_": {
+    "7196": [
+     "uniprot",
+     "sequence"
+    ],
+    "7197": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7198": [
+     "uniprot",
+     "sequence"
+    ],
+    "7199": [
+     "uniprot",
+     "sequence"
+    ],
+    "7200": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3ERAB": {
+    "7211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3WRP_": {
+    "916": [
+     "uniprot",
+     "sequence"
+    ],
+    "17010": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "17013": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "451C_": {
+    "1333": [
+     "uniprot",
+     "sequence"
+    ],
+    "10133": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "5HPGA": {
+    "4276": [
+     "uniprot"
+    ],
+    "16466": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "5NUC_": {
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "7RXN_": {
+    "15374": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15375": [
+     "uniprot",
+     "sequence"
+    ],
+    "16849": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "7TIMB": {
+    "16565": [
+     "uniprot",
+     "sequence"
+    ],
+    "16566": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   }
+  },
+  "shifty": {
+   "109M_": {
+    "4568": [
+     "uniprot",
+     "sequence"
+    ],
+    "4695": [
+     "uniprot",
+     "sequence"
+    ],
+    "5158": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7076": [
+     "uniprot",
+     "sequence"
+    ],
+    "7077": [
+     "uniprot",
+     "sequence"
+    ],
+    "16499": [
+     "uniprot",
+     "sequence"
+    ],
+    "16500": [
+     "uniprot",
+     "sequence"
+    ],
+    "16501": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AE3_": {
+    "2039": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AG6_": {
+    "79": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AJ6_": {
+    "5218": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1AM7A": {
+    "16664": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1AR0A": {
+    "5888": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ASS_": {
+    "5930": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1B68A": {
+    "6524": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BAZC": {
+    "394": [
+     "uniprot",
+     "sequence"
+    ],
+    "395": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4540": [
+     "uniprot"
+    ]
+   },
+   "1BD9B": {
+    "17382": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BGF_": {
+    "5997": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BNEA": {
+    "975": [
+     "uniprot",
+     "sequence"
+    ],
+    "4964": [
+     "uniprot",
+     "sequence"
+    ],
+    "7126": [
+     "uniprot",
+     "sequence"
+    ],
+    "16169": [
+     "uniprot",
+     "sequence"
+    ],
+    "16170": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16171": [
+     "uniprot",
+     "sequence"
+    ],
+    "16172": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BNZA": {
+    "4570": [
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot",
+     "sequence"
+    ],
+    "5910": [
+     "uniref100",
+     "sequence"
+    ],
+    "6050": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BRJA": {
+    "975": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4964": [
+     "uniprot",
+     "sequence"
+    ],
+    "7126": [
+     "uniprot",
+     "sequence"
+    ],
+    "16169": [
+     "uniprot",
+     "sequence"
+    ],
+    "16170": [
+     "uniprot",
+     "sequence"
+    ],
+    "16171": [
+     "uniprot",
+     "sequence"
+    ],
+    "16172": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1BWOB": {
+    "2065": [
+     "uniprot",
+     "sequence"
+    ],
+    "4383": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4932": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1C8CA": {
+    "4570": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot",
+     "sequence"
+    ],
+    "5910": [
+     "uniprot",
+     "sequence"
+    ],
+    "6050": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CKUB": {
+    "2219": [
+     "uniprot",
+     "sequence"
+    ],
+    "2999": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CLVI": {
+    "4404": [
+     "uniprot",
+     "sequence"
+    ],
+    "4490": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CM9B": {
+    "4852": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4914": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CQMB": {
+    "16344": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1CY5A": {
+    "4661": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1D03A": {
+    "1673": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DCDB": {
+    "5249": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DFNA": {
+    "16254": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1DS3I": {
+    "42": [
+     "uniprot",
+     "sequence"
+    ],
+    "507": [
+     "uniprot",
+     "sequence"
+    ],
+    "1374": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1375": [
+     "uniprot",
+     "sequence"
+    ],
+    "4068": [
+     "uniprot",
+     "sequence"
+    ],
+    "4864": [
+     "uniprot",
+     "sequence"
+    ],
+    "4865": [
+     "uniprot",
+     "sequence"
+    ],
+    "5469": [
+     "uniprot",
+     "sequence"
+    ],
+    "5472": [
+     "uniprot"
+    ],
+    "5473": [
+     "uniprot"
+    ],
+    "5518": [
+     "uniprot",
+     "sequence"
+    ],
+    "5519": [
+     "uniprot"
+    ]
+   },
+   "1DSBA": {
+    "16327": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EK8A": {
+    "5190": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ENFA": {
+    "16146": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EQTB": {
+    "16803": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1EZGB": {
+    "5323": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1F2MA": {
+    "494": [
+     "uniprot",
+     "sequence"
+    ],
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "496": [
+     "uniprot",
+     "sequence"
+    ],
+    "497": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1874": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6250": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FD3D": {
+    "4642": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FDQA": {
+    "5320": [
+     "uniprot",
+     "sequence"
+    ],
+    "16042": [
+     "uniprot",
+     "sequence"
+    ],
+    "16046": [
+     "uniprot",
+     "sequence"
+    ],
+    "16047": [
+     "uniprot",
+     "sequence"
+    ],
+    "16048": [
+     "uniprot",
+     "sequence"
+    ],
+    "16049": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1FU0A": {
+    "4774": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GN0A": {
+    "17136": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GOA_": {
+    "1657": [
+     "uniprot",
+     "sequence"
+    ],
+    "4012": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GPR_": {
+    "1663": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GWYA": {
+    "16362": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16630": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1GZZB": {
+    "2498": [
+     "uniprot"
+    ],
+    "4069": [
+     "uniprot"
+    ],
+    "4204": [
+     "bmrb",
+     "uniprot"
+    ],
+    "4278": [
+     "uniprot"
+    ],
+    "4494": [
+     "uniprot"
+    ],
+    "15654": [
+     "uniprot"
+    ]
+   },
+   "1H0JB": {
+    "4966": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HB8B": {
+    "2049": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HC9A": {
+    "8": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4195": [
+     "uniprot",
+     "sequence"
+    ],
+    "5006": [
+     "uniprot",
+     "sequence"
+    ],
+    "5024": [
+     "uniprot",
+     "sequence"
+    ],
+    "15130": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HC9B": {
+    "8": [
+     "uniprot",
+     "sequence"
+    ],
+    "4195": [
+     "uniprot",
+     "sequence"
+    ],
+    "5006": [
+     "uniprot",
+     "sequence"
+    ],
+    "5024": [
+     "uniprot",
+     "sequence"
+    ],
+    "15130": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HFZC": {
+    "4332": [
+     "uniprot",
+     "sequence"
+    ],
+    "4811": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1HSLB": {
+    "16204": [
+     "uniprot",
+     "sequence"
+    ],
+    "16205": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ICFJ": {
+    "5583": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IKOP": {
+    "7220": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IOZA": {
+    "10051": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IP2A": {
+    "2542": [
+     "uniprot",
+     "sequence"
+    ],
+    "5123": [
+     "uniprot",
+     "sequence"
+    ],
+    "5124": [
+     "uniprot",
+     "sequence"
+    ],
+    "5125": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5130": [
+     "uniprot",
+     "sequence"
+    ],
+    "5142": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1IV9A": {
+    "4222": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4633": [
+     "uniprot"
+    ],
+    "4638": [
+     "uniprot",
+     "sequence"
+    ],
+    "5529": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1J1VA": {
+    "5200": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "10027": [
+     "uniprot"
+    ]
+   },
+   "1J3FA": {
+    "4568": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4695": [
+     "uniprot",
+     "sequence"
+    ],
+    "5158": [
+     "uniprot",
+     "sequence"
+    ],
+    "7076": [
+     "uniprot",
+     "sequence"
+    ],
+    "7077": [
+     "uniprot",
+     "sequence"
+    ],
+    "16499": [
+     "uniprot",
+     "sequence"
+    ],
+    "16500": [
+     "uniprot",
+     "sequence"
+    ],
+    "16501": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1JHFB": {
+    "6373": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1JPST": {
+    "16838": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1K82A": {
+    "5219": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KBAB": {
+    "1675": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KDJ_": {
+    "7370": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KTZA": {
+    "4411": [
+     "bmrb",
+     "uniprot"
+    ],
+    "5953": [
+     "uniprot"
+    ]
+   },
+   "1KTZB": {
+    "4779": [
+     "uniprot",
+     "sequence"
+    ],
+    "5953": [
+     "uniprot",
+     "sequence"
+    ],
+    "5954": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1KX9B": {
+    "5094": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1L0SB": {
+    "5572": [
+     "uniprot",
+     "sequence"
+    ],
+    "5573": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1L1DB": {
+    "6051": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6709": [
+     "uniprot"
+    ],
+    "15280": [
+     "uniprot"
+    ]
+   },
+   "1LJUA": {
+    "4944": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1LP1B": {
+    "1120": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4324": [
+     "uniprot",
+     "sequence"
+    ],
+    "6804": [
+     "uniprot"
+    ],
+    "6805": [
+     "uniprot"
+    ]
+   },
+   "1LU0B": {
+    "199": [
+     "uniprot"
+    ],
+    "314": [
+     "uniprot"
+    ],
+    "2227": [
+     "uniprot"
+    ],
+    "2527": [
+     "uniprot"
+    ],
+    "4246": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1LW6I": {
+    "1869": [
+     "uniprot",
+     "sequence"
+    ],
+    "1870": [
+     "uniprot",
+     "sequence"
+    ],
+    "4974": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1M8AB": {
+    "15596": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MI4A": {
+    "4848": [
+     "uniprot",
+     "sequence"
+    ],
+    "4854": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MIDA": {
+    "15143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MOLB": {
+    "4222": [
+     "uniprot",
+     "sequence"
+    ],
+    "4633": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4638": [
+     "uniprot",
+     "sequence"
+    ],
+    "5529": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MR3F": {
+    "15626": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1MYWA": {
+    "5514": [
+     "uniprot"
+    ],
+    "5666": [
+     "uniprot",
+     "sequence"
+    ],
+    "15826": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1N3ZA": {
+    "4980": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1NAQF": {
+    "15094": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1NBPA": {
+    "6621": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1O5UA": {
+    "16006": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1O82D": {
+    "4112": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OBOA": {
+    "5011": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16593": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OFFA": {
+    "16024": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OKHB": {
+    "4587": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OKSA": {
+    "6568": [
+     "uniprot",
+     "sequence"
+    ],
+    "6569": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OMSC": {
+    "5298": [
+     "uniprot"
+    ],
+    "15813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OMYA": {
+    "7330": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OS3D": {
+    "554": [
+     "uniprot"
+    ],
+    "555": [
+     "uniprot",
+     "sequence"
+    ],
+    "936": [
+     "uniprot"
+    ],
+    "937": [
+     "uniprot",
+     "sequence"
+    ],
+    "1344": [
+     "uniprot"
+    ],
+    "1444": [
+     "uniprot",
+     "sequence"
+    ],
+    "1585": [
+     "uniprot"
+    ],
+    "1586": [
+     "uniprot"
+    ],
+    "1632": [
+     "uniprot"
+    ],
+    "1633": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1OVHA": {
+    "915": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1P2OD": {
+    "45": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "46": [
+     "uniprot",
+     "sequence"
+    ],
+    "48": [
+     "uniprot",
+     "sequence"
+    ],
+    "49": [
+     "uniprot",
+     "sequence"
+    ],
+    "237": [
+     "uniprot",
+     "sequence"
+    ],
+    "262": [
+     "uniprot",
+     "sequence"
+    ],
+    "263": [
+     "uniprot",
+     "sequence"
+    ],
+    "264": [
+     "uniprot",
+     "sequence"
+    ],
+    "338": [
+     "uniprot",
+     "sequence"
+    ],
+    "485": [
+     "uniprot",
+     "sequence"
+    ],
+    "4868": [
+     "uniprot",
+     "sequence"
+    ],
+    "4875": [
+     "uniprot"
+    ],
+    "4877": [
+     "uniprot"
+    ],
+    "4968": [
+     "uniprot",
+     "sequence"
+    ],
+    "5171": [
+     "uniprot"
+    ],
+    "5358": [
+     "uniprot",
+     "sequence"
+    ],
+    "5359": [
+     "uniprot",
+     "sequence"
+    ],
+    "5375": [
+     "uniprot"
+    ],
+    "5381": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1P7JA": {
+    "7386": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1PCS_": {
+    "5475": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PGX_": {
+    "2575": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5654": [
+     "uniprot"
+    ],
+    "5875": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ],
+    "15283": [
+     "uniprot",
+     "sequence"
+    ],
+    "16670": [
+     "uniprot"
+    ]
+   },
+   "1PHP_": {
+    "16447": [
+     "uniprot",
+     "sequence"
+    ],
+    "16451": [
+     "uniprot",
+     "sequence"
+    ],
+    "16464": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PHT_": {
+    "16448": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1POH_": {
+    "29": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "2060": [
+     "uniprot",
+     "sequence"
+    ],
+    "2371": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PPEI": {
+    "199": [
+     "uniprot",
+     "sequence"
+    ],
+    "314": [
+     "uniprot",
+     "sequence"
+    ],
+    "2227": [
+     "uniprot",
+     "sequence"
+    ],
+    "2527": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4246": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1PZ4A": {
+    "16662": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1Q2UA": {
+    "17507": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QE6C": {
+    "280": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QG7A": {
+    "16142": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16143": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QKRA": {
+    "15653": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QOGA": {
+    "447": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1QVEA": {
+    "4918": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1R1TA": {
+    "4128": [
+     "uniprot",
+     "sequence"
+    ],
+    "4306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1R69_": {
+    "2539": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6084": [
+     "uniprot"
+    ]
+   },
+   "1RB4B": {
+    "371": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1396": [
+     "uniprot",
+     "sequence"
+    ],
+    "1397": [
+     "uniprot",
+     "sequence"
+    ],
+    "1398": [
+     "uniprot",
+     "sequence"
+    ],
+    "1399": [
+     "uniprot",
+     "sequence"
+    ],
+    "1451": [
+     "uniprot",
+     "sequence"
+    ],
+    "1452": [
+     "uniprot",
+     "sequence"
+    ],
+    "1453": [
+     "uniprot",
+     "sequence"
+    ],
+    "1454": [
+     "uniprot",
+     "sequence"
+    ],
+    "4133": [
+     "uniprot"
+    ],
+    "4995": [
+     "uniprot"
+    ],
+    "15965": [
+     "uniprot"
+    ]
+   },
+   "1RCF_": {
+    "5011": [
+     "uniprot",
+     "sequence"
+    ],
+    "16593": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1RDG_": {
+    "5163": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6263": [
+     "uniprot"
+    ]
+   },
+   "1RN1B": {
+    "1658": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1RPJA": {
+    "16982": [
+     "uniprot",
+     "sequence"
+    ],
+    "16984": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SKOB": {
+    "6181": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SNO_": {
+    "494": [
+     "uniprot",
+     "sequence"
+    ],
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "496": [
+     "uniprot",
+     "sequence"
+    ],
+    "497": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1874": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6250": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot",
+     "sequence"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1SPQB": {
+    "15064": [
+     "uniprot",
+     "sequence"
+    ],
+    "15065": [
+     "uniprot",
+     "sequence"
+    ],
+    "15066": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15067": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1T85A": {
+    "17415": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TCF_": {
+    "1553": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4401": [
+     "sequence"
+    ]
+   },
+   "1THQA": {
+    "6234": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1TPH2": {
+    "15064": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15065": [
+     "uniprot",
+     "sequence"
+    ],
+    "15066": [
+     "uniprot",
+     "sequence"
+    ],
+    "15067": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TUKA": {
+    "4977": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1TXXA": {
+    "62": [
+     "uniprot",
+     "sequence"
+    ],
+    "1812": [
+     "uniprot",
+     "sequence"
+    ],
+    "1813": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5308": [
+     "uniprot"
+    ]
+   },
+   "1U06A": {
+    "7305": [
+     "uniprot",
+     "sequence"
+    ],
+    "7306": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15013": [
+     "uniprot"
+    ]
+   },
+   "1UWXA": {
+    "1639": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5151": [
+     "uniprot"
+    ],
+    "5152": [
+     "uniprot"
+    ],
+    "6679": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ]
+   },
+   "1V6PB": {
+    "1381": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VB0A": {
+    "5052": [
+     "uniprot",
+     "sequence"
+    ],
+    "5690": [
+     "uniprot",
+     "sequence"
+    ],
+    "16060": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VKBA": {
+    "16380": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1VYKA": {
+    "17357": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "1W7ZC": {
+    "397": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WKXA": {
+    "6123": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WTQA": {
+    "5905": [
+     "uniprot",
+     "sequence"
+    ],
+    "5908": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5909": [
+     "uniprot"
+    ],
+    "5910": [
+     "uniprot"
+    ]
+   },
+   "1WYWB": {
+    "6304": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1WZVA": {
+    "16321": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1XIOA": {
+    "17064": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1XRKB": {
+    "4785": [
+     "uniprot",
+     "sequence"
+    ],
+    "4786": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YCQA": {
+    "6248": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YJFA": {
+    "5514": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5666": [
+     "uniprot",
+     "sequence"
+    ],
+    "15826": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YNRB": {
+    "10135": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YU7X": {
+    "4428": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15245": [
+     "uniprot"
+    ]
+   },
+   "1YU8X": {
+    "4428": [
+     "uniprot",
+     "sequence"
+    ],
+    "15245": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1YW5A": {
+    "16690": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1Z7XX": {
+    "4370": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ZDNA": {
+    "17437": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "1ZNIC": {
+    "554": [
+     "uniprot",
+     "sequence"
+    ],
+    "555": [
+     "uniprot"
+    ],
+    "936": [
+     "uniprot",
+     "sequence"
+    ],
+    "937": [
+     "uniprot"
+    ],
+    "1344": [
+     "uniprot",
+     "sequence"
+    ],
+    "1444": [
+     "uniprot"
+    ],
+    "1585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1586": [
+     "uniprot"
+    ],
+    "1632": [
+     "uniprot",
+     "sequence"
+    ],
+    "1633": [
+     "uniprot"
+    ]
+   },
+   "2A3GA": {
+    "1442": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2AAOB": {
+    "5324": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2AFGB": {
+    "6875": [
+     "uniprot",
+     "sequence"
+    ],
+    "15783": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16493": [
+     "uniprot",
+     "sequence"
+    ],
+    "16494": [
+     "uniprot",
+     "sequence"
+    ],
+    "16502": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2ALGA": {
+    "16294": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2ASDA": {
+    "16869": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2B59A": {
+    "5267": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BC5C": {
+    "1672": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6552": [
+     "uniref100"
+    ],
+    "6553": [
+     "uniref100"
+    ],
+    "6560": [
+     "uniprot"
+    ]
+   },
+   "2BDYA": {
+    "16940": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BEMC": {
+    "17160": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BIUX": {
+    "6141": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7310": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2BJDA": {
+    "6398": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2CA5B": {
+    "15214": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2CG7A": {
+    "2281": [
+     "uniprot"
+    ],
+    "4283": [
+     "uniprot"
+    ],
+    "4830": [
+     "uniprot"
+    ],
+    "5027": [
+     "uniprot"
+    ],
+    "7127": [
+     "uniprot"
+    ],
+    "7128": [
+     "uniprot"
+    ],
+    "15756": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15758": [
+     "uniprot"
+    ]
+   },
+   "2DGCA": {
+    "371": [
+     "uniprot"
+    ],
+    "1396": [
+     "uniprot",
+     "sequence"
+    ],
+    "1397": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1398": [
+     "uniprot",
+     "sequence"
+    ],
+    "1399": [
+     "uniprot",
+     "sequence"
+    ],
+    "1451": [
+     "uniprot",
+     "sequence"
+    ],
+    "1452": [
+     "uniprot",
+     "sequence"
+    ],
+    "1453": [
+     "uniprot",
+     "sequence"
+    ],
+    "1454": [
+     "uniprot",
+     "sequence"
+    ],
+    "4133": [
+     "uniprot"
+    ],
+    "4995": [
+     "uniprot"
+    ],
+    "15965": [
+     "uniprot"
+    ]
+   },
+   "2EYOA": {
+    "494": [
+     "uniprot",
+     "sequence"
+    ],
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "496": [
+     "uniprot",
+     "sequence"
+    ],
+    "497": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1874": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "uniprot",
+     "sequence"
+    ],
+    "6250": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2F91B": {
+    "5273": [
+     "uniprot"
+    ],
+    "5274": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2FFGA": {
+    "15529": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2FI4I": {
+    "45": [
+     "uniprot",
+     "sequence"
+    ],
+    "46": [
+     "uniprot",
+     "sequence"
+    ],
+    "48": [
+     "uniprot",
+     "sequence"
+    ],
+    "49": [
+     "uniprot",
+     "sequence"
+    ],
+    "237": [
+     "uniprot",
+     "sequence"
+    ],
+    "262": [
+     "uniprot",
+     "sequence"
+    ],
+    "263": [
+     "uniprot",
+     "sequence"
+    ],
+    "264": [
+     "uniprot",
+     "sequence"
+    ],
+    "338": [
+     "uniprot",
+     "sequence"
+    ],
+    "485": [
+     "uniprot",
+     "sequence"
+    ],
+    "4868": [
+     "uniprot",
+     "sequence"
+    ],
+    "4875": [
+     "uniprot"
+    ],
+    "4877": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4968": [
+     "uniprot",
+     "sequence"
+    ],
+    "5171": [
+     "uniprot",
+     "sequence"
+    ],
+    "5358": [
+     "uniprot",
+     "sequence"
+    ],
+    "5359": [
+     "uniprot",
+     "sequence"
+    ],
+    "5375": [
+     "uniprot"
+    ],
+    "5381": [
+     "uniprot"
+    ]
+   },
+   "2GCNA": {
+    "16668": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16669": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GGMB": {
+    "5503": [
+     "uniprot",
+     "sequence"
+    ],
+    "6687": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2GITE": {
+    "3078": [
+     "uniprot",
+     "sequence"
+    ],
+    "5169": [
+     "uniprot",
+     "sequence"
+    ],
+    "5783": [
+     "uniprot",
+     "sequence"
+    ],
+    "5784": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15480": [
+     "uniprot",
+     "sequence"
+    ],
+    "16587": [
+     "uniprot",
+     "sequence"
+    ],
+    "17165": [
+     "uniprot",
+     "sequence"
+    ],
+    "17166": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GJ2A": {
+    "7099": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GM5D": {
+    "4269": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2GOOB": {
+    "15956": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GP0A": {
+    "15680": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GSVB": {
+    "15350": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GT8A": {
+    "6501": [
+     "uniprot"
+    ],
+    "6513": [
+     "uniprot"
+    ],
+    "7014": [
+     "uniprot"
+    ],
+    "7019": [
+     "uniprot"
+    ],
+    "16981": [
+     "uniprot"
+    ],
+    "17251": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2GYKE": {
+    "4115": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4116": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2H61H": {
+    "4105": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "5206": [
+     "uniprot",
+     "sequence"
+    ],
+    "5895": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2H76A": {
+    "62": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "1812": [
+     "uniprot",
+     "sequence"
+    ],
+    "1813": [
+     "uniprot",
+     "sequence"
+    ],
+    "5308": [
+     "uniprot"
+    ]
+   },
+   "2H9EC": {
+    "4396": [
+     "bmrb",
+     "uniprot"
+    ]
+   },
+   "2H9HA": {
+    "4836": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HPR_": {
+    "932": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HPWA": {
+    "16600": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HSHA": {
+    "256": [
+     "uniprot",
+     "sequence"
+    ],
+    "257": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "283": [
+     "uniprot",
+     "sequence"
+    ],
+    "284": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HWNB": {
+    "4473": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2HZIB": {
+    "6570": [
+     "uniprot"
+    ],
+    "15488": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IDSA": {
+    "16740": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16741": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IDUA": {
+    "16740": [
+     "uniprot",
+     "sequence"
+    ],
+    "16741": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IE2C": {
+    "17162": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "17163": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IGD_": {
+    "2575": [
+     "uniprot",
+     "sequence"
+    ],
+    "5654": [
+     "uniprot"
+    ],
+    "5875": [
+     "uniprot"
+    ],
+    "15156": [
+     "uniprot"
+    ],
+    "15283": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "16670": [
+     "uniprot"
+    ]
+   },
+   "2ILNI": {
+    "5617": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IM8A": {
+    "7227": [
+     "uniprot",
+     "sequence"
+    ],
+    "16113": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2IN8A": {
+    "15560": [
+     "uniprot",
+     "sequence"
+    ],
+    "16634": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2NWGB": {
+    "16142": [
+     "uniprot",
+     "sequence"
+    ],
+    "16143": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2OCTA": {
+    "15548": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2OW9B": {
+    "4679": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6617": [
+     "uniprot"
+    ]
+   },
+   "2PF5A": {
+    "6392": [
+     "bmrb",
+     "uniprot"
+    ],
+    "6393": [
+     "uniprot"
+    ]
+   },
+   "2PSPB": {
+    "2384": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2Q2TA": {
+    "16059": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2SEMA": {
+    "5729": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2SGDI": {
+    "42": [
+     "uniprot",
+     "sequence"
+    ],
+    "507": [
+     "uniprot",
+     "sequence"
+    ],
+    "1374": [
+     "uniprot",
+     "sequence"
+    ],
+    "1375": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "4068": [
+     "uniprot",
+     "sequence"
+    ],
+    "4864": [
+     "uniprot",
+     "sequence"
+    ],
+    "4865": [
+     "uniprot",
+     "sequence"
+    ],
+    "5469": [
+     "uniprot",
+     "sequence"
+    ],
+    "5472": [
+     "uniprot",
+     "sequence"
+    ],
+    "5473": [
+     "uniprot",
+     "sequence"
+    ],
+    "5518": [
+     "uniprot",
+     "sequence"
+    ],
+    "5519": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2UV0H": {
+    "6271": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "2UYZA": {
+    "4132": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3DFR_": {
+    "7196": [
+     "uniprot",
+     "sequence"
+    ],
+    "7197": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "7198": [
+     "uniprot",
+     "sequence"
+    ],
+    "7199": [
+     "uniprot",
+     "sequence"
+    ],
+    "7200": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3ERAB": {
+    "7211": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "3WRP_": {
+    "916": [
+     "uniprot",
+     "sequence"
+    ],
+    "17010": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "17013": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "451C_": {
+    "1333": [
+     "uniprot",
+     "sequence"
+    ],
+    "10133": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "5HPGA": {
+    "4276": [
+     "uniprot"
+    ],
+    "16466": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "5NUC_": {
+    "494": [
+     "uniprot",
+     "sequence"
+    ],
+    "495": [
+     "uniprot",
+     "sequence"
+    ],
+    "496": [
+     "uniprot",
+     "sequence"
+    ],
+    "497": [
+     "uniprot",
+     "sequence"
+    ],
+    "1581": [
+     "uniprot",
+     "sequence"
+    ],
+    "1582": [
+     "uniprot",
+     "sequence"
+    ],
+    "1874": [
+     "uniprot",
+     "sequence"
+    ],
+    "1875": [
+     "uniprot",
+     "sequence"
+    ],
+    "1878": [
+     "uniprot",
+     "sequence"
+    ],
+    "4052": [
+     "uniprot",
+     "sequence"
+    ],
+    "4053": [
+     "uniprot",
+     "sequence"
+    ],
+    "5536": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "6250": [
+     "uniprot",
+     "sequence"
+    ],
+    "6907": [
+     "uniprot",
+     "sequence"
+    ],
+    "6908": [
+     "uniprot",
+     "sequence"
+    ],
+    "15232": [
+     "uniprot"
+    ],
+    "16585": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "7RXN_": {
+    "15374": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ],
+    "15375": [
+     "uniprot",
+     "sequence"
+    ],
+    "16849": [
+     "uniprot",
+     "sequence"
+    ]
+   },
+   "7TIMB": {
+    "16565": [
+     "uniprot",
+     "sequence"
+    ],
+    "16566": [
+     "bmrb",
+     "uniprot",
+     "sequence"
+    ]
+   }
+  }
+ },
+ "exclude_bmrbs": {
+  "ucbshift": {
+   "109M_": [
+    "40",
+    "291",
+    "292",
+    "293",
+    "426",
+    "823",
+    "824",
+    "1027",
+    "1029",
+    "1200",
+    "1413",
+    "1455",
+    "1457",
+    "1459",
+    "1461",
+    "1463",
+    "1465",
+    "1467",
+    "1469",
+    "1471",
+    "1752",
+    "2345",
+    "2346",
+    "2347",
+    "2348",
+    "2431",
+    "2432",
+    "2433",
+    "2434",
+    "4061",
+    "4568",
+    "4676",
+    "4695",
+    "5158",
+    "7076",
+    "7077",
+    "15589",
+    "16217",
+    "16218",
+    "16499",
+    "16500",
+    "16501"
+   ],
+   "1BAZC": [
+    "394",
+    "395",
+    "4540"
+   ],
+   "1BNEA": [
+    "975",
+    "2066",
+    "2067",
+    "2070",
+    "4964",
+    "7126",
+    "7139",
+    "16169",
+    "16170",
+    "16171",
+    "16172"
+   ],
+   "1BNZA": [
+    "4570",
+    "5909",
+    "5910",
+    "6050"
+   ],
+   "1BRJA": [
+    "975",
+    "2066",
+    "2067",
+    "2070",
+    "4964",
+    "7126",
+    "7139",
+    "16169",
+    "16170",
+    "16171",
+    "16172"
+   ],
+   "1C8CA": [
+    "4570",
+    "5909",
+    "5910",
+    "6050"
+   ],
+   "1DS3I": [
+    "42",
+    "44",
+    "507",
+    "508",
+    "1374",
+    "1375",
+    "4068",
+    "4864",
+    "4865",
+    "5469",
+    "5472",
+    "5473",
+    "5518",
+    "5519",
+    "5520"
+   ],
+   "1F2MA": [
+    "136",
+    "188",
+    "189",
+    "494",
+    "495",
+    "496",
+    "497",
+    "530",
+    "644",
+    "1581",
+    "1582",
+    "1704",
+    "1874",
+    "1875",
+    "1876",
+    "1877",
+    "1878",
+    "2784",
+    "2785",
+    "4010",
+    "4052",
+    "4053",
+    "4905",
+    "5536",
+    "6250",
+    "6251",
+    "6907",
+    "6908",
+    "7012",
+    "15232",
+    "16585",
+    "18013",
+    "18788"
+   ],
+   "1GZZB": [
+    "2498",
+    "4069",
+    "4204",
+    "4278",
+    "4494",
+    "15654"
+   ],
+   "1IP2A": [
+    "76",
+    "2542",
+    "5123",
+    "5124",
+    "5125",
+    "5130",
+    "5142"
+   ],
+   "1IV9A": [
+    "4222",
+    "4633",
+    "4638",
+    "5529"
+   ],
+   "1J3FA": [
+    "40",
+    "291",
+    "292",
+    "293",
+    "426",
+    "823",
+    "824",
+    "1027",
+    "1029",
+    "1200",
+    "1413",
+    "1455",
+    "1457",
+    "1459",
+    "1461",
+    "1463",
+    "1465",
+    "1467",
+    "1469",
+    "1471",
+    "1752",
+    "2345",
+    "2346",
+    "2347",
+    "2348",
+    "2431",
+    "2432",
+    "2433",
+    "2434",
+    "4061",
+    "4568",
+    "4676",
+    "4695",
+    "5158",
+    "7076",
+    "7077",
+    "15589",
+    "16217",
+    "16218",
+    "16499",
+    "16500",
+    "16501"
+   ],
+   "1LP1B": [
+    "1120",
+    "4324",
+    "6804",
+    "6805"
+   ],
+   "1LU0B": [
+    "199",
+    "314",
+    "2227",
+    "2527",
+    "4246"
+   ],
+   "1MOLB": [
+    "4222",
+    "4633",
+    "4638",
+    "5529"
+   ],
+   "1MYWA": [
+    "5514",
+    "5666",
+    "15826"
+   ],
+   "1OS3D": [
+    "554",
+    "555",
+    "556",
+    "557",
+    "883",
+    "884",
+    "936",
+    "937",
+    "994",
+    "996",
+    "998",
+    "1000",
+    "1002",
+    "1004",
+    "1006",
+    "1008",
+    "1010",
+    "1012",
+    "1014",
+    "1015",
+    "1016",
+    "1018",
+    "1020",
+    "1022",
+    "1023",
+    "1025",
+    "1344",
+    "1444",
+    "1585",
+    "1586",
+    "1587",
+    "1632",
+    "1633",
+    "1761",
+    "4266",
+    "6623",
+    "11016",
+    "15464",
+    "16026",
+    "16027",
+    "16343",
+    "16663",
+    "16915",
+    "17107",
+    "17803",
+    "18858",
+    "18859",
+    "18921",
+    "18923",
+    "18924",
+    "18925",
+    "19822",
+    "19978",
+    "20052",
+    "20053"
+   ],
+   "1P2OD": [
+    "45",
+    "46",
+    "48",
+    "49",
+    "236",
+    "237",
+    "262",
+    "263",
+    "264",
+    "338",
+    "411",
+    "412",
+    "413",
+    "414",
+    "415",
+    "416",
+    "419",
+    "485",
+    "1039",
+    "1156",
+    "1179",
+    "4868",
+    "4875",
+    "4877",
+    "4968",
+    "5171",
+    "5358",
+    "5359",
+    "5375",
+    "5381",
+    "18266"
+   ],
+   "1PGX_": [
+    "2575",
+    "5654",
+    "5875",
+    "15156",
+    "15283",
+    "16670"
+   ],
+   "1PPEI": [
+    "199",
+    "314",
+    "2227",
+    "2527",
+    "2798",
+    "2799",
+    "4246"
+   ],
+   "1R69_": [
+    "195",
+    "2539",
+    "6084"
+   ],
+   "1RB4B": [
+    "371",
+    "1396",
+    "1397",
+    "1398",
+    "1399",
+    "1447",
+    "1448",
+    "1449",
+    "1450",
+    "1451",
+    "1452",
+    "1453",
+    "1454",
+    "2062",
+    "4133",
+    "4995",
+    "7391",
+    "15316",
+    "15965",
+    "17511",
+    "18244"
+   ],
+   "1RDG_": [
+    "5163",
+    "6263"
+   ],
+   "1SNO_": [
+    "136",
+    "188",
+    "189",
+    "494",
+    "495",
+    "496",
+    "497",
+    "530",
+    "644",
+    "1581",
+    "1582",
+    "1704",
+    "1874",
+    "1875",
+    "1876",
+    "1877",
+    "1878",
+    "2784",
+    "2785",
+    "4010",
+    "4052",
+    "4053",
+    "4905",
+    "5536",
+    "6250",
+    "6251",
+    "6907",
+    "6908",
+    "7012",
+    "15232",
+    "16585",
+    "18013",
+    "18788"
+   ],
+   "1TCF_": [
+    "1553",
+    "4401"
+   ],
+   "1TXXA": [
+    "62",
+    "1812",
+    "1813",
+    "5308",
+    "5715",
+    "17700",
+    "17944"
+   ],
+   "1UWXA": [
+    "1639",
+    "5151",
+    "5152",
+    "6679",
+    "15156"
+   ],
+   "1VB0A": [
+    "5052",
+    "5690",
+    "16060"
+   ],
+   "1WTQA": [
+    "5905",
+    "5908",
+    "5909",
+    "5910"
+   ],
+   "1YJFA": [
+    "5514",
+    "5666",
+    "15826",
+    "19069"
+   ],
+   "1ZNIC": [
+    "554",
+    "555",
+    "556",
+    "557",
+    "883",
+    "884",
+    "936",
+    "937",
+    "994",
+    "996",
+    "998",
+    "1000",
+    "1002",
+    "1004",
+    "1006",
+    "1008",
+    "1010",
+    "1012",
+    "1014",
+    "1015",
+    "1016",
+    "1018",
+    "1020",
+    "1022",
+    "1025",
+    "1344",
+    "1444",
+    "1585",
+    "1586",
+    "1587",
+    "1632",
+    "1633",
+    "1761",
+    "6623",
+    "11016",
+    "15464",
+    "16026",
+    "16027",
+    "16343",
+    "16663",
+    "16915",
+    "17107",
+    "17803",
+    "18858",
+    "18859",
+    "18921",
+    "18923",
+    "18924",
+    "18925",
+    "19822",
+    "19978",
+    "20052",
+    "20053"
+   ],
+   "2BC5C": [
+    "1672",
+    "4759",
+    "4767",
+    "6552",
+    "6553",
+    "6560"
+   ],
+   "2CG7A": [
+    "2281",
+    "4283",
+    "4830",
+    "5027",
+    "7127",
+    "7128",
+    "15756",
+    "15758"
+   ],
+   "2DGCA": [
+    "371",
+    "1396",
+    "1397",
+    "1398",
+    "1399",
+    "1447",
+    "1448",
+    "1449",
+    "1450",
+    "1451",
+    "1452",
+    "1453",
+    "1454",
+    "2062",
+    "4133",
+    "4995",
+    "7391",
+    "15316",
+    "15965",
+    "17511",
+    "18244"
+   ],
+   "2EYOA": [
+    "136",
+    "188",
+    "189",
+    "494",
+    "495",
+    "496",
+    "497",
+    "530",
+    "644",
+    "1581",
+    "1582",
+    "1704",
+    "1874",
+    "1875",
+    "1876",
+    "1877",
+    "1878",
+    "2784",
+    "2785",
+    "4010",
+    "4052",
+    "4053",
+    "4905",
+    "5536",
+    "6250",
+    "6251",
+    "6907",
+    "6908",
+    "7012",
+    "15232",
+    "16585",
+    "18013",
+    "18788"
+   ],
+   "2F91B": [
+    "5273",
+    "5274"
+   ],
+   "2FI4I": [
+    "45",
+    "46",
+    "48",
+    "49",
+    "262",
+    "263",
+    "264",
+    "338",
+    "485",
+    "4868",
+    "4875",
+    "4877",
+    "4968",
+    "5171",
+    "5358",
+    "5359",
+    "5375",
+    "5381"
+   ],
+   "2GITE": [
+    "3078",
+    "5169",
+    "5783",
+    "5784",
+    "15480",
+    "16587",
+    "17165",
+    "17166"
+   ],
+   "2H76A": [
+    "62",
+    "1812",
+    "1813",
+    "5308",
+    "5715",
+    "17700",
+    "17944"
+   ],
+   "2IGD_": [
+    "2575",
+    "5654",
+    "5875",
+    "15156",
+    "15283",
+    "16670"
+   ],
+   "2IN8A": [
+    "15560",
+    "16634"
+   ],
+   "2OW9B": [
+    "4679",
+    "6617"
+   ],
+   "2SGDI": [
+    "42",
+    "44",
+    "507",
+    "508",
+    "1374",
+    "1375",
+    "4068",
+    "4864",
+    "4865",
+    "5469",
+    "5472",
+    "5473",
+    "5518",
+    "5519",
+    "5520"
+   ],
+   "5HPGA": [
+    "4276",
+    "16466"
+   ],
+   "5NUC_": [
+    "136",
+    "188",
+    "189",
+    "494",
+    "495",
+    "496",
+    "497",
+    "530",
+    "644",
+    "1581",
+    "1582",
+    "1704",
+    "1874",
+    "1875",
+    "1876",
+    "1877",
+    "1878",
+    "2784",
+    "2785",
+    "4010",
+    "4052",
+    "4053",
+    "4905",
+    "5536",
+    "6250",
+    "6251",
+    "6907",
+    "6908",
+    "7012",
+    "15232",
+    "16585",
+    "18013",
+    "18788"
+   ]
+  },
+  "shifty": {
+   "1BNZA": [
+    "4570",
+    "5909",
+    "5910",
+    "6050"
+   ],
+   "1C8CA": [
+    "4570",
+    "5909",
+    "5910",
+    "6050"
+   ],
+   "1CKUB": [
+    "2219",
+    "2999"
+   ],
+   "1F2MA": [
+    "494",
+    "495",
+    "496",
+    "497",
+    "1581",
+    "1582",
+    "1874",
+    "1875",
+    "1878",
+    "4052",
+    "4053",
+    "5536",
+    "6250",
+    "6907",
+    "6908",
+    "15232",
+    "16585"
+   ],
+   "1IV9A": [
+    "4222",
+    "4633",
+    "4638",
+    "5529"
+   ],
+   "1LP1B": [
+    "1120",
+    "4324",
+    "6804",
+    "6805"
+   ],
+   "1MOLB": [
+    "4222",
+    "4633",
+    "4638",
+    "5529"
+   ],
+   "1OBOA": [
+    "5011",
+    "16593"
+   ],
+   "1OS3D": [
+    "554",
+    "555",
+    "936",
+    "937",
+    "1344",
+    "1444",
+    "1585",
+    "1586",
+    "1632",
+    "1633"
+   ],
+   "1P2OD": [
+    "45",
+    "46",
+    "48",
+    "49",
+    "237",
+    "262",
+    "263",
+    "264",
+    "338",
+    "485",
+    "4868",
+    "4875",
+    "4877",
+    "4968",
+    "5171",
+    "5358",
+    "5359",
+    "5375",
+    "5381"
+   ],
+   "1PGX_": [
+    "2575",
+    "5654",
+    "5875",
+    "15156",
+    "15283",
+    "16670"
+   ],
+   "1RCF_": [
+    "5011",
+    "16593"
+   ],
+   "1SNO_": [
+    "494",
+    "495",
+    "496",
+    "497",
+    "1581",
+    "1582",
+    "1874",
+    "1875",
+    "1878",
+    "4052",
+    "4053",
+    "5536",
+    "6250",
+    "6907",
+    "6908",
+    "15232",
+    "16585"
+   ],
+   "1SPQB": [
+    "15064",
+    "15065",
+    "15066",
+    "15067"
+   ],
+   "1TPH2": [
+    "15064",
+    "15065",
+    "15066",
+    "15067"
+   ],
+   "1TXXA": [
+    "62",
+    "1812",
+    "1813",
+    "5308"
+   ],
+   "1ZNIC": [
+    "554",
+    "555",
+    "936",
+    "937",
+    "1344",
+    "1444",
+    "1585",
+    "1586",
+    "1632",
+    "1633"
+   ],
+   "2BC5C": [
+    "1672",
+    "6552",
+    "6553",
+    "6560"
+   ],
+   "2EYOA": [
+    "494",
+    "495",
+    "496",
+    "497",
+    "1581",
+    "1582",
+    "1874",
+    "1875",
+    "1878",
+    "4052",
+    "4053",
+    "5536",
+    "6250",
+    "6907",
+    "6908",
+    "15232",
+    "16585"
+   ],
+   "2FI4I": [
+    "45",
+    "46",
+    "48",
+    "49",
+    "237",
+    "262",
+    "263",
+    "264",
+    "338",
+    "485",
+    "4868",
+    "4875",
+    "4877",
+    "4968",
+    "5171",
+    "5358",
+    "5359",
+    "5375",
+    "5381"
+   ],
+   "2GCNA": [
+    "16668",
+    "16669"
+   ],
+   "2GT8A": [
+    "6501",
+    "6513",
+    "7014",
+    "7019",
+    "16981",
+    "17251"
+   ],
+   "2H76A": [
+    "62",
+    "1812",
+    "1813",
+    "5308"
+   ],
+   "2IGD_": [
+    "2575",
+    "5654",
+    "5875",
+    "15156",
+    "15283",
+    "16670"
+   ],
+   "3WRP_": [
+    "916",
+    "17010",
+    "17013"
+   ],
+   "5NUC_": [
+    "494",
+    "495",
+    "496",
+    "497",
+    "1581",
+    "1582",
+    "1874",
+    "1875",
+    "1878",
+    "4052",
+    "4053",
+    "5536",
+    "6250",
+    "6907",
+    "6908",
+    "15232",
+    "16585"
+   ]
+  }
+ }
+}

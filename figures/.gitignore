@@ -1,0 +1,2 @@
+# Rendered figures are build products: regenerate them, never commit them.
+out/
