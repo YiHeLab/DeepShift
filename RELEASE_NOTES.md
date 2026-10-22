@@ -9,7 +9,7 @@ homology transfer, no sequence features, no retrieval.
 - `models/deepshift_fold{1..5}.pt` — the five-member cross-validation ensemble the paper
   reports. Each member holds out its own fold and carries its own normalization statistics.
 - `models/interval_calibration.json` — the calibration behind the 90 % prediction intervals,
-  fitted on the excluded fold and evaluated once on the held-out fold.
+  fitted on fold 0 and evaluated once on fold 6.
 - `data/deepshift_{shifts,structures,sequences}.parquet` — the dataset. The shifts table
   holds 17,118 label sets; the 12,710 of them with a fold are the paper's dataset, over
   12,242 BMRB depositions, realized as 21,346 structure pairings. Shifts are rereferenced
@@ -49,11 +49,12 @@ and the measurements behind every figure and table are deposited at Zenodo,
 
 The dataset and the five members were made with the development version of this code.
 Preparing the release removed record-keeping (input hashes, provenance files, run stamps)
-and options the paper does not report; it changed no computation of the build or of
-training. Rebuilding the dataset from the deposited inputs with this release gives the
-three Parquet tables in `data/` byte for byte (`REPRODUCTION.md`). Training is not
-bit-reproducible across GPUs (members 1 to 3 were trained on RTX 5090s, 4 and 5 on A100s),
-so a member retrained with `PROTOCOL.md` is not bit-identical to the released one.
+and options the paper does not report. Rebuilding the dataset from the deposited inputs
+with this release gives the three Parquet tables in `data/` byte for byte
+(`REPRODUCTION.md`). The training code is the code that trained the members with those
+options removed; the members were not retrained with it. Training is not bit-reproducible
+across GPUs (members 1 to 3 were trained on RTX 5090s, 4 and 5 on A100s), so a member
+retrained with `PROTOCOL.md` is not bit-identical to the released one.
 
 ## Note on third-party code
 

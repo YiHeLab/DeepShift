@@ -11,6 +11,9 @@ upstream against a pinned SHA-256.
 
 Predictions run in Google Colab with no local install:
 [DeepShift_predict.ipynb](https://colab.research.google.com/github/YiHeLab/DeepShift/blob/main/colab/DeepShift_predict.ipynb).
+The notebook reports one anonymous usage record per prediction to the authors (no
+coordinates unless you opt in; `colab/README.md`); set `TELEMETRY = False` in it to send
+nothing.
 The dataset, the frozen inputs of its build and the measurements behind every figure and
 table are archived at Zenodo, [doi:10.5281/zenodo.23424002](https://doi.org/10.5281/zenodo.23424002).
 

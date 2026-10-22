@@ -125,15 +125,15 @@ half the draws and 30 % in one draw in twenty, while the other two sources stay 
 15 %. A draw that misses a bound is answered by one deliberate change of a parameter, never
 by trying seeds until one passes.
 
-The external case-study proteins (`data/case_study_excluded_bmrbs.json`: all eight proteins
+The external case-study proteins (`src/deepshift/data/case_study_excluded_bmrbs.json`: all eight proteins
 of the IDP8 study, tau and drkN SH3; MEVN and RSP8 have no BMRB entry and are named by
 sequence) leave training by the same direct rule as the UCBShift-200 boundary (same
 deposition, same UniProt, or a homolog at identity 0.65 over coverage 0.60), plus any
 record sharing a segment of at least 40 aligned residues at identity 0.90 whatever its
 coverage (a 76-residue tau segment at 99 % identity covers only 59 % of K18). They are
 pinned to fold 0 after the draw rather than through it, so the draw and every other
-assignment are unchanged. `data/fold_case_study_pin.json` lists each label set moved with
-its previous fold; `data/fold_case_study_boundary.json` records how each seed record was
+assignment are unchanged. `$DEEPSHIFT_RUN/data/fold_case_study_pin.json` lists each label set moved with
+its previous fold; `$DEEPSHIFT_RUN/data/fold_case_study_boundary.json` records how each seed record was
 caught, and the stage refuses any label set that satisfies the rule while staying in a
 training fold. A case-study label set drawn into fold 6 is refused. The p100 fence is a
 property of the corpus and is not refitted for such a rebuild.
@@ -149,9 +149,9 @@ Conditions:
 - no similarity, shared-deposition, shared-UniProt, modeled-region or co-solved edge crosses
   two of folds 1 to 6;
 - `fold_balance_report.json` reports, per edge family, the number of edge groups that span
-  fold 0 and a training fold, and `data/fold0_training_relatives.json` lists the fold-0
+  fold 0 and a training fold, and `$DEEPSHIFT_RUN/data/fold0_training_relatives.json` lists the fold-0
   label sets in those groups. Fold 0 is the interval-calibration set;
-  `data/fold0_calibration_exclusions.json` is what the interval fit drops: those relatives
+  `$DEEPSHIFT_RUN/data/fold0_calibration_exclusions.json` is what the interval fit drops: those relatives
   together with the case-study records that landed in fold 0, because a held-out protein
   must not calibrate the uncertainty of an application it is held out of;
 - the partner suppression report accounts for every co-located dataset-entity pair assigned
@@ -321,9 +321,9 @@ deepshift intervals evaluate \
 ```
 
 The interval fit accepts only fold 0 and fits on fold 0 minus the label sets in
-`data/fold0_calibration_exclusions.json`: the 415 fold-0 label sets with a relative in a
+`$DEEPSHIFT_RUN/data/fold0_calibration_exclusions.json`: the 415 fold-0 label sets with a relative in a
 training fold at the cross-validation axis (section 1), plus the case-study proteins, 461
-in all. `data/fold0_training_relatives.json` holds only the first 415, and fitting on it
+in all. `$DEEPSHIFT_RUN/data/fold0_training_relatives.json` holds only the first 415, and fitting on it
 gives a different calibration from the one shipped. The calibration artifact records how
 many label sets and cells were excluded. The evaluation applies the frozen artifact to fold
 6 and drops the fourteen anticorrelated channels every fold-6 benchmark drops.

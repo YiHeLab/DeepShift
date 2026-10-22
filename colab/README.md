@@ -20,7 +20,7 @@ call.
 
 ## The checkpoints
 
-The five fold models are `models/deepshift_fold{1..5}.pt`. Section 2 predicts with every
+The five fold models are `models/deepshift_fold{1..5}.pt`. The notebook predicts with every
 `.pt` file in `CHECKPOINT_DIR` — the repo's `models/` when it holds checkpoints and a
 download directory otherwise — and downloads the five members when that folder holds none.
 `deepshift.model.load_checkpoint` reads each file's nuclei, atom vocabulary, atom-cloud
@@ -41,8 +41,8 @@ If the download does not resolve, put the files somewhere the session can read a
 ## Installing the package in a Colab session
 
 ```bash
-pip install -q biopython
-pip install -q --no-deps <package spec>
+pip install -q biopython==1.87
+pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.0
 ```
 
 * `--no-deps` keeps Colab's own CUDA build of torch and its numpy, pandas, scipy and
@@ -75,6 +75,7 @@ python -c "import json;exec(''.join(''.join(c['source'])+chr(10)*2 for c in json
 | `DEEPSHIFT_CHAIN` | chain to predict |
 | `DEEPSHIFT_OUT_DIR` | where the CSVs are written (default: the working directory) |
 | `DEEPSHIFT_SPEC` | pip spec for the package |
+| `DEEPSHIFT_TELEMETRY_URL` | the usage receiver; empty sends nothing |
 
 `tests/test_colab_notebook.py` runs exactly that extraction on
 `figures/reference/1POH.pdb`, with a checkpoint it trains for the purpose, and asserts the

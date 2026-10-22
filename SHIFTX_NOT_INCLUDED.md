@@ -11,5 +11,5 @@ you already have, pass it explicitly:
 
     deepshift data build ... --shiftx-bin /path/to/shiftx
 
-SHIFTX is required only to recompute the rereferencing offsets from scratch; the offsets
-are inputs you can supply, and the released dataset already has them applied.
+SHIFTX is required only by the rereferencing stage of the build; the released dataset
+already has the offsets applied.

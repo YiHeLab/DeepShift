@@ -7,20 +7,22 @@ repository *redistributes* it or merely *fetches* it at build time, and under wh
 
 | component | how it reaches you | license |
 |---|---|---|
-| SHIFTX 1.1 | downloaded by `data/external.py` | none stated by the publisher — see below |
-| MMseqs2 | downloaded by `data/external.py` | MIT |
+| SHIFTX 1.1 | downloaded by `src/deepshift/data/external.py` | none stated by the publisher — see below |
+| MMseqs2 | downloaded by `src/deepshift/data/external.py` | MIT |
 | RefDB | supplied by you to three reproduction paths; not redistributed | see below |
 | CSpred / UCBShift test targets | supplied by you as JSON, not redistributed | UC Regents, academic / not-for-profit |
 | BMRB, RCSB PDB, AlphaFold DB | fetched by the acquire phase; derived tables and two PDB files ship | see below |
+| UCBShift 1.0 and 2.0, SHIFTX2 | modified as diffs in `experiments/competitors/patches/`; upstream source not included | UC Regents, educational / research / not-for-profit (UCBShift); none stated (SHIFTX2) |
+| competitor predictors and X-EISD | run by `experiments/`; installed by you, not redistributed | per tool, in `experiments/competitors/README.md` and the other `experiments/*/README.md` |
 
 ---
 
 ## SHIFTX 1.1 — downloaded, not redistributed
 
-**Not redistributed.** `data/external.py::ensure_shiftx` downloads the authors' source
+**Not redistributed.** `src/deepshift/data/external.py::ensure_shiftx` downloads the authors' source
 distribution from `https://shiftx.wishartlab.com/download/shiftx.tar.gz` at build time
 (SHA-256 pinned: `a08bc301b119154675eb05d9c5c69b7f582e8c2fa0cc81c5040a6ac013ac1965`),
-compiles it unmodified, and `data/reref.py` runs the resulting binary to compute
+compiles it unmodified, and `src/deepshift/data/reref.py` runs the resulting binary to compute
 per-deposition reference offsets. The server's TLS certificate does not validate, so the
 pinned hash is what authenticates the artifact.
 `SHIFTX_SOURCE` points the build at an already-downloaded source tree; `SHIFTX_BIN` at an
@@ -45,7 +47,7 @@ byte-for-byte.
 
 ## MMseqs2 — downloaded, MIT
 
-**Not redistributed.** `data/external.py::ensure_mmseqs` downloads the static Linux build
+**Not redistributed.** `src/deepshift/data/external.py::ensure_mmseqs` downloads the static Linux build
 from `https://mmseqs.com/archive/4fe20e6bb0aa219a35f6190322a91ab19cb6898d/` into
 `<root>/tools`, verifying pinned SHA-256s for both archive and binary.
 
@@ -58,7 +60,7 @@ text ships with the download as `mmseqs/LICENSE.md`.
 ## RefDB — supplied by you, not redistributed
 
 **Not redistributed, and not read by the dataset build.** The rereferencing method in
-`data/reref.py` and `data/reref_utils.py` follows the procedure this paper describes, and
+`src/deepshift/data/reref.py` and `src/deepshift/data/reref_utils.py` follows the procedure this paper describes, and
 the code comments cite its pages where a rule comes from it. Three reproduction paths read
 RefDB files you supply: the RefDB agreement table reads RefDB's own correction reports
 (`$DEEPSHIFT_REFDB_CORRECTIONS`), the competitor benchmark reads the RefDB shift tree of a
@@ -83,6 +85,40 @@ derived from that benchmark. It is a set of database identifiers, not CSpred cod
 > Li, J., Bennett, K. C., Liu, Y., Martin, M. V. & Head-Gordon, T. (2020). "Accurate
 > prediction of chemical shifts for aqueous protein structure on 'Real World' data."
 > *Chemical Science* **11**:3180–3191.
+
+## Patches to UCBShift, UCBShift 2.0 and SHIFTX2 — diffs only
+
+`experiments/competitors/patches/` holds the changes made to three competitors to block
+retrieval of the test protein's own depositions: `ucbshift.patch` (THGLab/CSpred commit
+`20cee31`), `ucbshift2.patch` (CSpred `v2.0`, commit `844e265`) and
+`shiftx2_shifty3.patch` (SHIFTX2 1.13, `shifty3/shifty3.py`). They carry lines of the
+upstream files as context; no other upstream source or weights are included. SHIFTX2
+states no licence terms. CSpred's terms, which apply to the two CSpred patches:
+
+> Copyright ©2020 The Regents of the University of California (Regents). All Rights
+> Reserved. Permission to use, copy, modify, and distribute this software and its
+> documentation for educational, research, and not-for-profit purposes, without fee and
+> without a signed licensing agreement, is hereby granted, provided that the above
+> copyright notice, this paragraph and the following paragraphs appear in all copies,
+> modifications, and distributions. Contact The Office of Technology Licensing, UC
+> Berkeley, 2150 Shattuck Avenue, Suite 408, Berkeley, CA 94704-1362, otl@berkeley.edu.
+>
+> IN NO EVENT SHALL REGENTS BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL,
+> INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, ARISING OUT OF THE USE OF
+> THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF REGENTS HAS BEEN ADVISED OF THE POSSIBILITY
+> OF SUCH DAMAGE.
+>
+> REGENTS SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+> WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE AND
+> ACCOMPANYING DOCUMENTATION, IF ANY, PROVIDED HEREUNDER IS PROVIDED "AS IS". REGENTS HAS
+> NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+
+## Programs run by `experiments/` — installed by you, not redistributed
+
+The competitor predictors (SPARTA+, NapShift, LEGOLAS, ProCS15, NMRGNN, PLUMED with
+CamShift, PLM-CS, the MACE-based MLFF predictor, UCBShift, UCBShift 2.0, SHIFTX2), REDUCE,
+OpenMM and PDBFixer, and X-EISD are run as external programs. Each `experiments/*/README.md`
+names the version used, where to obtain it and its licence.
 
 ## Scientific databases
 

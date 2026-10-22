@@ -38,7 +38,7 @@ is not run: the archive carries the authors' own SHIFTX2 predictions
 exclusion of transfer references use a sequence-identity cutoff, `UCB_SELF_IDENT_CUTOFF`,
 default 0.90, in addition to UCBShift's coverage rule, and replaces one truthiness test on a
 Biopython atom by `is not None`. Its `UCBY_*` switches serve the fold-6 benchmark and stay
-unset here. Apply it with `git -C $UCBSHIFT2_HOME apply ../competitors/patches/ucbshift2.patch`.
+unset here. Apply it from the checkout root: `patch -p1 < <repository>/experiments/competitors/patches/ucbshift2.patch`.
 
 ## Run
 

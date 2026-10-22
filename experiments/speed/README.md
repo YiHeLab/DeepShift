@@ -44,7 +44,7 @@ Written under `$SI_SPEED_CENSUS`: `out/` (one record per arm and pass, `out/ledg
 
 | script | measures |
 |---|---|
-| `run_speed_census.py` | one process per chain (cold) for the seven competitors and the two DeepShift cold arms; `--arm A [--subset N --repeat R]` |
+| `run_speed_census.py` | one process per chain (cold) for the seven competitors and the two DeepShift cold arms; `--arm A [--warmup N] [--models DIR]` |
 | `run_speed_batch.py` | the serial batch arms: SHIFTX2, NapShift, ProCS15 |
 | `run_batch_parallel_prep.py`, `run_legolas_parallel_prep.py` | parallel preparation with the predictor's own step timed separately (SPARTA+, LEGOLAS, UCBShift-X) |
 | `run_speed_throughput.py` | DeepShift throughput, single model and five-member ensemble, batched on the GPU |

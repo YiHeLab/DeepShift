@@ -26,12 +26,16 @@ reads them back into a training cache.
 
 ## Rebuilding the released dataset
 
-On 21 October 2026 the dataset was rebuilt with this release from the deposited build
-inputs, in a fresh directory, and `scripts/export_dataset.py` wrote the three Parquet
-tables byte-identical to those in `data/`. The fold assignment, the rereferencing offsets,
-the flag file and every array of the training cache and the atom clouds were identical to
-the original build's as well. With the deposit unpacked into `$IN` and the tools and
-`SHIFT_UCB_TEST_TARGETS` set as in `PROTOCOL.md`:
+The dataset was rebuilt from the build inputs in a fresh directory with the build code of
+this release (commit `c4e4de0`; later commits change only the order of its imports), and
+`scripts/export_dataset.py` wrote the three Parquet tables byte-identical to those in
+`data/`. The fold assignment, the rereferencing offsets, the flag file and every array of
+the training cache and the atom clouds were identical to the original build's as well. The
+deposited inputs are those files: byte-identical, except that the p100 cutoff file is
+deposited without a record-keeping block and the UniProt snapshot without its manifest,
+neither of which the build reads. The first three stages, rerun on the unpacked deposit
+with this release, wrote byte-identical outputs. With the deposit unpacked into `$IN` and
+the tools and `SHIFT_UCB_TEST_TARGETS` set as in `PROTOCOL.md`:
 
 ```bash
 deepshift data build --root "$DEEPSHIFT_RUN" --folds 0 1 2 3 4 5 6 \
@@ -231,7 +235,8 @@ and a description. It reads `DEEPSHIFT_RUN`, `DEEPSHIFT_XEISD_PROTOCOL`, `SI_FIN
 `SI_SELF_RETRIEVAL_SHIFTY61`, `SI_GATE_CSPRED_TM`, `DEEPSHIFT_REFDB_SHIFTS`,
 `DEEPSHIFT_REFDB_LIBRARY`, `DEEPSHIFT_UCBSHIFT_LEAKAGE` and the released Parquet tables;
 the last four are third-party or are not in the bundle, and `--allow-missing` skips a group
-whose files are absent. The rereferencing numbers come from `scripts/reref_diagnostics.py`.
+whose files are absent. The rereferencing numbers come from `scripts/reref_diagnostics.py`,
+read through `SI_REREF_DIAGNOSTICS` (default: the run's `data/reref_diagnostics.json`).
 
 ### The runs that made the measurements
 

@@ -147,7 +147,8 @@ by REDUCE 4.15 (a symlink to the binary above; the bundled REDUCE 3.10 places hy
 differently). SHIFTY+ runs on its bundled i386 BLAST, which needs the 32-bit libc on the host.
 Variables: `SHIFTX2_HOME` (the `shiftx2-linux` directory), `SHIFTX2_PYTHON` (the Python 2.7
 interpreter; its directory must also supply `java`). The patch adds to `shifty3/shifty3.py`:
-`SHIFTY_EXCLUDE_BMRBS` (comma-separated BMRB ids whose `bmr<id>.cs` entries are skipped),
+`SHIFTY_EXCLUDE_BMRBS` (comma-separated BMRB ids whose `bmr<id>.cs` entries are skipped;
+`SHIFTY_EXCLUDE_BMRB` takes a single id),
 `SHIFTY_SELF_IDEN` (hits at or above this identity percentage are skipped; the default 101
 disables it) and `SHIFTY_LOG_HIT` (one `HITLOG<TAB>shifttype<TAB>entry<TAB>identity` line on
 stderr per reference used), plus two trailing-space fixes. SHIFTY+ names its
