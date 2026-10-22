@@ -43,7 +43,7 @@ third-party file. `PROTOCOL.md` is the recipe for rebuilding the dataset and ret
 the five models. The build inputs (the BMRB, UniProt and PDB snapshots of July 2026, the
 coordinate files and the p100 fence), the relaxed structures the MLFF predictor was run on
 and the measurements behind every figure and table are deposited at Zenodo,
-[doi:10.5281/zenodo.23424002](https://doi.org/10.5281/zenodo.23424002).
+[doi:10.5281/zenodo.23550867](https://doi.org/10.5281/zenodo.23550867).
 
 ## How the released files were made
 

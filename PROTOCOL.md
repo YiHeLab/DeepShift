@@ -26,7 +26,7 @@ outputs after.
 ## Inputs
 
 The inputs of the paper's build are deposited at Zenodo
-([doi:10.5281/zenodo.23424002](https://doi.org/10.5281/zenodo.23424002)) exactly as the
+([doi:10.5281/zenodo.23550867](https://doi.org/10.5281/zenodo.23550867)) exactly as the
 build read them: the BMRB macromolecule archive mirrored from
 `rsync://rsync.bmrb.io/macromolecules/` on 10 July 2026 (the top-level NMR-STAR file of
 17,865 entries), the BMRB-to-PDB pairs of 7 July 2026, the `pdb_seqres` BLAST database of
