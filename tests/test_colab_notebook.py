@@ -90,10 +90,12 @@ def test_the_notebook_predicts_the_same_ppm_as_the_command_line(
                                 how="outer", suffixes=("_notebook", "_command_line"),
                                 indicator=True)
     assert (merged["_merge"] == "both").all(), "the notebook and the predictor differ in cells"
-    # The notebook's ppm went through decimal text on the way to the CSV, so the two
-    # agree to every digit that round trip keeps.
+    # Both runs use the CPU and the same batch size, and on the machines this was written on
+    # they agree exactly. The model computes in float32, so another CPU or maths library
+    # can round a sum differently (8e-8 ppm on one outside machine); 1e-5 ppm allows that
+    # and is still far below any difference a shift is read to.
     apart = (merged["pred_ppm_notebook"] - merged["pred_ppm_command_line"]).abs()
-    assert apart.max() < 1e-9, f"largest disagreement {apart.max()} ppm"
+    assert apart.max() < 1e-5, f"largest disagreement {apart.max()} ppm"
 
 
 def test_a_single_model_run_reports_no_ensemble_spread(notebook_csv, command_line_csv):

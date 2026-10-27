@@ -9,8 +9,18 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 import tempfile
 from pathlib import Path
+
+# The release checkout these generators sit in. They are run from this directory
+# (`python <script>.py`), so the package and the repository root go on the path here,
+# without asking the caller to set PYTHONPATH; the root is for `benchmarks`, which
+# Table S11 and emit_text_numbers.py import.
+REPO = Path(__file__).resolve().parent.parent
+for directory in (REPO / "src", REPO):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 from deepshift.quality_control import P100Policy, load_p100_cutoffs
 
@@ -61,8 +71,6 @@ def p100_policy() -> P100Policy:
 # Manuscript-side inputs a generator checks itself against: the table it rewrites and the
 # caption it copies through. They are small and belong to this release.
 REFERENCE_INPUTS = Path(__file__).resolve().parent / "reference_inputs"
-# The release checkout these generators sit in.
-REPO = Path(__file__).resolve().parent.parent
 
 
 def reference_input(var: str, name: str = "") -> Path:
