@@ -232,7 +232,7 @@ def cohort_note(outside, census, scores, scored, marked, sidechain) -> str:
         "UCBShift and UCBShift 2.0 are separate predictors that predict separate values "
         "for backbone nuclei. "
         f"Of the {C.thousands(realized)} fold-6 structure realizations "
-        r"(Table~\ref{tab:census_folds}), "
+        r"(Supplementary Table~\ref{tab:census_folds}), "
         f"{C.thousands(realized - tasks)} keep no residue after exclusions; the master "
         f"cell set spans {C.thousands(scores['n_master_structures'])} of the remaining "
         f"{C.thousands(tasks)}. "
