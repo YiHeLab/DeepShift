@@ -116,6 +116,13 @@ python -m benchmarks.score_three_source --tier 2 --master-cells $MASTER \
     --out <scored>/three_source.json
 python -m benchmarks.score_by_nucleus --tier 2 --master-cells $MASTER \
     --tools ucbshift2_sameprot shiftx2_sameprot --out <scored>/score_by_nucleus_tier2.json
+# The Bonferroni tests of the two largest families, at 20,000 resamples (same seed)
+python -m benchmarks.score_paired_tier --tier 2 --boot 20000 \
+    --master-cells $MASTER --leaky ucbshift_full_leaky shiftx2_leaky \
+    --tools $ARMS --out <scored>/score_tier2_master_paired_b20000.json \
+    --check_marginal <scored>/score_tier2_master.json
+python -m benchmarks.score_by_nucleus --tier 2 --boots 20000 --master-cells $MASTER \
+    --tools ucbshift2_sameprot shiftx2_sameprot --out <scored>/score_by_nucleus_tier2_b20000.json
 python -m benchmarks.score_pool_af_xtal --master-cells $MASTER \
     --leaky ucbshift_full_leaky shiftx2_leaky \
     --tools $ARMS ucbshift_full_selfexcl ucbshift2_selfexcl shiftx2_selfexcl \
@@ -140,7 +147,13 @@ python -m benchmarks.score_paired_tier --tier 2 --allow-anticorrelated \
 ```
 
 `score_paired_tier --check_marginal` refuses to write unless its point estimates equal the
-marginal report's, cell for cell. `score_source_matched` reads the five held-out
+marginal report's, cell for cell. Every significance claim is Bonferroni-corrected within
+its family (`deepshift.statistics.bonferroni`): a difference among m is significant when
+the fraction k/B of resamples on the other side of zero is below 0.05/(2m). For the 234
+comparisons with every self-retrieval-blocked competitor and the 77 side-chain comparisons
+that fraction is near 1e-4, which 2,000 resamples cannot resolve, so those two families are
+tested on the 20,000-resample reports above; the 72 pLDDT-band comparisons of Figure S5 are
+tested by `fig_plddt_source.py --boots 20000`, which prints them. `score_source_matched` reads the five held-out
 cross-validation dumps (`--preds` names them; the default is the run's own).
 `score_fence_effect` re-derives the p100 and structural flags over all seven folds of the
 training cache, whose atom arrays come from the coordinates, so it runs where the cache has

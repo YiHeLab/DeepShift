@@ -152,7 +152,8 @@ def test_the_json_holds_every_value_and_what_was_not_recomputed(producer, tmp_pa
     assert written["depositions"] == {"value": 3, "description": "n_api_ids"}
     assert written["offset_fit_median_residues"]["value"] == 20
     assert set(written["not_recomputed"]) == {
-        "atom_cloud", "fold0_pin", "fence_effect", "table1_significance", "xeisd",
+        "atom_cloud", "fold0_pin", "fence_effect", "table1_significance",
+        "competitor_significance", "side_chain_significance", "xeisd",
         "xeisd_pools", "intervals",
         "fold_balance", "unfiltered_n_extremes", "ucbshift_y_example",
         "source_matched", "three_source", "anticorrelated", "self_retrieval_ucbshift_y",

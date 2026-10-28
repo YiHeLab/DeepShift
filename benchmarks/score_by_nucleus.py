@@ -50,10 +50,12 @@ from deepshift.quality_control import ARG_NE_OBSERVED_RANGE_PPM
 from deepshift.statistics import (
     DEFAULT_SEED,
     BootstrapSpec,
+    bonferroni,
     bootstrap_indices,
     error_replicates,
     paired_verdict,
     percentile_interval,
+    tail_count,
     unit_codes,
 )
 
@@ -103,6 +105,8 @@ VERDICT_RULE = (
     "percentile interval on DeepShift minus a competitor is an interval on their "
     "difference: win where that interval lies below zero, loss where it lies above, tie "
     "where it spans zero")
+#: The family-wise level of the side-chain family's Bonferroni correction.
+ALPHA = 0.05
 
 
 @dataclass(frozen=True)
@@ -250,7 +254,10 @@ def difference(ours: Errors, theirs: Errors) -> dict:
                        'competitor': getattr(theirs, metric),
                        'diff': getattr(ours, metric) - getattr(theirs, metric),
                        'ci95': interval,
-                       'verdict': VERDICT_FROM_DEEPSHIFT[paired_verdict(interval)]}
+                       'verdict': VERDICT_FROM_DEEPSHIFT[paired_verdict(interval)],
+                       'k_tail': tail_count(draws, getattr(ours, metric)
+                                            - getattr(theirs, metric)),
+                       'resamples': int(draws.size)}
     return out
 
 
@@ -320,6 +327,30 @@ def tally(by_nucleus, competitors) -> dict:
     return out
 
 
+def side_chain_family(by_nucleus, competitors) -> dict:
+    """DeepShift's side-chain RMSE leads, Bonferroni-corrected over the family of every
+    side-chain comparison this report makes: each competitor on each side-chain nucleus
+    it emits (``deepshift.statistics.bonferroni``)."""
+    tests = [(name, tool, node['vs_deepshift'][tool]['rmse'])
+             for name, node in by_nucleus.items() if not node['backbone']
+             for tool in competitors if tool in node['vs_deepshift']]
+    out = {'n_tests': len(tests), 'alpha': ALPHA}
+    for tool in competitors:
+        mine = [(name, entry) for name, other, entry in tests if other == tool]
+        leads = [(name, entry, bonferroni(entry['k_tail'], entry['resamples'], len(tests),
+                                          ALPHA))
+                 for name, entry in mine if entry['diff'] < 0]
+        out[tool] = {
+            'n_tests': len(mine),
+            'n_deepshift_leads': len(leads),
+            'n_significant': sum(test['significant'] for _, _, test in leads),
+            'n_significant_plus_one': sum(test['significant_plus_one']
+                                          for _, _, test in leads),
+            'leads_not_significant': sorted(name for name, _, test in leads
+                                            if not test['significant'])}
+    return out
+
+
 def build_report(cohort: Cohort, competitors, spec: BootstrapSpec, tier, by_nucleus,
                  below_floor) -> dict:
     """The report the figure draws, every field of it measured on this cohort."""
@@ -364,6 +395,7 @@ def build_report(cohort: Cohort, competitors, spec: BootstrapSpec, tier, by_nucl
         'n_scored_cells': int(cohort.column.size),
         'n_structures_per_arm': cohort.structures_per_arm,
         'tally': tally(by_nucleus, competitors),
+        'bonferroni_side_chain': side_chain_family(by_nucleus, competitors),
         'by_nucleus': by_nucleus,
         'nuclei_below_the_floor': below_floor,
     }

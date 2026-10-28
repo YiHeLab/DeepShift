@@ -38,6 +38,7 @@ import numpy as np
 import style
 
 from deepshift import cohorts, evaluate, structure
+from deepshift.statistics import bonferroni
 
 ARMS = ("af", "nmr", "xtal")
 
@@ -255,8 +256,27 @@ def main():
                          f"files under {args.build} are missing")
 
     bands = by_band(arms, plddt, nuclei, boots=args.boots, seed=args.seed)
+    print_significance(bands)
 
     frozen.emit(draw_advantage(bands, nuclei), "fig_plddt_source_advantage")
+
+
+def print_significance(bands) -> None:
+    """Per band and experimental arm, the nuclei on which that arm is significantly worse
+    or better than the AlphaFold arm, Bonferroni-corrected over every difference drawn.
+    With 72 differences the corrected tail is 0.05/144, which needs ``--boots 20000``;
+    the 2,000 the figure's intervals are drawn from cannot resolve it."""
+    tests = [(band["label"], name, column, d) for band in bands
+             for name, columns in band["paired"].items() for column, d in columns.items()]
+    print(f"Bonferroni over {len(tests)} differences ({tests[0][3]['resamples']} resamples):")
+    for band in bands:
+        for name in band["paired"]:
+            mine = [(column, d) for label, other, column, d in tests
+                    if label == band["label"] and other == name
+                    and bonferroni(d["k_tail"], d["resamples"], len(tests))["significant"]]
+            worse = [column for column, d in mine if d["delta_rmse"] > 0]
+            better = [column for column, d in mine if d["delta_rmse"] < 0]
+            print(f"  pLDDT {band['label']:>10s} {name}: worse on {worse}, better on {better}")
 
 
 if __name__ == "__main__":

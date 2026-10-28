@@ -45,6 +45,7 @@ from deepshift.statistics import (
     DEFAULT_SEED,
     MIN_SCORABLE_CELLS,
     BootstrapSpec,
+    bonferroni,
     bootstrap_indices,
     compare,
     error_replicates,
@@ -58,6 +59,8 @@ from . import config
 DUMP_NAME = "final/fold%d.preds.npz"
 BOOTSTRAP_UNIT = "label_set"
 DEFAULT_RESAMPLES = 2000
+#: The family-wise level of the source comparisons' Bonferroni correction.
+ALPHA = 0.05
 
 _FOLD = re.compile(r"fold(\d+)")
 
@@ -155,7 +158,27 @@ def paired_verdict(first, second, entry) -> dict:
             "mae": {first: entry["mae_baseline"], second: entry["mae_candidate"]},
             "delta_rmse": entry["delta_rmse"], "delta_rmse_ci95": entry["ci"],
             "verdict": {"baseline": first,
-                        "candidate": second}.get(entry["verdict"], entry["verdict"])}
+                        "candidate": second}.get(entry["verdict"], entry["verdict"]),
+            "k_tail": entry["k_tail"], "resamples": entry["resamples"]}
+
+
+def source_family(nuclei) -> dict:
+    """Every pair of sources on every nucleus, Bonferroni-corrected over that family
+    (``deepshift.statistics.bonferroni``): per pair, how many differences are significant
+    and which are not."""
+    tests = [(name, pair, entry) for name, node in nuclei.items()
+             for pair, entry in node["paired"].items()]
+    out = {"n_tests": len(tests), "alpha": ALPHA}
+    for pair in sorted({pair for _, pair, _ in tests}):
+        verdicts = {name: bonferroni(entry["k_tail"], entry["resamples"], len(tests), ALPHA)
+                    for name, other, entry in tests if other == pair}
+        out[pair] = {
+            "n_significant": sum(test["significant"] for test in verdicts.values()),
+            "n_significant_plus_one": sum(test["significant_plus_one"]
+                                          for test in verdicts.values()),
+            "not_significant": sorted(name for name, test in verdicts.items()
+                                      if not test["significant"])}
+    return out
 
 
 def score(arms, columns, *, bootstrap) -> tuple[dict, dict]:
@@ -214,6 +237,7 @@ def report(predictions, label_residue, *, columns, bootstrap) -> dict:
                   "difference excludes zero, and is a tie when it does not",
         "n_matched_sites": int(head.n_rows),
         "nuclei": nuclei,
+        "bonferroni": source_family(nuclei),
         "not_scored": thin,
     }
 

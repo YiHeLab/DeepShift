@@ -27,10 +27,12 @@ import numpy as np
 from deepshift.statistics import (
     DEFAULT_SEED,
     BootstrapSpec,
+    bonferroni,
     bootstrap_indices,
     error_replicates,
     paired_verdict,
     percentile_interval,
+    tail_count,
     unit_codes,
 )
 
@@ -40,6 +42,8 @@ from .score_by_source import BACKBONE, build_cohort
 
 SOURCES = ("xtal", "af", "nmr")
 REFERENCE = "deepshift"
+#: The family-wise level of each predictor's Bonferroni-corrected source comparisons.
+ALPHA = 0.05
 
 
 def site_keys(cohort) -> np.ndarray:
@@ -79,7 +83,10 @@ def score_arm(arm, cohort, sites, label_sets, triple, spec) -> dict:
                 "delta_rmse": per_source[first]["rmse"] - per_source[second]["rmse"],
                 "delta_rmse_ci95": interval,
                 "verdict": {"baseline": first, "candidate": second}.get(
-                    paired_verdict(interval), "tie")}
+                    paired_verdict(interval), "tie"),
+                "k_tail": tail_count(delta, per_source[first]["rmse"]
+                                     - per_source[second]["rmse"]),
+                "resamples": int(delta.size)}
         worst = max(SOURCES, key=lambda s: per_source[s]["rmse"])
         out[nucleus] = {"n_sites": len(common_sites), "n_label_sets": n_units,
                         "per_source": per_source, "least_accurate_source": worst,
@@ -87,7 +94,22 @@ def score_arm(arm, cohort, sites, label_sets, triple, spec) -> dict:
     return {"nuclei": out,
             "n_nuclei_scored": len(out),
             "n_nuclei_nmr_least_accurate": sum(v["least_accurate_source"] == "nmr"
-                                               for v in out.values())}
+                                               for v in out.values()),
+            "bonferroni": source_family(out)}
+
+
+def source_family(nuclei) -> dict:
+    """One predictor's source comparisons, every pair on every nucleus, Bonferroni-corrected
+    over that family (``deepshift.statistics.bonferroni``): per pair, the nuclei on which
+    the difference is significant."""
+    tests = [(name, pair, entry) for name, node in nuclei.items()
+             for pair, entry in node["paired"].items()]
+    out = {"n_tests": len(tests), "alpha": ALPHA}
+    for pair in sorted({pair for _, pair, _ in tests}):
+        out[pair] = sorted(name for name, other, entry in tests if other == pair
+                           and bonferroni(entry["k_tail"], entry["resamples"], len(tests),
+                                          ALPHA)["significant"])
+    return out
 
 
 def main(argv=None) -> int:

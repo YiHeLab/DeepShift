@@ -54,6 +54,7 @@ from scipy.stats import spearmanr
 
 from benchmarks import master_cells
 from deepshift import cohorts
+from deepshift.statistics import bonferroni, tail_count
 
 # Run products, named by environment with no fallback; see REPRODUCTION.md.
 # The cell dump is two-arm: an eleven-arm dump would additionally impose
@@ -182,7 +183,8 @@ def ratio_to_low_bin(d, arm, atom, ident_cell, struct_code, lo, hi, rng, boots=N
     b = b[np.isfinite(b)]
     return {"ratio": point, "ci95": [float(np.percentile(b, 2.5)), float(np.percentile(b, 97.5))],
             "rmse_ppm": float(np.sqrt(sh.sum() / ch.sum())),
-            "n_cells": int(hi_m.sum()), "n_structures": len(set(struct_code[hi_m]))}
+            "n_cells": int(hi_m.sum()), "n_structures": len(set(struct_code[hi_m])),
+            "k_tail": tail_count(b - 1.0, point - 1.0), "resamples": int(b.size)}
 
 
 def coverage_ledger():
@@ -358,6 +360,12 @@ def main():
                 "pct_ci95": [100.0 * (v["ci95"][0] - 1.0), 100.0 * (v["ci95"][1] - 1.0)]}
             for k, v in ratios.items()},
         "rmse_ppm_by_nucleus_and_bin": absolute,
+        # Panel b's claim: the nuclei whose RMSE changes significantly between DeepShift's
+        # least- and most-related proteins, Bonferroni over its six nuclei.
+        "deepshift_changed_bonferroni": [
+            nuc for nuc in NUCLEI
+            if bonferroni(ratios[f"deepshift|{nuc}"]["k_tail"],
+                          ratios[f"deepshift|{nuc}"]["resamples"], len(NUCLEI))["significant"]],
         "panel_a_axis": {"linear_ceiling": Y_CAP, "points_above_ceiling": off_scale,
                          "points_per_method": n_struct},
         "median_best_identity": float(np.median(ident_s)),

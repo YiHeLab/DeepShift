@@ -7,6 +7,8 @@ figure's record cannot come from two implementations.
 """
 from __future__ import annotations
 
+from deepshift.statistics import bonferroni
+
 #: The backbone nuclei and structure sources of Table 1, in its order.
 NUCLEI = ("CA", "CB", "C", "HA", "H", "N")
 SOURCES = ("xtal", "af", "nmr")
@@ -16,6 +18,18 @@ ALPHA = 0.05
 #: typed into main.tex from Table S12's record of the same marginal report.
 TABLE1_ARMS = ("deepshift", "ucbshift_full_sameprot", "ucbshift_x", "shiftx2_sameprot",
                "sparta", "mlff")
+#: The arms run as distributed, their self-retrieval not blocked; main.tex's comparison with
+#: "every self-retrieval-blocked competitor" leaves them out.
+AS_DISTRIBUTED_ARMS = ("ucbshift_full_leaky", "shiftx2_leaky")
+
+
+def not_better(node: dict, boot: int, where: str) -> int:
+    """k: how many of the paired report's replicates do not favour DeepShift."""
+    k = (1 - node["p_deepshift_better"]) * boot
+    if abs(k - round(k)) > 1e-6:
+        raise SystemExit(f"{where}: P(DeepShift better) is not a count out of {boot} "
+                         f"replicates, so k cannot be read from it")
+    return round(k)
 
 
 def lead_tests(marginal: dict, paired: dict, competitors) -> dict:
@@ -31,24 +45,20 @@ def lead_tests(marginal: dict, paired: dict, competitors) -> dict:
     """
     boot = paired["boot"]
     cells = [(src, nuc) for src in SOURCES for nuc in NUCLEI]
-    threshold = ALPHA / (2 * len(cells))
     tests = []
     for src, nuc in cells:
         block = marginal["by_source"][src]["nuclei"][nuc]
         runner = min(competitors, key=lambda arm: block[arm]["rmse"])
         node = paired[src][nuc][runner]
-        k = (1 - node["p_deepshift_better"]) * boot
-        if abs(k - round(k)) > 1e-6:
-            raise SystemExit(f"{src}/{nuc}: P(DeepShift better) is not a count out of "
-                             f"{boot} replicates, so k cannot be read from it")
-        k = round(k)
+        k = not_better(node, boot, f"{src}/{nuc}")
         leads = node["diff"] < 0          # on the cells both arms of the pair emitted
+        corrected = bonferroni(k, boot, len(cells), ALPHA)
         tests.append({
             "source": src, "nucleus": nuc, "runner_up": runner, "deepshift_leads": leads,
             "diff": node["diff"], "ci95": node["ci"], "k_not_better": k,
             "significant_alpha": leads and node["ci"][1] < 0,
-            "significant_bonferroni": leads and k / boot < threshold,
-            "significant_bonferroni_plus_one": leads and (k + 1) / (boot + 1) < threshold})
+            "significant_bonferroni": leads and corrected["significant"],
+            "significant_bonferroni_plus_one": leads and corrected["significant_plus_one"]})
     return {
         "runner_up_among": list(competitors),
         "n_tests": len(cells), "alpha": ALPHA, "bonferroni_alpha": ALPHA / len(cells),
@@ -60,6 +70,33 @@ def lead_tests(marginal: dict, paired: dict, competitors) -> dict:
                                                  for t in tests),
         "tests": tests,
     }
+
+
+def blocked_competitor_tests(paired: dict) -> dict:
+    """DeepShift against every self-retrieval-blocked competitor in every source and
+    backbone nucleus of the paired report, Bonferroni-corrected over all of those
+    comparisons (main.tex's "winning the large majority of comparisons with statistical
+    significance"). With some 230 comparisons the corrected tail is near 1e-4, which the
+    report's resamples must be able to resolve: 2,000 cannot, 20,000 can."""
+    boot = paired["boot"]
+    tests = [(src, nuc, arm, node) for src in SOURCES for nuc in NUCLEI
+             for arm, node in paired[src][nuc].items() if arm not in AS_DISTRIBUTED_ARMS]
+    out = {"n_tests": len(tests), "alpha": ALPHA, "boot": boot,
+           "n_deepshift_leads": 0, "n_significant_alpha": 0,
+           "n_significant_bonferroni": 0, "n_significant_bonferroni_plus_one": 0,
+           "leads_not_significant_bonferroni": []}
+    for src, nuc, arm, node in tests:
+        if node["diff"] >= 0:
+            continue
+        corrected = bonferroni(not_better(node, boot, f"{src}/{nuc}/{arm}"), boot,
+                               len(tests), ALPHA)
+        out["n_deepshift_leads"] += 1
+        out["n_significant_alpha"] += node["ci"][1] < 0
+        out["n_significant_bonferroni"] += corrected["significant"]
+        out["n_significant_bonferroni_plus_one"] += corrected["significant_plus_one"]
+        if not corrected["significant"]:
+            out["leads_not_significant_bonferroni"].append(f"{src}/{nuc}/{arm}")
+    return out
 
 
 def table1_competitors(paired: dict) -> list:

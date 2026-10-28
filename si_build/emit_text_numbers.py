@@ -32,12 +32,17 @@ import numpy as np
 import pandas as pd
 import si_common as C
 
-from benchmarks.runner_up_leads import lead_tests, table1_competitors
+from benchmarks.runner_up_leads import (
+    blocked_competitor_tests,
+    lead_tests,
+    table1_competitors,
+)
 from deepshift.data import folds as fold_stage
 
 # Two values of one cell differ when further apart than this (the fetch stage's rule).
 from deepshift.data.fetch import DUP_VALUE_EPS
 from deepshift.data.reref import REREF_APPLY_NUCS
+from deepshift.statistics import bonferroni, tail_count
 
 # The released dataset: the three Parquet tables the code ships in data/.
 RELEASED = C.REPO / "data"
@@ -209,6 +214,33 @@ def table1_significance(g: Group) -> None:
             tests[key], f"benchmarks.runner_up_leads.lead_tests: {key} of "
             f"{tests['n_tests']} Table 1 cells")
 
+
+def competitor_significance(g: Group) -> None:
+    """Results: DeepShift against every self-retrieval-blocked competitor in every source
+    and backbone nucleus, how many leads are significant after Bonferroni over all of them
+    (benchmarks.runner_up_leads.blocked_competitor_tests on the 20,000-resample paired
+    report; 2,000 resamples cannot resolve a tail of 0.05 / (2 x 234))."""
+    path = g.read(C.root("SI_FINAL_SCORES_DIR") / "score_tier2_master_paired_b20000.json")
+    tests = blocked_competitor_tests(json.loads(path.read_text()))
+    for key in ("n_tests", "n_deepshift_leads", "n_significant_alpha",
+                "n_significant_bonferroni", "n_significant_bonferroni_plus_one"):
+        g.values[f"blocked_competitors_{key}"] = entry(
+            tests[key], f"benchmarks.runner_up_leads.blocked_competitor_tests: {key}")
+
+
+def side_chain_significance(g: Group) -> None:
+    """Results and Figure 3: on how many side-chain nuclei DeepShift's lead over UCBShift 2.0
+    and over SHIFTX2 is significant after Bonferroni over the 77 side-chain comparisons
+    (benchmarks.score_by_nucleus, 20,000 resamples)."""
+    path = g.read(C.root("SI_FINAL_SCORES_DIR") / "score_by_nucleus_tier2_b20000.json")
+    family = json.loads(path.read_text())["bonferroni_side_chain"]
+    g.values["side_chain_bonferroni_tests"] = entry(family["n_tests"],
+                                                    "bonferroni_side_chain.n_tests")
+    for tool in ("ucbshift2_sameprot", "shiftx2_sameprot"):
+        for key in ("n_tests", "n_significant", "n_significant_plus_one"):
+            g.values[f"side_chain_{tool}_{key}"] = entry(
+                family[tool][key], f"bonferroni_side_chain.{tool}.{key}")
+
 # --------------------------------------------------------------------------------------
 # Prediction intervals: the fold-0 exclusion and the fold-6 coverage range (Methods)
 # --------------------------------------------------------------------------------------
@@ -261,7 +293,8 @@ def source_matched(g: Group) -> None:
     structures put DeepShift on matched cross-validation cells, as a per cent of the
     experimental structure's RMSE, and whether every paired interval excludes zero."""
     path = g.read(C.BUILD_ROOT / "benchmark" / "scored" / "master_pf14" / "source_matched.json")
-    nuclei = json.loads(path.read_text())["nuclei"]
+    report = json.loads(path.read_text())
+    nuclei = report["nuclei"]
     for exp in ("xtal", "nmr"):
         pct = [100 * (v["per_source"][exp]["rmse"] - v["per_source"]["af"]["rmse"])
                / v["per_source"][exp]["rmse"] for v in nuclei.values()]
@@ -271,6 +304,9 @@ def source_matched(g: Group) -> None:
         g.values[f"source_matched_af_vs_{exp}_af_significant_nuclei"] = entry(
             sum(v["paired"][f"af_vs_{exp}"]["verdict"] == "af" for v in nuclei.values()),
             f"nuclei whose paired af_vs_{exp} verdict is af (interval excludes zero)")
+        g.values[f"source_matched_af_vs_{exp}_significant_bonferroni"] = entry(
+            report["bonferroni"][f"af_vs_{exp}"]["n_significant"],
+            f"bonferroni.af_vs_{exp}.n_significant (over all source pairs and nuclei)")
 
 
 def three_source(g: Group) -> None:
@@ -297,6 +333,10 @@ def three_source(g: Group) -> None:
     g.values["three_source_shiftx2_nmr_significantly_worse_than_af_nuclei"] = entry(
         sum(v["paired"]["af_minus_nmr"]["verdict"] == "af" for v in sx.values()),
         "arms.shiftx2_sameprot: nuclei whose af_minus_nmr verdict is af")
+    corrected = report["arms"]["shiftx2_sameprot"]["bonferroni"]
+    g.values["three_source_shiftx2_nmr_worse_than_af_bonferroni_nuclei"] = entry(
+        len(corrected["af_minus_nmr"]),
+        f"arms.shiftx2_sameprot.bonferroni.af_minus_nmr (over {corrected['n_tests']})")
 
 
 # --------------------------------------------------------------------------------------
@@ -505,13 +545,12 @@ XEISD_BOOTSTRAPS_PER_POOL = 17
 XEISD_SEED, XEISD_SAMPLES, XEISD_RESTARTS = 20260728, 10000, 1000
 
 
-def _bootstrap_ci(diff, rng) -> tuple[float, float]:
+def _bootstrap(diff, rng) -> np.ndarray:
     est = np.empty(XEISD_SAMPLES)
     for start in range(0, XEISD_SAMPLES, 500):
         stop = min(start + 500, XEISD_SAMPLES)
         est[start:stop] = diff[rng.integers(0, len(diff), size=(stop - start, len(diff)))].mean(1)
-    low, high = np.percentile(est, [2.5, 97.5])
-    return float(low), float(high)
+    return est
 
 
 def xeisd(g: Group) -> None:
@@ -530,9 +569,14 @@ def xeisd(g: Group) -> None:
                 raise SystemExit(f"{path}: not {XEISD_RESTARTS} restarts")
             arms[arm] = values[:, XEISD_PRIMARY_COLUMNS].sum(axis=1)
         diff = arms["deepshift"] - arms["shiftx2"]
-        low, high = _bootstrap_ci(diff, rng)
+        est = _bootstrap(diff, rng)
+        low, high = (float(value) for value in np.percentile(est, [2.5, 97.5]))
         for _ in range(XEISD_BOOTSTRAPS_PER_POOL - 1):
-            _bootstrap_ci(np.zeros(XEISD_RESTARTS), rng)   # draws depend on n only
+            _bootstrap(np.zeros(XEISD_RESTARTS), rng)   # draws depend on n only
+        g.values[f"xeisd_{pool}_significant_bonferroni"] = entry(
+            bonferroni(tail_count(est, diff.mean()), XEISD_SAMPLES,
+                       len(XEISD_POOL_ORDER))["significant"],
+            "bootstrap tail of the mean difference, Bonferroni over the three pools")
         printed = report[pool]["primary_non_cs_score"]
         mine = {"mean_improvement": float(diff.mean()), "ci95_low": low, "ci95_high": high}
         if any(not np.isclose(mine[k], printed[k], rtol=0, atol=1e-9) for k in mine):
@@ -786,6 +830,8 @@ def main(argv=None):
         "fold0_pin": lambda g: fold0_pin(g, data),
         "fence_effect": fence_effect,
         "table1_significance": table1_significance,
+        "competitor_significance": competitor_significance,
+        "side_chain_significance": side_chain_significance,
         "rereferencing": lambda g: rereferencing(g, data),
         "xeisd": xeisd,
         "xeisd_pools": xeisd_pools,

@@ -3,11 +3,13 @@ import pytest
 
 from deepshift.statistics import (
     BootstrapSpec,
+    bonferroni,
     bootstrap_indices,
     error_replicates,
     paired_verdict,
     secondary_shift_agreement,
     secondary_shift_replicates,
+    tail_count,
     weighted_median_replicates,
 )
 
@@ -19,6 +21,27 @@ def test_a_paired_interval_favours_the_arm_it_lies_on_the_side_of():
     assert paired_verdict((0.1, 0.4)) == "candidate"
     assert paired_verdict((-0.1, 0.4)) == "tie"
     assert paired_verdict((0.0, 0.4)) == "tie"
+
+
+def test_the_tail_counts_replicates_against_the_estimate_zero_included():
+    replicates = np.array([-0.3, -0.1, 0.0, 0.2, 0.5])
+    assert tail_count(replicates, -0.2) == 3       # a lead below zero: 0.0, 0.2, 0.5
+    assert tail_count(replicates, 0.4) == 3        # a lead above zero: -0.3, -0.1, 0.0
+
+
+@pytest.mark.parametrize("k,resamples,n_tests,significant,plus_one", [
+    (0, 2000, 18, True, True),       # 1/2001 < 0.05/36
+    (2, 2000, 18, True, False),      # 2/2000 < 0.05/36 <= 3/2001
+    (3, 2000, 18, False, False),
+    (0, 2000, 77, True, False),      # 2,000 resamples cannot resolve 0.05/154 add-one
+    (5, 20000, 77, True, True),
+    (6, 20000, 77, True, False),
+    (7, 20000, 77, False, False),
+])
+def test_bonferroni_reads_the_tail_against_alpha_over_twice_the_tests(
+        k, resamples, n_tests, significant, plus_one):
+    assert bonferroni(k, resamples, n_tests) == {"significant": significant,
+                                                 "significant_plus_one": plus_one}
 
 
 def test_index_draws_preserve_the_declared_seed_stream():

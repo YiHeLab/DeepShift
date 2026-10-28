@@ -25,6 +25,8 @@ from pathlib import Path
 import numpy as np
 import si_common
 
+from deepshift.statistics import bonferroni, tail_count
+
 ARTIFACTS_DIR = si_common.root("SI_UCB200_ARTIFACTS_DIR")
 COMPETITOR_CELLS = si_common.root("SI_UCB200_COMPETITOR_CELLS")
 ARMS = {
@@ -101,9 +103,16 @@ def block(arms):
                               "sig": bool(lo > 0)}
         ours, theirs = VERSUS_X
         lo, hi = np.percentile(boot[ours] - boot[theirs], [2.5, 97.5])
-        versus_x[atom] = {"diff": round(rmse[ours][atom] - rmse[theirs][atom], 4),
+        diff = rmse[ours][atom] - rmse[theirs][atom]
+        # main.tex's "significantly lower RMSE than UCBShift-X on four of six": Bonferroni
+        # over the six nuclei.
+        corrected = bonferroni(tail_count(boot[ours] - boot[theirs], diff), BOOT_N,
+                               len(ATOMS))
+        versus_x[atom] = {"diff": round(diff, 4),
                           "ci": [round(float(lo), 4), round(float(hi), 4)],
-                          "deepshift_better": bool(hi < 0)}
+                          "deepshift_better": bool(hi < 0),
+                          "deepshift_better_bonferroni": bool(diff < 0
+                                                              and corrected["significant"])}
     return {"n_cells": len(common), "n_chains": len(chains), "rmse": rmse,
             "significance": significance,
             "deepshift_vs_ucbshift_x": {"by_nucleus": versus_x}}
@@ -143,6 +152,9 @@ def main():
     si_common.emit("si_ucb200_common", table(b), script="emit_ucb200_common.py",
                    placeholder_caption=False)
     print(f"wrote si_ucb200_common: {b['n_cells']:,} cells, {b['n_chains']} chains")
+    versus_x = b["deepshift_vs_ucbshift_x"]["by_nucleus"].values()
+    print(f"DeepShift below UCBShift-X after Bonferroni over the {len(ATOMS)} nuclei: "
+          f"{sum(v['deepshift_better_bonferroni'] for v in versus_x)} of {len(ATOMS)}")
 
 
 if __name__ == "__main__":

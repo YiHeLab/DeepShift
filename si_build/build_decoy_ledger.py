@@ -31,6 +31,8 @@ import pandas as pd
 import si_common
 from scipy.stats import kendalltau
 
+from deepshift.statistics import bonferroni, tail_count
+
 # The pooled decoy run and its cohort file are experiment records, not release code, so
 # they stay outside the repo and are resolved by environment.
 POOL = si_common.root("DEEPSHIFT_DECOY_POOLED")
@@ -51,10 +53,13 @@ N_BOOT = 200_000
 SEED = 20260814
 
 
-def paired_bootstrap(delta: np.ndarray) -> tuple[float, float]:
+def bootstrap_means(delta: np.ndarray) -> np.ndarray:
     rng = np.random.default_rng(SEED)
-    boot = delta[rng.integers(0, len(delta), size=(N_BOOT, len(delta)))].mean(axis=1)
-    lo, hi = np.quantile(boot, [0.025, 0.975])
+    return delta[rng.integers(0, len(delta), size=(N_BOOT, len(delta)))].mean(axis=1)
+
+
+def paired_bootstrap(delta: np.ndarray) -> tuple[float, float]:
+    lo, hi = np.quantile(bootstrap_means(delta), [0.025, 0.975])
     return float(lo), float(hi)
 
 
@@ -94,14 +99,21 @@ def main_text_paired(check: pd.DataFrame, comparison: dict) -> dict:
         for name, column in ORDERINGS.items():
             delta = (check.loc[left][column] - check.loc[right][column]).to_numpy()
             mean = float(delta.mean())
-            lo, hi = paired_bootstrap(delta)
+            boot = bootstrap_means(delta)
+            lo, hi = (float(value) for value in np.quantile(boot, [0.025, 0.975]))
             quoted = report[f"{SCORE}/{pair}"][column]
             if not (np.isclose(quoted["mean_left_minus_right"], mean, rtol=0, atol=1e-12)
                     and np.allclose(quoted["ci95"], [lo, hi], rtol=0, atol=1e-12)):
                 raise SystemExit(f"{pair} {column}: the pool's report gives {quoted}, "
                                  f"this ledger {mean} [{lo}, {hi}]")
             out[pair][name] = {"mean_difference": mean, "ci95": [lo, hi],
-                               "n_targets": len(delta)}
+                               "n_targets": len(delta), "k_tail": tail_count(boot, mean)}
+    # Bonferroni over every difference above, the family the main text's claims come from.
+    n_tests = sum(len(by_ordering) for by_ordering in out.values())
+    for by_ordering in out.values():
+        for test in by_ordering.values():
+            test["significant_bonferroni"] = bonferroni(test["k_tail"], N_BOOT,
+                                                        n_tests)["significant"]
     return out
 
 

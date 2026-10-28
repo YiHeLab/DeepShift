@@ -104,6 +104,23 @@ def paired_verdict(interval) -> str:
     return "candidate" if low > 0 else "baseline" if high < 0 else "tie"
 
 
+def tail_count(replicates, estimate) -> int:
+    """The replicates of a difference on the other side of zero from its estimate, zero
+    included: the k of a bootstrap test that the difference has the estimate's sign."""
+    replicates = np.asarray(replicates)
+    return int((replicates <= 0).sum() if estimate > 0 else (replicates >= 0).sum())
+
+
+def bonferroni(k: int, resamples: int, n_tests: int, alpha: float = 0.05) -> dict:
+    """One difference of a family of ``n_tests``, tested two-sided at the family-wise level
+    ``alpha``: significant when the bootstrap tail k/B falls below alpha / (2 x n_tests),
+    i.e. when the two-sided 1 - alpha/n_tests percentile interval excludes zero. The
+    add-one tail (k + 1)/(B + 1) is judged beside it."""
+    threshold = alpha / (2 * n_tests)
+    return {"significant": k / resamples < threshold,
+            "significant_plus_one": (k + 1) / (resamples + 1) < threshold}
+
+
 def weighted_median_replicates(
     values,
     unit,
@@ -350,5 +367,7 @@ def compare(
             "delta_rmse": rmse_a - rmse_b,
             "ci": [low, high],
             "verdict": paired_verdict((low, high)),
+            "k_tail": tail_count(deltas, rmse_a - rmse_b),
+            "resamples": int(deltas.size),
         }
     return result
