@@ -19,11 +19,14 @@ table are archived at Zenodo, [doi:10.5281/zenodo.23550867](https://doi.org/10.5
 
 ## Install
 
-DeepShift requires Python 3.11 or newer.
+DeepShift requires Python 3.11 or newer. It is tested on Ubuntu (CI); macOS and Windows
+are untested. No GPU is needed: prediction uses a CUDA GPU when one is visible and the CPU
+otherwise.
 
-The checkpoints and the published dataset are stored with Git LFS. A clone made without it
-yields pointer files of about 130 bytes, and `torch.load` fails on them with an
-unpickling error and no useful message:
+The checkpoints and the published dataset are stored with Git LFS (about 360 MB). Install
+`git-lfs` first (apt, Homebrew or conda). A clone made without it yields pointer files of
+about 130 bytes, and `torch.load` fails on them with an unpickling error and no useful
+message:
 
 ```bash
 git lfs install
@@ -33,6 +36,15 @@ git lfs pull
 Then:
 
 ```bash
+python -m pip install .
+```
+
+On a machine without a GPU, install the CPU build of PyTorch first. The default wheel from
+PyPI is the CUDA build, about 900 MB plus several GB of NVIDIA libraries; with the CPU build
+the whole install took 1.5 min in our test:
+
+```bash
+python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
 python -m pip install .
 ```
 
@@ -67,16 +79,35 @@ by environment variable: `DEEPSHIFT_SIFTS_CSV` (the SIFTS chain-to-accession tab
 
 ## Predict from a PDB
 
-Supply one or more compatible checkpoints explicitly:
+From the repository root, with the bundled structure 1POH (85 residues), the five
+ensemble members and their interval calibration:
 
 ```bash
-deepshift predict \
-  --pdb protein.pdb \
-  --chain A \
-  --checkpoint models/deepshift_fold1.pt \
-  --checkpoint models/deepshift_fold2.pt \
+deepshift predict --pdb figures/reference/1POH.pdb --chain A \
+  --checkpoint models/deepshift_fold1.pt --checkpoint models/deepshift_fold2.pt \
+  --checkpoint models/deepshift_fold3.pt --checkpoint models/deepshift_fold4.pt \
+  --checkpoint models/deepshift_fold5.pt \
+  --interval-calibration models/interval_calibration.json \
   --out shifts.csv
 ```
+
+This writes `shifts.csv` (85 rows) and `shifts.intervals.csv` (496 rows). On 20 CPU cores
+it takes 40 s; one member alone takes 8 s. A 396-residue protein (maltose-binding protein)
+takes 2 min 42 s with five members and 34 s with one.
+
+**Input.** `--pdb` takes a local PDB-format file; a PDB ID is not fetched. AlphaFold DB
+models work as they are (`AF-<UniProt>-F1-model_v6.pdb`, chain A). Hydrogens are ignored.
+For a multi-model file (an NMR ensemble), the model closest to the ensemble median is used.
+
+**Output.** `shifts.csv` has one row per residue: `residue_id`, `residue_name`,
+`atom_cloud_truncated` (true when the 8 Å cloud exceeded the 512-atom cap), then 64
+`<atom>_shift` columns in ppm, blank where the residue type has no such atom.
+`shifts.intervals.csv` has one row per residue and backbone nucleus: `residue_id`,
+`residue_name`, `nucleus`, `ensemble_sd_ppm`, `ci90_halfwidth_ppm`. The Colab notebook
+writes a different, long-format table (`colab/README.md`).
+
+Any compatible subset of the checkpoints can be supplied with repeated `--checkpoint`;
+`--cpu` forces the CPU when a GPU is visible.
 
 The structure is parsed once. Each checkpoint is validated, run in its own normalization
 frame, converted to ppm, and then ensemble-averaged. Cross-chain protein partners are
