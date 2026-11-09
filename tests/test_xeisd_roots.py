@@ -15,18 +15,18 @@ def _load(name):
 
 
 def test_the_two_xeisd_figures_resolve_the_same_protocol_run(monkeypatch, tmp_path):
-    """One root names the protocol run, so the selection figure and the composition
-    figure read the same run directory and neither reaches a level below it."""
+    """One root names the protocol run, so the applications figure (Figure 5b,c) and the
+    composition figure read the same run directory and neither reaches a level below it."""
     protocol = tmp_path / "protocol"
     (protocol / "runs").mkdir(parents=True)
     monkeypatch.setenv("DEEPSHIFT_XEISD_PROTOCOL", str(protocol))
     monkeypatch.setenv("MPLBACKEND", "Agg")
     sys.path.insert(0, str(FIGURES))
     try:
-        selection = _load("fig_xeisd_mixed_selection")
+        applications = _load("fig_applications")
         composition = _load("fig_xeisd_composition")
     finally:
         sys.path.remove(str(FIGURES))
 
-    assert protocol / "runs" == selection.RUNS
-    assert composition.RUNS == selection.RUNS
+    assert protocol / "runs" == applications.RUNS
+    assert composition.RUNS == applications.RUNS

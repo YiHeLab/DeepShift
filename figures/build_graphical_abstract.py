@@ -16,7 +16,7 @@ Three decisions worth stating, because each is why something is drawn the way it
     explain it. It is not a cartoon: it is the single most strongly shielded proton in the
     benchmark, the point at the right-hand end of the curve, ray traced from the deposited
     coordinates by figures/render_structures.py.
-  * The strip repeats Figure 1's protein, Figure 1's cutoff and Figure 1's renders. A
+  * The strip repeats Extended Data Fig. 1's protein, Extended Data Fig. 1's cutoff and Extended Data Fig. 1's renders. A
     graphical abstract that shows a different protein from the figure it distils makes the
     reader check whether the two are the same argument.
 
@@ -52,7 +52,7 @@ OUT = frozen.OUT_DIR
 RING = "campaign/cpu/fig_06_structure/ring_cells.npz"
 CUTOFF = 8.0
 
-# The strip is drawn from the protein Figure 1 is drawn from, at the same 8 Angstrom
+# The strip is drawn from the protein Extended Data Fig. 1 is drawn from, at the same 8 Angstrom
 # cutoff, so the two are one picture at two levels of detail rather than two pictures.
 FIGURE_ONE = (REFERENCE / "1POH.pdb", "A")
 
@@ -227,7 +227,7 @@ def build(run: Path):
     cap(xs[1], TOP, CW, "8 \u00c5 atom cloud")
 
     ax = inset(xs[2], TOP, CW, TH)
-    # The same ramp Figure 1 draws this matrix in; one object, one colour scheme.
+    # The same ramp Extended Data Fig. 1 draws this matrix in; one object, one colour scheme.
     ax.imshow(dist, interpolation="nearest", aspect="equal",
               cmap=mpl.colors.LinearSegmentedColormap.from_list(
                   "geom", ["#062f38", ACCENT, "#a5dbe6", INK["surface"]]))

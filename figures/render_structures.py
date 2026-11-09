@@ -1,4 +1,4 @@
-"""Ray-trace the molecular panels of Figure 1 and the graphical abstract.
+"""Ray-trace the molecular panels of Extended Data Fig. 1 and the graphical abstract.
 
 A matplotlib scatter of circles is a diagram of a molecule, not a picture of one. These
 panels are ray-traced in PyMOL with ambient occlusion and depth fog, written once to
@@ -7,10 +7,10 @@ figures themselves stay pure matplotlib and need no PyMOL to build.
 
 What is rendered, and why each is chosen rather than picked:
 
-  * ``structure``  -- Figure 1's protein, the whole chain, coloured by the secondary
+  * ``structure``  -- Extended Data Fig. 1's protein, the whole chain, coloured by the secondary
     structure PyMOL assigns from the coordinates.
   * ``atom_cloud`` -- the same 8 Angstrom heavy-atom neighbourhood the model is given,
-    around the same residue Figure 1 already centres on.
+    around the same residue Extended Data Fig. 1 already centres on.
   * ``ring_pair`` -- the benchmark's most strongly ring-shielded proton and the ring that
     shields it, in the frame the graphical abstract's curve is about. This one needs
     $DEEPSHIFT_RUN, because the cell is chosen from the run's own numbers.
@@ -142,7 +142,7 @@ def cloud_atoms(residues, target):
     """The heavy atoms the model is handed for the target residue, as (resi, name) pairs.
 
     The model's own rule (``deepshift.atom_cloud``): every heavy atom of each residue with
-    any heavy atom within the cutoff of the target residue. Figure 1 counts the same list.
+    any heavy atom within the cutoff of the target residue. Extended Data Fig. 1 counts the same list.
     """
     from deepshift.atom_cloud import FINAL_ATOM_CLOUD_RECIPE, target_cloud
     from deepshift.structure import parse_structure

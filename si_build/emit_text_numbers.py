@@ -37,6 +37,7 @@ from benchmarks.runner_up_leads import (
     lead_tests,
     table1_competitors,
 )
+from benchmarks.self_retrieval import SELF_NUCLEI, ucbshift_y_chains, within_copy_threshold
 from deepshift.data import folds as fold_stage
 
 # Two values of one cell differ when further apart than this (the fetch stage's rule).
@@ -589,20 +590,6 @@ def xeisd(g: Group) -> None:
 # Self-retrieval of UCBShift-Y and SHIFTY+ (supplement)
 # --------------------------------------------------------------------------------------
 
-SELF_NUCLEI = ("H", "HA", "C", "CA", "CB", "N")
-SELF_EXACT_PPM = 0.005
-#: Shifts are stored to a few decimals, so a prediction can sit exactly 0.005 ppm from its
-#: target (5.39 against 5.395); binary subtraction puts such a tie on either side of the
-#: threshold. "Within 0.005 ppm" counts the tie, with a tolerance far below any stored digit.
-#: The tolerance, not exact decimals: some stored values carry float noise in the file itself
-#: (UCBShift's target 3.9450000000000003 against Y's 3.94, 1GWYA residue 153 Ha), a tie read
-#: literally as 0.0050000000000003. Exact decimals would count 27,304 of 48,617 there, not 27,305.
-SELF_TIE_TOLERANCE_PPM = 1e-9
-
-
-def within_copy_threshold(prediction, target):
-    """|prediction - target| <= 0.005 ppm, ties at the stored decimals included."""
-    return np.abs(prediction - target) <= SELF_EXACT_PPM + SELF_TIE_TOLERANCE_PPM
 THREE2ONE = {"ALA": "A", "ARG": "R", "ASN": "N", "ASP": "D", "CYS": "C", "GLN": "Q",
              "GLU": "E", "GLY": "G", "HIS": "H", "ILE": "I", "LEU": "L", "LYS": "K",
              "MET": "M", "PHE": "F", "PRO": "P", "SER": "S", "THR": "T", "TRP": "W",
@@ -613,46 +600,18 @@ def ucbshift_y(g: Group) -> None:
     """UCBShift-Y in test mode on UCBShift's 200 test proteins: cells where both a Y
     prediction and the target exist (residue names agreeing; evaluate.py's placeholders
     H < 2, CB > 80, N < 60 blanked, and the cells UCBShift's paper excludes, as every table
-    scoring this test set excludes them); copied = within 0.005 ppm of the target, ties included."""
+    scoring this test set excludes them); copied = within 0.005 ppm of the target, ties included.
+    The count per chain is ``benchmarks.self_retrieval.ucbshift_y_chains``."""
     preds = C.root("SI_SELF_RETRIEVAL_UCBY") / "preds"
     targets = C.root("SI_GATE_CSPRED_TM") / "test_targets"
     record = g.read(UCB200_EXCLUSIONS)
-    excluded = json.loads(record.read_text())
-    cprime_chains = set(excluded["cprime_chains"]["chains"])
-    excluded_cells = {(str(c), int(r), str(a)) for c, r, a in excluded["cells"]["cells"]}
-    copied = total = proteins = removed = 0
-    pred_files = sorted(preds.glob("*.csv"))
-    if not pred_files:
-        raise FileNotFoundError(preds)
-    for pf in pred_files:
-        tf = targets / pf.name
-        if not tf.is_file():
-            continue
-        m = pd.merge(pd.read_csv(pf), pd.read_csv(tf).rename(columns={"RES_NUM": "RESNUM"}),
-                     on="RESNUM", suffixes=("_p", "_t"))
-        m.loc[m["RESNAME_t"] != m["RESNAME_p"], list(SELF_NUCLEI)] = np.nan
-        m.loc[m["H"] < 2, "H"] = np.nan
-        m.loc[m["CB"] > 80, "CB"] = np.nan
-        m.loc[m["N"] < 60, "N"] = np.nan
-        before = int(m[list(SELF_NUCLEI)].notna().sum().sum())
-        if pf.stem in cprime_chains:
-            m["C"] = np.nan
-        for chain, resnum, atom in excluded_cells:
-            if chain == pf.stem:
-                m.loc[m["RESNUM"] == resnum, atom] = np.nan
-        removed += before - int(m[list(SELF_NUCLEI)].notna().sum().sum())
-        proteins += 1
-        for a in SELF_NUCLEI:
-            t = pd.to_numeric(m[a], errors="coerce").to_numpy(float)
-            y = pd.to_numeric(m[a + "_Y"], errors="coerce").to_numpy(float)
-            ok = ~np.isnan(t) & ~np.isnan(y)
-            copied += int(within_copy_threshold(y[ok], t[ok]).sum())
-            total += int(ok.sum())
+    chains = ucbshift_y_chains(preds, targets, json.loads(record.read_text()))
+    copied, total, removed = (sum(c[k] for c in chains.values()) for k in range(3))
     if not total:
         # The test targets are UCBShift's own (third-party): absent, nothing is scored.
         raise FileNotFoundError(targets)
     key = "cells with |prediction_Y - target| <= 0.005 ppm (stored-decimal ties included)"
-    g.values["self_retrieval_ucbshift_y_proteins"] = entry(proteins, "proteins scored")
+    g.values["self_retrieval_ucbshift_y_proteins"] = entry(len(chains), "proteins scored")
     g.values["self_retrieval_ucbshift_y_copied"] = entry(copied, key)
     g.values["self_retrieval_ucbshift_y_cells"] = entry(total, "cells scored")
     g.values["self_retrieval_ucbshift_y_percent"] = entry(

@@ -66,7 +66,14 @@ export DEEPSHIFT_BUNDLE=/path/to/unpacked/bundle
 set -a; source "$DEEPSHIFT_BUNDLE/roots.env"; set +a
 ```
 
-`roots.env` sets every root variable named below to its directory in the bundle.
+`roots.env` sets every root variable named below to its directory in the bundle. Release
+v1.1 adds `reproduction_bundle_v1.1_additions.tar.gz`: unpack it where the bundle was unpacked
+(its paths begin with `reproduction_bundle/`, as the bundle's do) before sourcing `roots.env`.
+It adds the assignment-accuracy outputs
+(`DEEPSHIFT_ASSIGNMENT_ROOT`) and two files under `ucbshift_leakage/` (UCBShift's
+predictions with each test protein's own deposition removed from its database, and what
+SHIFTY+ retrieved for each of SHIFTX2's 61 test proteins), and replaces `roots.env` with one
+that names the new root.
 `DEEPSHIFT_RUN` is the finished run: `data/`, `work/unified_cache/`, `final/` and
 `benchmark/`. An unset root resolves to a placeholder such as `__DEEPSHIFT_RUN_REQUIRED__`,
 so a script still imports and its first read fails naming the variable. Figure scripts run
@@ -167,6 +174,11 @@ python -m benchmarks.score_error_covariates --out <covariate_report>
 python -m benchmarks.score_data_composition --floor F --redundant R --diverse D \
     --one-per-protein P --shipped-all S --arms-report <report> \
     --out-comparison <c.json> --out-source-matched <m.json>
+# Resonance-assignment accuracy (Figure 5a); the bundle holds the second command's outputs
+# under $DEEPSHIFT_ASSIGNMENT_ROOT
+python -m benchmarks.dump_paired_cells --tier 2 --master-cells $MASTER \
+    --tools ucbshift_x ucbshift_full_sameprot shiftx2_sameprot sparta deepshift --out <assignment>/fold6_core5.npz
+python -m benchmarks.assignment_accuracy --npz <assignment>/fold6_core5.npz --out <assignment>
 ```
 
 Same-protein exclusion. PLM-CS is scored with every fold-6 label set of the same protein
@@ -195,12 +207,14 @@ Run figure scripts from `figures/` and table scripts from `si_build/` (a path wi
 
 | Item | Script and command | Further inputs |
 |---|---|---|
-| Figure 1, Figure 2 (upper), Figures S7, S8 | `python build_paper_figures.py` | `DEEPSHIFT_RUN`; `DEEPSHIFT_SCALING_LADDER`; `DEEPSHIFT_RAMACHANDRAN_OOF` |
+| Figure 1 | `python fig_pipeline.py` | the released Parquet tables; `DEEPSHIFT_REFDB_SHIFTS` (tier C) |
+| Figure 2 (upper), Extended Data Fig. 1, Figures S7, S8 | `python build_paper_figures.py` | `DEEPSHIFT_RUN`; `DEEPSHIFT_SCALING_LADDER`; `DEEPSHIFT_RAMACHANDRAN_OOF` |
 | Figure 2 (lower), Table 1 | `python fig_backbone_benchmark.py --marginal <scored>/score_tier2_master.json --paired <scored>/score_tier2_master_paired.json --marginal-without-exclusions <unfenced>/score_tier2_master.json --paired-without-exclusions <unfenced>/score_tier2_master_paired.json` | Table 1 is `tab_accuracy_common_rmse.tex`, with its MLFF rows from Table S12 |
 | Figure 3 (upper) | `python fig_source_matched.py --scores <scored>/source_matched.json` | |
 | Figure 3 (lower) | `python fig_sidechain_benchmark.py --scores <scored>/score_by_nucleus_tier2.json` | |
 | Figure 4, Figure S9 | `python fig_structure_response.py` | `DEEPSHIFT_CYS_CELLS`, `DEEPSHIFT_RING_CELLS`, `DEEPSHIFT_DECOY_POOLED` |
-| Figure 5 | `python fig_xeisd_mixed_selection.py` | `DEEPSHIFT_XEISD_PROTOCOL` |
+| Figure 5 | `python fig_applications.py` | `DEEPSHIFT_ASSIGNMENT_ROOT`, `DEEPSHIFT_XEISD_PROTOCOL`, `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` |
+| Extended Data Fig. 2 | `python ../si_build/emit_text_numbers.py`, then `python fig_leakage_audit.py --text-numbers ../si_build/out/text_numbers.json` | `DEEPSHIFT_UCBSHIFT_LEAKAGE`, `SI_SELF_RETRIEVAL_UCBY`, `SI_UCB200_ARTIFACTS_DIR`; `SI_GATE_CSPRED_TM` (tier C) |
 | Figure S1 | `python fig_census_merged.py` | `DEEPSHIFT_RUN` |
 | Figure S2 | `python ../si_build/emit_homology_axis.py --out-dir <dose>` (reads `DEEPSHIFT_BENCH_OUT`), then `python fig_homology_training_identity.py` | `DEEPSHIFT_HOMOLOGY_CELLS` (the `dump_paired_cells` output), `DEEPSHIFT_LEAKAGE_DOSE_ROOT` (`<dose>`), `DEEPSHIFT_HOMOLOGY_BENCHMARK_ROOT` |
 | Figure S3 | `python fig_accuracy_by_nucleus_all.py --scores <scored>/score_by_nucleus_tier2.json` | |
@@ -259,7 +273,8 @@ patches that block same-protein retrieval in UCBShift, UCBShift 2.0 and SHIFTX2)
 UCBShift-200 stores of Tables S18 and S19 (run with the per-chain lists in
 `benchmarks/reference/ucb200_competitor_same_protein.json`), SHIFTX2 on the 61-protein set
 of Table S20, X-EISD, IDP8, tau and the 3DRobot decoys. Each needs the third-party
-software its README names.
+software its README names. The two files v1.1 adds under `ucbshift_leakage/` were made earlier
+with UCBShift's and SHIFTY+'s own code; `MANIFEST_v1.1_additions.json` in the bundle says how.
 
 Table S7 scores residues the atom stage excludes for a nearby perturber. Its inputs come
 from a shadow evaluation: the atom stage rerun on folds 0 and 6 with
@@ -270,10 +285,11 @@ distance to the nearest atom of each perturber category. `SI_PERTURBER_REBUILD` 
 
 ## What the release cannot ship
 
-Five items, and part of a sixth, need something outside the bundle.
+Seven items, and part of an eighth, need something outside the bundle.
 
-- **A third-party file.** Tables S8 and S18 read UCBShift's own split and test targets
-  from a CSpred checkout, and Table S9 reads UCBShift's training sequences
+- **A third-party file.** Tables S8 and S18 and Extended Data Fig. 2 read UCBShift's own
+  split and test targets from a CSpred checkout, Figure 1 counts the proteins of UCBShift's
+  RefDB tree (`DEEPSHIFT_REFDB_SHIFTS`), and Table S9 reads UCBShift's training sequences
   (`SI_UCB_TRAINING_FASTA`). Table S16 parses each competitor's own article and stops,
   naming the file, when one is absent from `DEEPSHIFT_PAPER_PATH`; four of those articles
   are not redistributable.

@@ -1,6 +1,6 @@
 """The four manuscript figures that are not about a competitor.
 
-    Figure 1   method flow chart, six stations           after SHIFTX2 Fig. 1
+    Extended Data Fig. 1   method flow chart, six stations           after SHIFTX2 Fig. 1
     Figure 2   predicted vs observed, one panel/nucleus  after UCBShift 2.0 Fig. 2
     Figure S7  learning curve, RMSE against rows         after UCBShift Fig. S7
     Figure S8  error surface over (phi, psi)             after SPARTA+ Eq. 4
@@ -54,7 +54,7 @@ RENDERS = REFERENCE / "renders"
 # benchmarks/dump_cv_torsions.py. Both are named by environment, with no fallback.
 SCALING_LADDER = frozen.env_path("DEEPSHIFT_SCALING_LADDER")
 RAMACHANDRAN_CELLS = frozen.env_path("DEEPSHIFT_RAMACHANDRAN_OOF", "cv_cells.npz")
-# The fold-1 member's checkpoint: Figure 1 draws the trained radial basis and the
+# The fold-1 member's checkpoint: Extended Data Fig. 1 draws the trained radial basis and the
 # distance-to-attention map out of it. A reproduction bundle carries no checkpoint, so
 # without the run's own file the figure reads the shipped member, which holds the same
 # tensors re-saved with run-relative paths.

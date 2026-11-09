@@ -126,7 +126,7 @@ def test_the_figure_inputs_resolve_under_the_run(figures_on_path, monkeypatch):
         sys.modules.pop(module, None)
     build = importlib.import_module("build_paper_figures")
 
-    # /run holds no checkpoint, so Figure 1 reads the shipped fold-1 member, which carries
+    # /run holds no checkpoint, so Extended Data Fig. 1 reads the shipped fold-1 member, which carries
     # the same tensors; with the run's own file present it reads that.
     assert build.frozen.REPO / "models" / "deepshift_fold1.pt" == build.FOLD1_CHECKPOINT
     assert Path("/run/campaign/ladder") == build.SCALING_LADDER

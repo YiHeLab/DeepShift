@@ -15,7 +15,8 @@ The notebook reports one anonymous usage record per prediction to the authors (n
 coordinates unless you opt in; `colab/README.md`); set `TELEMETRY = False` in it to send
 nothing.
 The dataset, the frozen inputs of its build and the measurements behind every figure and
-table are archived at Zenodo, [doi:10.5281/zenodo.23550867](https://doi.org/10.5281/zenodo.23550867).
+table are archived at Zenodo, [doi:10.5281/zenodo.23550866](https://doi.org/10.5281/zenodo.23550866)
+(every version; it resolves to the newest).
 
 ## Install
 

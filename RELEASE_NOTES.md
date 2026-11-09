@@ -1,3 +1,22 @@
+# DeepShift v1.1
+
+v1.1 (9 November 2026) adds the code and the measurements behind the figures of the Nature
+Methods version of the manuscript. The models, the dataset and every prediction are those of
+v1.0.
+
+- `benchmarks/assignment_accuracy.py`: resonance-assignment accuracy on the fold-6 benchmark
+  (Figure 5a), from a `benchmarks.dump_paired_cells` dump.
+- `figures/fig_pipeline.py` (Figure 1), `figures/fig_applications.py` (Figure 5; it holds the
+  X-EISD panels of the former `fig_xeisd_mixed_selection.py`), `figures/fig_leakage_audit.py`
+  (Extended Data Fig. 2) and `figures/journal_style.py`, the page they are built on. The
+  architecture schematic of `build_paper_figures.py` is now Extended Data Fig. 1.
+- `benchmarks/self_retrieval.py`: the UCBShift-Y copy count, shared by Extended Data Fig. 2 and
+  `si_build/emit_text_numbers.py`, whose printed numbers are unchanged.
+- The README gives the supported platforms, the CPU-only install, a quick start on the bundled
+  structure, and the input and output formats.
+- At Zenodo, `reproduction_bundle_v1.1_additions.tar.gz` (unpack it over the bundle) holds the
+  assignment-accuracy outputs and the two inputs of Extended Data Fig. 2 the bundle lacked.
+
 # DeepShift v1.0
 
 Structure-only prediction of protein chemical shifts. An atom transformer reads a 3D

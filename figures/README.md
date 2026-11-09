@@ -5,9 +5,11 @@ writes `<stem>.pdf` and `<stem>.png` (or `<stem>.tex` for a table) to `figures/o
 to `$DEEPSHIFT_FIGURES_OUT` when that is set.
 
 - `style.py`: rcParams, palette and mark helpers shared by the figures.
+- `journal_style.py`: the page and type of the three figures built at Nature Methods'
+  double-column width (Figures 1 and 5, Extended Data Fig. 2), in `style.py`'s colours.
 - `frozen.py`: where the results live (run root, directories under it, environment
   variables) and the helper that writes a figure.
-- `reference/`: small inputs kept in the repository (the Figure 1 structure, the arginine
+- `reference/`: small inputs kept in the repository (the Extended Data Fig. 1 structure, the arginine
   N-epsilon fence, the ray-traced renders).
 
 All statistics come from `deepshift.evaluate`; the scripts plot what it returns.
@@ -16,17 +18,20 @@ All statistics come from `deepshift.evaluate`; the scripts plot what it returns.
 
 ```
 SCRIPT                             OUTPUT                            PAPER
-build_paper_figures.py             fig_01_architecture               Figure 1
+build_paper_figures.py             fig_01_architecture               Extended Data Fig. 1
                                    fig_02_accuracy                   Figure 2 (upper)
                                    fig_07_scaling                    Figure S7
                                    fig_08_ramachandran               Figure S8
 build_graphical_abstract.py        graphical_abstract                Graphical abstract
 fig_accuracy_by_nucleus_all.py     fig_accuracy_by_nucleus_all       Figure S3
+fig_applications.py                fig_05_applications               Figure 5
 fig_backbone_benchmark.py          fig_03_benchmark                  Figure 2 (lower), Table 1
 fig_census_merged.py               fig_census_merged                 Figure S1
 fig_downstream_applications.py     fig_downstream_applications       Figure S11
 fig_exp_source_control.py          fig_exp_source_control            Figure S6
 fig_homology_training_identity.py  fig_homology_training_identity    Figure S2
+fig_leakage_audit.py               ed_fig_02_leakage_audit           Extended Data Fig. 2
+fig_pipeline.py                    fig_01_pipeline                   Figure 1
 fig_plddt_source.py                fig_plddt_source_advantage        Figure S5
 fig_selflookup_transfer.py         fig_04_selflookup                 Figure S4
 fig_sidechain_benchmark.py         fig_05_sidechain                  Figure 3 (lower)
@@ -35,9 +40,8 @@ fig_structure_response.py          fig_04_structure                  Figure 4
                                    fig_si_decoy_r_vs_rmsd            Figure S9
 fig_uncertainty_calibration.py     fig_uncertainty_calibration_fold6 Figure S10
 fig_xeisd_composition.py           fig_xeisd_composition             Figure S12
-fig_xeisd_mixed_selection.py       fig_05_xeisd_mixed                Figure 5
 si_tables_literature.py            si_tables_literature (.tex)       Table S16
-render_structures.py               reference/renders/                ray-traced panels of Figure 1
+render_structures.py               reference/renders/                ray-traced panels of Extended Data Fig. 1
 ```
 
 `fig_backbone_benchmark.py` also writes `tab_accuracy_common_rmse.tex`, the body of
@@ -69,7 +73,10 @@ still imports and the first read fails naming the variable it needs.
 | `DEEPSHIFT_RAMACHANDRAN_OOF`, `DEEPSHIFT_SCALING_LADDER` | out-of-fold torsion cells (Figure S8) and the data-fraction ladder (Figure S7) |
 | `DEEPSHIFT_EXP_SOURCE_CONTROL` | crystal+NMR-only retraining control on fold 6 (Figure S6) |
 | `DEEPSHIFT_XEISD_PROTOCOL` | X-EISD protocol run directory (Figures 5 and S12) |
-| `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` | the two downstream applications (Figure S11) |
+| `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` | the two downstream applications (Figures 5 and S11) |
+| `DEEPSHIFT_ASSIGNMENT_ROOT` | the outputs of `benchmarks.assignment_accuracy` (Figure 5a) |
+| `DEEPSHIFT_REFDB_SHIFTS` | UCBShift's RefDB tree, whose proteins Figure 1(b) counts (third-party) |
+| `DEEPSHIFT_UCBSHIFT_LEAKAGE`, `SI_SELF_RETRIEVAL_UCBY`, `SI_GATE_CSPRED_TM`, `SI_UCB200_ARTIFACTS_DIR` | Extended Data Fig. 2: retrieval tables and the own-record-blocked UCBShift run, the distributed UCBShift-Y run, UCBShift's test targets (third-party), the UCBShift-200 score report |
 | `DEEPSHIFT_PAPER_PATH`, `DEEPSHIFT_REFDB_CHAINS` | competitor articles and RefDB chains read by `si_tables_literature.py` |
 | `PYMOL` | PyMOL executable for `render_structures.py` |
 
