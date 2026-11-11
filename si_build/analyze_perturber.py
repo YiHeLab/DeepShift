@@ -11,7 +11,8 @@ Statistic, bins, eligibility and multiple-testing correction:
   clustered test  = Welch two-sample t-test on per-cluster means of
                     log1p(|error| / baseline median); not a bootstrap
   eligibility     = n >= 30 targets and >= 3 clusters
-  correction      = Benjamini-Hochberg over the eligible cells; bold = q < 0.05
+  correction      = Bonferroni over the eligible cells of the six backbone nuclei the
+                    table prints; bold = p x (number of such cells) < 0.05
                     (emit_perturber_dose_ppm.py), whichever way the ratio points
 
 The cluster is the shipped grouping unit ``label_set_id``.
@@ -44,20 +45,6 @@ CACHE = si_common.CACHE
 # repo, not from a copy outside it.
 HETATM_RULE = (Path(__file__).resolve().parents[1]
                / "src/deepshift/data/hetatm_exclusion_rule.json")
-
-
-def bh_adjust(pvalues) -> np.ndarray:
-    p = np.asarray(list(pvalues), dtype=float)
-    out = np.full(len(p), np.nan)
-    good = np.isfinite(p)
-    if not good.any():
-        return out
-    idx = np.where(good)[0]
-    order = idx[np.argsort(p[idx])]
-    ranked = p[order] * len(order) / np.arange(1, len(order) + 1)
-    ranked = np.minimum.accumulate(ranked[::-1])[::-1]
-    out[order] = np.minimum(ranked, 1.0)
-    return out
 
 
 def cluster_means(values: np.ndarray, clusters: np.ndarray) -> np.ndarray:
@@ -207,14 +194,12 @@ def analyze(d, cols, out: Path, tag: str, keep_sources, *, apply_p100: bool) -> 
                 cells.append(cell)
     frame = pd.DataFrame(cells)
     eligible = (frame.n >= 30) & (frame.n_clusters >= 3)
-    frame["cluster_q_bh"] = np.nan
-    frame.loc[eligible, "cluster_q_bh"] = bh_adjust(frame.loc[eligible, "cluster_p"])
-    # Sensitivity: the BH family above spans all 64 nuclei the paper model carries. This
-    # column corrects over the six printed nuclei only, so a reader can see whether any
-    # bold cell depends on the family size.
-    bb = eligible & frame.nucleus.isin(BACKBONE)
-    frame["cluster_q_bh_backbone_family"] = np.nan
-    frame.loc[bb, "cluster_q_bh_backbone_family"] = bh_adjust(frame.loc[bb, "cluster_p"])
+    # Bonferroni over the family the table prints: the eligible cells of the six
+    # backbone nuclei.
+    family = eligible & frame.nucleus.isin(BACKBONE)
+    frame["cluster_p_bonferroni"] = np.nan
+    frame.loc[family, "cluster_p_bonferroni"] = np.minimum(
+        frame.loc[family, "cluster_p"] * int(family.sum()), 1.0)
     frame["ratio_vs_8_12_mean"] = np.nan
     frame["delta_vs_8_12_mean"] = np.nan
     for (_cat, _nuc), idx in frame.groupby(["category", "nucleus"]).groups.items():

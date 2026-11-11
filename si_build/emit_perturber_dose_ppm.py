@@ -10,10 +10,10 @@ The cohort, the distance definition, the bins and the quality fences are
 analyze_perturber.py's. Residuals are raw: no per-method constant is removed
 anywhere.
 
-Bold values have Benjamini-Hochberg q < 0.05 in the test carried from
+Bold values are significant at 0.05 after Bonferroni correction in the test carried from
 analyze_perturber.py: a Welch t-test of per-label-set means of
-log1p(|error| / baseline median), in the band against the baseline, corrected over every
-eligible cell.
+log1p(|error| / baseline median), in the band against the baseline, corrected over the
+eligible cells of the six printed nuclei.
 """
 from __future__ import annotations
 
@@ -129,8 +129,8 @@ def build_table(cells, base, baseline_row_count, significance) -> str:
             for n in BACKBONE:
                 v = e["nuclei"][n]["rmse_ppm"]
                 value = "---" if v is None else f"{v:.2f}"
-                q = significance.get(f"{cat}|{label}|{n}", {}).get("q_bh")
-                if value != "---" and q is not None and q < 0.05:
+                p = significance.get(f"{cat}|{label}|{n}", {}).get("p_bonferroni")
+                if value != "---" and p is not None and p < 0.05:
                     value = rf"\textbf{{{value}}}"
                 vals.append(value)
             body.append(" & ".join([PRETTY[cat] if first else "", label,
@@ -169,13 +169,14 @@ def main():
 
     # The significance testing is carried from the stratified-error table that
     # `analyze_perturber.py --out <SI_PERTURBER_REBUILD>/out` writes from the same dumps;
-    # its q_bh field sets the bolding.
+    # its cluster_p_bonferroni field sets the bolding.
     ratio = pd.read_csv(REBUILD / "out/stratified_errors_experimental.csv")
     ratio = ratio[ratio.nucleus.isin(BACKBONE)]
     carried = {}
     for r in ratio.itertuples():
         carried[f"{r.category}|{r.distance_bin}|{r.nucleus}"] = {
-            "q_bh": float(r.cluster_q_bh) if r.cluster_q_bh == r.cluster_q_bh else None}
+            "p_bonferroni": (float(r.cluster_p_bonferroni)
+                             if r.cluster_p_bonferroni == r.cluster_p_bonferroni else None)}
 
     tex = build_table(cells, base, baseline_row_count, carried)
     banner = "\n".join([
