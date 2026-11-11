@@ -1,3 +1,32 @@
+# DeepShift v1.1.2
+
+v1.1.2 (11 November 2026) changes how Table 1 marks significance, removes two
+supplementary figures and fixes the Colab notebook. The models, the dataset and every
+prediction are those of v1.0.
+
+- Table 1: an asterisk now marks a lead that is significant after Bonferroni correction
+  over the table's 18 (source, nucleus) cells, in place of a 95 % paired interval that
+  excludes zero. 16 of the 18 leads are marked (`figures/fig_backbone_benchmark.py`).
+- Supplementary Figures 11 and 12 are removed, with their scripts
+  `figures/fig_downstream_applications.py` and `figures/fig_xeisd_composition.py`: they
+  repeated Figure 5.
+- Figure 5: panel (a) labels the UCBShift value the text reports, and panel (d) drops the
+  C-alpha asterisk (`figures/fig_applications.py`). Figure 3 drops the carets under the
+  nuclei no competitor predicts (`figures/fig_sidechain_benchmark.py`).
+- Two table footnotes are shorter: Table S2's (`si_build/gen_census_tables.py`) and
+  Table S9's (`si_build/emit_train_distance.py`).
+- Colab notebook: with fewer than five members it predicts without an interval instead of
+  stopping; usage is reported only inside Colab, and the notebook and `colab/README.md`
+  list exactly the fields the record holds; the receiver (`colab/telemetry/Code.gs`)
+  stores every field as text, refuses a malformed record and splits a shared structure
+  across rows. The notebook installs the package from tag v1.1.2 and downloads the five
+  models and the interval calibration from the v1.0 release page, as before.
+- At Zenodo, the reproduction bundle is one archive, `reproduction_bundle.tar.gz`, which
+  holds everything the separate `reproduction_bundle_v1.1_additions.tar.gz` added; that
+  archive is gone. The bundle discloses the measured UCBShift test-set shifts of the
+  scored cells, under the terms quoted in `THIRD_PARTY_NOTICES.md`.
+- Documentation, comments and error messages that disagreed with the code are corrected.
+
 # DeepShift v1.1.1
 
 v1.1.1 (11 November 2026) changes one table. The models, the dataset and every prediction are
@@ -74,8 +103,10 @@ deepshift predict --pdb figures/reference/1POH.pdb --chain A \
 third-party file. `PROTOCOL.md` is the recipe for rebuilding the dataset and retraining
 the five models. The build inputs (the BMRB, UniProt and PDB snapshots of July 2026, the
 coordinate files and the p100 fence), the relaxed structures the MLFF predictor was run on
-and the measurements behind every figure and table are deposited at Zenodo,
-[doi:10.5281/zenodo.23550867](https://doi.org/10.5281/zenodo.23550867).
+and the measurements behind every figure and table are deposited at Zenodo:
+[doi:10.5281/zenodo.23550867](https://doi.org/10.5281/zenodo.23550867) is the v1.0 version
+of that record, and [doi:10.5281/zenodo.23550866](https://doi.org/10.5281/zenodo.23550866)
+names all its versions and resolves to the latest.
 
 ## How the released files were made
 

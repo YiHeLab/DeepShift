@@ -18,6 +18,7 @@ Network fetch is opt-in (``--fetch``); otherwise the parse runs offline.
 """
 
 import argparse
+import importlib.metadata
 import json
 import math
 import os
@@ -35,6 +36,10 @@ from ..domain import NUCLEI
 BMRB_LIST_URL = 'https://api.bmrb.io/v2/list_entries?database=macromolecules'
 RSYNC_URL = 'rsync://rsync.bmrb.io/macromolecules/'
 STAR_URL = 'https://bmrb.io/ftp/pub/bmrb/entry_directories/bmr{id}/bmr{id}_3.str'
+try:
+    USER_AGENT = f"deepshift/{importlib.metadata.version('deepshift')}"
+except importlib.metadata.PackageNotFoundError:   # run from a checkout without installing
+    USER_AGENT = 'deepshift'
 
 
 # Target atoms (lowercase column stem) derived from domain.NUCLEI -> the
@@ -90,7 +95,7 @@ def list_api_entry_ids(url=BMRB_LIST_URL, retries=3):
         try:
             req = urllib.request.Request(url, headers={
                 'Accept': 'application/json',
-                'User-Agent': 'deepshift/0.1.0',
+                'User-Agent': USER_AGENT,
             })
             with urllib.request.urlopen(req, timeout=60) as resp:
                 data = json.loads(resp.read().decode('utf-8'))

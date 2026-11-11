@@ -33,6 +33,7 @@ from collections import Counter
 from .. import domain as _id
 from . import crystal_census as cc
 from .crystal_blast import IDENTITY_FIELDS, entity_sequence_map
+from .fetch import USER_AGENT
 from .paths import BLASTP_BIN, DATA_DIR
 
 AF_MODEL_VERSION = 'model_v6'
@@ -158,7 +159,7 @@ def af_head_exists(uniprot, timeout=20):
     url = f'{AF_FILES_URL}/AF-{uniprot}-F1-{AF_MODEL_VERSION}.pdb'
     try:
         req = urllib.request.Request(url, method='HEAD')
-        req.add_header('User-Agent', 'deepshift/0.1.0')
+        req.add_header('User-Agent', USER_AGENT)
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status == 200
     except Exception:

@@ -66,16 +66,13 @@ export DEEPSHIFT_BUNDLE=/path/to/unpacked/bundle
 set -a; source "$DEEPSHIFT_BUNDLE/roots.env"; set +a
 ```
 
-`roots.env` sets every root variable named below to its directory in the bundle. Release
-v1.1 adds `reproduction_bundle_v1.1_additions.tar.gz`: unpack it where the bundle was unpacked
-(its paths begin with `reproduction_bundle/`, as the bundle's do) before sourcing `roots.env`.
-It adds the assignment-accuracy outputs
-(`DEEPSHIFT_ASSIGNMENT_ROOT`) and two files under `ucbshift_leakage/` (UCBShift's
-predictions with each test protein's own deposition removed from its database, and what
-SHIFTY+ retrieved for each of SHIFTX2's 61 test proteins), and replaces `roots.env` with one
-that names the new root.
-Since v1.1.1 the archive also holds Table S7's `stratified_errors_experimental.csv` with
-the Bonferroni-corrected p-values, which replaces the bundle's copy.
+`roots.env` sets every root variable named below to its directory in the bundle. The
+bundle is one archive, `reproduction_bundle.tar.gz`, with one `MANIFEST.json`; nothing is
+unpacked over it. It holds the assignment-accuracy outputs (`DEEPSHIFT_ASSIGNMENT_ROOT`),
+the two files under `ucbshift_leakage/` (UCBShift's predictions with each test protein's
+own deposition removed from its database, and what SHIFTY+ retrieved for each of SHIFTX2's
+61 test proteins) and Table S7's `stratified_errors_experimental.csv` with the
+Bonferroni-corrected p-values.
 `DEEPSHIFT_RUN` is the finished run: `data/`, `work/unified_cache/`, `final/` and
 `benchmark/`. An unset root resolves to a placeholder such as `__DEEPSHIFT_RUN_REQUIRED__`,
 so a script still imports and its first read fails naming the variable. Figure scripts run
@@ -273,8 +270,8 @@ patches that block same-protein retrieval in UCBShift, UCBShift 2.0 and SHIFTX2)
 UCBShift-200 stores of Tables S18 and S19 (run with the per-chain lists in
 `benchmarks/reference/ucb200_competitor_same_protein.json`), SHIFTX2 on the 61-protein set
 of Table S20, X-EISD, IDP8, tau and the 3DRobot decoys. Each needs the third-party
-software its README names. The two files v1.1 adds under `ucbshift_leakage/` were made earlier
-with UCBShift's and SHIFTY+'s own code; `MANIFEST_v1.1_additions.json` in the bundle says how.
+software its README names. The two files under `ucbshift_leakage/` named above were made
+earlier with UCBShift's and SHIFTY+'s own code; the bundle's `MANIFEST.json` says how.
 
 Table S7 scores residues the atom stage excludes for a nearby perturber. Its inputs come
 from a shadow evaluation: the atom stage rerun on folds 0 and 6 with
