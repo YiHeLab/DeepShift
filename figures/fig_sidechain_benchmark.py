@@ -19,8 +19,7 @@ than DeepShift's own master-set RMSE, so where the two competitors' cells differ
 nucleus carries one DeepShift bar per competitor; where they coincide, one DeepShift bar
 serves both. DeepShift's master-set RMSE is drawn only for a nucleus no competitor emits. The scope is every side-chain nucleus
 DeepShift emits, not only the ones both incumbents also emit, so a nucleus with one
-comparator carries two bars and a nucleus with none carries one; a caret under the tick
-marks the nuclei no released competitor predicts. Residuals are raw -- prediction minus
+comparator carries two bars and a nucleus with none carries one. Residuals are raw -- prediction minus
 the re-referenced observed label, no per-method constant removed.
 
 The letters are b and c because the deployed float stacks fig_06_source above this one.
@@ -116,10 +115,6 @@ def draw(nodes: dict, heavy: list, protons: list):
         ax.set_xticks(x)
         ax.set_xticklabels([greek(n) for n in nuclei], rotation=45, ha="right",
                            fontsize=fontsize)
-        for xi, n in zip(x, nuclei):
-            if not nodes[n]["emitting_competitors"]:
-                ax.plot(xi, 0, marker="^", markersize=3.0, color=style.INK["primary"],
-                        clip_on=False, zorder=5)
         ax.set_ylabel("RMSE (ppm)")
         ax.set_xlim(-0.7, len(nuclei) - 0.3)
         ax.set_ylim(0, max(v for g in groups for _b, v in g) * 1.32)
