@@ -27,13 +27,16 @@ download directory otherwise — and downloads the five members when that folder
 recipe and normalization off the file, and `predict_pdb` refuses an ensemble whose members
 disagree on any of them, so a damaged file or a checkpoint from another model stops the run
 instead of producing numbers. Fewer than five checkpoints is allowed: the notebook says so,
-predicts with the members it has, and reports no spread and no interval.
+predicts with the members it has, and reports no spread and no interval. The download comes
+from the GitHub Release page of tag `v1.0`, the only release page that carries the model
+files; the models are unchanged since v1.0, and the package itself is installed from tag
+`v1.1.2`.
 
 `interval_calibration.json` ships beside the five members and is what turns the spread into
 a 90 % interval. The notebook looks for it in
-`CHECKPOINT_DIR`, downloads it with the members, and says so when it has none: without it
-`predict_pdb` returns no interval table, and with it and fewer than five members it
-refuses rather than widening a half-width fitted on five.
+`CHECKPOINT_DIR`, downloads it with the members, and says so when it has none. It is passed
+to `predict_pdb` only when all five members are loaded, because `predict_pdb` refuses a
+half-width fitted on five members for fewer rather than widening it.
 
 If the download does not resolve, put the files somewhere the session can read and point
 `DEEPSHIFT_CKPT_DIR` at that folder, or name the artifact with `DEEPSHIFT_CALIBRATION`.
@@ -42,7 +45,7 @@ If the download does not resolve, put the files somewhere the session can read a
 
 ```bash
 pip install -q biopython==1.87
-pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.0
+pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.1.2
 ```
 
 * `--no-deps` keeps Colab's own CUDA build of torch and its numpy, pandas, scipy and
@@ -55,7 +58,8 @@ pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.0
 
 ## Running the cells outside Colab
 
-Every input has an environment-variable override, so the extracted cells run headless:
+Every input has an environment-variable override, so the extracted cells run headless.
+Outside Colab the notebook sends no usage record, whatever `TELEMETRY` says:
 
 ```bash
 PYTHONPATH=src \
@@ -75,7 +79,7 @@ python -c "import json;exec(''.join(''.join(c['source'])+chr(10)*2 for c in json
 | `DEEPSHIFT_CHAIN` | chain to predict |
 | `DEEPSHIFT_OUT_DIR` | where the CSVs are written (default: the working directory) |
 | `DEEPSHIFT_SPEC` | pip spec for the package |
-| `DEEPSHIFT_TELEMETRY_URL` | the usage receiver; empty sends nothing |
+| `DEEPSHIFT_TELEMETRY_URL` | the usage receiver inside Colab; empty sends nothing |
 
 `tests/test_colab_notebook.py` runs exactly that extraction on
 `figures/reference/1POH.pdb`, with a checkpoint it trains for the purpose, and asserts the
@@ -96,12 +100,16 @@ checkpoint.
 
 ## Usage telemetry
 
-The notebook reports one anonymous record per prediction (time, version, RCSB id or
-"upload", chain, residue count, run time, success) to a receiver the maintainers run; it
-never sends coordinates, file names, accounts or addresses unless the user sets
+Inside Colab, the notebook reports one anonymous record per finished prediction to a
+receiver the maintainers run. The record holds `event` (`predict`), `timestamp_utc`,
+`deepshift_version`, `n_members`, `device`, `in_colab`, `structure` (the PDB ID when the
+structure was fetched from RCSB, otherwise `upload`), `chain`, `n_residues`,
+`n_predictions`, `seconds` and `intervals` (whether intervals were reported). A run that
+fails sends nothing. The record never holds coordinates, file names, accounts or
+addresses; the structure file is sent as `structure_pdb` only when the user sets
 `SHARE_STRUCTURE`. The record is printed before it is sent, `TELEMETRY = False` sends
-nothing, and a failed report never interrupts a prediction. The receiver is
-`telemetry/Code.gs`, a Google Apps Script web app bound to a Google Sheet in the lab
-account, and its `/exec` URL is the notebook's `TELEMETRY_URL`. Setting the
-`DEEPSHIFT_TELEMETRY_URL` environment variable replaces it; an empty value sends nothing,
-which is how the tests run the notebook.
+nothing, outside Colab nothing is sent whatever `TELEMETRY` says, and a failed report never
+interrupts a prediction. The receiver is `telemetry/Code.gs`, a Google Apps Script web app
+bound to a Google Sheet in the lab account, and its `/exec` URL is the notebook's
+`TELEMETRY_URL`. Setting the `DEEPSHIFT_TELEMETRY_URL` environment variable replaces it; an
+empty value sends nothing.

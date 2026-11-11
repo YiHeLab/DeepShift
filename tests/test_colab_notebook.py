@@ -122,25 +122,37 @@ def five_member_calibration(path: Path) -> Path:
     return path
 
 
-def test_the_notebook_hands_the_interval_calibration_to_the_predictor(
-        tmp_path, checkpoint):
-    """The artifact beside the checkpoints reaches ``predict_pdb``: given one member and a
-    five-member artifact, the run stops on the package's own refusal instead of printing a
-    prediction with no interval."""
-    checkpoints = tmp_path / "checkpoints"
+def run_notebook(work: Path, checkpoint: Path, members: int) -> pd.DataFrame:
+    """The cells run headless on ``members`` copies of one checkpoint, with a five-member
+    interval calibration beside them; the long-form CSV they write."""
+    checkpoints = work / "checkpoints"
     checkpoints.mkdir()
-    (checkpoints / checkpoint.name).symlink_to(checkpoint)
+    for fold in range(1, members + 1):
+        (checkpoints / f"deepshift_fold{fold}.pt").symlink_to(checkpoint)
     five_member_calibration(checkpoints / "interval_calibration.json")
+    subprocess.run([sys.executable, "-c", code_cells()], check=True, cwd=REPO,
+                   env=environment(DEEPSHIFT_CKPT_DIR=str(checkpoints),
+                                   DEEPSHIFT_CKPT_URL="",
+                                   DEEPSHIFT_PDB=str(STRUCTURE),
+                                   DEEPSHIFT_CHAIN=CHAIN,
+                                   DEEPSHIFT_OUT_DIR=str(work)))
+    return pd.read_csv(work / f"{STRUCTURE.stem}_{CHAIN}_deepshift.csv")
 
-    finished = subprocess.run([sys.executable, "-c", code_cells()], cwd=REPO,
-                              capture_output=True, text=True,
-                              env=environment(DEEPSHIFT_CKPT_DIR=str(checkpoints),
-                                              DEEPSHIFT_CKPT_URL="",
-                                              DEEPSHIFT_PDB=str(STRUCTURE),
-                                              DEEPSHIFT_CHAIN=CHAIN,
-                                              DEEPSHIFT_OUT_DIR=str(tmp_path)))
-    assert finished.returncode != 0
-    assert "interval calibration requires 5 members" in finished.stderr
+
+def test_the_notebook_hands_the_interval_calibration_to_the_predictor(tmp_path, checkpoint):
+    """With all five members, the artifact beside them reaches ``predict_pdb`` and the
+    backbone rows carry the spread and the 90 % half-width."""
+    table = run_notebook(tmp_path, checkpoint, members=5)
+    assert {"ensemble_sd_ppm", "ci90_halfwidth_ppm"} <= set(table.columns)
+    assert table["ci90_halfwidth_ppm"].notna().any()
+
+
+def test_fewer_members_than_the_calibration_predict_without_an_interval(tmp_path, checkpoint):
+    """One member beside a five-member artifact: the notebook does not pass the artifact,
+    so the run finishes and the CSV carries no interval, instead of stopping on the
+    package's refusal."""
+    table = run_notebook(tmp_path, checkpoint, members=1)
+    assert list(table.columns) == ["residue_id", "residue_name", "nucleus", "pred_ppm"]
 
 
 def test_the_notebook_says_so_when_no_interval_calibration_is_beside_the_checkpoints(
