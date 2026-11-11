@@ -8,7 +8,7 @@ printed here, so a parse that drifts fails the build instead of shipping. The De
 row is counted from the run.
 
 ``out/si_tables_literature.tex`` is the corpus table alone, one float and nothing around
-it, since SI.tex ``\\input``s it inside a section of its own.
+it, since the supplement ``\\input``s it inside a section of its own.
 
 Usage:
     python figures/si_tables_literature.py

@@ -21,7 +21,6 @@ AUDITED = IDP8 / "scores_audited.json"
 SCORER = IDP8 / "score.py"
 
 OUT = si_common.OUT
-OUT_SNIPPET = OUT / "SNIPPET_idp8_roster.tex"
 
 # Nagy et al. 2024, Table II (roster) and Table III (published shift accuracy),
 # transcribed from the paper text on disk. published = (CA, CB, C'), ppm RMSD.
@@ -223,41 +222,7 @@ def main() -> None:
     si_common.emit("si_idp8_roster", "\n".join(lines), script="build_idp8_roster.py",
                    banner=banner)
 
-    # ---- splice snippet ----------------------------------------------------
-    names = "; ".join(f"{code} is {name}" for code, name in PROTEIN_NAMES.items())
-    cb = idp8["nuclei"]["CB"]
-    snippet = f"""% Splice block for SI_v3.tex -- paste where the IDP8 roster belongs, next to the
-% downstream-applications figure.
-% The \\capneeded argument is a bare fact list, not caption prose. The caption in
-% si_idp8_roster.tex is empty and needs a short title from the author.
-
-\\input{{si/tables/si_idp8_roster}}
-\\cohort{{All 14 published IDP8 ensembles; ppm root-mean-square deviation from the
-measured backbone shifts; raw residuals, nothing mean-centred; the published column is
-the source paper's own Table III and the DeepShift column is the scorer's audited
-output, unrecomputed.}}
-\\capneeded{{Facts to assert: the published data set contains 14 structural ensembles of
-eight disordered proteins, grouped A, B and C by how they were built. Nine of the 14
-have measured backbone shifts in the BMRB and can be scored from public data; the
-other five are the three measles virus nucleoprotein tail ensembles and the two
-RS-repeat peptide ensembles, whose shifts were supplied privately to the original
-authors and never deposited. That is the whole reason the accuracy panel has a
-nine-row denominator. A dash means the quantity does not exist for that row: in a
-DeepShift column because the shifts are not public, or because that deposition carries
-no shifts for the nucleus, which is why sic1-A has no carbonyl carbon entry on either
-side; in a SPARTA+ column because the paper reports no value there. On the nine scored
-rows DeepShift's mean C$\\beta$ deviation is
-{cb['deepshift_mean_rmsd_ppm']:.3f} ppm against the published
-{cb['published_spartaplus_mean_rmsd_ppm']:.3f} ppm, lower on
-{cb['deepshift_wins']} of {cb['n_ensembles']} rows. Ensemble codes: {names}. Note for
-the record that the source paper's text cites BMRB 17660 for the p53 transactivation
-domain, which resolves to an unrelated protein; the entry used here and printed in the
-table is 17760.}}
-"""
-    OUT_SNIPPET.write_text(snippet)
-
     print(f"rows {len(rows)}  public {sum(r['shifts_publicly_deposited'] for r in rows)}")
-    print(f"wrote {OUT_SNIPPET}")
 
 
 if __name__ == "__main__":

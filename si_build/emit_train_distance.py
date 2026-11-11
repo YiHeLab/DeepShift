@@ -153,8 +153,6 @@ def main() -> None:
         f"%   cohort: every structure realizing fold {fold_stage.HOLDOUT_FOLD} "
         f"({total} structures)",
         "%   instrument: " + columns[0][1]["command"],
-        "% The caption is a short title; the facts it must assert are listed in the",
-        "% \\note{} beside the float.",
     ])
 
     column_spec = "l" + "rr" * len(columns)
@@ -213,8 +211,7 @@ def main() -> None:
     tex = "\n".join(lines) + "\n"
 
     si_common.emit(
-        "si_train_distance", tex, banner=banner, script="emit_train_distance.py",
-        placeholder_caption=False)
+        "si_train_distance", tex, banner=banner, script="emit_train_distance.py")
     print(tex)
 
 

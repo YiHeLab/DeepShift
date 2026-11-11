@@ -8,7 +8,7 @@ row stub itself, where a bare column of reductions would leave the direction and
 of the effect unreadable.
 
 Both blocks hold out fold 1 and train on folds 2-5, but they score different cohorts, so
-the two blocks are not comparable line by line and the table says so.
+the two blocks are not comparable line by line.
 
 Numbers come from the experiment records the environment names, never from the deployed
 table:
@@ -19,7 +19,6 @@ from __future__ import annotations
 
 import json
 import os
-import textwrap
 from pathlib import Path
 
 import si_common
@@ -75,35 +74,6 @@ def load():
     return block1, block2
 
 
-def caption_facts_comment(b1, b2) -> str:
-    """The facts the caption needs, as the comment beneath the float.
-
-    They are facts about the cohort rather than about the rows, so they belong to the
-    caption and not to the page; printing them beside the table would put a second set of
-    counts on it.
-    """
-    folds = b1["train_folds"]
-    facts = (
-        "Facts to assert: RMSE in ppm, raw residuals, on structures held out of "
-        f"training. Both halves hold out fold {b1['heldout_fold']} and train on folds "
-        f"{min(folds)}--{max(folds)}, and the top half scores "
-        f"{sum(b1['cells'].values()):,} shifts, but the two score different sets of "
-        "shifts, so a line in the top half is not comparable to a line in the bottom "
-        "half. Top half: the second and third lines carry the same number of training "
-        f"rows ({b1['rows']['redundant']:,} and {b1['rows']['diverse']:,}), and differ "
-        "only in whether those rows are three structures of "
-        f"{b1['label_sets']['redundant']:,} proteins or one structure of "
-        f"{b1['label_sets']['diverse']:,} proteins; the first line is the one-third-size "
-        f"starting point both grew from. Bottom half: both sides train on all "
-        f"{b2['pool']['label_sets']:,} proteins, and differ only in whether every "
-        "deposited structure is kept or one is drawn at random per protein. Read "
-        "together: repeat structures do help, but a row of a new protein is worth more "
-        "than a row of a protein already in the set. Protein here means one deposited "
-        "label set."
-    )
-    return textwrap.fill(facts, width=86, initial_indent="% ", subsequent_indent="% ")
-
-
 def build_table(b1, b2) -> str:
     def cells(d):
         return " & ".join(f"{d[n]:.3f}" for n in NUC)
@@ -138,8 +108,7 @@ def build_table(b1, b2) -> str:
                f"{b2['one_per']['rows']:,} & " + cells(d["one_per_protein"]) + r" \\"),
               (r"\qquad every structure kept, against one per protein & "
                f"{b2['pool']['rows']:,} & " + cells(d["every_structure"]) + r" \\")]
-    L += [r"\bottomrule", r"\end{tabular}}", r"\end{table}", "",
-          caption_facts_comment(b1, b2)]
+    L += [r"\bottomrule", r"\end{tabular}}", r"\end{table}"]
     return "\n".join(L) + "\n"
 
 
@@ -148,7 +117,7 @@ def main():
     b1, b2 = load()
     banner = "\n".join([
         "% Both tab:data_diversity and tab:data_repeats label this one table, because",
-        "% main.tex cites both.",
+        "% the manuscript cites both.",
         "% Numbers are read from the experiment records, not from the deployed table:",
         "%   the data-diversity arms report and arms comparison,",
         "%   the source-transfer one-per-protein and source-matched reports.",

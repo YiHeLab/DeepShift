@@ -140,25 +140,13 @@ def build_table(cells, base, baseline_row_count, significance) -> str:
                                + [f"{base[n]['rmse_ppm']:.2f}" for n in BACKBONE])
                     + r" \\")
     body += [r"\bottomrule", r"\end{tabular}"]
-    # The float carries a caption, so the facts it must assert go in the %-comment
-    # beneath it, where every other table in this directory keeps them.
-    facts = (
-        "% FACTS the caption needs:\n"
-        "%   Each entry is the root-mean-square error in ppm of the released five-model\n"
-        "%   ensemble on the held-out folds 0 and 6, for the residues whose nearest atom\n"
-        "%   of that perturber falls in that distance band.\n"
-        f"%   The last line of every block is the same reference set of {baseline_row_count:,}\n"
-        "%   residues, those with no nonstandard entity of any kind within 12 Angstrom,\n"
-        "%   and it is repeated so the comparison sits beside the numbers.\n"
-        "%   Residues are counted once per band; the number of scored shifts behind a\n"
-        "%   column is smaller. Residuals are raw.\n")
     # Eleven five-row blocks fill a page: at the default row height the float ran 58 pt
     # past the text block and the page number printed inside it (SI page 12).
     return ("\\begin{table}[H]\\centering\\small\\renewcommand{\\arraystretch}{0.88}\n"
             "\\caption{Prediction error in ppm near a perturber}\n"
             "\\label{tab:perturber_dose}\n"
             "\\resizebox{0.98\\textwidth}{!}{%\n" + "\n".join(body) + "}\n"
-            "\\end{table}\n\n" + facts)
+            "\\end{table}\n")
 
 
 def main():

@@ -1,7 +1,7 @@
 """DeepShift's lead over the runner-up in every Table 1 cell, at 5 % and after Bonferroni.
 
 One function for the two places that count these leads: ``figures/fig_backbone_benchmark.py``
-(Figure 2 / Table 1's record) and ``si_build/emit_text_numbers.py`` (main.tex's "16 of 18 ...
+(Figure 2 / Table 1's record) and ``si_build/emit_text_numbers.py`` (the manuscript's "16 of 18 ...
 17 of 18 at alpha = 0.05" and the add-one count beside them), so the printed counts and the
 figure's record cannot come from two implementations.
 """
@@ -12,13 +12,13 @@ from deepshift.statistics import bonferroni
 #: The backbone nuclei and structure sources of Table 1, in its order.
 NUCLEI = ("CA", "CB", "C", "HA", "H", "N")
 SOURCES = ("xtal", "af", "nmr")
-#: The family-wise level of main.tex's "significant after Bonferroni correction".
+#: The family-wise level of the manuscript's "significant after Bonferroni correction".
 ALPHA = 0.05
 #: Table 1's printed rows: the arms fig_backbone_benchmark draws and tabulates, and MLFF,
-#: typed into main.tex from Table S12's record of the same marginal report.
+#: typed into the manuscript from Table S12's record of the same marginal report.
 TABLE1_ARMS = ("deepshift", "ucbshift_full_sameprot", "ucbshift_x", "shiftx2_sameprot",
                "sparta", "mlff")
-#: The arms run as distributed, their self-retrieval not blocked; main.tex's comparison with
+#: The arms run as distributed, their self-retrieval not blocked; the manuscript's comparison with
 #: "every self-retrieval-blocked competitor" leaves them out.
 AS_DISTRIBUTED_ARMS = ("ucbshift_full_leaky", "shiftx2_leaky")
 
@@ -75,7 +75,7 @@ def lead_tests(marginal: dict, paired: dict, competitors) -> dict:
 def blocked_competitor_tests(paired: dict) -> dict:
     """DeepShift against every self-retrieval-blocked competitor in every source and
     backbone nucleus of the paired report, Bonferroni-corrected over all of those
-    comparisons (main.tex's "winning the large majority of comparisons with statistical
+    comparisons (the manuscript's "winning the large majority of comparisons with statistical
     significance"). With some 230 comparisons the corrected tail is near 1e-4, which the
     report's resamples must be able to resolve: 2,000 cannot, 20,000 can."""
     boot = paired["boot"]

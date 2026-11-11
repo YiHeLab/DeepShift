@@ -65,7 +65,7 @@ def main() -> None:
             if UCB2 in e["emitting_competitors"] and SX2 in e["emitting_competitors"]}
     backbone = sorted((n for n, e in both.items() if e["backbone"]), key=lambda n: -both[n]["n_cells"])
     side = sorted((n for n, e in both.items() if not e["backbone"]), key=lambda n: -both[n]["n_cells"])
-    L = [r"\begin{table}[H]\centering\small", rf"\caption{{{si_common.PLACEHOLDER_CAPTION}}}", r"\label{tab:sidechain}",
+    L = [r"\begin{table}[H]\centering\small", r"\caption{}", r"\label{tab:sidechain}",
          r"\resizebox{0.92\textwidth}{!}{%", r"\begin{tabular}{lrrrrrrrrrr}", r"\toprule",
          r"& & & \multicolumn{2}{c}{\textbf{DeepShift}} & \multicolumn{2}{c}{UCBShift 2.0} & "
          r"\multicolumn{2}{c}{SHIFTX2} & \multicolumn{2}{c}{DeepShift RMSE advantage} \\",

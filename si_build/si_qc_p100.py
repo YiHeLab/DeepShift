@@ -103,9 +103,7 @@ def main():
         lo, hi = spans[k]
         L.append(f'{r} & {pretty(col)} & {lo:.2f} & {hi:.2f} & {obs[k]:,} & {removed.get(k,0):,} \\\\')
     L.append(r'\bottomrule')
-    tex = C.table('% The facts this caption needs are in the comment beneath the table.',
-                  'tab:qc_p100', '\n'.join(L), longtable='llrrrr', head=hdr,
-                  caption='__CAPTION__')
+    tex = C.table('', 'tab:qc_p100', '\n'.join(L), longtable='llrrrr', head=hdr)
 
     C.emit('si_qc_p100', tex, script='si_qc_p100.py')
     print(f'{len(rows)} pairs | covered {covered:,}/{total:,} | would remove {drop:,} '

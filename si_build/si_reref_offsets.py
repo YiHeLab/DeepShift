@@ -131,31 +131,15 @@ def coverage_table(d):
     for a, b, c in rows:
         body.append(f"{a} & {b} & {c} \\\\")
     body += ["\\bottomrule", "\\end{tabular}"]
-    note = (
-        "% FACTS the caption needs:\n"
-        "%   A nucleus is corrected only where at least three residues carry both an\n"
-        "%   in-window SHIFTX prediction and an observed shift, so a label set with too\n"
-        "%   little overlap keeps its deposited values untouched.\n"
-        "%   No shift to correct: no Calpha, Cbeta, C' or N shift on an aligned residue.\n"
-        "%   Too few residues: such a shift exists, but fewer than five residues align to\n"
-        "%   any structure, the alignment identity is below 0.8, or fewer than three per\n"
-        "%   nucleus fall in the window.\n"
-        "%   Rounds to zero: the offset, or the joint Calpha/Cbeta mean, is under\n"
-        "%   0.025 ppm and rounds to zero on the 0.05 ppm grid.\n"
-        "% The structure selector takes whichever candidate structure has the best\n"
-        "%   SHIFTX agreement, with no source priority, so the realized mix is\n"
-        "%   AlphaFold-first rather than crystal-first.\n")
-    return C.table(note, "tab:reref_coverage", "\n".join(body) + "\n",
+    return C.table("", "tab:reref_coverage", "\n".join(body) + "\n",
                    caption="Coverage of the rereferencing procedure")
 
 
 def main():
     d = load()
     coverage = coverage_table(d)
-    C.emit("si_reref_offsets", merged_offset_table(d), script="si_reref_offsets.py",
-           placeholder_caption=False)
-    C.emit("si_reref_coverage", coverage, script="si_reref_offsets.py",
-           placeholder_caption=False)
+    C.emit("si_reref_offsets", merged_offset_table(d), script="si_reref_offsets.py")
+    C.emit("si_reref_coverage", coverage, script="si_reref_offsets.py")
 
 
 if __name__ == "__main__":

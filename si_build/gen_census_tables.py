@@ -54,7 +54,7 @@ def fold_counts(data_dir: Path, fold_of: dict[str, int]) -> tuple[dict, dict]:
     columns = ["label_set_id", "mismatch_type", *SHIFT_COLUMNS]
     by_fold = {fold: {"residue_rows": 0, "observed_cells": 0}
                for fold in sorted(set(fold_of.values()))}
-    # Table S1's per-source rows (typed into SI.tex) are counted here too: every residue
+    # Table S1's per-source rows (typed into the supplement) are counted here too: every residue
     # row of the source's master, the rows matched to a resolved coordinate, and their cells.
     by_source = {s: {"residue_rows": 0, "mapped_rows": 0, "observed_cells": 0}
                  for s in VALID_SOURCES}
@@ -118,11 +118,6 @@ def main() -> None:
     check_exclusion_authority(args.flags)
     by_fold, by_source = fold_counts(data_dir, fold_of)
 
-    banner = "\n".join([
-        "% The caption is a short title; the facts it must assert are listed in the",
-        "% \\note{} beside the float.",
-    ])
-
     # -------------------------------------------------- fold composition
     fold_rows, totals = [], dict.fromkeys(
         ("label_sets", "bmrb_entries", "af", "nmr", "xtal", "structures_total",
@@ -181,8 +176,7 @@ and count matched residues only. Fold~""" + str(fold_stage.HOLDOUT_FOLD) \
 \end{tabular}}
 \end{table}
 """
-    si_common.emit("si_census_folds", folds_tex, script="gen_census_tables.py",
-                   banner=banner, placeholder_caption=False)
+    si_common.emit("si_census_folds", folds_tex, script="gen_census_tables.py")
 
     print("wrote si_census_folds to", out)
     print("Table S1 per-source counts:", json.dumps(by_source, indent=1))

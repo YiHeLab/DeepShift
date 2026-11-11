@@ -79,7 +79,7 @@ BINS = [(0.00, 0.30, "<30"), (0.30, 0.50, "30-50"), (0.50, 0.70, "50-70"), (0.70
 N_BOOT = 2000
 SEED = 20260731
 
-# SI_v3 sets this figure at 0.74\linewidth of a 345 pt text block, so it is drawn at
+# The supplement sets this figure at 0.74\linewidth of a 345 pt text block, so it is drawn at
 # exactly that: 0.74 * 4.79 in. Nothing is rescaled on the page and 8 pt stays 8 pt.
 PLACED_WIDTH_IN = round(0.74 * style.WIDTH["text"], 2)
 Y_CAP = 3.0                       # panel a's linear ceiling; set from the data in main()
@@ -220,7 +220,7 @@ def draw(ident_s, rel, rho, trend, ratios, absolute):
     import matplotlib.pyplot as plt
 
     style.use_house_style()
-    # Stacked, and drawn at the width SI_v3 actually sets this figure at, so nothing is
+    # Stacked, and drawn at the width the supplement actually sets this figure at, so nothing is
     # scaled down after the fact and the house font sizes survive to the page.
     fig, (ax, ax2) = plt.subplots(2, 1, figsize=(PLACED_WIDTH_IN, 4.65),
                                   gridspec_kw={"height_ratios": [1.15, 1]})

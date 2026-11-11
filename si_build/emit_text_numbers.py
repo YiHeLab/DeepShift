@@ -707,28 +707,24 @@ def shifty61(g: Group) -> None:
 # Training environments of the five members
 # --------------------------------------------------------------------------------------
 
-# The cluster record of the members trained on Hopper: their Slurm jobs, node GPUs and
-# the conda environment's versions, measured on the cluster.
+# The record of the two members trained on a cluster: their GPU model and the versions of
+# the environment they were trained in.
 CLUSTER_ENVIRONMENT = Path("final") / "members45_environment_20261007.json"
 
 
-def _cluster_member(g: Group, run: Path, fold: int):
-    """(record path, record, member block) for a member the cluster record covers; None
-    when it covers none."""
+def _cluster_record(g: Group, run: Path, fold: int):
+    """The cluster record when it covers this member; None otherwise."""
     path = run / CLUSTER_ENVIRONMENT
     if not path.is_file():
         return None
     record = json.loads(g.read(path).read_text())
-    member = record["members"].get(str(fold))
-    if member is None:
-        return None
-    return path, record, member
+    return record if str(fold) in record["members"] else None
 
 
 def environments(g: Group, run: Path) -> None:
     """Python from each member's training record where it names one; torch, CUDA, numpy
-    and GPU from the preflight record of the node it was assigned to
-    (logs/assigned_fold<k> and logs/assigned_host_<node> carry the same assignment time),
+    and GPU from the preflight record of the machine it was assigned to
+    (logs/assigned_fold<k> and logs/assigned_host_<host> carry the same assignment time),
     or for a member trained on the cluster from the cluster record."""
     stamps = {}
     for path in sorted((run / "logs").glob("assigned_host_*")):
@@ -741,33 +737,24 @@ def environments(g: Group, run: Path) -> None:
         if "python" in manifest:
             g.values[prefix + "python"] = entry(manifest["python"].split()[0],
                                                 "manifest.python (first token)")
-        if "command_argv" in manifest:
-            g.values[prefix + "interpreter"] = entry(manifest["command_argv"][0],
-                                                     "manifest.command_argv[0]")
         assigned = run / "logs" / f"assigned_fold{fold}"
         host = None
         if assigned.is_file():
             host = stamps.get(g.read(assigned).read_text().strip())
         env_path = preflight.get(host or "")
         if env_path is None:
-            cluster = _cluster_member(g, run, fold)
-            if cluster is None:
+            record = _cluster_record(g, run, fold)
+            if record is None:
                 g.values[prefix + "environment"] = entry(
                     None, "no preflight or cluster record: torch, CUDA, numpy "
                           "and GPU are not recorded in any run file")
                 continue
-            _path, record, member = cluster
             env = record["environment"]
-            g.values[prefix + "node"] = entry(member["node"], f"members.{fold}.node")
-            g.values[prefix + "slurm_job"] = entry(member["slurm_job"],
-                                                   f"members.{fold}.slurm_job")
             for key, field in (("torch", "torch"), ("cuda", "torch_cuda"), ("numpy", "numpy")):
                 g.values[prefix + key] = entry(env[field], f"environment.{field}")
-            g.values[prefix + "device"] = entry(record["node_gres"][member["node"]],
-                                                f"node_gres.{member['node']}")
+            g.values[prefix + "device"] = entry(record["gpu"], "gpu")
             continue
         env = json.loads(g.read(env_path).read_text())
-        g.values[prefix + "node"] = entry(env["host"], "host")
         for key in ("python", "torch", "cuda", "numpy", "device"):
             g.values[prefix + key + ("_preflight" if key == "python" else "")] = entry(
                 env[key], key)

@@ -45,11 +45,10 @@ def _blocks(seed):
     return block1, block2
 
 
-def test_the_float_prints_row_numbers_and_the_cohort_counts_sit_in_the_comment(
-        monkeypatch, tmp_path):
-    """The section headers name the contrast; the shifts scored and the protein counts
-    that describe the cohort are caption facts, and a float that printed them too would
-    carry a second set of counts the caption already states."""
+def test_the_section_headers_name_the_contrast_and_print_no_counts(monkeypatch, tmp_path):
+    """The section headers name the contrast; the counts that describe the cohort are the
+    caption's, and a float that printed them too would carry a second set of counts the
+    caption already states."""
     module = _emit_data_composition(monkeypatch, tmp_path / "out")
     block1, block2 = _blocks(0.4)
     table = module.build_table(block1, block2)
@@ -58,14 +57,6 @@ def test_the_float_prints_row_numbers_and_the_cohort_counts_sit_in_the_comment(
     headers = re.findall(r"\\multicolumn\{8\}\{l\}\{\\textit\{(.*?)\}\}", float_body)
     assert headers and not [h for h in headers if any(c.isdigit() for c in h)]
     assert r"\capneeded" not in table
-
-    comment = [line for line in table.split(r"\end{table}")[1].splitlines() if line.strip()]
-    assert comment and all(line.startswith("%") for line in comment)
-    comment = "\n".join(comment)
-    for count in (f"{sum(block1['cells'].values()):,}", f"{block2['pool']['label_sets']:,}",
-                  f"{block1['rows']['redundant']:,}", f"{block1['rows']['diverse']:,}",
-                  f"{block1['label_sets']['diverse']:,}"):
-        assert count in comment
 
 
 def test_every_number_the_float_prints_comes_from_the_reports(monkeypatch, tmp_path):

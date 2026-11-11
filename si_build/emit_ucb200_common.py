@@ -75,7 +75,7 @@ def load(path):
             if not paper_excluded(str(c), int(r), str(a))}
 
 
-#: The pair main.tex quotes beside the table: DeepShift against UCBShift-X on every nucleus.
+#: The pair the manuscript quotes beside the table: DeepShift against UCBShift-X on every nucleus.
 VERSUS_X = ("DeepShift", "UCBShift-X")
 
 
@@ -150,8 +150,7 @@ def main():
     for count in (f"{b['n_cells']:,}", f"{b['n_chains']} chains"):
         if count not in caption:
             raise SystemExit(f"REFUSING to emit -- the caption does not print {count}")
-    si_common.emit("si_ucb200_common", table(b), script="emit_ucb200_common.py",
-                   placeholder_caption=False)
+    si_common.emit("si_ucb200_common", table(b), script="emit_ucb200_common.py")
     print(f"wrote si_ucb200_common: {b['n_cells']:,} cells, {b['n_chains']} chains")
     versus_x = b["deepshift_vs_ucbshift_x"]["by_nucleus"].values()
     print(f"DeepShift below UCBShift-X after Bonferroni over the {len(ATOMS)} nuclei: "

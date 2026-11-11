@@ -101,34 +101,7 @@ def main():
                       r"\multicolumn{6}{r}{\emph{continued on the next page}}\\",
                       "\\endfoot", "\\bottomrule", "\\endlastfoot"])
 
-    note = (
-        "% FACTS the caption needs:\n"
-        f"%   All {len(kinds)} predicted nuclei: {n_back} backbone and {n_side} side chain.\n"
-        f"%   `Observed cells' counts deposited values across all seven folds "
-        f"({C.thousands(total)} in total);\n"
-        "%   `Residues' is how many of the twenty standard amino acids carry that atom in\n"
-        "%   the corpus. Both are properties of the data, not of the model -- the model\n"
-        "%   emits all 64 for every residue and the mask decides what is scored.\n"
-        "%   `Prochiral partner' is the column this one is swapped against when the\n"
-        "%   deposition does not resolve the stereochemistry; the pair is scored in\n"
-        "%   whichever assignment minimises the loss, identically for every arm in every\n"
-        "%   comparison in this paper.\n"
-        "%   `Equiv. groups' counts residue types where this column is part of a\n"
-        "%   magnetically equivalent set (a methyl's three protons) and is therefore\n"
-        "%   down-weighted to 1/N so it counts once, not N times.\n"
-        "% The gap the caption states:\n"
-        "%   the partner table is incomplete, so `scored swap-invariantly' is true of the\n"
-        "%   pairs listed and not of these:\n"
-        + "".join(f"%     {k} -- {v}\n" for k, v in KNOWN_GAPS.items()) +
-        "% Two columns should not be read as results, and the reason is label\n"
-        "%   quality rather than model error:\n"
-        "%     Arg N-epsilon: roughly one sixth of deposited values are spectrometer\n"
-        "%       aliased by one 15N sweep width, a whole deposition at a time, and the\n"
-        "%       observed-value interval is what removes them.\n"
-        "%     Pro N: no competitor predicts it at all, so the common-cell rule removes\n"
-        "%       every proline nitrogen from every multi-arm comparison; and a sixth of\n"
-        "%       its deposited values fall outside any plausible range.\n"
-        "% SI.tex must \\usepackage{longtable} for this to compile.\n")
+    note = "% The supplement must \\usepackage{longtable} for this to compile.\n"
 
     tex = C.table(note, "tab:nuclei", "\n".join(rows), longtable="llrrlr",
                   head=head, foot=foot, size="\\footnotesize")

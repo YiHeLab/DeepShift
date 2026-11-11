@@ -160,8 +160,6 @@ def main():
                      if isinstance(v, dict) and v.get("_Y"))
 
     banner = "\n".join([
-        "% Component only: no caption prose. Title line is a short title, not a caption.",
-        "%",
         "% The published column carries only a value the predictor's own paper prints:",
         "%   the combined output's mean absolute error from the UCBShift supporting",
         "%   information, the structure module's root mean square error from its Table 3,",
@@ -217,7 +215,7 @@ def main():
 
     si_common.emit(
         "si_reproduction_gate", "\n".join(lines), banner=banner,
-        script="build_reproduction_gate.py", placeholder_caption=False)
+        script="build_reproduction_gate.py")
     for name, c in checks.items():
         print(f"  check {name}: agrees={c['agrees']}")
 

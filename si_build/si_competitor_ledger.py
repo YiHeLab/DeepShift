@@ -266,32 +266,7 @@ def ledger_table(scan, census, n_tasks, scores, scored, marked, sidechain):
             "\\midrule", *rows, "\\midrule",
             cohort_note(outside, census, scores, scored, marked, sidechain),
             "\\bottomrule", "\\end{tabular}"]
-    note = (
-        "% FACTS the caption needs:\n"
-        f"%   {C.thousands(n_tasks)} fold-6 structure tasks were dispatched to every "
-        "predictor.\n"
-        "%   `Produced' counts tasks that returned a usable prediction file; the rest\n"
-        "%   either crashed, declined the structure, or were never written.\n"
-        "%   `Cells covered' is the share of the "
-        f"{C.thousands(census['n_universe_cells'])} residue--nucleus cells\n"
-        "%   DeepShift can score on this fold that the predictor produced a finite value\n"
-        "%   for. A structure it lost to self-exclusion counts as uncovered, because the\n"
-        "%   comparison cannot use it.\n"
-        "%   The master cell set follows from those coverages: per nucleus, the cells\n"
-        f"%   every predictor covering at least {census['coverage_floor']:.0%} of that "
-        "nucleus produced. A predictor\n"
-        "%   below the floor does not shrink the set; it is scored on the master cells it\n"
-        "%   produced, and every table row of that predictor prints the count and is marked.\n"
-        f"%   The backbone tables therefore score "
-        f"{C.thousands(scores['n_common_cells'])} cells over "
-        f"{C.thousands(scores['n_common_structures'])} structure\n"
-        "%   instances, the same cells for every predictor.\n"
-        "%   `Nuclei returned' is what the tool actually returns over the whole run, not\n"
-        "%   what it is scored on, and not what its first answer happened to contain:\n"
-        "%   it is the number of distinct standard amino-acid atom names the predictor\n"
-        "%   labels anywhere. UCBShift 1.0 returns only the six backbone nuclei, which is\n"
-        "%   why the six-nucleus tables and the side-chain table have different lists.\n")
-    return C.table(note, "tab:coverage_ledger", "\n".join(body) + "\n", resize=True)
+    return C.table("", "tab:coverage_ledger", "\n".join(body) + "\n", resize=True)
 
 
 def main():

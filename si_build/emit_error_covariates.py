@@ -100,7 +100,7 @@ def main():
 
     si_common.emit(
         "si_error_covariates", "\n".join(L), script="emit_error_covariates.py",
-        banner="\n".join(banner), placeholder_caption=False)
+        banner="\n".join(banner))
 
 
 if __name__ == "__main__":

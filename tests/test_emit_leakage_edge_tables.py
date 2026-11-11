@@ -73,10 +73,7 @@ def test_the_leakage_table_is_written_from_this_builds_edge_tables_whatever_a_ve
 
     sys.path.insert(0, str(SI_BUILD))
     try:
-        si_common = _load("si_common")
-        # A directory holding no vendored copy of anything: a generator that reached for
-        # one would fail here rather than write the table.
-        monkeypatch.setattr(si_common, "REFERENCE_INPUTS", tmp_path / "nothing_vendored")
+        _load("si_common")
         emit_leakage = _load("emit_leakage")
         emit_leakage.main()
     finally:

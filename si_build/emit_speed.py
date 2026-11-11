@@ -279,8 +279,7 @@ def build_table(census, arms, overrides, caption) -> str:
     runs = census_runs(arms)
     cohort_n = census["cohort_n"]
     body = [r"\begin{table}[H]\centering\footnotesize\setlength{\tabcolsep}{4pt}"]
-    body.append(r"\caption{" + caption + "}" if caption else
-                r"\capneeded{Facts to assert are in the comment beneath the table.}")
+    body.append(r"\caption{" + (caption or "") + "}")
     # \label immediately after \caption, then the evidence: nothing between the two.
     # No \resizebox: at six columns the natural width fits the text block, and
     # resizebox would upscale a narrow table to \textwidth, inflating the fonts.
@@ -362,9 +361,9 @@ def main():
 
     si_common.emit(
         "si_tables_speed", build_table(census, arms, overrides, caption), banner=banner,
-        script="emit_speed.py", placeholder_caption=not caption)
+        script="emit_speed.py")
 
-    print(f"caption preserved: {'yes' if caption else 'NO -- emitted capneeded'}")
+    print(f"caption preserved: {'yes' if caption else 'NO -- the caption is empty'}")
 
 
 if __name__ == "__main__":

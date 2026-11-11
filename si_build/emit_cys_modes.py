@@ -151,7 +151,7 @@ def main():
 
     si_common.emit(
         "si_cys_modes", "\n".join(L), script="emit_cys_modes.py",
-        banner="\n".join(banner), placeholder_caption=False)
+        banner="\n".join(banner))
     print("mode check:", json.dumps(check))
 
 

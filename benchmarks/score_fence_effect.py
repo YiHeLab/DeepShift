@@ -65,7 +65,7 @@ from .score_validation import _resolved_cells, fold6_rows
 
 DEEPSHIFT = config.DEEPSHIFT_ARM
 
-#: The predictors the sentence speaks for: the sixteen main.tex lists as evaluated.
+#: The predictors the sentence speaks for: the sixteen the manuscript lists as evaluated.
 SENTENCE_ARMS = (*(a for a in config.BENCHMARK_ARMS if not a.endswith("_selfexcl")),
                  DEEPSHIFT)
 

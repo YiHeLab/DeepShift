@@ -75,7 +75,7 @@ PARTIAL = r"$^{\ast}$"              # this arm covers less of a nucleus than the
 # structures, so the instances within it are not independent draws.
 UNIT_NAMED = {"structure": "structure instances", "labelset": "label sets"}
 DEPLOYED_TIER = 2
-#: Table 1 rows typed into main.tex from Table S12's record of the same marginal report.
+#: Table 1 rows typed into the manuscript from Table S12's record of the same marginal report.
 TABLE1_TYPED_ARMS = ("mlff",)
 
 
@@ -230,7 +230,7 @@ def main():
     out.write_text(table(marginal, paired, arms))
     print(f"wrote {out}")
 
-    # main.tex's significance count: the runner-up among Table 1's printed rows
+    # the manuscript's significance count: the runner-up among Table 1's printed rows
     printed = [a for a in (*arms, *TABLE1_TYPED_ARMS) if a != paired["reference_arm"]]
     print(json.dumps({"lead_over_runner_up": lead_tests(marginal, paired, printed)}))
     if args.marginal_without_exclusions:

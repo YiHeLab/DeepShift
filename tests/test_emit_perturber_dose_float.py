@@ -1,9 +1,5 @@
-"""The perturber-dose float carries one caption and keeps its fact list out of the page.
-
-The supplement defines the caption-placeholder macro to typeset a visible note, so a float
-that has a caption and a placeholder prints both and contradicts itself. The facts belong
-in the %-comment beneath the table, where every other generator in this directory keeps
-them, and where nothing typesets them.
+"""The perturber-dose float carries one caption and no placeholder, so a float with a
+caption does not also typeset a second note beside it.
 """
 import sys
 from pathlib import Path
@@ -35,14 +31,6 @@ def test_the_float_prints_one_caption_and_no_placeholder(table):
     page = printed(table)
     assert page.count(r"\caption{") == 1
     assert r"\capneeded" not in page
-
-
-def test_the_facts_the_caption_needs_stay_in_the_comment_beneath_the_table(table):
-    comment = "\n".join(line for line in table.splitlines() if line.startswith("%"))
-    assert "FACTS the caption needs" in comment
-    assert f"{BASELINE_ROWS:,}" in comment
-    body, _, tail = table.partition(r"\end{table}")
-    assert "FACTS the caption needs" not in body and "FACTS the caption needs" in tail
 
 
 def test_every_measured_perturber_category_reaches_the_table(table):

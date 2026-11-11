@@ -161,21 +161,18 @@ def test_the_json_holds_every_value_and_what_was_not_recomputed(producer, tmp_pa
 
 
 CLUSTER = {
-    "members": {"4": {"slurm_job": "1_4", "node": "gpu01"}, "5": {"slurm_job": "1_5", "node": "gpu01"}},
-    "node_gres": {"gpu01": "gpu:a100:2"},
-    "environment": {"conda_env": "env271 (cluster)", "python": "3.11.15", "torch": "2.7.1+cu118",
-                    "torch_cuda": "11.8", "numpy": "2.4.6"},
-    "manifest_platform_check": "final/fold{4,5}.json manifest.platform = Linux-4.18.0-el8 (cluster)",
+    "members": {"4": {"end": "2026-09-19T04:13:02", "checkpoint": "final/fold4.final.pt"},
+                "5": {"end": "2026-09-19T04:20:18", "checkpoint": "final/fold5.final.pt"}},
+    "gpu": "a100",
+    "environment": {"python": "3.11.15", "torch": "2.7.1+cu118", "torch_cuda": "11.8",
+                    "numpy": "2.4.6"},
 }
 
 
 def _members(run, python="3.11.15 | conda"):
     (run / "final").mkdir(parents=True, exist_ok=True)
     for fold in range(1, 6):
-        manifest = {"python": python if fold > 3 else "3.12.11 | conda",
-                    "platform": "Linux-4.18.0-el8.x86_64" if fold > 3 else "Linux-6.8.0",
-                    "command_argv": ["/opt/conda/envs/env271/bin/python" if fold > 3
-                                     else "/venv/bin/python"]}
+        manifest = {"python": python if fold > 3 else "3.12.11 | conda"}
         (run / "final" / f"fold{fold}.json").write_text(json.dumps({"manifest": manifest}))
     (run / "final" / "members45_environment_20261007.json").write_text(json.dumps(CLUSTER))
 
@@ -187,9 +184,11 @@ def test_cluster_members_read_their_environment_from_the_cluster_record(producer
     module.environments(g, data.parent)
     v = {k: e["value"] for k, e in g.values.items()}
     assert (v["member4_torch"], v["member4_cuda"], v["member4_numpy"]) == ("2.7.1+cu118", "11.8", "2.4.6")
-    assert (v["member5_node"], v["member5_device"], v["member5_slurm_job"]) == ("gpu01", "gpu:a100:2", "1_5")
+    assert (v["member4_device"], v["member5_device"]) == ("a100", "a100")
     assert v["member4_python"] == "3.11.15"
     assert v["member1_environment"] is None
+    # Nothing that names a machine or a scheduler job is recorded.
+    assert not [k for k in v if k.endswith(("_node", "_slurm_job", "_interpreter"))]
 
 
 def test_fence_lift_ranges_come_from_the_scoring_runs_fence_report(producer, tmp_path, monkeypatch):

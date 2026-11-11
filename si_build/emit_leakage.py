@@ -126,7 +126,6 @@ def main():
         '%   sequence with modified residues kept, row four on the same sequence with',
         '%   modified residues read as their standard parent. There is no alignment and no',
         '%   threshold in either.',
-        '% No caption or sentence in this file was written by a generative AI tool.',
     ])
 
     tex = [
@@ -165,8 +164,7 @@ def main():
     ]
 
     si_common.emit(
-        'si_leakage', '\n'.join(tex), banner=banner, script='emit_leakage.py',
-        placeholder_caption=False)
+        'si_leakage', '\n'.join(tex), banner=banner, script='emit_leakage.py')
 
     for family, _, _stub in ROWS:
         o, t = our_rows[family], theirs['families'][family]

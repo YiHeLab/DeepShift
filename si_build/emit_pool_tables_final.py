@@ -62,7 +62,7 @@ def main() -> None:
     per = pool["per_nucleus"]
 
     # ---- S16 ----
-    L = [r"\begin{table}[H]\centering\small", rf"\caption{{{si_common.PLACEHOLDER_CAPTION}}}", r"\label{tab:gross_error}", r"\resizebox{\textwidth}{!}{%",
+    L = [r"\begin{table}[H]\centering\small", r"\caption{}", r"\label{tab:gross_error}", r"\resizebox{\textwidth}{!}{%",
          r"\begin{tabular}{lrrrrrrrrrrrr}", r"\toprule",
          " & " + " & ".join(rf"\multicolumn{{2}}{{c}}{{{t}}}" for _, t in NUCLEI) + r" \\",
          "".join(rf"\cmidrule(lr){{{2 + 2 * i}-{3 + 2 * i}}}" for i in range(6)),
@@ -99,7 +99,7 @@ def main() -> None:
     print("wrote si_gross_error")
 
     # ---- S19 ----
-    L = [r"\begin{table}[H]\centering\small", rf"\caption{{{si_common.PLACEHOLDER_CAPTION}}}", r"\label{tab:homology}", r"\label{tab:transfer}",
+    L = [r"\begin{table}[H]\centering\small", r"\caption{}", r"\label{tab:homology}", r"\label{tab:transfer}",
          r"\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}", r"\toprule",
          "Predictor & " + " & ".join(t for _, t in NUCLEI) + r" \\", r"\midrule"]
     marked = False

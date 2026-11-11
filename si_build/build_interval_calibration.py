@@ -90,7 +90,6 @@ def main(argv=None):
         emit_tex(calibration, evaluation),
         script=Path(__file__).name,
         banner=BANNER,
-        placeholder_caption=False,
     )
 
 if __name__ == "__main__":

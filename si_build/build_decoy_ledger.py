@@ -42,7 +42,6 @@ COMPARISON = POOL / "relaxed_full_comparison.json"
 COHORT = si_common.root("SI_DECOY_COHORT")      # the cohort_single.json that drove it
 
 OUT = si_common.OUT
-OUT_SNIPPET = OUT / "SNIPPET_decoy_ledger.tex"
 
 # the score the deployed figure ranks by: the equal-weight mean of the available H, HA, N r
 SCORE = "mean_r"
@@ -257,48 +256,14 @@ def main() -> None:
     )
     lines.append("\\bottomrule")
     tex = si_common.table("", "tab:decoy_ledger", "\n".join(lines),
-                          longtable="lrcrrrrr", head=head, caption="",
-                          size="\\small")
+                          longtable="lrcrrrrr", head=head, size="\\small")
 
     si_common.emit("si_decoy_ledger", tex, script="build_decoy_ledger.py")
-
-    # ---- splice snippet ----------------------------------------------------
-    snippet = f"""% Splice block for SI_v3.tex -- paste where the decoy ledger belongs.
-% The \\capneeded argument is a bare fact list, not caption prose. The caption in
-% si_decoy_ledger.tex is empty and needs a short title from the author.
-
-\\input{{si/tables/si_decoy_ledger}}
-\\cohort{{3DRobot decoy set, 52 targets x 301 candidates (the experimental structure
-plus 300 decoys); scored by one out-of-fold cross-validation model per target;
-Kendall $\\tau$ and ranks, not ppm; raw residuals, nothing mean-centred.
-Read from \\texttt{{ucbshift\\_\\allowbreak common\\_\\allowbreak cell\\_\\allowbreak scores\\_\\_oof.\\allowbreak parquet}}.}}
-\\capneeded{{Facts to assert: one row per 3DRobot target. Each target has 301 candidate
-structures, the experimental one and 300 decoys, and is scored by the single
-cross-validation model that never saw it. The score is the equal-weight mean of the
-available H, HA and N correlations between predicted and observed shifts, the same score the
-decoy figure ranks by. The rank column runs over all 301 candidates; the Kendall
-$\\tau$ columns run over the 300 decoys only, because the experimental structure sits
-at zero RMSD and would add the same extreme point to every target. Both methods place
-the experimental structure first for
-{top1[DEEPSHIFT]} of 52 targets; the one exception for both is
-{missed[DEEPSHIFT][0]}, where DeepShift's top choice is a decoy
-{rows[[r['target'] for r in rows].index(missed[DEEPSHIFT][0])]['deepshift']['top1_rmsd_angstrom']:.2f}
-angstroms from the experimental structure and UCBShift-X's is one
-{rows[[r['target'] for r in rows].index(missed[UCBX][0])]['ucbshift_x']['top1_rmsd_angstrom']:.2f}
-angstroms away. Mean Kendall $\\tau$ is {mean_tau[DEEPSHIFT]:.3f} for DeepShift and
-{mean_tau[UCBX]:.3f} for UCBShift-X; the mean paired difference is
-{signed(mean_diff, 4)} with a 95\\% interval of [{signed(lo, 4)}, {signed(hi, 4)}] from
-200,000 resamples of the 52 targets. State the claim boundary: a small
-ordering advantage over the whole RMSD range under this one score, not an advantage
-in picking the experimental structure and not shown for the other two scores.}}
-"""
-    OUT_SNIPPET.write_text(snippet)
 
     print(f"rows {len(rows)}  top1 {top1}  missed {missed}")
     print(f"mean tau {mean_tau}")
     print(f"mean diff {mean_diff:+.4f} [{lo:+.4f}, {hi:+.4f}]")
     print("main-text paired differences:", json.dumps(paired, indent=1))
-    print(f"wrote {OUT_SNIPPET}")
 
 
 if __name__ == "__main__":

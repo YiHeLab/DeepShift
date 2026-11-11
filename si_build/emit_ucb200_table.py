@@ -152,22 +152,6 @@ a(f"% 200-set: {d200['paper_exclusions']['common_cells_removed']} cells UCBShift
 a(f"% 61-set: arms missing proteins, which leave the common set: "
   f"{d61['incomplete_arms_excluded'] or 'none'}")
 a("% UCBShift-Y omitted: partial cell coverage; its released-value reproduction is in the gate table.")
-a("%")
-a("% Caption source material (for the caption; not for the page)")
-a("%   Shown: every scored predictor on UCBShift's published 200-protein test set and on SHIFTX2's")
-a("%   61-protein test set -- the authors' structures, labels, merge and outlier rules -- grouped by")
-a("%   what the predictor may retrieve. Within each set, cells common to every printed row. RMSE of")
-a("%   the raw residual, ppm. 61-set labels merged by sequence alignment (author numbering is")
-a("%   unreliable on 31 of 60 chains); 1KDBA absent: deposition missing from the released refDB.")
-a("%   Dagger: the five-member ensemble (run_predict.json names its checkpoints). Double dagger: each protein with a >=90%")
-a("%   training relative is scored by the one CV member that held that relative's fold out.")
-a("%   Section sign: tail-dominated RMSE. PLM-CS: RefDB-trained sequence model. Every 200-set")
-a("%   deposition is in its training corpus (hence its own block there); the 61-set is its own")
-a("%   published test set, so that row is its honest condition -- the contrast measures the leak.")
-a("%   MLFF row (both sets): relaxed protocol only -- Amber99/OpenMM relaxation, then")
-a("%   polish_only hydrogens.")
-a("%   1HSLB relaxed with its free-His ligand (HETATM HIS B 239) dropped for minimisation and")
-a("%   re-attached, per the het rule.")
 
 lines = []
 a = lines.append
@@ -215,5 +199,5 @@ a(r"\end{minipage}")
 a(r"\end{table}")
 si_common.emit(
     "si_published_testsets", "\n".join(lines), script="emit_ucb200_table.py",
-    banner="\n".join(banner), placeholder_caption=False)
+    banner="\n".join(banner))
 print(f"wrote si_published_testsets ({len(lines)} lines)")
