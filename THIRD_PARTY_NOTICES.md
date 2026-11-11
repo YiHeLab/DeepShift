@@ -10,8 +10,9 @@ repository *redistributes* it or merely *fetches* it at build time, and under wh
 | SHIFTX 1.1 | downloaded by `src/deepshift/data/external.py` | none stated by the publisher — see below |
 | MMseqs2 | downloaded by `src/deepshift/data/external.py` | MIT |
 | RefDB | supplied by you to three reproduction paths; not redistributed | see below |
-| CSpred / UCBShift test targets | supplied by you as JSON, not redistributed | UC Regents, academic / not-for-profit |
+| CSpred / UCBShift test targets | supplied by you as JSON; not in this repository. The Zenodo reproduction bundle includes the measured shifts of the scored test cells | UC Regents, academic / not-for-profit |
 | BMRB, RCSB PDB, AlphaFold DB | fetched by the acquire phase; derived tables and two PDB files ship | see below |
+| UniProt, SIFTS | UniProt accessions in `data/` and the UniRef100 map in `benchmarks/reference/`; the SIFTS table is supplied by you | CC BY 4.0 |
 | UCBShift 1.0 and 2.0, SHIFTX2 | modified as diffs in `experiments/competitors/patches/`; upstream source not included | UC Regents, educational / research / not-for-profit (UCBShift); none stated (SHIFTX2) |
 | competitor predictors and X-EISD | run by `experiments/`; installed by you, not redistributed | per tool, in `experiments/competitors/README.md` and the other `experiments/*/README.md` |
 
@@ -70,14 +71,16 @@ chains of the same checkout (`$DEEPSHIFT_REFDB_CHAINS`).
 > Zhang, H., Neal, S. & Wishart, D. S. (2003). "RefDB: a database of uniformly referenced
 > protein chemical shifts." *Journal of Biomolecular NMR* **25**:173–195.
 
-## CSpred / UCBShift test targets — user-supplied, academic-use only
+## CSpred / UCBShift test targets — not in this repository; scored shifts in the bundle
 
-**Not redistributed.** The `folds` stage needs the UCBShift-200 test targets (the JSON
-conversion of CSpred's `test_200.pkl`, `PROTOCOL.md` gives the command) as the
-exclusion authority and fails closed if `$SHIFT_UCB_TEST_TARGETS` is unset. CSpred is
-Copyright © 2020 The Regents of the University of California, licensed for educational,
-research and not-for-profit use only — which is why it stays an input you provide rather
-than a file in this repository.
+**The code repository does not include them.** The `folds` stage needs the UCBShift-200
+test targets (the JSON conversion of CSpred's `test_200.pkl`, `PROTOCOL.md` gives the
+command) as the exclusion authority and fails closed if `$SHIFT_UCB_TEST_TARGETS` is unset.
+CSpred is Copyright © 2020 The Regents of the University of California, licensed for
+educational, research and not-for-profit use only, which is why the test targets stay an
+input you provide rather than a file in this repository. The Zenodo reproduction bundle
+includes the measured shifts of the scored test cells, redistributed under the UC Regents'
+terms quoted in full under "Patches to UCBShift, UCBShift 2.0 and SHIFTX2" below.
 
 `src/deepshift/data/ucbshift200_excluded_bmrbs.json` is a list of BMRB accession numbers
 derived from that benchmark. It is a set of database identifiers, not CSpred code or data.
@@ -122,8 +125,9 @@ names the version used, where to obtain it and its licence.
 
 ## Scientific databases
 
-The acquire phase reads three public archives. The tables in `data/` are derived from them
-and released under CC-BY-4.0; the archives' own terms still apply to what came from them.
+The acquire phase reads three public archives, and the build and the benchmarks also read
+UniProt and SIFTS. The tables in `data/` are derived from the three archives and UniProt
+and released under CC-BY-4.0; the sources' own terms still apply to what came from them.
 
 - **BMRB** (`bmrb.io`) — the chemical shift depositions the labels come from. Freely
   accessible under BMRB's aims and policies, which ask that publications acknowledge it:
@@ -134,6 +138,13 @@ and released under CC-BY-4.0; the archives' own terms still apply to what came f
 - **AlphaFold Protein Structure Database** (`alphafold.ebi.ac.uk`) — predicted structures,
   licensed CC-BY 4.0. Attribution: Jumper et al. (2021) *Nature* **596**:583–589 and
   Varadi et al. (2024) *Nucleic Acids Research* **52**:D368–D375.
+- **UniProt** (`uniprot.org`) — the UniProt accessions in `data/` (`scripts/map_uniprot.py`
+  maps BMRB entries to them), and `benchmarks/reference/uniref100_map.json`, which is derived
+  from UniRef100 through UniProt's ID-mapping service. Licensed CC BY 4.0; cite The UniProt
+  Consortium (2025) *Nucleic Acids Research* **53**:D609–D617.
+- **SIFTS** (EMBL-EBI, `ebi.ac.uk/pdbe/docs/sifts`) — the PDB-chain-to-UniProt table the
+  benchmark scorers read (`DEEPSHIFT_SIFTS_CSV`); supplied by you, not redistributed.
+  Licensed CC BY 4.0; cite Dana et al. (2019) *Nucleic Acids Research* **47**:D482–D489.
 
 The shipped tables in `data/` contain BMRB-derived chemical shifts and sequences plus
 UniProt and PDB accession codes, and no coordinates: `deepshift_structures.parquet` records

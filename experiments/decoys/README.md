@@ -28,7 +28,7 @@ coordinates; MLFF reads Amber-relaxed ones, since the predictor takes relaxed in
 |---|---|---|
 | UCBShift 1.0 | THGLab/CSpred commit `20cee31` with `../competitors/patches/ucbshift.patch` applied (first chain only, a Biopython-compatible BLOSUM62 load, environment-variable switches the X columns do not use); Python 3.8.20, scikit-learn 0.22.2, Biopython 1.74, BLAST+ 2.9.0, mTM-align, DSSP | <https://github.com/THGLab/CSpred>; UC Regents, educational, research and not-for-profit use. Models: the `models.tgz` of the repository's README (Dryad) |
 | REDUCE | 4.15 (`reduce.4.15.250408`) | <https://github.com/rlabduke/reduce>; BSD-style |
-| OpenMM, PDBFixer | OpenMM 8.5.2, PDBFixer 1.12.0 | <https://openmm.org>, MIT |
+| OpenMM, PDBFixer | OpenMM 8.5.2, PDBFixer 1.12.0 | <https://openmm.org>; OpenMM MIT, with the CUDA and OpenCL platforms under LGPL-3.0-or-later; PDBFixer MIT |
 | MLFF predictor, MACE | as in `../tau/README.md` (`mb012/MLFF_representation` `9e4c984`, mace-torch 0.3.14, MACE-OFF23 large under the Academic Software License) | |
 
 Only the structure-only `H_X`, `HA_X` and `N_X` columns of UCBShift are scored, so its

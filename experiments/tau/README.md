@@ -29,7 +29,7 @@ is not run: the archive carries the authors' own SHIFTX2 predictions
 |---|---|---|
 | UCBShift 2.0 | THGLab/CSpred commit `844e265`, `../competitors/patches/ucbshift2.patch` applied; Python 3.8.20, scikit-learn 0.22.2, Biopython 1.74, NumPy 1.19.5, pandas 1.1.5, BLAST+ 2.9.0, mTM-align 20180725, DSSP 2.04 | <https://github.com/THGLab/CSpred>; UC Regents, educational, research and not-for-profit use. The 141 trained models are at <https://doi.org/10.5281/zenodo.15375968> (`models.zip`, unpacked into one folder) |
 | REDUCE | 4.15 (`reduce.4.15.250408`) | <https://github.com/rlabduke/reduce>; BSD-style |
-| OpenMM, PDBFixer | OpenMM 8.5.2, PDBFixer 1.12.0, Python 3.11 | <https://openmm.org>, MIT; force fields `amber99sb.xml` and `amber99_obc.xml` ship with OpenMM |
+| OpenMM, PDBFixer | OpenMM 8.5.2, PDBFixer 1.12.0, Python 3.11 | <https://openmm.org>; OpenMM MIT, with the CUDA and OpenCL platforms under LGPL-3.0-or-later; PDBFixer MIT; force fields `amber99sb.xml` and `amber99_obc.xml` ship with OpenMM |
 | MLFF predictor | `mb012/MLFF_representation` commit `9e4c984` (MIT), with the released heads `models/all_cs_models/cs_mace` from the Dropbox link in its README (arXiv:2505.23354, Bojan et al.) | <https://github.com/mb012/MLFF_representation> |
 | MACE | mace-torch 0.3.14, torch 2.9.1, e3nn 0.4.4, ase 3.27.0, matscipy 1.2.0, Python 3.12; MACE-OFF23 large, downloaded by `mace_off` on first use | <https://github.com/ACEsuit/mace>, MIT; the MACE-OFF23 weights are under the Academic Software License (non-commercial) |
 | SHIFTX2 | not run; the authors' released output is read | Wishart lab, <http://www.shiftx2.ca> |

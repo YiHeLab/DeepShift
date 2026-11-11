@@ -181,7 +181,8 @@ re-appended unchanged. A chain that fails with an OpenMM "No template found" err
 retried after removing the atoms no Amber99SB template admits (a disulfide CYS HG, a
 C-terminal HXT, a surplus N-terminal backbone hydrogen, N-terminal GLU HE2 or ASP HD2).
 OpenMM bonds across chain breaks, which pulls gaps shut. Environment: Python 3.11.15,
-OpenMM 8.5.2 (conda-forge, LGPL-3.0-or-later; https://github.com/openmm/openmm), PDBFixer
+OpenMM 8.5.2 (conda-forge; MIT, with the CUDA and OpenCL platforms under LGPL-3.0-or-later;
+https://github.com/openmm/openmm), PDBFixer
 1.12.0 (MIT; https://github.com/openmm/pdbfixer), numpy 2.4.6. The paper's relaxation ran on
 CUDA; `--platform CPU` also works. The minimisation is not deterministic, so a fresh
 relaxation does not reproduce the paper's chains bit for bit; MLFF predictions on a freshly
