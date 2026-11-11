@@ -1,3 +1,16 @@
+# DeepShift v1.1.1
+
+v1.1.1 (11 November 2026) changes one table. The models, the dataset and every prediction are
+those of v1.0.
+
+- Table S7 (prediction error near a perturber): the bold cells are now significant at 0.05
+  after Bonferroni correction over the eligible cells of the six printed nuclei (241 cells),
+  in place of Benjamini-Hochberg over every eligible cell. 45 cells are bold, where 86 were.
+  The RMSE values and the Welch t-test p-values are unchanged
+  (`si_build/analyze_perturber.py`, `si_build/emit_perturber_dose_ppm.py`).
+- At Zenodo, `reproduction_bundle_v1.1_additions.tar.gz` also holds the table's
+  `stratified_errors_experimental.csv` with the corrected p-values.
+
 # DeepShift v1.1
 
 v1.1 (9 November 2026) adds the code and the measurements behind the figures of the Nature

@@ -74,6 +74,8 @@ It adds the assignment-accuracy outputs
 predictions with each test protein's own deposition removed from its database, and what
 SHIFTY+ retrieved for each of SHIFTX2's 61 test proteins), and replaces `roots.env` with one
 that names the new root.
+Since v1.1.1 the archive also holds Table S7's `stratified_errors_experimental.csv` with
+the Bonferroni-corrected p-values, which replaces the bundle's copy.
 `DEEPSHIFT_RUN` is the finished run: `data/`, `work/unified_cache/`, `final/` and
 `benchmark/`. An unset root resolves to a placeholder such as `__DEEPSHIFT_RUN_REQUIRED__`,
 so a script still imports and its first read fails naming the variable. Figure scripts run
