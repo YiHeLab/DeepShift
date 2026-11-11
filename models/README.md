@@ -5,6 +5,11 @@ described in `PROTOCOL.md` section 3. Member *f* holds out fold *f* and trains o
 four of folds 1 to 5. `interval_calibration.json` is the prediction-interval artifact
 fitted on fold 0 (`PROTOCOL.md` section 4).
 
+Each member file is the training run's `final/fold<f>.final.pt` re-saved with the same
+weights, statistics and recipe but without the training record the trainer also writes
+(`manifest`, `epoch`, `backbone_z_mae`, `model`), so its file hash differs from the
+training file's.
+
 These are Git LFS objects. Run `git lfs install && git lfs pull` after cloning, or the
 files are pointer stubs and loading them fails.
 

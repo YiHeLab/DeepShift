@@ -104,7 +104,8 @@ def finalize_atom_rejections(rejections, out_dir, allow_atom_rejections):
                   'never got a cloud -- see rejections.json for exact per-reason '
                   'counts). These rows would silently vanish (atom_count=0) AFTER '
                   'fold balancing, changing the CV distribution. Fix the structures '
-                  'or pass --allow_atom_rejections to accept the logged drops.',
+                  'or pass --allow-atom-rejections to deepshift data build '
+                  '(--allow_atom_rejections to this stage) to accept the logged drops.',
                   file=sys.stderr)
             raise SystemExit(2)
     return ledger

@@ -41,7 +41,8 @@ RERUN_ROOT = si_common.root("SI_GATE_UCB200_RERUN")
 POOL61 = si_common.root("SI_UCB200_POOL61")
 DDAGGER = r"$^{\ddagger}$"
 RERUN = RERUN_ROOT / "score_ucb200.json"
-# The rerun scored without the excluded cells (probe/paper_exclusions.py beside it).
+# The rerun scored without the excluded cells: a stored output of an earlier run, whose
+# producer is not part of the release.
 PAPER = RERUN_ROOT / "probe" / "paper_exclusions_result.json"
 # The authors' own test set, in their checkout: it is the denominator of the cohort, the
 # proteins their released code was invoked on.

@@ -53,7 +53,8 @@ CELLS = frozen.env_path("DEEPSHIFT_SELFLOOKUP_CELLS")
 ARM_ROOT = Path(os.environ.get("DEEPSHIFT_BENCH_OUT") or frozen.RUN_ROOT / "benchmark")
 # Panel (a)'s per-protein errors, without the cells UCBShift's paper removes from its test set
 # (benchmarks/reference/ucb200_paper_exclusions.json), as every table on that test set
-# scores it; eval_per_protein_paper_exclusions.py writes it beside the unexcluded file.
+# scores it. The file is a stored output of an earlier run; its producer is not part of
+# the release.
 LEAK_EVAL = frozen.env_path("DEEPSHIFT_UCBSHIFT_LEAKAGE",
                             "ucbshift_eval_per_protein_paper_exclusions.csv")
 

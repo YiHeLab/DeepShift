@@ -104,8 +104,8 @@ def block(arms):
         ours, theirs = VERSUS_X
         lo, hi = np.percentile(boot[ours] - boot[theirs], [2.5, 97.5])
         diff = rmse[ours][atom] - rmse[theirs][atom]
-        # main.tex's "significantly lower RMSE than UCBShift-X on four of six": Bonferroni
-        # over the six nuclei.
+        # The manuscript's "significantly lower RMSE than UCBShift-X on four of six":
+        # Bonferroni over the six nuclei.
         corrected = bonferroni(tail_count(boot[ours] - boot[theirs], diff), BOOT_N,
                                len(ATOMS))
         versus_x[atom] = {"diff": round(diff, 4),
@@ -131,8 +131,9 @@ def table(b):
             value, s = f"{b['rmse'][arm][atom]:.4f}", b["significance"][atom]
             if s["winner"] == arm:
                 value = rf"\textbf{{{value}}}" + ("*" if s["sig"] else "")
-            # main.tex quotes DeepShift against UCBShift-X beside the table; the dagger is
-            # that comparison, on the same draws, so the count it quotes can be read here.
+            # The dagger is DeepShift's lead over UCBShift-X on the same draws, by the
+            # uncorrected 95 % interval; the Bonferroni count the manuscript quotes is the
+            # one main() prints, not a count of daggers.
             if arm == VERSUS_X[0] and versus_x[atom]["deepshift_better"]:
                 value += r"$^{\dagger}$"
             cells.append(value)

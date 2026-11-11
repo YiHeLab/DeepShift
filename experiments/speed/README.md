@@ -60,6 +60,7 @@ LEGOLAS, NMRGNN and SHIFTX2 (`-n`). The shipped ProCS15 adapter goes through its
 point with one structure and discards the predictor's stdout. The shipped UCBShift adapter
 sets `CUDA_VISIBLE_DEVICES=''`, one BLAS thread, `TMPDIR` to the job directory, a
 `<job>.pdb` file name and a 7200 s limit; the timed run used none of these (wall time on a
-28- and a 129-residue chain was equal within 0.1 s). The models in `models/` are not the
-files the census loaded (`final/fold*.final.pt`) and have different file hashes. Timings are
-properties of the machine and are not expected to reproduce on other hardware.
+28- and a 129-residue chain was equal within 0.1 s). The census loaded the training
+files `final/fold*.final.pt`; the files in `models/` are those members re-saved without the
+training record, with the same weights and different file hashes (`models/README.md`).
+Timings are properties of the machine and are not expected to reproduce on other hardware.

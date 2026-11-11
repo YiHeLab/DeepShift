@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """IDP8 ensemble roster.
 
-All 14 published IDP8 ensembles, so the nine-row denominator behind the
-downstream-applications panel is visible and not implied. The roster and the
+All 14 published IDP8 ensembles, so the nine-row denominator behind Figure 5d is
+visible and not implied. The roster and the
 published per-nucleus accuracies come from Nagy et al. 2024; the DeepShift column
-is read from the scorer's audited output, the file Figure S11 draws. Nothing is re-run
+is read from the scorer's audited output, the file Figure 5d draws. Nothing is re-run
 and no ensemble is re-scored.
 """
 
@@ -14,8 +14,8 @@ import json
 
 import si_common
 
-# The audited scores, read from the same root the downstream-applications figure reads
-# them from, and built into the same per-nucleus blocks its panel (a) records.
+# The audited scores, read from the same root Figure 5 (figures/fig_applications.py) reads
+# them from, and built into the same per-nucleus blocks its panel (d) records.
 IDP8 = si_common.root("DEEPSHIFT_IDP8_ROOT")
 AUDITED = IDP8 / "scores_audited.json"
 SCORER = IDP8 / "score.py"

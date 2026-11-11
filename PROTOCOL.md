@@ -276,8 +276,8 @@ done
 ```
 
 The post-cache `qc_flags_p100_structural.json` must contain exactly the supplied flag
-mapping. The released files in `models/` are the five `final/fold{1..5}.final.pt` members
-(`models/README.md` says what a file holds).
+mapping. The released files in `models/` are the five `final/fold{1..5}.final.pt` members,
+re-saved without their training record (`models/README.md` says what a file holds).
 
 ## 4. Prediction intervals: fold 0 fit, fold 6 evaluation
 

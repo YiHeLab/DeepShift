@@ -8,9 +8,9 @@ measured on the same eight criteria in the columns beside it, so the zeroes have
 something to sit against.
 
 Our half is recomputed here from the build's own edge tables -- nothing is transcribed
-from prose. Their half is read from ucb_split_criteria.json, written by measure_ucb_split.py in
-this directory, which measures the same eight criteria through the same MMseqs function
-the production fold builder calls.
+from prose. Their half is read from ucb_split_criteria.json, a stored output of an earlier
+run that measured the same eight criteria through the same MMseqs function the production
+fold builder calls; its producer (measure_ucb_split.py) is not part of the release.
 
 Writes: si_leakage.tex.
 
@@ -118,9 +118,10 @@ def main():
         '%   beside ours so our zeroes have something to sit against.',
         '% Our half is recomputed here from the build\'s own',
         '%   edge tables. Nothing is transcribed from prose.',
-        '% Their half: measure_ucb_split.py in the same directory, which runs the same eight',
-        '%   criteria over their 647 training and 200 test chains, calling the same MMseqs',
-        '%   function and the same binary the production fold builder calls.',
+        '% Their half: ucb_split_criteria.json, a stored output of an earlier run (its',
+        '%   producer is not part of the release) that ran the same eight criteria over',
+        '%   their 647 training and 200 test chains, calling the same MMseqs function and',
+        '%   the same binary the production fold builder calls.',
         '% The row stubs name what the builder does: row three groups on the exact polymer',
         '%   sequence with modified residues kept, row four on the same sequence with',
         '%   modified residues read as their standard parent. There is no alignment and no',

@@ -6,9 +6,9 @@ One script per table of the supplement. Each writes its LaTeX table to `out/`
 (`SI_CAPTIONS_DIR` names another directory).
 
 Table S16 (`si_tables_literature`) is produced by `figures/si_tables_literature.py`, and
-Table S1 (the dataset census) is typed into `SI.tex`. The inputs are finished runs and
-scoring reports that are not in this repository; every root is an environment variable
-with no default. Run each script from this directory: `python <script>.py`.
+Table S1 (the dataset census) is typed into the supplement. The inputs are finished runs
+and scoring reports that are not in this repository; every root is an environment
+variable, most with no default. Run each script from this directory: `python <script>.py`.
 
 ## Roots used by several scripts
 

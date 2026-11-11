@@ -15,17 +15,15 @@ Usage: DEEPSHIFT_RUN=... SI_P100_CUTOFFS=... python3 si_qc_p100.py
 from __future__ import annotations
 
 import json
-import sys
 from pathlib import Path
 
 import numpy as np
 
+# si_common puts the repository's src/ on the path, so it is imported before the package.
+import si_common as C
+
 from deepshift.loss import AMBIGUITY_SET_CODES
 from deepshift.quality_control import P100Policy
-
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE))
-import si_common as C
 
 CACHE = C.CACHE
 OUT = C.OUT

@@ -62,8 +62,9 @@ GATES = [
     },
     {
         "gate": "the atom cloud is the final recipe: 512 atoms, the nearest kept when a "
-                "residue has more, truncation warned and counted, zero atom-build "
-                "rejections, no hydrogen or deuterium",
+                "residue has more, truncation warned and counted, an atom-build "
+                "rejection stops the build unless --allow-atom-rejections accepts the "
+                "ledgered drops, no hydrogen or deuterium",
         "enforced_by": ["data.atoms.atom_cloud_recipe", "data.atoms.choose_m_atoms",
                         "data.atoms.finalize_atom_rejections",
                         "atom_cloud._gather_rows", "training.load_atom_recipe"],

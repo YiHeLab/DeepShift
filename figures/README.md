@@ -12,7 +12,8 @@ to `$DEEPSHIFT_FIGURES_OUT` when that is set.
 - `reference/`: small inputs kept in the repository (the Extended Data Fig. 1 structure, the arginine
   N-epsilon fence, the ray-traced renders).
 
-All statistics come from `deepshift.evaluate`; the scripts plot what it returns.
+The accuracy statistics come from `deepshift.evaluate` and the `benchmarks/` scorers; the
+scripts plot what those return, with the exceptions the notes below name.
 
 ## Which script makes what
 
@@ -88,5 +89,8 @@ Set `SOURCE_DATE_EPOCH` before rendering to keep the PDF `/CreationDate` fixed.
   `evaluate.read_predictions` refuses anything else.
 - Never average ppm across nuclei: facet by isotope, one ppm axis per panel.
 - Score `resolved_ppm` against `effective_mask`, not the raw `true_ppm`/`mask`.
-- Uncertainty is a bootstrap over label sets, not residues.
+- Uncertainty is a bootstrap over label sets, not residues, except where a script resamples
+  another unit: `fig_homology_training_identity.py` resamples structures,
+  `fig_accuracy_by_nucleus_all.py` without `--scores` resamples BMRB entries, and the X-EISD
+  panels of `fig_applications.py` resample optimizer restarts.
 - `build_paper_figures.py` has its own `house_style()`; the other scripts use `style.py`.

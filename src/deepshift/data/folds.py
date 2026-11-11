@@ -355,7 +355,9 @@ def resolve_ucb_excluded_bmrbs(
             'UCBShift-200 exclusion set is EMPTY: neither the shipped exclusion '
             f'file ({json_path}) nor the UCB test-dir fallback ({test_dir}) '
             'yielded a BMRB. Refusing benchmark train-on-test; restore the '
-            'exclusion authority or explicitly pass --allow_empty_ucb_exclusion.')
+            'exclusion authority or explicitly run this stage '
+            '(python -m deepshift.data.folds) with --allow_empty_ucb_exclusion; '
+            'deepshift data build has no such override.')
     expected = _packaged_ucb_excluded_bmrbs()
     missing_expected = expected - excluded
     if missing_expected and not allow_empty:
@@ -364,8 +366,9 @@ def resolve_ucb_excluded_bmrbs(
             f'packaged {len(expected)}-BMRB benchmark authority '
             f'({len(missing_expected)} missing; examples '
             f'{sorted(missing_expected)[:8]}). Refusing benchmark train-on-test; '
-            'restore the packaged exclusion or explicitly pass '
-            '--allow_empty_ucb_exclusion.')
+            'restore the packaged exclusion or explicitly run this stage '
+            '(python -m deepshift.data.folds) with --allow_empty_ucb_exclusion; '
+            'deepshift data build has no such override.')
     if missing_expected:
         print('WARN: --allow_empty_ucb_exclusion explicitly overrides an '
               f'unauthenticated UCB boundary ({len(missing_expected)} packaged '

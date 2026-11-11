@@ -56,7 +56,9 @@ python -m pip install -e '.[test,figures]'
 python -m pytest -q
 ```
 
-The wheel carries the chemistry and perturber-rule JSON read at runtime. It does not
+The wheel carries three JSON files under `deepshift/data/`: the perturber rule the atom
+stage applies (`hetatm_exclusion_rule.json`) and the two BMRB lists the fold split holds
+out (`ucbshift200_excluded_bmrbs.json`, `case_study_excluded_bmrbs.json`). It does not
 include model checkpoints, datasets, the fitted p100 cutoff file, or an interval-calibration
 artifact; the p100 cutoffs and the prediction intervals are fitted from one build and are
 supplied explicitly, so constants from another model cannot be used by accident.
@@ -138,7 +140,7 @@ what `predict` reads from them.
 ## Evaluate
 
 The scorer reports per-nucleus RMSE and MAE. Correlation and amplitude use secondary
-shifts; uncertainty is clustered over label sets, never individual residues.
+shifts; the scorer's bootstrap is clustered over label sets, never individual residues.
 
 ```bash
 deepshift evaluate \
@@ -165,7 +167,7 @@ The package is small; the parts a reader of the paper needs are these, in readin
 | `src/deepshift/loss.py` | chemical equivalence and prochiral swaps in the training loss |
 | `src/deepshift/training.py` | one member per held-out fold; the cache it reads and the checkpoints it writes |
 | `src/deepshift/prediction.py` | inference from a PDB file with no cache: per-member ppm, then the ensemble mean, then the intervals |
-| `src/deepshift/evaluate.py`, `statistics.py` | the one scorer every reported number comes from: per-nucleus RMSE and MAE, secondary-shift statistics, the label-set-clustered bootstrap and paired comparisons |
+| `src/deepshift/evaluate.py`, `statistics.py` | the scorer behind the accuracy comparisons: per-nucleus RMSE and MAE, secondary-shift statistics, the label-set-clustered bootstrap and paired comparisons |
 | `src/deepshift/calibration.py` | prediction intervals: the variance fit and split-conformal multipliers on fold 0, evaluated once on fold 6 |
 | `src/deepshift/quality_control.py` | the exclusion fence: fitted p100 accepted spans plus the structural cysteine and proline consistency rules |
 | `src/deepshift/data/cluster.py`, `data/folds.py` | the entity-grained split: the sequence and structure edges that must not cross folds, fold 0 assigned by rule, and the draw of folds 1 to 6 |

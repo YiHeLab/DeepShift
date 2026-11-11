@@ -153,8 +153,10 @@ python -m benchmarks.score_paired_tier --tier 2 --allow-anticorrelated \
 ```
 
 `score_paired_tier --check_marginal` refuses to write unless its point estimates equal the
-marginal report's, cell for cell. Every significance claim is Bonferroni-corrected within
-its family (`deepshift.statistics.bonferroni`): a difference among m is significant when
+marginal report's, cell for cell. Every significance claim, except the asterisks and
+daggers of Table S19 (uncorrected 95 % paired intervals, as its caption says), is
+Bonferroni-corrected within its family (`deepshift.statistics.bonferroni`): a difference
+among m is significant when
 the fraction k/B of resamples on the other side of zero is below 0.05/(2m). For the 234
 comparisons with every self-retrieval-blocked competitor and the 77 side-chain comparisons
 that fraction is near 1e-4, which 2,000 resamples cannot resolve, so those two families are
@@ -167,6 +169,8 @@ been rebuilt; its report is in the bundle. Further measurements behind individua
 
 ```bash
 python -m benchmarks.score_cys_modes --master-cells $MASTER --out <cys_report> --cells-out <cys_cells>
+# The arginine N-epsilon alias fence record Figure S3 reads (kept in the repository)
+python -m benchmarks.arg_ne_alias --out figures/reference/ne_alias_fence.json
 python -m benchmarks.dump_ring_cells --out <ring_cells>
 python -m benchmarks.dump_cv_torsions --out <torsion_cells>
 python -m benchmarks.score_error_covariates --out <covariate_report>

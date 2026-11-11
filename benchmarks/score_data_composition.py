@@ -130,7 +130,8 @@ def build_parser():
         ap.add_argument(f"--{name}", required=True, type=Path,
                         help=f"held-out prediction dump: {role}")
     ap.add_argument("--arms-report", required=True, type=Path,
-                    help="build_arms.py's composition report, carried into block 1")
+                    help="the arms' composition report (a stored output of an earlier run "
+                         "whose producer is not part of the release), carried into block 1")
     ap.add_argument("--out-comparison", required=True, type=Path)
     ap.add_argument("--out-source-matched", required=True, type=Path)
     ap.add_argument("--boots", type=int, default=DEFAULT_RESAMPLES)
