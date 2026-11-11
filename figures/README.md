@@ -27,7 +27,6 @@ fig_accuracy_by_nucleus_all.py     fig_accuracy_by_nucleus_all       Figure S3
 fig_applications.py                fig_05_applications               Figure 5
 fig_backbone_benchmark.py          fig_03_benchmark                  Figure 2 (lower), Table 1
 fig_census_merged.py               fig_census_merged                 Figure S1
-fig_downstream_applications.py     fig_downstream_applications       Figure S11
 fig_exp_source_control.py          fig_exp_source_control            Figure S6
 fig_homology_training_identity.py  fig_homology_training_identity    Figure S2
 fig_leakage_audit.py               ed_fig_02_leakage_audit           Extended Data Fig. 2
@@ -39,7 +38,6 @@ fig_source_matched.py              fig_06_source                     Figure 3 (u
 fig_structure_response.py          fig_04_structure                  Figure 4
                                    fig_si_decoy_r_vs_rmsd            Figure S9
 fig_uncertainty_calibration.py     fig_uncertainty_calibration_fold6 Figure S10
-fig_xeisd_composition.py           fig_xeisd_composition             Figure S12
 si_tables_literature.py            si_tables_literature (.tex)       Table S16
 render_structures.py               reference/renders/                ray-traced panels of Extended Data Fig. 1
 ```
@@ -72,8 +70,8 @@ still imports and the first read fails naming the variable it needs.
 | `DEEPSHIFT_SELFLOOKUP_CELLS`, `DEEPSHIFT_UCBSHIFT_LEAKAGE`, `DEEPSHIFT_BENCH_OUT` | panels (b) and (a) of `fig_selflookup_transfer`, and the competitor outputs behind (b) |
 | `DEEPSHIFT_RAMACHANDRAN_OOF`, `DEEPSHIFT_SCALING_LADDER` | out-of-fold torsion cells (Figure S8) and the data-fraction ladder (Figure S7) |
 | `DEEPSHIFT_EXP_SOURCE_CONTROL` | crystal+NMR-only retraining control on fold 6 (Figure S6) |
-| `DEEPSHIFT_XEISD_PROTOCOL` | X-EISD protocol run directory (Figures 5 and S12) |
-| `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` | the two downstream applications (Figures 5 and S11) |
+| `DEEPSHIFT_XEISD_PROTOCOL` | X-EISD protocol run directory (Figure 5) |
+| `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` | the two downstream applications (Figure 5) |
 | `DEEPSHIFT_ASSIGNMENT_ROOT` | the outputs of `benchmarks.assignment_accuracy` (Figure 5a) |
 | `DEEPSHIFT_REFDB_SHIFTS` | UCBShift's RefDB tree, whose proteins Figure 1(b) counts (third-party) |
 | `DEEPSHIFT_UCBSHIFT_LEAKAGE`, `SI_SELF_RETRIEVAL_UCBY`, `SI_GATE_CSPRED_TM`, `SI_UCB200_ARTIFACTS_DIR` | Extended Data Fig. 2: retrieval tables and the own-record-blocked UCBShift run, the distributed UCBShift-Y run, UCBShift's test targets (third-party), the UCBShift-200 score report |

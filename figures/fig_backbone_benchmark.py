@@ -46,7 +46,8 @@ import style
 # with the seven deployed floats build_paper_figures.py draws.
 from build_paper_figures import house_style, panel_letter
 
-from benchmarks.runner_up_leads import lead_tests
+from benchmarks.runner_up_leads import ALPHA, lead_tests, not_better
+from deepshift.statistics import bonferroni
 
 NUCLEI = ["CA", "CB", "C", "HA", "H", "N"]
 TEX_HEAD = [r"C$\alpha$", r"C$\beta$", r"C$'$", r"H$\alpha$", "H", "N"]
@@ -109,9 +110,10 @@ def verdicts(marginal: dict, paired: dict, source: str, nucleus: str, arms):
     """(winning arm, whether its lead is significant) for one table cell.
 
     The winner is the lowest RMSE among the arms the table prints, since a cell can only
-    claim to win the comparison it shows. The asterisk is the paired interval on the
-    winner's lead over the runner-up, which exists only for differences the paired report
-    carries: those against its reference arm.
+    claim to win the comparison it shows. The asterisk is the paired bootstrap test of the
+    winner's lead over the runner-up, Bonferroni-corrected over the table's source and
+    nucleus cells; it exists only for differences the paired report carries: those against
+    its reference arm.
     """
     block = marginal["by_source"][source]["nuclei"][nucleus]
     ranked = sorted(arms, key=lambda arm: block[arm]["rmse"])
@@ -122,12 +124,15 @@ def verdicts(marginal: dict, paired: dict, source: str, nucleus: str, arms):
     if runner_up not in differences:
         raise SystemExit(f"the paired report carries no {source}/{nucleus} difference "
                          f"against {runner_up}, so its lead cannot be called")
-    return winner, differences[runner_up]["ci"][1] < 0
+    node = differences[runner_up]
+    k = not_better(node, paired["boot"], f"{source}/{nucleus}")
+    corrected = bonferroni(k, paired["boot"], len(SOURCES) * len(NUCLEI), ALPHA)
+    return winner, node["diff"] < 0 and corrected["significant"]
 
 
 def table(marginal: dict, paired: dict, arms) -> str:
     """Table 1's body: bold on the lowest value, asterisk when the lead over the
-    runner-up has a 95 % paired interval excluding zero, and, for an arm scored on fewer
+    runner-up is significant after Bonferroni correction, and, for an arm scored on fewer
     than every master cell of a nucleus, the count it was scored on beneath its row."""
     rows = []
     for src, pretty in SOURCES:

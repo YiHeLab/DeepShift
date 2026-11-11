@@ -75,7 +75,7 @@ def fmt(value, places: int) -> str:
 
 def scored_blocks(audited_rows) -> dict:
     """Per nucleus, every ensemble with both a DeepShift and a published RMSD: the rule
-    figures/fig_downstream_applications.py draws panel (a) by."""
+    figures/fig_applications.py draws Figure 5d by."""
     blocks = {}
     for nucleus, _ in NUCLEI:
         cells = {r["label"]: {"published_spartaplus_rmsd_ppm": float(r[f"{nucleus}_published"]),

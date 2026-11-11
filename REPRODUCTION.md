@@ -224,8 +224,6 @@ Run figure scripts from `figures/` and table scripts from `si_build/` (a path wi
 | Figure S5 | `python fig_plddt_source.py --fence <qc_flags_p100_structural.json>` | AlphaFold model files (tier C) |
 | Figure S6 | `python fig_exp_source_control.py` | `DEEPSHIFT_EXP_SOURCE_CONTROL` |
 | Figure S10 | `python fig_uncertainty_calibration.py` | `DEEPSHIFT_RUN` |
-| Figure S11 | `python fig_downstream_applications.py` | `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` |
-| Figure S12 | `python fig_xeisd_composition.py` | `DEEPSHIFT_XEISD_PROTOCOL` |
 | Table S2 | `python gen_census_tables.py --flags <qc_flags_p100_structural.json>` | |
 | Tables S3, S4 | `python ../scripts/reref_diagnostics.py` (writes `reref_diagnostics.json` into `DEEPSHIFT_RUN/data` unless `--out` is given), then `python si_reref_offsets.py` | `SI_REREF_DIAGNOSTICS` (the diagnostics output) |
 | Table S5 | `python build_refdb_census.py --out <dir>/refdb_census.json` (tier C), then `python si_refdb_agreement.py` | `SI_REFDB_CENSUS`; the census is in the bundle |

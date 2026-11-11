@@ -92,7 +92,7 @@ def test_a_structure_with_no_hit_is_counted_as_having_no_relative(producer, monk
     stub_search(module, monkeypatch, {})
     run(module)
     assert count_in_row(out, "No relative found") == 1
-    assert "0 against our training folds" in table(out)
+    assert "unmeasured" not in table(out)
 
 
 def test_a_structure_whose_entity_has_no_sequence_is_reported_unmeasured(

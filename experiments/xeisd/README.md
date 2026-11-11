@@ -1,4 +1,4 @@
-# X-EISD ensemble selection (Figure 5, Figure S12)
+# X-EISD ensemble selection (Figure 5b,c)
 
 This directory runs the case study in which DeepShift replaces the chemical-shift forward
 model of X-EISD (Lincoff et al., *Commun. Chem.* 3, 74, 2020) on the unfolded drkN SH3
@@ -87,7 +87,6 @@ each arm reseeds NumPy, so a subset reproduces the same arm as the full run.
 | Producer | Reads | Written by |
 |---|---|---|
 | `figures/fig_applications.py` (Figure 5b,c) | `results.json`, `mixed_composition.json`, `runs/mixed/{shiftx2,deepshift}/rescore_all/{results,indices}.csv` | `analyze_pools.py`, `analyze_composition.py`, `run_paper_protocol.py` |
-| `figures/fig_xeisd_composition.py` (Figure S12) | `runs/mixed/{shiftx2,deepshift}/optimize_cs/indices.csv` | `run_paper_protocol.py` |
 | `si_build/emit_text_numbers.py` | `results.json`, `runs/{ensemble,mixed,random}/{deepshift,shiftx2}/rescore_all/results.csv`, `../tables/drksh3_{ENSEMBLE,MIXED,RANDOM}_CS_deepshift.txt` (row counts) | `analyze_pools.py`, `run_paper_protocol.py`, `run_shift_tables.py`, `build_mixed.py` |
 
 The restart-level CSV files have no header; `results.csv` columns are the restart index, the

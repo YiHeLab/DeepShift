@@ -37,13 +37,13 @@ def _marginal(rmse_by_arm):
                           for source in ("xtal", "af", "nmr", "all")}}
 
 
-def _paired(rmse_by_arm, upper, unit="structure"):
+def _paired(rmse_by_arm, upper, unit="structure", p_better=0.99):
     """A paired report of the same cohort, with one shared upper interval bound."""
     reference = "deepshift"
     differences = {arm: {"deepshift": rmse_by_arm[reference], "competitor": rmse,
                          "diff": rmse_by_arm[reference] - rmse,
                          "ci": [rmse_by_arm[reference] - rmse - 0.1, upper],
-                         "p_deepshift_better": 0.99}
+                         "p_deepshift_better": p_better}
                    for arm, rmse in rmse_by_arm.items() if arm != reference}
     report = {"tier": 2, "reference_arm": reference, "methods": list(rmse_by_arm),
               "unit": unit, "boot": 2000, "n_common_structures": 12, "n_common_cells": 600}
@@ -86,10 +86,12 @@ def test_the_figure_refuses_two_reports_of_different_scoring_runs(reports):
         producer.read(marginal, paired, ARMS)
 
 
-def test_a_table_cell_is_starred_only_when_the_paired_interval_excludes_zero(reports):
+def test_a_table_cell_is_starred_only_when_the_lead_survives_bonferroni(reports):
+    """18 cells: the tail must fall below 0.05 / 36. 20 of 2,000 replicates against the
+    winner pass an uncorrected 95 % interval and fail the correction; none of 2,000 passes."""
     rmse, tmp_path = reports
-    for upper, starred in ((-0.02, True), (0.03, False)):
-        marginal, paired = _write(tmp_path, _marginal(rmse), _paired(rmse, upper))
+    for p_better, starred in ((1.0, True), (0.99, False)):
+        marginal, paired = _write(tmp_path, _marginal(rmse), _paired(rmse, -0.02, p_better=p_better))
         body = producer.table(*producer.read(marginal, paired, ARMS)[:2], ARMS)
         assert (r"\textbf{0.3000}*" in body) is starred
         assert r"\textbf{0.3000}" in body

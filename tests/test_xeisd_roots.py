@@ -14,9 +14,9 @@ def _load(name):
     return module
 
 
-def test_the_two_xeisd_figures_resolve_the_same_protocol_run(monkeypatch, tmp_path):
-    """One root names the protocol run, so the applications figure (Figure 5b,c) and the
-    composition figure read the same run directory and neither reaches a level below it."""
+def test_the_xeisd_panels_resolve_the_protocol_run(monkeypatch, tmp_path):
+    """One root names the protocol run, so the applications figure (Figure 5b,c) reads the
+    run directory and reaches no level below it."""
     protocol = tmp_path / "protocol"
     (protocol / "runs").mkdir(parents=True)
     monkeypatch.setenv("DEEPSHIFT_XEISD_PROTOCOL", str(protocol))
@@ -24,9 +24,7 @@ def test_the_two_xeisd_figures_resolve_the_same_protocol_run(monkeypatch, tmp_pa
     sys.path.insert(0, str(FIGURES))
     try:
         applications = _load("fig_applications")
-        composition = _load("fig_xeisd_composition")
     finally:
         sys.path.remove(str(FIGURES))
 
     assert protocol / "runs" == applications.RUNS
-    assert composition.RUNS == applications.RUNS

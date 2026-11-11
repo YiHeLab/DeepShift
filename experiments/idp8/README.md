@@ -1,4 +1,4 @@
-# IDP8 ensembles (Figure S11 panel a, Table S28)
+# IDP8 ensembles (Figure 5d, Table S28)
 
 This directory repeats the protocol of Nagy et al. (*Appl. Spectrosc.* 78, 897, 2024,
 doi:10.1177/00037028241239977) with DeepShift in place of SPARTA+. They back-calculate
@@ -16,7 +16,7 @@ supplied to Nagy et al. privately and are not in the BMRB.
 | `run_inference.py` | DeepShift prediction for every conformer, five-member mean | `<label>.parquet` per ensemble |
 | `score.py` | residue alignment by sequence, ensemble average, RMSD against BMRB | one JSON row per ensemble |
 
-The SPARTA+ column of Figure S11 and Table S28 is not recomputed. It is Nagy et al.'s
+The SPARTA+ axis of Figure 5d and the SPARTA+ column of Table S28 is not recomputed. It is Nagy et al.'s
 published Table III, transcribed into the `PUBLISHED` table of `score.py` (None where the
 paper reports no value); `si_build/build_idp8_roster.py` checks its own transcription of the
 same table against it. SPARTA+ is not run by anything in this directory.
@@ -62,7 +62,7 @@ export DEEPSHIFT_IDP8_ROOT=$W/protocol
 
 | Producer | Reads | Written by |
 |---|---|---|
-| `figures/fig_downstream_applications.py` (Figure S11 panel a) | `scores_audited.json` | `score.py` |
+| `figures/fig_applications.py` (Figure 5d) | `scores_audited.json` | `score.py` |
 | `si_build/build_idp8_roster.py` (Table S28) | `scores_audited.json` and `score.py` (its `PUBLISHED` table) | `score.py` |
 
 Each row of `scores_audited.json` carries, per nucleus, the number of matched residues, the

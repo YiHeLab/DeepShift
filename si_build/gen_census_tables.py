@@ -171,10 +171,8 @@ Fold & Role & Label sets & BMRB\cite{BMRB} & AF & NMR & X-ray & Structure realiz
 \midrule
 """ + "\n".join(fold_rows) + r"""
 \midrule
-\multicolumn{10}{@{}p{1.3\linewidth}@{}}{\footnotesize \emph{Cohort}: the whole training
-build. \emph{Units}: counts; residue rows and observed cells are at the realization grain
-and count matched residues only. \emph{Tier}: not applicable. Fold identity is
-build-specific and does not carry across rebuilds. Fold~""" + str(fold_stage.HOLDOUT_FOLD) \
+\multicolumn{10}{@{}p{1.3\linewidth}@{}}{\footnotesize Residue rows and observed cells are counted per structure realization
+and count matched residues only. Fold~""" + str(fold_stage.HOLDOUT_FOLD) \
         + " is the held-out cohort (" + n(holdout["label_sets"]) + " label sets / " \
         + n(holdout["structures_total"]) + " structure realizations); fold~" \
         + str(fold_stage.EXCLUDED_FOLD) + " holds the " + n(excluded["label_sets"]) \

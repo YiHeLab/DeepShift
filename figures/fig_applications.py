@@ -15,7 +15,7 @@
 
 (b) and (c) read the ``rescore_all`` indices and scores of one protocol run, where the
 paired held-out scores live, and assert them against ``mixed_composition.json`` and
-``results.json``; ``fig_xeisd_composition.py`` draws the composition from ``optimize_cs``.
+``results.json``.
 
 Usage:
     DEEPSHIFT_ASSIGNMENT_ROOT=... DEEPSHIFT_XEISD_PROTOCOL=... DEEPSHIFT_IDP8_ROOT=... \\

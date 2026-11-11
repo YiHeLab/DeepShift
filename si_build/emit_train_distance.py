@@ -194,10 +194,12 @@ def main() -> None:
     unmeasured = ", ".join(
         f"{si_common.tex_thousands(column['unmeasured'])} against {name}"
         for name, column in columns)
+    if any(column["unmeasured"] for _name, column in columns):
+        lines.append(
+            "Of the first row, these structures are unmeasured, not measured at zero, "
+            "because the sequence file carries no entry for their entity: "
+            + unmeasured + r".\par")
     lines += [
-        "Of the first row, these structures are unmeasured, not measured at zero, "
-        "because the sequence file carries no entry for their entity: "
-        + unmeasured + r".\par",
         "Identity is measured over the aligned region alone, at a query-coverage floor of "
         + f"{args.coverage:.2f}" + ". Of the structures measured against our training "
         "folds, " + si_common.tex_thousands(columns[0][1]["n_at_the_split_rule"])

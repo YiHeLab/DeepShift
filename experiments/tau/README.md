@@ -1,4 +1,4 @@
-# Tau conformational-sensitivity benchmark (Figure S11, panel b)
+# Tau conformational-sensitivity benchmark (Figure 5e)
 
 Reproduces the comparison of DeepShift, UCBShift 2.0, MLFF and SHIFTX2 on the benchmark of
 Stöckelmaier and Oostenbrink (PCCP 2024, doi:10.1039/D4CP02484B): ten conformers of a
@@ -83,4 +83,4 @@ file read downstream.
 
 | producer | variable | file |
 |---|---|---|
-| `figures/fig_downstream_applications.py` (Figure S11b; the text's 40.93, 24.19, 20.93 and 15.81 % are the shares with S >= 3.29) | `DEEPSHIFT_TAU_BENCHMARK_ROOT=$OUT/score` | `common_cells.csv` |
+| `figures/fig_applications.py` (Figure 5e; the text's 40.93, 24.19, 20.93 and 15.81 % are the shares with S >= 3.29) | `DEEPSHIFT_TAU_BENCHMARK_ROOT=$OUT/score` | `common_cells.csv` |
