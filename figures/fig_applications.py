@@ -55,7 +55,7 @@ TYPE_LABEL = {"saxs": "SAXS", "fret": "FRET", "jc": "J-coupling", "noe": "NOE", 
 # optimized RANDOM pool, so a selected index below 1,700 came from ENSEMBLE.
 ENSEMBLE_BLOCK = 1700
 BY_TYPE_SEED, BY_TYPE_BOOTS = 20260728, 2000
-IDP8_NUCLEI = (("CB", r"C$\beta$", "o"), ("C", r"C$^{\prime}$", "s"), ("CA", r"C$\alpha^{*}$", "^"))
+IDP8_NUCLEI = (("CB", r"C$\beta$", "o"), ("C", r"C$^{\prime}$", "s"), ("CA", r"C$\alpha$", "^"))
 TAU_METHODS = (("DeepShift_original", "DeepShift", J.ACCENT, "o"), ("UCBShift2_combined_selfexcl", "UCBShift 2.0", J.AMBER, "s"),
                ("SHIFTX2_release", "SHIFTX2", J.VIOLET, "D"), ("MLFF_MACE_relaxed", "MLFF", J.NEUTRAL, "^"))
 # The sensitivity criterion the tau benchmark defines a state-discriminating site by.
@@ -81,7 +81,7 @@ def panel_assignment(axes, values):
             r = b.loc[arm]
             ax.errorbar(100 * r.mean_frac, yi, xerr=[[100 * (r.mean_frac - r.ci_lo)], [100 * (r.ci_hi - r.mean_frac)]],
                         fmt="o", ms=3.2, color=col, mfc=col, mec="white", mew=0.4, elinewidth=0.8, capsize=0, zorder=3)
-            if arm in ("deepshift", "ucbshift_x"):
+            if arm in ("deepshift", "ucbshift_full_sameprot"):
                 ax.text(100 * r.ci_hi + 2.5, yi, f"{100 * r.mean_frac:.1f}", va="center", ha="left",
                         fontsize=J.FS["note"], color=J.SECOND)
         d = b.loc["ucbshift_x"]
