@@ -56,7 +56,7 @@ python score_decoys.py --cohort $OUT/cohort.json --deepshift $OUT/deepshift \
 numbers were computed on a GPU (fp16 autocast), and a CPU run differs by up to about
 0.01 ppm in a prediction. `relax_decoys.py` and `mlff_decoys.py` take `--shard`/`--nshards`. The relaxed candidates
 the published MLFF values were computed from are deposited with the dataset
-(`deepshift_mlff_relaxed_structures.tar.gz`, folder `decoys/`); pass that folder to
+(`deepshift_mlff_relaxed_decoys.tar.gz`, folder `decoys/`); pass that folder to
 `mlff_decoys.py --relaxed` in place of `$OUT/relaxed` to reproduce them.
 The OpenMM minimiser on OpenCL is not bit-reproducible (about 0.03 A heavy-atom RMSD
 between runs). `mlff_predictor.py` is the same file as in `../tau/`.

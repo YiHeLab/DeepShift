@@ -188,7 +188,7 @@ CUDA; `--platform CPU` also works. The minimisation is not deterministic, so a f
 relaxation does not reproduce the paper's chains bit for bit; MLFF predictions on a freshly
 relaxed chain differed by up to 1.5 ppm (N) from the paper's on the one chain compared. The
 chains the published MLFF values were computed from are deposited with the dataset
-(`deepshift_mlff_relaxed_structures.tar.gz`, folder `fold6/`, one `<structure_id>.pdb` per
+(`deepshift_mlff_relaxed_fold6_tau.tar.gz`, folder `fold6/`, one `<structure_id>.pdb` per
 task); give that folder to `run_mlff.py --relaxed` to reproduce the published values.
 
 ### PLM-CS (`plmcs`)

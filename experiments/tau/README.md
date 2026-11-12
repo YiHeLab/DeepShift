@@ -71,7 +71,7 @@ about 0.004 ppm in a prediction. The OpenMM minimiser on OpenCL is not bit-repro
 relaxations of one conformer differ by about 0.04 A heavy-atom RMSD, which is the
 difference a CPU run shows against the stored structures. The relaxed conformers the
 published MLFF values were computed from are deposited with the dataset
-(`deepshift_mlff_relaxed_structures.tar.gz`, folder `tau/`); copy them into `$OUT/relaxed/`
+(`deepshift_mlff_relaxed_fold6_tau.tar.gz`, folder `tau/`); copy them into `$OUT/relaxed/`
 in place of `mlff_arm.py relax` to reproduce them.
 `mlff_predictor.py` is the same file as in `../decoys/`.
 

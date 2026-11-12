@@ -24,5 +24,6 @@ The scripts import the `deepshift` package (`pip install -e .` at the repository
 DeepShift and MLFF inference steps were run on a GPU; on a CPU they give the same values to
 within about 0.01 ppm. OpenMM energy minimisation is not bit-reproducible, so the relaxed
 structures the MLFF predictor was run on are deposited with the dataset
-(`deepshift_mlff_relaxed_structures.tar.gz`), and the reported MLFF values are reproduced
-from them.
+(`deepshift_mlff_relaxed_fold6_tau.tar.gz`, the fold-6 chains and the tau conformers, and
+`deepshift_mlff_relaxed_decoys.tar.gz`, the 3DRobot decoys), and the reported MLFF values
+are reproduced from them.
