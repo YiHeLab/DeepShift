@@ -1,3 +1,37 @@
+# DeepShift v1.1.3
+
+v1.1.3 (11 November 2026) makes the prediction intervals the default of `deepshift predict`
+and corrects the reproduction instructions. The models, the dataset and every prediction
+are those of v1.0.
+
+- `deepshift predict` writes the 90 % interval file by default: with all five members it
+  uses `interval_calibration.json` from the directory of the first `--checkpoint`, so the
+  five-model command no longer needs `--interval-calibration`, which still names another
+  file. `--no-intervals` turns the default off. With fewer members, or with no calibration
+  file, it predicts without intervals and prints one line saying why
+  (`src/deepshift/prediction.py`).
+- `REPRODUCTION.md`: commands that failed as written against the bundle are corrected. It
+  names the path of Figure 3's source-matched report, what `<unfenced>` and the flag file
+  are, the `--allow-missing` that `emit_text_numbers.py` needs and the two groups it then
+  skips, the held-out dumps `score_source_matched` needs and the bundle lacks, and a copy
+  for Table S7's `analyze_perturber.py` output, which would otherwise overwrite the
+  bundle's; Table S8 regenerates from the bundle alone.
+- Clearer stops: `figures/fig_leakage_audit.py` names a missing text-number group and the
+  variable it needs instead of raising a `KeyError`, `si_build/build_reproduction_gate.py`
+  names `SI_GATE_CSPRED_TM` when UCBShift's test targets are absent, and
+  `si_build/emit_train_distance.py` checks its inputs before it downloads MMseqs2.
+- Four `experiments/` READMEs name the Zenodo archives that exist:
+  `deepshift_mlff_relaxed_fold6_tau.tar.gz` (the fold-6 chains and the tau conformers) and
+  `deepshift_mlff_relaxed_decoys.tar.gz` (the 3DRobot decoys).
+- Table S15: the footnote starts below the table instead of beside it
+  (`si_build/emit_sidechain_final.py`).
+- At Zenodo, the reproduction bundle no longer contains workstation names and now includes
+  UCBShift's test-set definition (`ucbshift_test_targets/ucbshift200_test_targets.json`),
+  under the terms quoted in `THIRD_PARTY_NOTICES.md`; `PROTOCOL.md` says it can be used in
+  place of converting `test_200.pkl`.
+- The Colab notebook installs the package from tag v1.1.3 and downloads the models from the
+  v1.0 release page, as before.
+
 # DeepShift v1.1.2
 
 v1.1.2 (11 November 2026) changes how Table 1 marks significance, removes two
