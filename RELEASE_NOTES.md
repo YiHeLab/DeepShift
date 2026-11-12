@@ -1,3 +1,21 @@
+# DeepShift v1.1.4
+
+v1.1.4 (11 November 2026) redraws Figure 1 and tidies four other figures. No number, model,
+dataset or prediction changes; Table 1's body regenerates identically.
+
+- Figure 1 (`figures/fig_pipeline.py`): panel (a) is drawn as the cards of Extended Data
+  Fig. 1, a picture in each card with its label and counts below, and reuses that figure's
+  ray-traced protein and atom cloud (`figures/reference/renders/`). Panels (b) to (d) fill
+  their axes and the fold groups are bracketed.
+- Figures 2(b, c), 3(a) and 3(b, c) (`fig_backbone_benchmark.py`, `fig_source_matched.py`,
+  `fig_sidechain_benchmark.py`): the legend sits above the axes, bars are separated by a
+  hairline of the page instead of an ink outline (`style.bar_style(outline=False)`), and the
+  plot frame is reduced to the baseline. Figure 3(b, c) has one legend.
+- Figure 2(a) (`build_paper_figures.py`): the panel letter no longer meets the first title.
+- Figure 5(e) (`fig_applications.py`): the legend sits in the empty lower left.
+- The Colab notebook installs the package from tag v1.1.4 and downloads the models from the
+  v1.0 release page, as before.
+
 # DeepShift v1.1.3
 
 v1.1.3 (11 November 2026) makes the prediction intervals the default of `deepshift predict`

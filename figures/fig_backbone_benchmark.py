@@ -173,30 +173,30 @@ def draw(block: dict, arms):
     for i, arm in enumerate(arms):
         _tex, name, color, open_face = arm_style(arm)
         off = (i - (len(arms) - 1) / 2) * width
-        bar = style.bar_style(color, open_face)
+        bar = style.bar_style(color, open_face, outline=False)
         for ax, field in ((ax_r, "r"), (ax_e, "rmse")):
             v = np.array([block[a][arm][field] for a in FIG_ORDER])
             ci = np.array([block[a][arm][f"{field}_ci95"] for a in FIG_ORDER]).T
             ax.bar(x + off, v, width, label=name if ax is ax_r else "_nolegend_", **bar)
             ax.errorbar(x + off, v, yerr=np.abs(ci - v), fmt="none",
-                        ecolor=style.INK["primary"], elinewidth=0.5, capsize=1.2)
+                        ecolor=style.INK["primary"], elinewidth=0.6, capsize=1.4, capthick=0.6)
 
     ax_r.set_ylabel("Secondary-shift $R$")
-    ax_r.set_ylim(0, 1.32)                      # headroom for the framed legend
+    ax_r.set_ylim(0, 1.0)
     ax_r.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-    leg = ax_r.legend(ncol=5, loc="upper center", columnspacing=1.0, borderpad=0.4,
-                      frameon=True, framealpha=1.0, edgecolor=style.INK["grid"],
-                      fancybox=False, handlelength=1.2)
-    leg.get_frame().set_linewidth(0.6)
+    ax_r.legend(ncol=5, loc="lower center", bbox_to_anchor=(0.5, 1.02), columnspacing=1.4,
+                handlelength=1.1, handleheight=0.9, borderaxespad=0)
     for ax in (ax_r, ax_e):
         ax.grid(axis="y", lw=0.5, color=style.INK["grid"])
         ax.set_axisbelow(True)
+        ax.spines[["top", "right", "left"]].set_visible(False)
+        ax.tick_params(axis="both", length=0)
     ax_e.set_ylabel("RMSE (ppm)")
     ax_e.set_xticks(x)
     ax_e.set_xticklabels(FIG_LABEL)
     for ax, letter in ((ax_r, "b"), (ax_e, "c")):
         panel_letter(ax, letter, dx=-0.055)
-    fig.tight_layout(pad=0.5, h_pad=0.7)
+    fig.tight_layout(pad=0.5, h_pad=1.0)
     return fig
 
 

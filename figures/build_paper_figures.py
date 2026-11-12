@@ -593,8 +593,8 @@ def fig02_accuracy():
                 transform=ax.transAxes, va="top", fontsize=8.0,
                 color=INK["secondary"])
 
-    panel_letter(axes[0, 0], "a", dx=-0.16)
     fig.tight_layout(pad=0.5, w_pad=1.1, h_pad=0.9)
+    fig.text(0.004, 0.995, "a", fontsize=10, fontweight="bold", va="top", ha="left")
     save(fig, "fig_02_accuracy")
 
 

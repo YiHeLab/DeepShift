@@ -219,7 +219,7 @@ def panel_tau(ax, values):
     ax.set_ylabel("fraction of sites with $S$ or more")
     ax.grid(True, color=J.GRID, lw=0.4)
     ax.set_axisbelow(True)
-    ax.legend(loc="upper right", handlelength=1.2, handletextpad=0.3, labelspacing=0.2, borderaxespad=0.1)
+    ax.legend(loc="lower left", handlelength=1.2, handletextpad=0.4, labelspacing=0.3, borderaxespad=0.6)
     ax.text(0.5, 1.02, f"Tau: conformational-state separation ({len(keys0)} sites)", transform=ax.transAxes,
             ha="center", va="bottom", fontsize=J.FS["small"], color=J.SECOND)
     J.clean(ax)

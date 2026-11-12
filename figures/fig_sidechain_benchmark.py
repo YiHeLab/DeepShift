@@ -111,19 +111,20 @@ def draw(nodes: dict, heavy: list, protons: list):
                 drawn[base].append((xi + (i - (len(group) - 1) / 2) * width, value))
         for base, label, color in ARMS:
             ax.bar([p for p, _v in drawn[base]], [v for _p, v in drawn[base]], width,
-                   label=label, **style.bar_style(color))
+                   label=label, **style.bar_style(color, outline=False))
         ax.set_xticks(x)
         ax.set_xticklabels([greek(n) for n in nuclei], rotation=45, ha="right",
                            fontsize=fontsize)
         ax.set_ylabel("RMSE (ppm)")
         ax.set_xlim(-0.7, len(nuclei) - 0.3)
-        ax.set_ylim(0, max(v for g in groups for _b, v in g) * 1.32)
+        ax.set_ylim(0, max(v for g in groups for _b, v in g) * 1.06)
         ax.grid(axis="y", lw=0.5, color=style.INK["grid"])
         ax.set_axisbelow(True)
-        leg = ax.legend(ncol=3, loc="upper left", columnspacing=1.0, frameon=True,
-                        framealpha=1.0, edgecolor=style.INK["grid"], fancybox=False,
-                        handlelength=1.2)
-        leg.get_frame().set_linewidth(0.6)
+        ax.spines[["top", "right", "left"]].set_visible(False)
+        ax.tick_params(axis="both", length=0)
+    # One key for both panels: the arms and their colours are the same.
+    ax_c.legend(ncol=3, loc="lower center", bbox_to_anchor=(0.5, 1.02), columnspacing=1.4,
+                handlelength=1.1, handleheight=0.9, borderaxespad=0)
     for ax, letter in ((ax_c, "b"), (ax_h, "c")):
         panel_letter(ax, letter, dx=-0.055)
     fig.tight_layout(pad=0.5, h_pad=1.2)

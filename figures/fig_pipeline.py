@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Figure 1: the pipeline, from BMRB shifts to predictions and their uses.
 
-(a) Seven steps, as a schematic. Its numbers are counted from the released tables in
-    ``data/``: BMRB label sets, label sets and distinct structures with a structure,
-    realizations by source, label sets with two or three sources, label sets per fold.
-    The icons carry no data; panel 6 is labelled "schematic data".
+(a) Seven steps, as a schematic in the manner of Extended Data Fig. 1, whose ray-traced
+    protein and atom cloud two of the cards reuse. Its numbers are counted from the released
+    tables in ``data/``: BMRB label sets, label sets and distinct structures with a
+    structure, label sets per fold. The other pictures carry no data; the Predictions card
+    is labelled "schematic data".
 (b) Proteins with matched shifts and structure: RefDB (the files of UCBShift's RefDB tree,
     ``$DEEPSHIFT_REFDB_SHIFTS``, third-party) against the DeepShift dataset.
 (c) Structure realizations (label set x source) by source.
@@ -31,9 +32,13 @@ REFDB = frozen.env_path("DEEPSHIFT_REFDB_SHIFTS")
 # The census the paper prints (Supplementary Tables S1 and S2); the counts here must match it.
 PRINTED = {"label_sets": 12710, "structures": 12896, "realizations": 21346, "fold0": 1615, "fold6": 1100}
 SRC = {"xtal": "#475569", "nmr": "#94a3b8", "af": "#cbd5e1"}
-H = 98.0                                            # canvas height, mm
-BOX_Y, BOX_H, BW, GAP = 44.0, 51.0, 22.0, 4.83      # step boxes, mm
-XS = [i * (BW + GAP) for i in range(7)]
+SOURCES = (("xtal", "X-ray"), ("nmr", "NMR"), ("af", "AlphaFold"))
+W, H = 183.0, 77.5                                   # canvas, mm
+BW, GAP, TOP, BH = 22.6, 4.1, 74.0, 27.0             # step cards: width, gap, top edge, height
+XS = [0.2 + i * (BW + GAP) for i in range(7)]
+ICON = TOP - BH / 2                                  # centre line of a card
+CARD, HIGHLIGHT = "#fbfcfd", "#e0f2f7"               # the card face of Extended Data Fig. 1, and its accent tint
+RENDERS = frozen.FIGURES_DIR / "reference" / "renders"   # the ray-traced panels of Extended Data Fig. 1
 
 
 def counts() -> dict:
@@ -61,156 +66,151 @@ def main() -> None:
     print(json.dumps(c, indent=1))
     by_src, folds = c["by_source"], c["folds"]
     J.use_journal_style()
-    fig = plt.figure(figsize=(J.DOUBLE, H * J.MM))
+    fig = plt.figure(figsize=(W * J.MM, H * J.MM))
     bg = fig.add_axes([0, 0, 1, 1])
-    bg.set_xlim(0, 183)
+    bg.set_xlim(0, W)
     bg.set_ylim(0, H)
     bg.axis("off")
     S_ = J.FS["note"]
-
-    def box(i, title, fill="#f1f5f9", edge=J.AXIS, tc=J.INK):
-        x = XS[i]
-        bg.add_patch(FancyBboxPatch((x, BOX_Y), BW, BOX_H, boxstyle="round,pad=0,rounding_size=1.2", fc=fill, ec=edge, lw=0.6))
-        bg.text(x + 1.4, BOX_Y + BOX_H - 1.0, str(i + 1), fontsize=J.FS["panel"] - 1, fontweight="bold",
-                color=J.MUTED if fill != J.ACCENT else "white", va="top", ha="left")
-        bg.text(x + BW / 2, BOX_Y + BOX_H - 8.2, title, fontsize=J.FS["text"] + 0.3, fontweight="bold", color=tc,
-                ha="center", va="center", linespacing=1.1)
-        if i < 6:
-            bg.add_patch(FancyArrowPatch((x + BW + 0.4, BOX_Y + BOX_H / 2), (XS[i + 1] - 0.4, BOX_Y + BOX_H / 2),
-                                         arrowstyle="-|>", mutation_scale=5, lw=0.8, color=J.MUTED))
-
-    def txt(i, s, y, color=J.SECOND, weight="normal"):
-        bg.text(XS[i] + BW / 2, y, s, fontsize=S_ + 0.3, color=color, ha="center", va="top", linespacing=1.2,
-                fontweight=weight)
-
     rng = np.random.default_rng(3)                  # schematic icons only
 
-    box(0, "BMRB\ndeposited shifts")
-    gx, gy = rng.uniform(XS[0] + 4, XS[0] + BW - 4, 26), rng.uniform(BOX_Y + 25, BOX_Y + 36, 26)
-    bg.scatter(gx, gy, s=3, color=J.MUTED, lw=0)
-    txt(0, f"{c['bmrb_label_sets']:,}\nBMRB label sets", BOX_Y + 22.5, color=J.INK, weight="bold")
-    txt(0, "assigned 1H, 13C, 15N\nshifts for one protein", BOX_Y + 14.5)
+    def card(i, title, spec, focus=False):
+        """One step in the manner of Extended Data Fig. 1: a card that holds a picture, its
+        label and its figures below it, chevrons to the next card. Returns the centre x."""
+        x = XS[i]
+        bg.add_patch(FancyBboxPatch((x, TOP - BH), BW, BH, boxstyle="round,pad=0,rounding_size=1.6",
+                                    fc=HIGHLIGHT if focus else CARD, ec=J.ACCENT if focus else J.AXIS,
+                                    lw=0.9 if focus else 0.7))
+        bg.text(x + BW / 2, TOP - BH - 2.2, title.upper(), fontsize=J.FS["small"] + 0.2, fontweight="bold",
+                color=J.ACCENT if focus else J.SECOND, ha="center", va="top")
+        bg.text(x + BW / 2, TOP - BH - 5.6, spec, fontsize=S_ + 0.4, color=J.MUTED, ha="center", va="top",
+                linespacing=1.25)
+        if i < 6:
+            for k in (0, 1):
+                xa = x + BW + GAP / 2 - 1.15 + k * 1.3
+                bg.plot([xa, xa + 1.0, xa], [ICON + 1.35, ICON, ICON - 1.35], lw=1.1, color=J.AXIS,
+                        solid_capstyle="round", solid_joinstyle="round")
+        return x + BW / 2
 
-    box(1, "Matched\nstructures")
-    for k, (key, lab) in enumerate((("xtal", "X-ray"), ("nmr", "NMR"), ("af", "AlphaFold"))):
-        y = BOX_Y + 33.5 - k * 5.2
-        bg.add_patch(FancyBboxPatch((XS[1] + 2.5, y), BW - 5, 4.0, boxstyle="round,pad=0,rounding_size=0.6",
-                                    fc=SRC[key], ec="none"))
-        bg.text(XS[1] + BW / 2, y + 2.0, f"{lab}  {by_src[key]:,}", fontsize=S_, ha="center", va="center",
-                color="white" if key == "xtal" else J.INK)
-    txt(1, f"{c['label_sets']:,} label sets\n{c['structures']:,} structures", BOX_Y + 17.5, color=J.INK, weight="bold")
-    txt(1, f"{c['multi_source_pct']:.0f}% matched to\n2 or 3 sources", BOX_Y + 9.5)
+    def render(i, name, pad=1.2):
+        ax = fig.add_axes([(XS[i] + pad) / W, (TOP - BH + pad) / H, (BW - 2 * pad) / W, (BH - 2 * pad) / H])
+        ax.imshow(plt.imread(RENDERS / f"{name}.png"), interpolation="antialiased")
+        ax.set_axis_off()
 
-    box(2, "Re-\nreferencing")
-    base = BOX_Y + 25
-    for p in (4.5, 8.5, 12.5, 17.0):
-        bg.plot([XS[2] + p, XS[2] + p], [base + 6.5, base + 11.5 + (p % 3)], color=J.FAINT, lw=0.9)
-        bg.plot([XS[2] + p + 1.6, XS[2] + p + 1.6], [base, base + 5 + (p % 3)], color=J.ACCENT, lw=0.9)
-    txt(2, "one offset per label\nset and nucleus", BOX_Y + 21.5, color=J.INK, weight="bold")
-    txt(2, "RefDB method,\nextended to all usable\nBMRB entries", BOX_Y + 13.5)
+    # 1. Deposited shifts, drawn as the peaks of a 1H-15N spectrum.
+    cx = card(0, "BMRB shifts", f"{c['bmrb_label_sets']:,} label sets\nassigned 1H, 13C, 15N")
+    t = rng.uniform(0, 1, 34)
+    px = cx - 7 + 14 * (0.15 + 0.7 * t + rng.normal(0, 0.16, 34)).clip(0.05, 0.97)
+    py = ICON - 8.5 + 17 * (0.2 + 0.6 * t + rng.normal(0, 0.2, 34)).clip(0.05, 0.97)
+    bg.plot([cx - 8, cx - 8, cx + 8], [ICON + 9.5, ICON - 9.5, ICON - 9.5], color=J.AXIS, lw=0.6)
+    bg.scatter(px, py, s=3.6, color=J.ACCENT, lw=0)
 
-    box(3, "Homology-\naudited splits")
-    clusters = [(5.5, 33.5, 2.6), (11.5, 35.5, 2.0), (17.0, 32.5, 2.4), (8.5, 28.5, 1.8), (14.5, 28.0, 2.5)]
-    for (cx, cy, r), col in zip(clusters, (J.FAINT, J.MUTED, J.FAINT, J.MUTED, J.FAINT)):
-        bg.add_patch(Circle((XS[3] + cx, BOX_Y + cy), r, fc="none", ec=col, lw=0.7))
-        bg.scatter(XS[3] + cx + rng.normal(0, r / 3, 4), BOX_Y + cy + rng.normal(0, r / 3, 4), s=1.2, color=col, lw=0)
-    x0, wtot, total = XS[3] + 2.5, BW - 5, sum(folds.values())
-    for f in range(7):                              # the fold strip, widths proportional to label sets
+    # 2. The structures matched to them (the protein of Extended Data Fig. 1).
+    card(1, "Structures", f"{c['label_sets']:,} label sets\n{c['structures']:,} structures")
+    render(1, "structure")
+
+    # 3. Re-referencing: the deposited peaks, moved by one offset.
+    cx = card(2, "Re-referencing", "one offset per label\nset and nucleus")
+    peaks, heights, shift = np.array([-7.0, -4.2, -2.7, 0.4, 2.3]), np.array([4.2, 6.6, 3.2, 5.7, 4.0]), 3.4
+    for y0, dx, col in ((ICON + 2.6, 0.0, J.FAINT), (ICON - 9.5, shift, J.ACCENT)):
+        bg.plot([cx - 8, cx + 8], [y0, y0], color=J.AXIS, lw=0.6)
+        for p_, h_ in zip(peaks, heights):
+            bg.plot([cx + p_ + dx, cx + p_ + dx], [y0, y0 + h_], color=col, lw=1.0, solid_capstyle="butt")
+    bg.add_patch(FancyArrowPatch((cx + peaks[1] - 0.4, ICON + 0.6), (cx + peaks[1] + shift + 0.4, ICON + 0.6),
+                                 arrowstyle="-|>", mutation_scale=4, lw=0.6, color=J.SECOND, shrinkA=0, shrinkB=0))
+
+    # 4. Clusters of related proteins, and the folds they are dealt to (widths = label sets).
+    cx = card(3, "Homology splits", "clusters to folds;\nfold 6 held out")
+    for (dx, dy, r), col in zip(((-5.6, 6.6, 2.6), (0.6, 8.0, 2.0), (5.8, 5.6, 2.4), (-2.4, 1.2, 1.9), (3.2, 0.4, 2.3)),
+                                (J.FAINT, J.MUTED, J.FAINT, J.MUTED, J.FAINT)):
+        bg.add_patch(Circle((cx + dx, ICON + dy), r, fc="white", ec=col, lw=0.6))
+        bg.scatter(cx + dx + rng.normal(0, r / 3.2, 4), ICON + dy + rng.normal(0, r / 3.2, 4), s=1.4, color=col, lw=0)
+    x0, wtot, total = cx - 8.8, 17.6, sum(folds.values())
+    for f in range(7):
         w = wtot * folds[f] / total
-        bg.add_patch(Rectangle((x0, BOX_Y + 20.5), w, 3.2, fc={0: J.FAINT, 6: J.INK}.get(f, J.LIGHT_ACCENT), ec="white", lw=0.4))
-        bg.text(x0 + w / 2, BOX_Y + 22.1, str(f), fontsize=S_ - 0.3, ha="center", va="center",
+        bg.add_patch(Rectangle((x0, ICON - 9.2), w, 3.8, fc={0: J.FAINT, 6: J.INK}.get(f, J.LIGHT_ACCENT), ec=CARD, lw=0.5))
+        bg.text(x0 + w / 2, ICON - 7.35, str(f), fontsize=S_ - 0.6, ha="center", va="center",
                 color="white" if f == 6 else J.INK)
         x0 += w
-    txt(3, "clusters to folds;\nfold 6 held out;\nfold 0 excludes the\nUCBShift test set", BOX_Y + 18.0)
 
-    box(4, "DeepShift", fill=J.ACCENT, edge=J.ACCENT, tc="white")
-    cx0, cy0 = XS[4] + BW / 2, BOX_Y + 31.0
-    ang, rad = rng.uniform(0, 2 * np.pi, 16), 6.5 * np.sqrt(rng.uniform(0.05, 1, 16))
-    px, py = cx0 + rad * np.cos(ang) * 1.3, cy0 + rad * np.sin(ang) * 0.9
-    for i1 in range(0, 14, 2):
-        bg.plot([px[i1], px[i1 + 1]], [py[i1], py[i1 + 1]], color="white", lw=0.3, alpha=0.6)
-    bg.scatter(px, py, s=3.5, color="white", lw=0)
-    txt(4, "atom types and\ninteratomic distances\nwithin 8 Å", BOX_Y + 21.5, color="white", weight="bold")
-    txt(4, "transformer;\n5-model ensemble\n(CV folds 1–5)", BOX_Y + 11.5, color="white")
+    # 5. The model's input: the atoms within 8 A of one residue (the cloud of Extended Data Fig. 1).
+    card(4, "DeepShift", "atom types and\ndistances within 8 Å;\n5-model ensemble", focus=True)
+    render(4, "atom_cloud")
 
-    box(5, "Per-atom\npredictions")
-    axp = fig.add_axes([(XS[5] + 3) / 183, (BOX_Y + 22.5) / H, (BW - 6) / 183, 11.5 / H])
-    xx = np.arange(14)
-    mu = 2.0 * np.sin(xx / 2.3) + np.random.default_rng(5).normal(0, 0.15, 14)
-    axp.fill_between(xx, mu - 1.0, mu + 1.0, color=J.LIGHT_ACCENT, lw=0)
-    axp.plot(xx, mu, color=J.ACCENT, lw=0.8)
-    axp.set_xticks([])
-    axp.set_yticks([])
-    J.clean(axp, spines=("left", "bottom"))
-    axp.patch.set_alpha(0)
-    for s_ in axp.spines.values():
-        s_.set_color(J.FAINT)
-    txt(5, "shift of every atom\n(64 nucleus types)\nwith 90% prediction\nintervals", BOX_Y + 19.0, color=J.INK)
-    bg.text(XS[5] + BW / 2, BOX_Y + 3.0, "schematic data", fontsize=S_ - 0.5, color=J.FAINT, ha="center", va="center",
-            style="italic")
+    # 6. A predicted shift and its interval along a chain (schematic).
+    cx = card(5, "Predictions", "every atom, 64 types;\n90% intervals\n(schematic data)")
+    xx = np.linspace(-8, 8, 60)
+    mu = 3.4 * np.sin(xx / 2.1) + 1.4 * np.sin(xx / 0.9 + 1)
+    bg.plot([cx - 8, cx - 8, cx + 8], [ICON + 9.5, ICON - 9.5, ICON - 9.5], color=J.AXIS, lw=0.6)
+    bg.fill_between(cx + xx, ICON + mu - 2.2, ICON + mu + 2.2, color=J.LIGHT_ACCENT, lw=0)
+    bg.plot(cx + xx, ICON + mu, color=J.ACCENT, lw=0.9)
 
-    box(6, "Applications")
+    # 7. What the predictions are used for.
+    cx = card(6, "Applications", "")
     for k, lab in enumerate(("Resonance\nassignment", "Structure\nvalidation", "Ensemble\nreweighting")):
-        y = BOX_Y + 28.5 - k * 11.5
-        bg.add_patch(FancyBboxPatch((XS[6] + 2.2, y), BW - 4.4, 9.2, boxstyle="round,pad=0,rounding_size=0.8",
-                                    fc="white", ec=J.ACCENT, lw=0.7))
-        bg.text(XS[6] + BW / 2, y + 4.6, lab, fontsize=S_ + 0.3, ha="center", va="center", color=J.INK, linespacing=1.1)
+        y = TOP - 9.0 - k * 8.3
+        bg.add_patch(FancyBboxPatch((cx - 9.2, y), 18.4, 6.9, boxstyle="round,pad=0,rounding_size=0.9", fc="white",
+                                    ec=J.AXIS, lw=0.6))
+        bg.text(cx, y + 3.45, lab, fontsize=J.FS["small"], ha="center", va="center", color=J.SECOND, linespacing=1.15)
 
-    AX_Y, AX_H = 0.07, 0.31
     n_refdb, n_ls, n_real = c["refdb_proteins"], c["label_sets"], c["realizations"]
-    a1 = fig.add_axes([0.075, AX_Y + 0.02, 0.17, AX_H - 0.07])
-    a1.barh([1, 0], [n_refdb, n_ls], color=[J.NEUTRAL, J.ACCENT], height=0.62)
+    Y0, AH = 8.5 / H, 15.0 / H
+
+    def thousands(ax, ticks):
+        ax.set_xticks(ticks)
+        ax.set_xticklabels([f"{t:,}" for t in ticks])
+
+    a1 = fig.add_axes([0.068, Y0, 0.205, AH])
+    a1.barh([1, 0], [n_refdb, n_ls], color=[J.NEUTRAL, J.ACCENT], height=0.64)
     a1.set_yticks([1, 0])
-    a1.set_yticklabels(["RefDB", "DeepShift"])
-    for y_, v in ((1, n_refdb), (0, n_ls)):
-        a1.text(v + 250, y_, f"{v:,}", va="center", fontsize=S_ + 0.3, color=J.INK)
-    a1.set_xlim(0, 17500)
-    a1.set_xticks([0, 5000, 10000])
-    a1.set_xticklabels(["0", "5,000", "10,000"])
-    a1.text(15000, 0.55, f"{c['ratio_vs_refdb']:.1f}×", fontsize=J.FS["panel"] - 1, color=J.ACCENT, fontweight="bold",
-            ha="center", va="center")
+    a1.set_yticklabels(["RefDB", "DeepShift"], color=J.INK)
+    a1.tick_params(axis="y", length=0)
+    a1.text(n_refdb + 300, 1, f"{n_refdb:,}", va="center", fontsize=J.FS["small"], color=J.SECOND)
+    a1.text(n_ls + 300, 0, f"{n_ls:,}", va="center", fontsize=J.FS["small"], color=J.SECOND)
+    a1.text(n_ls + 300, 0.62, f"{c['ratio_vs_refdb']:.1f}×", va="center", fontsize=J.FS["panel"] - 0.5, color=J.INK,
+            fontweight="bold")
+    a1.set_xlim(0, 16500)
+    a1.set_ylim(-0.5, 1.5)
+    thousands(a1, [0, 5000, 10000])
     a1.set_xlabel("proteins with matched shifts and structure")
     J.clean(a1)
 
-    a2 = fig.add_axes([0.385, AX_Y + 0.02, 0.215, AX_H - 0.07])
+    a2 = fig.add_axes([0.345, Y0, 0.265, AH])
     left = 0
-    for key, lab in (("xtal", "X-ray"), ("nmr", "NMR"), ("af", "AlphaFold")):
-        v = by_src[key]
-        a2.barh(0, v, left=left, color=SRC[key], height=0.55, ec="white", lw=0.4)
-        a2.text(left + v / 2, 0, f"{lab}\n{v:,}", ha="center", va="center", fontsize=S_,
-                color="white" if key == "xtal" else J.INK, linespacing=1.1)
+    for src, lab in SOURCES:
+        v = by_src[src]
+        a2.barh(0, v, left=left, color=SRC[src], height=0.74, ec="white", lw=0.8)
+        a2.text(left + v / 2, 0, f"{lab}\n{v:,}", ha="center", va="center", fontsize=J.FS["small"],
+                color="white" if src == "xtal" else J.INK, linespacing=1.2)
         left += v
     a2.set_xlim(0, n_real)
-    a2.set_ylim(-0.6, 0.6)
+    a2.set_ylim(-0.5, 1.0)
     a2.set_yticks([])
-    a2.set_xticks([0, 5000, 10000, 15000, 20000])
-    a2.set_xticklabels(["0", "5,000", "10,000", "15,000", "20,000"])
+    thousands(a2, [0, 5000, 10000, 15000, 20000])
     a2.set_xlabel(f"structure realizations (label set × source), {n_real:,} in total")
     J.clean(a2, spines=("bottom",))
-    a2.text(0.5, 1.02, "structure sources", transform=a2.transAxes, ha="center", va="bottom", fontsize=S_ + 0.3,
-            color=J.SECOND)
 
-    a3 = fig.add_axes([0.70, AX_Y + 0.02, 0.285, AX_H - 0.07])
-    left = 0
+    a3 = fig.add_axes([0.680, Y0, 0.308, AH])
+    left, edges = 0, [0]
     for f in range(7):
         v = folds[f]
-        a3.barh(0, v, left=left, color={0: J.FAINT, 6: J.INK}.get(f, J.LIGHT_ACCENT), height=0.55, ec="white", lw=0.5)
-        a3.text(left + v / 2, 0, f"{f} · {v:,}" if f == 6 else f"{f}\n{v:,}", ha="center", va="center", fontsize=S_,
-                color="white" if f == 6 else J.INK, linespacing=1.1, rotation=90 if f == 6 else 0)
+        a3.barh(0, v, left=left, color={0: J.FAINT, 6: J.INK}.get(f, J.LIGHT_ACCENT), height=0.74, ec="white", lw=0.8)
+        a3.text(left + v / 2, 0, f"{f}\n{v:,}", ha="center", va="center", fontsize=S_ + 0.3 if f == 6 else J.FS["small"],
+                color="white" if f == 6 else J.INK, linespacing=1.2)
         left += v
+        edges.append(left)
+    for lo, hi, lab in ((edges[0], edges[1], "excluded"), (edges[1], edges[6], "training and cross-validation"),
+                        (edges[6], edges[7], "test")):
+        a3.plot([lo + 60, hi - 60], [0.52, 0.52], color=J.FAINT, lw=0.5, clip_on=False)
+        a3.text((lo + hi) / 2, 0.60, lab, ha="center", va="bottom", fontsize=J.FS["small"], color=J.SECOND)
     a3.set_xlim(0, n_ls)
-    a3.set_ylim(-0.6, 0.6)
+    a3.set_ylim(-0.5, 1.0)
     a3.set_yticks([])
-    a3.set_xticks([0, 4000, 8000, 12000])
-    a3.set_xticklabels(["0", "4,000", "8,000", "12,000"])
+    thousands(a3, [0, 4000, 8000, 12000])
     a3.set_xlabel("label sets per fold")
     J.clean(a3, spines=("bottom",))
-    a3.text(folds[0] / 2, 0.68, "excluded", ha="center", va="bottom", fontsize=S_, color=J.MUTED, clip_on=False)
-    a3.text(folds[0] + sum(folds[f] for f in range(1, 6)) / 2, 0.68, "training and cross-validation", ha="center",
-            va="bottom", fontsize=S_, color=J.SECOND, clip_on=False)
-    a3.text(n_ls - folds[6] / 2, 0.68, "test", ha="center", va="bottom", fontsize=S_, color=J.INK, clip_on=False)
 
-    for x, y, letter in ((0.004, 0.999, "a"), (0.004, 0.405, "b"), (0.325, 0.405, "c"), (0.645, 0.405, "d")):
+    for x, y, letter in ((0.002, 0.995, "a"), (0.002, 0.375, "b"), (0.325, 0.375, "c"), (0.660, 0.375, "d")):
         fig.text(x, y, letter, fontsize=J.FS["panel"], fontweight="bold", va="top")
     frozen.emit(fig, STEM)
 

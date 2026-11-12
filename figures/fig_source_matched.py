@@ -55,20 +55,20 @@ def draw(nuclei: dict):
         off = (i - (len(SRC) - 1) / 2) * width
         v = np.array([nuclei[a]["per_source"][source]["rmse"] for a, _l in ORDER])
         ci = np.array([nuclei[a]["per_source"][source]["rmse_ci95"] for a, _l in ORDER]).T
-        ax.bar(x + off, v, width, label=name, **style.bar_style(color))
+        ax.bar(x + off, v, width, label=name, **style.bar_style(color, outline=False))
         ax.errorbar(x + off, v, yerr=np.abs(ci - v), fmt="none",
-                    ecolor=style.INK["primary"], elinewidth=0.5, capsize=1.2)
+                    ecolor=style.INK["primary"], elinewidth=0.6, capsize=1.4, capthick=0.6)
     ax.set_xticks(x)
     ax.set_xticklabels([lab for _a, lab in ORDER])
     ax.set_ylabel("RMSE (ppm)")
     ax.set_ylim(0, max(nuclei[a]["per_source"][source]["rmse_ci95"][1]
-                       for a, _l in ORDER for source, _n, _c in SRC) * 1.3)
-    leg = ax.legend(ncol=3, loc="upper center", columnspacing=1.0, frameon=True,
-                    framealpha=1.0, edgecolor=style.INK["grid"], fancybox=False,
-                    handlelength=1.2)
-    leg.get_frame().set_linewidth(0.6)
+                       for a, _l in ORDER for source, _n, _c in SRC) * 1.04)
+    ax.legend(ncol=3, loc="lower center", bbox_to_anchor=(0.5, 1.02), columnspacing=1.4,
+              handlelength=1.1, handleheight=0.9, borderaxespad=0)
     ax.grid(axis="y", lw=0.5, color=style.INK["grid"])
     ax.set_axisbelow(True)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.tick_params(axis="both", length=0)
     panel_letter(ax, "a", dx=-0.055)
     fig.tight_layout(pad=0.5)
     return fig

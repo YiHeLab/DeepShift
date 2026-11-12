@@ -55,10 +55,15 @@ INK = {
 # a 7.2in canvas at 0.92\textwidth scales by 0.83 and lands 8pt ticks at 6.6pt.
 WIDTH = {"column": 3.18, "text": 6.5, "wide": 6.5}
 
-def bar_style(color, open_face: bool = False) -> dict:
-    """Face and edge for one arm's bars. An open face is a family member, not a hue."""
+def bar_style(color, open_face: bool = False, outline: bool = True) -> dict:
+    """Face and edge for one arm's bars. An open face is a family member, not a hue.
+
+    ``outline=False`` separates neighbouring bars with a hairline of the page instead of ink.
+    """
     if open_face:
         return {"color": INK["surface"], "edgecolor": color, "linewidth": 0.9}
+    if not outline:
+        return {"color": color, "edgecolor": INK["surface"], "linewidth": 0.5}
     return {"color": color, "edgecolor": INK["primary"], "linewidth": 0.3}
 
 

@@ -30,7 +30,7 @@ instead of producing numbers. Fewer than five checkpoints is allowed: the notebo
 predicts with the members it has, and reports no spread and no interval. The download comes
 from the GitHub Release page of tag `v1.0`, the only release page that carries the model
 files; the models are unchanged since v1.0, and the package itself is installed from tag
-`v1.1.3`.
+`v1.1.4`.
 
 `interval_calibration.json` ships beside the five members and is what turns the spread into
 a 90 % interval. The notebook looks for it in
@@ -45,7 +45,7 @@ If the download does not resolve, put the files somewhere the session can read a
 
 ```bash
 pip install -q biopython==1.87
-pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.1.3
+pip install -q --no-deps git+https://github.com/YiHeLab/DeepShift.git@v1.1.4
 ```
 
 * `--no-deps` keeps Colab's own CUDA build of torch and its numpy, pandas, scipy and
