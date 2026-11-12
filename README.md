@@ -60,8 +60,9 @@ The wheel carries three JSON files under `deepshift/data/`: the perturber rule t
 stage applies (`hetatm_exclusion_rule.json`) and the two BMRB lists the fold split holds
 out (`ucbshift200_excluded_bmrbs.json`, `case_study_excluded_bmrbs.json`). It does not
 include model checkpoints, datasets, the fitted p100 cutoff file, or an interval-calibration
-artifact; the p100 cutoffs and the prediction intervals are fitted from one build and are
-supplied explicitly, so constants from another model cannot be used by accident.
+artifact; the p100 cutoffs and the prediction intervals are fitted from one build: the
+cutoffs are supplied explicitly and the interval artifact sits beside the checkpoints it was
+fitted for, so constants from another model are not used by accident.
 
 ### System tools some paths need
 
@@ -82,21 +83,22 @@ by environment variable: `DEEPSHIFT_SIFTS_CSV` (the SIFTS chain-to-accession tab
 
 ## Predict from a PDB
 
-From the repository root, with the bundled structure 1POH (85 residues), the five
-ensemble members and their interval calibration:
+From the repository root, with the bundled structure 1POH (85 residues) and the five
+ensemble members:
 
 ```bash
 deepshift predict --pdb figures/reference/1POH.pdb --chain A \
   --checkpoint models/deepshift_fold1.pt --checkpoint models/deepshift_fold2.pt \
   --checkpoint models/deepshift_fold3.pt --checkpoint models/deepshift_fold4.pt \
   --checkpoint models/deepshift_fold5.pt \
-  --interval-calibration models/interval_calibration.json \
   --out shifts.csv
 ```
 
-This writes `shifts.csv` (85 rows) and `shifts.intervals.csv` (496 rows). On 20 CPU cores
-it takes 40 s; one member alone takes 8 s. A 396-residue protein (maltose-binding protein)
-takes 2 min 42 s with five members and 34 s with one.
+This writes `shifts.csv` (85 rows) and `shifts.intervals.csv` (496 rows); the interval
+file comes from `models/interval_calibration.json`, which `predict` uses by default when all
+five members are given. On 20 CPU cores it takes 40 s; one member alone takes 8 s. A
+396-residue protein (maltose-binding protein) takes 2 min 42 s with five members and 34 s
+with one.
 
 **Input.** `--pdb` takes a local PDB-format file; a PDB ID is not fetched. AlphaFold DB
 models work as they are (`AF-<UniProt>-F1-model_v6.pdb`, chain A). Hydrogens are ignored.
@@ -118,14 +120,16 @@ excluded by default. Name each protein chain that was present in the NMR tube wi
 repeated `--sample-partner-chain CHAIN`; every other coordinate chain is excluded. For
 example, add `--sample-partner-chain B` when chain B was in the measured sample.
 
-When all five ensemble members and their matching `--interval-calibration` artifact are
-given, a second file (`shifts.intervals.csv`) is written beside the predictions: one row per
-backbone cell with `ensemble_sd_ppm` (the spread of the five members' predictions) and
-`ci90_halfwidth_ppm`. The variance mapping and split-conformal multipliers are fitted on
-fold 0 only; fold 6 is used once to report coverage. Side-chain nuclei get no interval
-because member disagreement there can reflect prochiral labelling. That file is skipped
-when no artifact is supplied, and an artifact is refused for any member count other than
-five.
+When all five ensemble members are given, a second file (`shifts.intervals.csv`) is written
+beside the predictions: one row per backbone cell with `ensemble_sd_ppm` (the spread of the
+five members' predictions) and `ci90_halfwidth_ppm`. By default the interval calibration is
+`interval_calibration.json` in the directory of the first `--checkpoint`;
+`--interval-calibration FILE` names another, and `--no-intervals` writes no interval file.
+The variance mapping and split-conformal multipliers are fitted on fold 0 only; fold 6 is
+used once to report coverage. Side-chain nuclei get no interval because member
+disagreement there can reflect prochiral labelling. With any member count other than five,
+or with no calibration file, `predict` writes the predictions alone and prints one line
+saying why.
 
 Checkpoint loading checks the file it reads. A checkpoint must declare a unique output
 schema and a finite, positive ppm transform for every output, and its weights must fill

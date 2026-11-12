@@ -50,6 +50,14 @@ def _fitted():
     return calibration.fit_interval_calibration(errors, spreads, n_bins=4)
 
 
+def run(argv):
+    """``deepshift predict`` on the CPU with these arguments."""
+    parser = argparse.ArgumentParser()
+    prediction.add_predict_arguments(parser)
+    args = parser.parse_args(["--pdb", "x.pdb", "--cpu", *argv])
+    return args.handler(args)
+
+
 @pytest.fixture
 def sparse(monkeypatch):
     monkeypatch.setattr(prediction, "parse_structure", lambda *a, **k: _residues())
@@ -87,10 +95,7 @@ def test_replacing_predictions_removes_an_obsolete_interval_file(tmp_path, spars
     out = tmp_path / "pred.csv"
     stale = out.with_suffix(".intervals.csv")
     stale.write_text("residue_id,nucleus,ci90_halfwidth_ppm\n1,CA,0.5\n")
-    args = argparse.Namespace(pdb="x.pdb", chain="A", checkpoint=[str(member)], batch_size=32,
-                              cpu=True, sample_partner_chain=[], interval_calibration=None,
-                              out=str(out))
-    prediction.predict_command(args)
+    run(["--checkpoint", str(member), "--out", str(out)])
     assert out.is_file()
     assert not stale.exists()
 
@@ -102,11 +107,36 @@ def test_predict_command_reports_a_wrong_member_count_instead_of_crashing(tmp_pa
     calibration_path = tmp_path / "interval_calibration.json"
     calibration.save_calibration(_fitted(), calibration_path)
     out = tmp_path / "pred.csv"
-    args = argparse.Namespace(pdb="x.pdb", chain="A", checkpoint=[str(member)], batch_size=32,
-                              cpu=True, sample_partner_chain=[],
-                              interval_calibration=str(calibration_path), out=str(out))
-    prediction.predict_command(args)
+    run(["--checkpoint", str(member), "--interval-calibration", str(calibration_path),
+         "--out", str(out)])
     assert out.is_file()
     assert not out.with_suffix(".intervals.csv").exists()
-    assert ("no intervals sidecar: the artifact requires five members; got 1 checkpoint(s)"
-           in capsys.readouterr().out)
+    assert (f"no intervals sidecar: {calibration_path} requires five members; got 1 checkpoint(s)"
+            in capsys.readouterr().out)
+
+
+def test_the_calibration_beside_five_members_is_applied_by_default(tmp_path, ensemble, sparse):
+    calibration.save_calibration(_fitted(), tmp_path / "interval_calibration.json")
+    out = tmp_path / "pred.csv"
+    run([arg for member in ensemble for arg in ("--checkpoint", str(member))]
+        + ["--out", str(out)])
+    assert out.with_suffix(".intervals.csv").is_file()
+
+
+def test_one_member_beside_the_calibration_predicts_without_intervals(
+        tmp_path, ensemble, sparse, capsys):
+    calibration.save_calibration(_fitted(), tmp_path / "interval_calibration.json")
+    out = tmp_path / "pred.csv"
+    run(["--checkpoint", str(ensemble[0]), "--out", str(out)])
+    assert out.is_file()
+    assert not out.with_suffix(".intervals.csv").exists()
+    assert "requires five members; got 1 checkpoint(s)" in capsys.readouterr().out
+
+
+def test_no_intervals_switches_the_default_off(tmp_path, ensemble, sparse):
+    calibration.save_calibration(_fitted(), tmp_path / "interval_calibration.json")
+    out = tmp_path / "pred.csv"
+    run([arg for member in ensemble for arg in ("--checkpoint", str(member))]
+        + ["--no-intervals", "--out", str(out)])
+    assert out.is_file()
+    assert not out.with_suffix(".intervals.csv").exists()

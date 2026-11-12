@@ -262,16 +262,29 @@ def _no_residues_reason(pdb_path, chain: str) -> str:
     return f"chain {chain!r} has no standard amino-acid residue with a CA"
 
 
+def _interval_calibration(args, members: int):
+    """The calibration this run applies, or None and the reason it applies none.
+
+    Without --interval-calibration, the interval_calibration.json beside the first
+    checkpoint is used. A wrong member count gives the reason rather than predict_pdb's
+    refusal."""
+    if args.no_intervals:
+        return None, "--no-intervals was given"
+    path = args.interval_calibration
+    if path is None:
+        path = Path(args.checkpoint[0]).parent / "interval_calibration.json"
+        if not path.is_file():
+            return None, f"no --interval-calibration was given and there is no {path}"
+    fitted = load_calibration(path)
+    if members != len(fitted.member_folds):
+        return None, f"{path} requires five members; got {members} checkpoint(s)"
+    return fitted, None
+
+
 def predict_command(args):
     device = "cuda" if torch.cuda.is_available() and not args.cpu else "cpu"
     loaded = [load_checkpoint(path, device=device) for path in args.checkpoint]
-    calibration = args.interval_calibration
-    if calibration is not None:
-        # A wrong member count reports the "no intervals" message below rather than
-        # predict_pdb's refusal.
-        fitted = load_calibration(calibration)
-        if len(loaded) != len(fitted.member_folds):
-            calibration = None
+    calibration, reason = _interval_calibration(args, len(loaded))
     result = predict_pdb(args.pdb, args.chain, loaded, batch_size=args.batch_size,
                          sample_partner_chains=args.sample_partner_chain,
                          return_intervals=True, calibration=calibration)
@@ -288,11 +301,6 @@ def predict_command(args):
         print(f"wrote {sidecar}: 90% prediction intervals for the backbone nuclei "
               f"(prediction +/- ci90_halfwidth_ppm)")
     else:
-        reason = (
-            "no --interval-calibration artifact was supplied"
-            if args.interval_calibration is None
-            else f"the artifact requires five members; got {len(loaded)} checkpoint(s)"
-        )
         print(f"no intervals sidecar: {reason}")
         # A stale interval file would pair these predictions with half-widths fitted for
         # other members.
@@ -309,10 +317,15 @@ def add_predict_arguments(parser):
     parser.add_argument("--checkpoint", action="append", required=True)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--cpu", action="store_true")
-    parser.add_argument(
+    intervals = parser.add_mutually_exclusive_group()
+    intervals.add_argument(
         "--interval-calibration",
-        help="fold-0 variance/conformal artifact for the five-member model",
+        help=("fold-0 variance/conformal artifact for the five-member model (default: "
+              "interval_calibration.json beside the first --checkpoint, applied when all "
+              "five members are given)"),
     )
+    intervals.add_argument("--no-intervals", action="store_true",
+                           help="write no 90%% prediction-interval file")
     parser.add_argument(
         "--sample-partner-chain",
         action="append",
