@@ -9,7 +9,7 @@ recipe for rebuilding the dataset and retraining the checkpoints.
 | Tier | Inputs | Result |
 |---|---|---|
 | A | this repository and the released checkpoints | predictions from any structure (`README.md`) |
-| A+ | tier A, the deposited build inputs (the BMRB, UniProt and PDB snapshots, the BMRB-to-PDB pairs, about 40 GB of coordinate files and the p100 fence) and UCBShift's own test targets | the dataset rebuilt and the five checkpoints retrained (`PROTOCOL.md`) |
+| A+ | tier A, the deposited build inputs (the BMRB, UniProt and PDB snapshots, the BMRB-to-PDB pairs, about 40 GB of coordinate files and the p100 fence) and UCBShift's test-set definition (in the reproduction bundle) | the dataset rebuilt and the five checkpoints retrained (`PROTOCOL.md`) |
 | B | tier A and the reproduction bundle | every figure and table except those in the last section |
 | C | tier B and a third-party file or the deposited coordinates | the items in the last section |
 | D | tier A, the third-party predictors and the case-study inputs named in `experiments/` | the competitor outputs and case-study measurements of the bundle, made again (`experiments/README.md`) |
@@ -94,7 +94,8 @@ there and a rerun of everything below. The scorers read each arm's outputs from
 reference shifts. `DEEPSHIFT_ARM_DIRS` (`arm=directory`, comma-separated) names an arm run
 elsewhere. The bundle carries the census (`$DEEPSHIFT_COVERAGE_CENSUS`) and the master set.
 
-Run in this order. `<scored>` is `$SI_FINAL_SCORES_DIR`.
+Run in this order. `<scored>` is `$SI_FINAL_SCORES_DIR` and `<unfenced>` is
+`$DEEPSHIFT_RUN/benchmark/scored/master_p100_with_anticorrelated_final_20261008`.
 
 ```bash
 export DEEPSHIFT_RUN=/path/to/the/run
@@ -115,6 +116,9 @@ python -m benchmarks.score_paired_tier --tier 2 \
     --master-cells $MASTER --leaky ucbshift_full_leaky shiftx2_leaky \
     --tools $ARMS --out <scored>/score_tier2_master_paired.json \
     --check_marginal <scored>/score_tier2_master.json
+# Needs the five held-out dumps final/fold{1..5}.preds.npz, which training writes
+# (PROTOCOL.md section 3) and the bundle does not hold; the bundle's report is
+# $DEEPSHIFT_RUN/benchmark/scored/master_pf14/source_matched.json
 python -m benchmarks.score_source_matched --out <scored>/source_matched.json
 python -m benchmarks.score_three_source --tier 2 --master-cells $MASTER \
     --tools ucbshift_full_sameprot ucbshift_x ucbshift2_sameprot shiftx2_sameprot \
@@ -206,14 +210,14 @@ three chains whose C' is anticorrelated with prediction, and nine ESI cells.
 ## Figures and tables
 
 Run figure scripts from `figures/` and table scripts from `si_build/` (a path with `..` is relative to that directory). `<scored>` is
-`$SI_FINAL_SCORES_DIR`; `$MASTER` and `$UNFENCED` are as above.
+`$SI_FINAL_SCORES_DIR`; `<unfenced>`, `$MASTER` and `$UNFENCED` are as above.
 
 | Item | Script and command | Further inputs |
 |---|---|---|
 | Figure 1 | `python fig_pipeline.py` | the released Parquet tables; `DEEPSHIFT_REFDB_SHIFTS` (tier C) |
 | Figure 2 (upper), Extended Data Fig. 1, Figures S7, S8 | `python build_paper_figures.py` | `DEEPSHIFT_RUN`; `DEEPSHIFT_SCALING_LADDER`; `DEEPSHIFT_RAMACHANDRAN_OOF` |
 | Figure 2 (lower), Table 1 | `python fig_backbone_benchmark.py --marginal <scored>/score_tier2_master.json --paired <scored>/score_tier2_master_paired.json --marginal-without-exclusions <unfenced>/score_tier2_master.json --paired-without-exclusions <unfenced>/score_tier2_master_paired.json` | Table 1 is `tab_accuracy_common_rmse.tex`, with its MLFF rows from Table S12 |
-| Figure 3 (upper) | `python fig_source_matched.py --scores <scored>/source_matched.json` | |
+| Figure 3 (upper) | `python fig_source_matched.py --scores $DEEPSHIFT_RUN/benchmark/scored/master_pf14/source_matched.json` | |
 | Figure 3 (lower) | `python fig_sidechain_benchmark.py --scores <scored>/score_by_nucleus_tier2.json` | |
 | Figure 4, Figure S9 | `python fig_structure_response.py` | `DEEPSHIFT_CYS_CELLS`, `DEEPSHIFT_RING_CELLS`, `DEEPSHIFT_DECOY_POOLED` |
 | Figure 5 | `python fig_applications.py` | `DEEPSHIFT_ASSIGNMENT_ROOT`, `DEEPSHIFT_XEISD_PROTOCOL`, `DEEPSHIFT_IDP8_ROOT`, `DEEPSHIFT_TAU_BENCHMARK_ROOT` |
@@ -222,16 +226,16 @@ Run figure scripts from `figures/` and table scripts from `si_build/` (a path wi
 | Figure S2 | `python ../si_build/emit_homology_axis.py --out-dir <dose>` (reads `DEEPSHIFT_BENCH_OUT`), then `python fig_homology_training_identity.py` | `DEEPSHIFT_HOMOLOGY_CELLS` (the `dump_paired_cells` output), `DEEPSHIFT_LEAKAGE_DOSE_ROOT` (`<dose>`), `DEEPSHIFT_HOMOLOGY_BENCHMARK_ROOT` |
 | Figure S3 | `python fig_accuracy_by_nucleus_all.py --scores <scored>/score_by_nucleus_tier2.json` | |
 | Figure S4 | `python fig_selflookup_transfer.py --master-cells $MASTER` | `DEEPSHIFT_SELFLOOKUP_CELLS`, `DEEPSHIFT_BENCH_OUT`, `DEEPSHIFT_UCBSHIFT_LEAKAGE` |
-| Figure S5 | `python fig_plddt_source.py --fence <qc_flags_p100_structural.json>` | AlphaFold model files (tier C) |
+| Figure S5 | `python fig_plddt_source.py --fence $DEEPSHIFT_RUN/data/qc_flags_p100_structural.json` | AlphaFold model files (tier C) |
 | Figure S6 | `python fig_exp_source_control.py` | `DEEPSHIFT_EXP_SOURCE_CONTROL` |
 | Figure S10 | `python fig_uncertainty_calibration.py` | `DEEPSHIFT_RUN` |
-| Table S2 | `python gen_census_tables.py --flags <qc_flags_p100_structural.json>` | |
+| Table S2 | `python gen_census_tables.py --flags $DEEPSHIFT_RUN/data/qc_flags_p100_structural.json` | |
 | Tables S3, S4 | `python ../scripts/reref_diagnostics.py` (writes `reref_diagnostics.json` into `DEEPSHIFT_RUN/data` unless `--out` is given), then `python si_reref_offsets.py` | `SI_REREF_DIAGNOSTICS` (the diagnostics output) |
 | Table S5 | `python build_refdb_census.py --out <dir>/refdb_census.json` (tier C), then `python si_refdb_agreement.py` | `SI_REFDB_CENSUS`; the census is in the bundle |
 | Table S6 | `python si_qc_p100.py` | |
 | Table S7 | `python analyze_perturber.py --preds <it>/work/preds --distances <it>/work/distances --out <it>/out`, then `python emit_perturber_dose_ppm.py` | `SI_PERTURBER_REBUILD` (`<it>`, below) |
-| Table S8 | `python emit_leakage.py` | `SI_LEAKAGE_ARTIFACTS_DIR` (tier C) |
-| Table S9 | `python emit_train_distance.py [--against NAME=FASTA]` | `SI_UCB_TRAINING_FASTA` (tier C) |
+| Table S8 | `python emit_leakage.py` | `SI_LEAKAGE_ARTIFACTS_DIR` |
+| Table S9 | `python emit_train_distance.py [--against NAME=FASTA]` | `SI_UCB_TRAINING_FASTA` (tier C); MMseqs2 from `MMSEQS_BIN` or `PATH`, else downloaded into `.deepshift-tools/` |
 | Table S10 | `python si_nuclei.py` | |
 | Table S11 | `python si_competitor_ledger.py` | `DEEPSHIFT_COVERAGE_CENSUS`, `SI_FINAL_SCORES_DIR` |
 | Tables S12 to S14 | `python emit_competitor_tables_final.py` | `SI_FINAL_SCORES_DIR` |
@@ -256,15 +260,20 @@ published numbers; compare a regenerated artifact with the published one directl
 
 ### Numbers printed in the text
 
-`python emit_text_numbers.py` (from `si_build/`) recomputes the numbers the text prints with
-no float behind them and writes `out/text_numbers.json`, which maps each name to its value
-and a description. It reads `DEEPSHIFT_RUN`, `DEEPSHIFT_XEISD_PROTOCOL`, `SI_FINAL_SCORES_DIR`
-(the fence-effect and three-source reports), `SI_SELF_RETRIEVAL_UCBY`,
+`python emit_text_numbers.py --allow-missing` (from `si_build/`) recomputes the numbers the
+text prints with no float behind them and writes `out/text_numbers.json`, which maps each
+name to its value and a description. It reads `DEEPSHIFT_RUN`, `DEEPSHIFT_XEISD_PROTOCOL`,
+`SI_FINAL_SCORES_DIR` (the fence-effect and three-source reports), `SI_SELF_RETRIEVAL_UCBY`,
 `SI_SELF_RETRIEVAL_SHIFTY61`, `SI_GATE_CSPRED_TM`, `DEEPSHIFT_REFDB_SHIFTS`,
-`DEEPSHIFT_REFDB_LIBRARY`, `DEEPSHIFT_UCBSHIFT_LEAKAGE` and the released Parquet tables;
-the last four are third-party or are not in the bundle, and `--allow-missing` skips a group
-whose files are absent. The rereferencing numbers come from `scripts/reref_diagnostics.py`,
-read through `SI_REREF_DIAGNOSTICS` (default: the run's `data/reref_diagnostics.json`).
+`DEEPSHIFT_REFDB_LIBRARY`, `DEEPSHIFT_UCBSHIFT_LEAKAGE` and the released Parquet tables.
+On the bundle alone, `--allow-missing` skips two groups and lists them under
+`not_recomputed`: the UCBShift-Y self-retrieval rate (`self_retrieval_ucbshift_y`), which
+needs UCBShift's per-chain test targets (`SI_GATE_CSPRED_TM`), and the SHIFTY+
+self-retrieval rates (`self_retrieval_shifty61`), which need UCBShift's RefDB shift tree
+(`DEEPSHIFT_REFDB_SHIFTS`) and SHIFTX2's RefDB copy (`DEEPSHIFT_REFDB_LIBRARY`); without
+the flag the script stops at the first of them. The rereferencing numbers come from
+`scripts/reref_diagnostics.py`, read through `SI_REREF_DIAGNOSTICS` (default: the run's
+`data/reref_diagnostics.json`).
 
 ### The runs that made the measurements
 
@@ -283,14 +292,21 @@ from a shadow evaluation: the atom stage rerun on folds 0 and 6 with
 members evaluated on those folds with `deepshift evaluate --save-npz`, and each row's
 distance to the nearest atom of each perturber category. `SI_PERTURBER_REBUILD` holds
 `work/preds/paper_model_fold{0,6}.preds.npz` and `work/distances/`; both are in the bundle.
+Its `out/` holds the bundle's own `stratified_errors_experimental.csv`, which
+`analyze_perturber.py --out <it>/out` overwrites, so run that command on a copy of `<it>`
+and point `SI_PERTURBER_REBUILD` at the copy.
 
 ## What the release cannot ship
 
-Seven items, and part of an eighth, need something outside the bundle.
+Six items, and part of a seventh, need something outside the bundle.
 
-- **A third-party file.** Tables S8 and S18 and Extended Data Fig. 2 read UCBShift's own
-  split and test targets from a CSpred checkout, Figure 1 counts the proteins of UCBShift's
-  RefDB tree (`DEEPSHIFT_REFDB_SHIFTS`), and Table S9 reads UCBShift's training sequences
+- **A third-party file.** UCBShift's test-set definition
+  (`ucbshift_test_targets/ucbshift200_test_targets.json`) and the measured shifts of the
+  scored cells are in the bundle, but UCBShift's per-chain target files
+  (`train_model/test_targets/*.csv` of a CSpred checkout, named by `SI_GATE_CSPRED_TM`) are
+  not: Table S18, Extended Data Fig. 2 (panel b) and the UCBShift-Y self-retrieval numbers
+  of the text read them. Figure 1 counts the proteins of UCBShift's RefDB tree
+  (`DEEPSHIFT_REFDB_SHIFTS`), and Table S9 reads UCBShift's training sequences
   (`SI_UCB_TRAINING_FASTA`). Table S16 parses each competitor's own article and stops,
   naming the file, when one is absent from `DEEPSHIFT_PAPER_PATH`; four of those articles
   are not redistributable.

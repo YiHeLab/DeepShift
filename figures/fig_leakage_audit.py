@@ -57,6 +57,9 @@ RMSE_ARMS = (  # key in the score report, label, colour, marker, filled
     ("shiftx2_selfexcl", "SHIFTX2, own BMRB entry blocked", J.VIOLET, "s", True),
 )
 RMSE_OFFSET = {"UCBShift_H": -0.17, "ucbshift_strict": -0.06, "shiftx2_full": 0.06, "shiftx2_selfexcl": 0.17}
+# The text-number groups panel (b) prints, and the third-party roots each one needs.
+TEXT_NUMBER_GROUPS = {"self_retrieval_ucbshift_y": "SI_GATE_CSPRED_TM",
+                      "self_retrieval_shifty61": "DEEPSHIFT_REFDB_SHIFTS and DEEPSHIFT_REFDB_LIBRARY"}
 
 
 def panel_retrieval(ax, values):
@@ -180,6 +183,11 @@ def main(argv=None) -> None:
     args = ap.parse_args(argv)
     printed = {k: v["value"] for k, v in json.loads(args.text_numbers.read_text()).items()
                if k.startswith("self_retrieval_")}
+    for group, variable in TEXT_NUMBER_GROUPS.items():
+        if f"{group}_copied" not in printed:
+            raise SystemExit(f"{args.text_numbers} lacks the {group} group (made with "
+                             f"--allow-missing?): rerun si_build/emit_text_numbers.py with "
+                             f"{variable} set")
     J.use_journal_style()
     fig = plt.figure(figsize=(J.DOUBLE, 66 * J.MM))
     ax_a = fig.add_axes([0.105, 0.36, 0.20, 0.50])

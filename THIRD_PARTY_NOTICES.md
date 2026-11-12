@@ -10,7 +10,7 @@ repository *redistributes* it or merely *fetches* it at build time, and under wh
 | SHIFTX 1.1 | downloaded by `src/deepshift/data/external.py` | none stated by the publisher — see below |
 | MMseqs2 | downloaded by `src/deepshift/data/external.py` | MIT |
 | RefDB | supplied by you to three reproduction paths; not redistributed | see below |
-| CSpred / UCBShift test targets | supplied by you as JSON; not in this repository. The Zenodo reproduction bundle includes the measured shifts of the scored test cells | UC Regents, academic / not-for-profit |
+| CSpred / UCBShift test targets | not in this repository. The Zenodo reproduction bundle includes the converted test-set file and the measured shifts of the scored test cells | UC Regents, academic / not-for-profit |
 | BMRB, RCSB PDB, AlphaFold DB | fetched by the acquire phase; derived tables and two PDB files ship | see below |
 | UniProt, SIFTS | UniProt accessions in `data/` and the UniRef100 map in `benchmarks/reference/`; the SIFTS table is supplied by you | CC BY 4.0 |
 | UCBShift 1.0 and 2.0, SHIFTX2 | modified as diffs in `experiments/competitors/patches/`; upstream source not included | UC Regents, educational / research / not-for-profit (UCBShift); none stated (SHIFTX2) |
@@ -71,16 +71,17 @@ chains of the same checkout (`$DEEPSHIFT_REFDB_CHAINS`).
 > Zhang, H., Neal, S. & Wishart, D. S. (2003). "RefDB: a database of uniformly referenced
 > protein chemical shifts." *Journal of Biomolecular NMR* **25**:173–195.
 
-## CSpred / UCBShift test targets — not in this repository; scored shifts in the bundle
+## CSpred / UCBShift test targets — not in this repository; in the bundle
 
 **The code repository does not include them.** The `folds` stage needs the UCBShift-200
 test targets (the JSON conversion of CSpred's `test_200.pkl`, `PROTOCOL.md` gives the
 command) as the exclusion authority and fails closed if `$SHIFT_UCB_TEST_TARGETS` is unset.
 CSpred is Copyright © 2020 The Regents of the University of California, licensed for
-educational, research and not-for-profit use only, which is why the test targets stay an
-input you provide rather than a file in this repository. The Zenodo reproduction bundle
-includes the measured shifts of the scored test cells, redistributed under the UC Regents'
-terms quoted in full under "Patches to UCBShift, UCBShift 2.0 and SHIFTX2" below.
+educational, research and not-for-profit use only, which is why the test targets are not a
+file in this repository. The Zenodo reproduction bundle includes the converted test-set
+file (`ucbshift_test_targets/ucbshift200_test_targets.json`) and the measured shifts of the
+scored test cells, both redistributed under the UC Regents' terms quoted in full under
+"Patches to UCBShift, UCBShift 2.0 and SHIFTX2" below.
 
 `src/deepshift/data/ucbshift200_excluded_bmrbs.json` is a list of BMRB accession numbers
 derived from that benchmark. It is a set of database identifiers, not CSpred code or data.

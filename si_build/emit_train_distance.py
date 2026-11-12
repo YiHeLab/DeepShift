@@ -114,6 +114,17 @@ def main() -> None:
     ap.add_argument("--threads", type=int, default=8)
     args = ap.parse_args()
 
+    # Every input is checked before the first search, which may download MMseqs2.
+    second = []
+    for request in second_sets(args.against):
+        name, _, path = request.partition("=")
+        if not path:
+            raise SystemExit(f"--against wants NAME=FASTA, not {request!r}")
+        other = load_fasta(Path(path))
+        if not other:
+            raise SystemExit(f"{path} carries no sequence")
+        second.append((name, other))
+
     data_dir = args.run / "data"
     ledger = corpus.read_realizations(data_dir)
     fold_of = corpus.read_fold_map(data_dir)
@@ -137,13 +148,7 @@ def main() -> None:
     columns = [("our training folds", measure(
         held_out, sequences, ours, coverage=args.coverage, cov_mode=args.cov_mode,
         threads=args.threads))]
-    for request in second_sets(args.against):
-        name, _, path = request.partition("=")
-        if not path:
-            raise SystemExit(f"--against wants NAME=FASTA, not {request!r}")
-        other = load_fasta(Path(path))
-        if not other:
-            raise SystemExit(f"{path} carries no sequence")
+    for name, other in second:
         columns.append((name, measure(held_out, sequences, other,
                                       coverage=args.coverage, cov_mode=args.cov_mode,
                                       threads=args.threads)))

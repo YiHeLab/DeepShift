@@ -140,6 +140,9 @@ def main():
     # The cohort is a subset of the authors' own test set: every protein scored here is
     # one of theirs, and the ones missing are those their code returned nothing for.
     test_set = len(list(CSPRED_TM.glob("test_targets/*.csv")))
+    if not test_set:
+        raise SystemExit(f"no UCBShift test targets in {CSPRED_TM / 'test_targets'}: set "
+                         "SI_GATE_CSPRED_TM to the CSpred train_model directory that holds them")
     scored_proteins = rerun["funnel"]["chains_with_new_preds"]
     checks["the_cohort_is_within_the_released_test_set"] = {
         "what": "proteins with a prediction, against the size of the released test set",

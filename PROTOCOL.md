@@ -34,14 +34,18 @@ build read them: the BMRB macromolecule archive mirrored from
 captured on 14 July 2026, the coordinate files discovery may select (RCSB PDB entries and
 AlphaFold DB version 6 models, downloaded in July 2026) and the p100 fence
 (`p100_oof64_cutoffs.json` and `qc_flags_p100_structural_oof64_all7.json`). The UCBShift-200
-test targets are not redistributed (`THIRD_PARTY_NOTICES.md`); they are converted from
-UCBShift's own file, below.
+test targets are not among them; the reproduction bundle holds them, converted from
+UCBShift's own file (below, and `THIRD_PARTY_NOTICES.md`).
 Given these files the build calls no web service; a stage whose input is not supplied
 fetches the current version from its source instead. `scripts/map_uniprot.py` is the
 procedure that made the UniProt mapping, against live services.
 
 The UCBShift-200 test targets are read from a JSON file mapping each test id to its
-one-letter sequence. Convert CSpred's `test_200.pkl` once, in your own shell:
+one-letter sequence. The reproduction bundle holds that file,
+`ucbshift_test_targets/ucbshift200_test_targets.json` (under the UC Regents' terms in its
+`UCBSHIFT_NOTICE.txt`), and `SHIFT_UCB_TEST_TARGETS` can point at it directly. Alternatively,
+convert CSpred's `test_200.pkl` (`train_model/test_targets/` of a CSpred checkout) once, in
+your own shell:
 
 ```bash
 python -c 'import json, pickle, sys; json.dump(pickle.load(open(sys.argv[1], "rb")), open(sys.argv[2], "w"), sort_keys=True, indent=1)' /path/to/CSpred/test_200.pkl /path/to/ucbshift200_test_targets.json
