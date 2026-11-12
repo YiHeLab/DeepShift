@@ -81,7 +81,8 @@ def main() -> None:
     L += [line for n in side for line in row(n, both[n])]
     L += [r"\bottomrule", r"\end{tabular}}"]
     if any(e["arms"][k].get("below_master_coverage") for e in both.values() for k, _ in ARMS):
-        L += [r"\vspace{0.4em}",
+        # The blank line ends the table's paragraph, so the note starts below the table.
+        L += ["", r"\vspace{0.4em}",
               r"{\footnotesize $^{\ast}$\,This predictor covers fewer than 90\% of the "
               r"nucleus's cells, so its RMSE and MAE are on the master cells it produced, "
               r"counted beneath the row. DeepShift's RMSE and MAE in that row are on all of "
